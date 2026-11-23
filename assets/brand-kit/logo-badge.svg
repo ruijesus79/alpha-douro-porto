@@ -12,7 +12,7 @@
     <textPath href="#adTopArc" startOffset="50%" text-anchor="middle">ALPHA DOURO</textPath>
   </text>
   <text fill="#4E657A" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="500" letter-spacing="2.8">
-    <textPath href="#adBottomArc" startOffset="50%" text-anchor="middle">PORTO · 41°08'N · EST. 2025</textPath>
+    <textPath href="#adBottomArc" startOffset="50%" text-anchor="middle">PORTO · 41°08'N · EST. 2026</textPath>
   </text>
   <g transform="translate(74, 72) scale(0.76)" fill="#0A223D">
     <path d="M60 14L22 92H33.5L62.2 31.8L60 14Z"/>
