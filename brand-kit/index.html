@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ALPHA DOURO — Brand Kit Oficial, Logótipos &amp; Lookbook de Merchandising</title>
+  <meta name="description" content="Brand Kit oficial ALPHA DOURO (Cais da Afurada, Porto): sistema de logótipo, paleta de cores, tipografia, mockups de merchandising, mantas portuguesas, copos térmicos, cartões de embarque e propostas do barco real ACHA 6,95m." />
+  <meta name="theme-color" content="#06111D" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Crect width='120' height='120' rx='24' fill='%230A223D'/%3E%3Cpath fill='%23FFFFFF' d='M60 16L22 88H35.5L60 39L84.5 88H98L60 16ZM41 72.5C50 68.5 61.5 67.8 75.5 70.5L71 78C59.8 76.4 50.2 77 41 72.5ZM16 96C31.5 86 48.5 86 64 93C76.5 98.8 90.5 97.2 104 88.5C93.8 101.2 77 105.8 60.5 98.8C46.2 92.8 31 93 16 96Z'/%3E%3C/svg%3E" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="ALPHA DOURO — Brand Kit Oficial &amp; Lookbook de Luxo" />
+  <meta property="og:description" content="Logótipos oficiais, cores, merchandising (boné, t-shirt, mantas, copos, kit VIP) e propostas do barco real ACHA 6,95m." />
+  <meta property="og:image" content="../assets/brand-kit/board-3x3.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@400;500&family=Onest:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --abyss: #06111D;
+      --navy: #0A223D;
+      --navy-card: #0C2542;
+      --capri: #1A92D2;
+      --capri-soft: #55B8EC;
+      --sand: #E0D0B8;
+      --sand-dim: #A9987E;
+      --ivory: #F6F3EC;
+      --slate: #97ACC0;
+      --terracotta: #B85D3B;
+      --line: rgba(224, 208, 184, 0.16);
+      --line-strong: rgba(224, 208, 184, 0.32);
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--abyss);
+      color: var(--ivory);
+      font-family: "Onest", system-ui, sans-serif;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    .mono { font-family: "JetBrains Mono", ui-monospace, monospace; }
+
+    /* Sticky Top Navigation */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 60;
+      background: rgba(6, 17, 29, 0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+      padding: 0.85rem clamp(1.1rem, 4vw, 3rem);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .brand-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .brand-link svg { width: 2rem; height: 2rem; fill: var(--ivory); }
+
+    .brand-name {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.28rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      line-height: 1;
+    }
+
+    .brand-sub {
+      font-size: 0.72rem;
+      color: var(--sand);
+      margin-top: 0.18rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-pill {
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      font-size: 0.82rem;
+      color: var(--ivory);
+      background: rgba(255, 255, 255, 0.03);
+      transition: border-color 220ms ease, background-color 220ms ease, transform 200ms var(--ease);
+    }
+
+    .nav-pill:hover {
+      border-color: var(--capri-soft);
+      background: rgba(26, 146, 210, 0.14);
+      transform: translateY(-1px);
+    }
+
+    .nav-pill.primary {
+      background: var(--capri);
+      border-color: var(--capri);
+      color: #ffffff;
+      font-weight: 500;
+    }
+
+    .nav-pill.primary:hover {
+      background: #147CB4;
+    }
+
+    /* Main Container */
+    .wrap {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: clamp(2rem, 5vw, 4rem) clamp(1.1rem, 4vw, 3rem) 4rem;
+    }
+
+    /* Hero Header */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+      gap: 2rem;
+      align-items: end;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid var(--line-strong);
+      color: var(--sand);
+      font-size: 0.82rem;
+      margin-bottom: 1.15rem;
+    }
+
+    .hero h1 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(2.5rem, 5.2vw, 4.4rem);
+      font-weight: 400;
+      line-height: 1.02;
+    }
+
+    .hero h1 em {
+      color: var(--sand);
+      font-style: italic;
+    }
+
+    .hero-copy {
+      color: var(--slate);
+      font-size: 0.98rem;
+      max-width: 34rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin-top: 1.35rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1.2rem;
+      border-radius: 999px;
+      font-size: 0.86rem;
+      font-weight: 500;
+      border: 1px solid var(--line-strong);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--ivory);
+      cursor: pointer;
+      transition: background-color 220ms ease, border-color 220ms ease, transform 200ms var(--ease);
+    }
+
+    .btn:hover {
+      border-color: var(--capri-soft);
+      background: rgba(26, 146, 210, 0.16);
+      transform: translateY(-1px);
+    }
+
+    .btn.gold {
+      background: linear-gradient(135deg, #E2CEAF 0%, #C2A478 100%);
+      color: #06111D;
+      border-color: transparent;
+      font-weight: 600;
+    }
+
+    .btn.gold:hover { filter: brightness(1.06); }
+
+    /* Section Structure */
+    .section {
+      padding-top: clamp(3rem, 6vw, 4.75rem);
+    }
+
+    .sec-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.8rem;
+    }
+
+    .sec-num {
+      color: var(--capri-soft);
+      font-size: 0.85rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .sec-title {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(1.9rem, 3.6vw, 3rem);
+      font-weight: 400;
+      line-height: 1.06;
+    }
+
+    .sec-title em { color: var(--sand); font-style: italic; }
+
+    .sec-desc {
+      max-width: 30rem;
+      color: var(--slate);
+      font-size: 0.92rem;
+    }
+
+    /* 01. Logo System */
+    .surface-toggle {
+      display: inline-flex;
+      gap: 0.35rem;
+      padding: 0.25rem;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--navy);
+    }
+
+    .surface-btn {
+      padding: 0.42rem 0.9rem;
+      border-radius: 999px;
+      border: 0;
+      background: transparent;
+      color: var(--slate);
+      font-size: 0.8rem;
+      font-family: inherit;
+      cursor: pointer;
+      transition: background-color 200ms ease, color 200ms ease;
+    }
+
+    .surface-btn.is-active {
+      background: var(--capri);
+      color: #ffffff;
+      font-weight: 500;
+    }
+
+    .logo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    .logo-card {
+      border: 1px solid var(--line);
+      border-radius: 1.15rem;
+      overflow: hidden;
+      background: var(--navy-card);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-stage {
+      height: 15rem;
+      padding: 1.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--ivory);
+      transition: background-color 280ms ease;
+    }
+
+    .logo-grid.is-dark .logo-stage {
+      background: #07192E;
+    }
+
+    .logo-stage img {
+      max-height: 100%;
+      max-width: 100%;
+      object-fit: contain;
+      transition: filter 280ms ease;
+    }
+
+    .logo-grid.is-dark .logo-stage img {
+      filter: brightness(0) invert(0.95);
+    }
+
+    .logo-meta {
+      padding: 1.15rem 1.25rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      flex: 1;
+    }
+
+    .logo-meta h3 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.45rem;
+      font-weight: 500;
+    }
+
+    .logo-meta p {
+      font-size: 0.84rem;
+      color: var(--slate);
+      flex: 1;
+    }
+
+    .logo-foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--line);
+      font-size: 0.8rem;
+    }
+
+    .dl-link {
+      color: var(--capri-soft);
+      font-weight: 500;
+    }
+
+    .dl-link:hover { text-decoration: underline; }
+
+    /* 02. Colors & Typography */
+    .palette-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .swatch {
+      border: 1px solid var(--line);
+      border-radius: 1rem;
+      overflow: hidden;
+      background: var(--navy-card);
+      cursor: pointer;
+      text-align: left;
+      color: inherit;
+      font-family: inherit;
+      transition: transform 220ms var(--ease), border-color 220ms ease;
+    }
+
+    .swatch:hover {
+      transform: translateY(-3px);
+      border-color: var(--sand);
+    }
+
+    .swatch-color {
+      height: 6.2rem;
+      width: 100%;
+    }
+
+    .swatch-info {
+      padding: 0.85rem 0.95rem;
+    }
+
+    .swatch-name {
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+
+    .swatch-hex {
+      font-size: 0.78rem;
+      color: var(--sand);
+      margin-top: 0.18rem;
+    }
+
+    .swatch-role {
+      font-size: 0.75rem;
+      color: var(--slate);
+      margin-top: 0.28rem;
+    }
+
+    .type-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .type-card {
+      border: 1px solid var(--line);
+      border-radius: 1rem;
+      padding: 1.25rem;
+      background: var(--navy-card);
+    }
+
+    .type-sample {
+      font-size: 2rem;
+      line-height: 1.1;
+      margin: 0.5rem 0 0.65rem;
+    }
+
+    /* 03. Lookbook & Mockups */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .filter-btn {
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--slate);
+      font-family: inherit;
+      font-size: 0.84rem;
+      cursor: pointer;
+      transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease;
+    }
+
+    .filter-btn.is-active, .filter-btn:hover {
+      background: rgba(26, 146, 210, 0.2);
+      border-color: var(--capri-soft);
+      color: var(--ivory);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    .mock-card {
+      border: 1px solid var(--line);
+      border-radius: 1.15rem;
+      overflow: hidden;
+      background: var(--navy-card);
+      display: flex;
+      flex-direction: column;
+      cursor: zoom-in;
+      transition: transform 320ms var(--ease), border-color 260ms ease, box-shadow 320ms var(--ease);
+    }
+
+    .mock-card.is-hidden { display: none; }
+
+    .mock-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--sand);
+      box-shadow: 0 22px 50px rgba(0, 0, 0, 0.38);
+    }
+
+    .mock-thumb {
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      background: #040D18;
+      position: relative;
+    }
+
+    .mock-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 600ms var(--ease);
+    }
+
+    .mock-card:hover .mock-thumb img { transform: scale(1.04); }
+
+    .mock-badge {
+      position: absolute;
+      top: 0.75rem;
+      left: 0.75rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(6, 17, 29, 0.88);
+      border: 1px solid rgba(224, 208, 184, 0.28);
+      font-size: 0.75rem;
+      color: var(--sand);
+    }
+
+    .mock-body {
+      padding: 1.05rem 1.2rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      flex: 1;
+    }
+
+    .mock-body h3 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.38rem;
+      font-weight: 500;
+      line-height: 1.15;
+    }
+
+    .mock-body p {
+      font-size: 0.83rem;
+      color: var(--slate);
+    }
+
+    /* 04. Real Boat Choice Grid */
+    .choice-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    .choice-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(4, 10, 18, 0.94);
+      backdrop-filter: blur(12px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .lightbox.is-open { display: flex; }
+
+    .lb-inner {
+      max-width: 1120px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .lb-img {
+      max-height: 78dvh;
+      max-width: 100%;
+      border-radius: 0.85rem;
+      border: 1px solid var(--line-strong);
+      object-fit: contain;
+      background: #030912;
+    }
+
+    .lb-bar {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .lb-title {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.5rem;
+      color: var(--ivory);
+    }
+
+    .lb-sub {
+      font-size: 0.85rem;
+      color: var(--slate);
+    }
+
+    .lb-controls {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .lb-btn {
+      padding: 0.5rem 0.95rem;
+      border-radius: 999px;
+      border: 1px solid var(--line-strong);
+      background: var(--navy);
+      color: var(--ivory);
+      font-family: inherit;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+
+    .lb-btn:hover { border-color: var(--capri-soft); }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      z-index: 250;
+      padding: 0.7rem 1.15rem;
+      border-radius: 999px;
+      background: var(--capri);
+      color: #ffffff;
+      font-size: 0.84rem;
+      font-weight: 500;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+      opacity: 0;
+      transform: translateY(10px);
+      pointer-events: none;
+      transition: opacity 220ms ease, transform 220ms var(--ease);
+    }
+
+    .toast.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .footer {
+      margin-top: 4rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid var(--line);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      font-size: 0.84rem;
+      color: var(--slate);
+    }
+
+    @media (max-width: 1024px) {
+      .hero { grid-template-columns: 1fr; }
+      .logo-grid, .gallery-grid, .type-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .palette-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .choice-grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 680px) {
+      .logo-grid, .gallery-grid, .type-grid, .choice-grid, .choice-grid-4 { grid-template-columns: 1fr; }
+      .palette-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a href="../index.html" class="brand-link">
+      <svg viewBox="0 0 120 120" aria-hidden="true">
+        <path d="M60 12L18 90H32.5L60 36.8L87.5 90H102L60 12Z"/>
+        <path d="M40 73.5C49 69.2 61.5 68.4 77 71.2L72.2 79.4C59.8 77.6 49.5 78.2 40 73.5Z"/>
+        <path d="M12 98.5C29 87.5 47.5 87.5 64 95C78 101.4 93.5 99.6 108 90C96.8 104.2 78.5 109.2 60.5 101.5C45 94.8 28.5 95 12 98.5Z"/>
+      </svg>
+      <div>
+        <div class="brand-name">ALPHA DOURO</div>
+        <div class="brand-sub">Brand Kit Oficial · Porto &amp; Cais da Afurada</div>
+      </div>
+    </a>
+    <nav class="nav-links" aria-label="Navegação do Brand Kit">
+      <a href="#logos" class="nav-pill">Logótipos</a>
+      <a href="#cores" class="nav-pill">Cores &amp; Fontes</a>
+      <a href="#lookbook" class="nav-pill">Merch &amp; Mantas</a>
+      <a href="#barco-real" class="nav-pill">Barco Real (Escolha)</a>
+      <a href="../index.html" class="nav-pill primary">← Ver Websites</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <!-- Hero -->
+    <section class="hero">
+      <div>
+        <span class="hero-tag">Identidade Visual &amp; Lookbook · Est. 2025 · Cais da Afurada</span>
+        <h1>Brand Kit Oficial<br /><em>Alpha Douro</em></h1>
+      </div>
+      <div>
+        <p class="hero-copy">
+          Todos os elementos da marca reunidos num único link para consultar no telemóvel ou computador: logótipos vetoriais (SVG), paleta de cores com código clicável, mockups de merchandising, mantas de lã portuguesa, copos térmicos, cartões de embarque, kit VIP para hotéis 5★ e as 3 propostas do barco real ACHA 6,95m.
+        </p>
+        <div class="hero-actions">
+          <a href="../site-1-editorial/index.html" class="btn gold">Abrir Website 01 (Editorial) ↗</a>
+          <a href="../site-2-atelier/index.html" class="btn">Abrir Website 02 (Atelier) ↗</a>
+          <a href="../logo-motion/index.html" class="btn">Logo Animado ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 01. Logo System -->
+    <section class="section" id="logos">
+      <div class="sec-head">
+        <div>
+          <div class="sec-num mono">01 · Sistema de Logótipo Vetorial</div>
+          <h2 class="sec-title">Logótipo Principal, <em>Selo Circular</em> &amp; Monograma</h2>
+        </div>
+        <div class="surface-toggle" role="group" aria-label="Alternar fundo claro ou escuro">
+          <button type="button" class="surface-btn is-active" data-surface="light">Fundo Claro (Linho)</button>
+          <button type="button" class="surface-btn" data-surface="dark">Fundo Escuro (Douro)</button>
+        </div>
+      </div>
+
+      <div class="logo-grid" id="logoGrid">
+        <article class="logo-card">
+          <div class="logo-stage">
+            <img src="../assets/brand-kit/logo-primary.svg" alt="Logótipo Principal Horizontal ALPHA DOURO" />
+          </div>
+          <div class="logo-meta">
+            <h3>Logótipo Principal Horizontal</h3>
+            <p>Uso oficial em cabeçalho do website, assinaturas, propostas a hotéis 5 estrelas, faturas e sinalética do Cais da Afurada.</p>
+            <div class="logo-foot">
+              <span class="mono" style="color:var(--sand);">SVG Vetorial Infinito</span>
+              <a href="../assets/brand-kit/logo-primary.svg" download="ALPHA_DOURO_Logo_Principal.svg" class="dl-link">Descarregar SVG ↓</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="logo-card">
+          <div class="logo-stage">
+            <img src="../assets/brand-kit/logo-badge.svg" alt="Selo Circular Oficial ALPHA DOURO Porto 41°08'N Est. 2025" />
+          </div>
+          <div class="logo-meta">
+            <h3>Selo Circular Costeiro (Est. 2025)</h3>
+            <p>Selo oficial com coordenadas do Porto (41°08'N) — ideal para bordado no peito esquerdo da t-shirt, encostos do barco e selos a lacre.</p>
+            <div class="logo-foot">
+              <span class="mono" style="color:var(--sand);">Selo Oficial Bordado</span>
+              <a href="../assets/brand-kit/logo-badge.svg" download="ALPHA_DOURO_Selo_Circular.svg" class="dl-link">Descarregar SVG ↓</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="logo-card">
+          <div class="logo-stage">
+            <img src="../assets/brand-kit/logo-monogram.svg" alt="Monograma Náutico A + Onda ALPHA DOURO" style="max-height:78%;" />
+          </div>
+          <div class="logo-meta">
+            <h3>Monograma Náutico (A + Onda)</h3>
+            <p>Versão compacta de alto reconhecimento para bordado 3D nos bonés, copos térmicos, ícone Instagram/WhatsApp e favicon.</p>
+            <div class="logo-foot">
+              <span class="mono" style="color:var(--sand);">Ícone &amp; Bordado 3D</span>
+              <a href="../assets/brand-kit/logo-monogram.svg" download="ALPHA_DOURO_Monograma.svg" class="dl-link">Descarregar SVG ↓</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 02. Palette & Typography -->
+    <section class="section" id="cores">
+      <div class="sec-head">
+        <div>
+          <div class="sec-num mono">02 · Cores &amp; Tipografia da Casa</div>
+          <h2 class="sec-title">Paleta <em>Amalfi Capri</em> × Porto</h2>
+        </div>
+        <p class="sec-desc">Clique em qualquer cartão de cor para copiar o código HEX diretamente para a gráfica, bordadeira ou pintor náutico.</p>
+      </div>
+
+      <div class="palette-grid">
+        <button type="button" class="swatch" data-hex="#0A223D">
+          <div class="swatch-color" style="background:#0A223D;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Azul Douro Profundo</div>
+            <div class="swatch-hex mono">#0A223D</div>
+            <div class="swatch-role">Primária · T-shirt &amp; Casco</div>
+          </div>
+        </button>
+
+        <button type="button" class="swatch" data-hex="#1A92D2">
+          <div class="swatch-color" style="background:#1A92D2;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Azul Amalfi Capri</div>
+            <div class="swatch-hex mono">#1A92D2</div>
+            <div class="swatch-role">Assinatura · Barco &amp; Botões</div>
+          </div>
+        </button>
+
+        <button type="button" class="swatch" data-hex="#D9C4A3">
+          <div class="swatch-color" style="background:#D9C4A3;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Areia &amp; Teca Dourada</div>
+            <div class="swatch-hex mono">#D9C4A3</div>
+            <div class="swatch-role">Luxo · Detalhes &amp; Toldo</div>
+          </div>
+        </button>
+
+        <button type="button" class="swatch" data-hex="#B85D3B">
+          <div class="swatch-color" style="background:#B85D3B;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Terracota Ribeira</div>
+            <div class="swatch-hex mono">#B85D3B</div>
+            <div class="swatch-role">Acento · Lacre &amp; Telhados</div>
+          </div>
+        </button>
+
+        <button type="button" class="swatch" data-hex="#F5F2EB">
+          <div class="swatch-color" style="background:#F5F2EB;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Algodão &amp; Linho</div>
+            <div class="swatch-hex mono">#F5F2EB</div>
+            <div class="swatch-role">Base · Estofos, Boné &amp; Papel</div>
+          </div>
+        </button>
+      </div>
+
+      <div class="type-grid">
+        <div class="type-card">
+          <div class="mono" style="font-size:0.78rem; color:var(--capri-soft);">Display &amp; Logótipo</div>
+          <div class="type-sample" style="font-family:'Cormorant Garamond', Georgia, serif;">Cormorant <em>Garamond</em></div>
+          <p style="font-size:0.84rem; color:var(--slate);">Usada no logótipo oficial, títulos editoriais e cabeçalhos dos cartões de embarque.</p>
+        </div>
+        <div class="type-card">
+          <div class="mono" style="font-size:0.78rem; color:var(--capri-soft);">Texto &amp; Interface</div>
+          <div class="type-sample" style="font-family:'Onest', sans-serif; font-size:1.7rem;">Onest Clean Sans</div>
+          <p style="font-size:0.84rem; color:var(--slate);">Leitura cristalina em telemóvel, descrições dos passeios, preços e botões de reserva.</p>
+        </div>
+        <div class="type-card">
+          <div class="mono" style="font-size:0.78rem; color:var(--capri-soft);">Telemetria &amp; Coordenadas</div>
+          <div class="type-sample mono" style="font-size:1.35rem; padding-top:0.35rem;">41°08'36"N · 08°38'52"W</div>
+          <p style="font-size:0.84rem; color:var(--slate);">JetBrains Mono para coordenadas do Cais da Afurada, códigos de Boarding Pass e horários solares.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03. Lookbook Completo -->
+    <section class="section" id="lookbook">
+      <div class="sec-head">
+        <div>
+          <div class="sec-num mono">03 · Lookbook Completo de Merchandising &amp; Hospitalidade</div>
+          <h2 class="sec-title">Mantas, T-Shirts, Bonés, <em>Copos</em> &amp; Material a Bordo</h2>
+        </div>
+        <p class="sec-desc">Clique em qualquer fotografia para ampliar em ecrã inteiro.</p>
+      </div>
+
+      <div class="filter-bar" role="tablist" aria-label="Filtrar mockups">
+        <button type="button" class="filter-btn is-active" data-filter="all">Todos (12)</button>
+        <button type="button" class="filter-btn" data-filter="merch">Merch &amp; Têxteis (4)</button>
+        <button type="button" class="filter-btn" data-filter="onboard">Mesa &amp; A Bordo (4)</button>
+        <button type="button" class="filter-btn" data-filter="hotel">Cais, Cartões &amp; Hotéis 5★ (4)</button>
+      </div>
+
+      <div class="gallery-grid" id="galleryGrid">
+        <article class="mock-card" data-cat="merch" data-full="../assets/brand-kit/board-3x3.jpg" data-title="Prancha Oficial Brand Guidelines 3×3" data-sub="Visão global da identidade ALPHA DOURO: logótipo, cores, tipografia e aplicações.">
+          <div class="mock-thumb">
+            <img src="../assets/brand-kit/board-3x3.jpg" alt="Prancha Oficial Brand Guidelines 3x3 ALPHA DOURO" loading="lazy" />
+            <span class="mock-badge">Identidade Master</span>
+          </div>
+          <div class="mock-body">
+            <h3>Prancha Brand Guidelines 3×3</h3>
+            <p>Resumo executivo completo da marca numa única prancha de apresentação.</p>
+          </div>
+        </article>
+
+        <article class="mock-card" data-cat="merch" data-full="../assets/merch-capsule.jpg" data-title="Cápsula Boné 3D &amp; T-Shirt Linho (Selo no Peito)" data-sub="Boné algodão areia com monograma A bordado 3D + T-shirt azul-marinho com selo circular oficial no peito esquerdo.">
+          <div class="mock-thumb">
+            <img src="../assets/merch-capsule.jpg" alt="Boné bordado 3D e T-shirt azul-marinho com selo circular ALPHA DOURO no peito esquerdo" loading="lazy" />
+            <span class="mock-badge">Merchandising</span>
+          </div>
+          <div class="mock-body">
+            <h3>Boné 3D &amp; T-Shirt (Selo no Peito)</h3>
+            <p>Versão corrigida e refinada: selo circular oficial bordado ao nível do coração.</p>
+          </div>
+        </article>
+
+        <article class="mock-card" data-cat="merch" data-full="../assets/tote-blanket.jpg" data-title="Saco Tote em Linho &amp; Manta de Lã Portuguesa" data-sub="Manta espinha de peixe tecida no Norte de Portugal para finais de tarde e inverno + saco tote em linho natural.">
+          <div class="mock-thumb">
+            <img src="../assets/tote-blanket.jpg" alt="Saco tote em linho natural e manta de lã portuguesa ALPHA DOURO" loading="lazy" />
+            <span class="mock-badge">Têxteis Portugueses</span>
+          </div>
+          <div class="mock-body">
+            <h3>Tote em Linho &amp; Manta de Lã</h3>
+            <p>Mantas de conforto para uso a bordo e venda exclusiva a clientes (€65).</p>
+          </div>
+        </article>
+
+        <article class="mock-card" data-cat="merch" data-full="../assets/brand-kit/kit-hospitalidade.jpg" data-title="Kit Completo de Hospitalidade &amp; Merch a Bordo" data-sub="Conjunto coordenado de uniformes de tripulação, têxteis, copos e lembranças físicas.">
+          <div class="mock-thumb">
+            <img src="../assets/brand-kit/kit-hospitalidade.jpg" alt="Kit completo de hospitalidade e merchandising a bordo ALPHA DOURO" loading="lazy" />
+            <span class="mock-badge">Coleção Completa</span>
+          </div>
+          <div class="mock-body">
+            <h3>Kit Hospitalidade &amp; Tripulação</h3>
+            <p>Coerência total entre fardamento, acessórios de cais e lembranças premium.</p>
+          </div>
+        </article>
+
+        <article class="mock-card" data-cat="onboard" data-full="../assets/tumblers-nata-port.jpg" data-title="Copos Térmicos Mate, Pastel de Nata &amp; Porto Tawny" data-sub="Dois copos térmicos mate branco ALPHA DOURO na mesa de teca com Pastel de Nata e Vinho do Porto.">
+          <div class="mock-thumb">
+            <img src="../assets/tumblers-nata-port.jpg" alt="Copos térmicos mate ALPHA DOURO com Pastel de Nata e Porto Tawny" loading="lazy" />
+            <span class="mock-badge">Mesa a Bordo</span>
+          </div>
+          <div class="mock-body">
+            <h3>Copos Térmicos Mate &amp; Pastel de Nata</h3>
+            <p>Serviço inquebrável de luxo a bordo (também vendável como recordação).</p>
+          </div>
+        </article>
+
+        <article class="mock-card" data-cat="onboard" data-full="../assets/conservas-wax.png" data-title="Prova Cega 1·2·3, Conservas &amp; Garrafa a Lacre" data-sub="Tabuleiro de cortiça com conservas portuguesas, broa, 3 decantadores numerados e garrafa selada a lacre vermelho.">
+          <div class="mock-thumb">
+            <img src="../assets/conservas-wax.png" alt="Tabuleiro de cortiça com conservas, prova cega 1 2 3 de Porto e garrafa a lacre" loading="lazy" />
+            <span class="mock-badge">Ritual Gastronómico</span>
+          </div>
+          <div class="mock-body">
+            <h3>Prova Cega 1·2·3 &amp; Garrafa a Lacre</h3>
+            <p>Produto de altíssima margem e fortíssimo impacto fotográfico no Instagram.</p>
+          </div>
+        </article>
+
+        <article class="mock-card" data-cat="onboard" data-full="../assets/private-charter-table.jpg" data-title="Mesa Reserva Charter Privado" data-sub="Balde de gelo com vinhos Douro, Porto Taylor's 10 Anos, tábua de queijo, Pastéis de Nata e mantas.">
+          <div class="mock-thumb">
+            <img src="../assets/private-charter-table.jpg" alt="Mesa de teca preparada para Charter Privado ALPHA DOURO" loading="lazy" />
+            <span class="mock-badge">Charter Privado</span>
+          </div>
+          <div class="mock-body">
+            <h3>Mesa Reserva Charter Privado</h3>
+            <p>Apresentação da mesa de teca para reservas privadas de €490 a €590.</p>
+          </div>
+        </article>
+
+        <article class="mock-card" data-cat="onboard" data-full="../assets/sunset-guitar-canopy.jpg" data-title="Sunset Acústico sob Luzes Quentes 2200K no Toldo" data-sub="Guitarrista acústico ao vivo sob luzes solares quentes 2200K nos arcos do toldo e projeção subtil de céu estrelado.">
+          <div class="mock-thumb">
+            <img src="../assets/sunset-guitar-canopy.jpg" alt="Sunset acústico com guitarra ao vivo sob luzes 2200K no toldo ALPHA DOURO" loading="lazy" />
+            <span class="mock-badge">Experiência Assinatura</span>
+          </div>
+          <div class="mock-body">
+            <h3>Sunset Acústico &amp; Luzes 2200K</h3>
+            <p>Versão corrigida: mesa limpa, iluminação no teto do toldo e ambiente intimista.</p>
+          </div>
+        </article>
+
+        <article class="mock-card" data-cat="hotel" data-full="../assets/boarding-pass-polaroid.jpg" data-title="Cartão de Embarque em Papel de Algodão &amp; Polaroid" data-sub="Boarding pass impresso em papel de algodão com foto Polaroid oferecida no final do passeio.">
+          <div class="mock-thumb">
+            <img src="../assets/boarding-pass-polaroid.jpg" alt="Cartão de embarque em papel de algodão e Polaroid ALPHA DOURO" loading="lazy" />
+            <span class="mock-badge">Papelaria</span>
+          </div>
+          <div class="mock-body">
+            <h3>Boarding Pass &amp; Polaroid da Ribeira</h3>
+            <p>Lembrança física de baixo custo que gera partilhas orgânicas e avaliações 5★.</p>
+          </div>
+        </article>
+
+        <article class="mock-card" data-cat="hotel" data-full="../assets/concierge-vip.jpg" data-title="Kit VIP Concierge para Hotéis 5 Estrelas" data-sub="Envelopes lacrados a cera vermelha para entregar pessoalmente no The Yeatman, Maison Albar e Torel Avantgarde.">
+          <div class="mock-thumb">
+            <img src="../assets/concierge-vip.jpg" alt="Kit VIP Concierge lacrado a cera para hotéis 5 estrelas no Porto" loading="lazy" />
+            <span class="mock-badge">Parcerias B2B</span>
+          </div>
+          <div class="mock-body">
+            <h3>Kit VIP Concierge Hotéis 5★</h3>
+            <p>Convites de luxo para fechar parcerias com receções de hotéis boutique sem gastar em anúncios.</p>
+          </div>
+        </article>
+
+        <article class="mock-card" data-cat="hotel" data-full="../assets/dock-sign-gaia.jpg" data-title="Cavalete &amp; Sinalética no Cais da Afurada" data-sub="Ponto de encontro elegante junto ao pontão para fácil identificação pelos clientes e motoristas Uber.">
+          <div class="mock-thumb">
+            <img src="../assets/dock-sign-gaia.jpg" alt="Cavalete elegante ALPHA DOURO no Cais da Afurada" loading="lazy" />
+            <span class="mock-badge">Cais da Afurada</span>
+          </div>
+          <div class="mock-body">
+            <h3>Cavalete &amp; Sinalética de Cais</h3>
+            <p>Presença física imediata no Cais da Afurada para captar turistas a passear na marina.</p>
+          </div>
+        </article>
+
+        <article class="mock-card" data-cat="hotel" data-full="../assets/wallet-qr.jpg" data-title="Apple Wallet Pass &amp; Placa QR Avaliações 5 Estrelas" data-sub="Placa elegante a bordo para os clientes deixarem avaliação 5 estrelas no Google Maps em 15 segundos.">
+          <div class="mock-thumb">
+            <img src="../assets/wallet-qr.jpg" alt="Passe Apple Wallet e Placa QR para avaliações Google 5 estrelas" loading="lazy" />
+            <span class="mock-badge">Digital &amp; SEO Local</span>
+          </div>
+          <div class="mock-body">
+            <h3>Apple Wallet &amp; Placa QR Google 5★</h3>
+            <p>Ferramenta nº 1 para subir rapidamente ao Top 3 do Google Maps no Porto a custo €0.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 04. Real Boat Hero & Transformation Choices for Gil -->
+    <section class="section" id="barco-real">
+      <div class="sec-head">
+        <div>
+          <div class="sec-num mono">04 · Decisão do Gil · Barco Real ACHA 6,95m</div>
+          <h2 class="sec-title">Escolha da Foto <em>Hero</em> &amp; Conceitos de Pintura</h2>
+        </div>
+        <p class="sec-desc">O website atual mantém o Hero editorial elegante até o Gil escolher qual destas 3 versões reais da ACHA 6,95m prefere usar na capa.</p>
+      </div>
+
+      <div class="choice-grid">
+        <article class="mock-card" data-cat="boat" data-full="../assets/boat-amalfi-hero.jpg" data-title="Hero Atual no Website (Referência Amalfi Capri)" data-sub="Imagem elegante atualmente em destaque na capa dos 2 websites.">
+          <div class="mock-thumb">
+            <img src="../assets/boat-amalfi-hero.jpg" alt="Hero atual Amalfi Capri nos websites ALPHA DOURO" loading="lazy" />
+            <span class="mock-badge">Hero Atual (Ativo)</span>
+          </div>
+          <div class="mock-body">
+            <h3>Hero Atual (Conceito Editorial)</h3>
+            <p>Mantido provisoriamente nos 2 websites até à escolha final do Gil.</p>
+          </div>
+        </article>
+
+        <article class="mock-card" data-cat="boat" data-full="../assets/brand-kit/hero-acha-01-verao.jpg" data-title="Proposta Real 01 — ACHA 6,95m Verão Golden Hour" data-sub="O modelo real ACHA 6,95m em luz dourada frente à Ponte Dom Luís I com toldo aberto de verão.">
+          <div class="mock-thumb">
+            <img src="../assets/brand-kit/hero-acha-01-verao.jpg" alt="Proposta Hero 01 com o barco real ACHA 6.95m no verão frente à Ponte Dom Luís I" loading="lazy" />
+            <span class="mock-badge">Proposta Barco Real 01</span>
+          </div>
+          <div class="mock-body">
+            <h3>Proposta 01 · Verão &amp; Ponte D. Luís I</h3>
+            <p>ACHA 6,95m real em luz dourada de final de tarde sob o toldo solar.</p>
+          </div>
+        </article>
+
+        <article class="mock-card" data-cat="boat" data-full="../assets/brand-kit/hero-acha-02-horaazul.jpg" data-title="Proposta Real 02 — ACHA 6,95m Hora Azul &amp; Luzes 2200K" data-sub="O barco real ACHA 6,95m ao entardecer com as luzes quentes 2200K acesas nos 4 arcos do toldo.">
+          <div class="mock-thumb">
+            <img src="../assets/brand-kit/hero-acha-02-horaazul.jpg" alt="Proposta Hero 02 com o barco real ACHA 6.95m na hora azul com luzes 2200K no toldo" loading="lazy" />
+            <span class="mock-badge">Proposta Barco Real 02</span>
+          </div>
+          <div class="mock-body">
+            <h3>Proposta 02 · Hora Azul &amp; Luzes 2200K</h3>
+            <p>Destaca imediatamente a iluminação quente no toldo ao pôr do sol.</p>
+          </div>
+        </article>
+
+        <article class="mock-card" data-cat="boat" data-full="../assets/brand-kit/hero-acha-03-4estacoes.jpg" data-title="Proposta Real 03 — ACHA 6,95m 4 Estações (Capota 360° Afurada)" data-sub="O barco real ACHA 6,95m atracado no Cais da Afurada com capota panorâmica transparente 360° para inverno.">
+          <div class="mock-thumb">
+            <img src="../assets/brand-kit/hero-acha-03-4estacoes.jpg" alt="Proposta Hero 03 com o barco real ACHA 6.95m com capota panorâmica 360 no Cais da Afurada" loading="lazy" />
+            <span class="mock-badge">Proposta Barco Real 03</span>
+          </div>
+          <div class="mock-body">
+            <h3>Proposta 03 · 4 Estações (Capota 360°)</h3>
+            <p>Mostra o barco real no Cais da Afurada pronto para faturar 365 dias/ano.</p>
+          </div>
+        </article>
+      </div>
+
+      <h3 style="font-family:'Cormorant Garamond', Georgia, serif; font-size:1.75rem; font-weight:400; margin-top:2.5rem; color:var(--sand);">Estudo de Transformação Visual da Embarcação (Antes vs. 3 Conceitos)</h3>
+      <div class="choice-grid-4">
+        <article class="mock-card" data-cat="boat" data-full="../assets/brand-kit/barco-00-antes.jpg" data-title="Antes — Barco Real Atual" data-sub="Estado inicial da embarcação ACHA 6,95m antes dos acabamentos visuais.">
+          <div class="mock-thumb">
+            <img src="../assets/brand-kit/barco-00-antes.jpg" alt="Barco real ACHA 6.95m estado atual antes da transformação" loading="lazy" />
+            <span class="mock-badge">Antes (Atual)</span>
+          </div>
+          <div class="mock-body">
+            <h3>Estado Atual</h3>
+            <p>Base real ACHA 6,95m com casco azul.</p>
+          </div>
+        </article>
+
+        <article class="mock-card" data-cat="boat" data-full="../assets/brand-kit/barco-01-riviera.jpg" data-title="Conceito 01 — Porto Riviera (Azul Marinho &amp; Toldo Areia)" data-sub="Elegância náutica clássica com casco azul-marinho e toldo cor areia.">
+          <div class="mock-thumb">
+            <img src="../assets/brand-kit/barco-01-riviera.jpg" alt="Conceito 01 Porto Riviera Azul Marinho e Toldo Areia" loading="lazy" />
+            <span class="mock-badge">Conceito 01</span>
+          </div>
+          <div class="mock-body">
+            <h3>Porto Riviera</h3>
+            <p>Azul-marinho profundo &amp; toldo areia.</p>
+          </div>
+        </article>
+
+        <article class="mock-card" data-cat="boat" data-full="../assets/brand-kit/barco-02-amalfi.jpg" data-title="Conceito 02 — Amalfi Capri (Azul Real &amp; Riscas)" data-sub="Look mediterrânico solar alinhado com a cor azul atual do barco — o mais económico de executar!">
+          <div class="mock-thumb">
+            <img src="../assets/brand-kit/barco-02-amalfi.jpg" alt="Conceito 02 Amalfi Capri Azul Real e Toldo Riscas" loading="lazy" />
+            <span class="mock-badge">Conceito 02 · Recomendado</span>
+          </div>
+          <div class="mock-body">
+            <h3>Amalfi Capri</h3>
+            <p>Aproveita o azul atual do casco + estofos creme.</p>
+          </div>
+        </article>
+
+        <article class="mock-card" data-cat="boat" data-full="../assets/brand-kit/barco-03-noir.jpg" data-title="Conceito 03 — Douro Noir &amp; Terracota" data-sub="Visual noturno de alto contraste para passeios ao pôr do sol e hora azul.">
+          <div class="mock-thumb">
+            <img src="../assets/brand-kit/barco-03-noir.jpg" alt="Conceito 03 Douro Noir e Terracota" loading="lazy" />
+            <span class="mock-badge">Conceito 03</span>
+          </div>
+          <div class="mock-body">
+            <h3>Douro Noir</h3>
+            <p>Casco escuro &amp; apontamentos terracota.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span>ALPHA DOURO · Cais da Afurada, Vila Nova de Gaia · 41°08'36"N · 08°38'52"W</span>
+      <div style="display:flex; flex-wrap:wrap; gap:0.65rem;">
+        <a href="../index.html" class="nav-pill">Hub Principal</a>
+        <a href="../site-1-editorial/index.html" class="nav-pill">Website 01</a>
+        <a href="../site-2-atelier/index.html" class="nav-pill">Website 02</a>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Full-Screen Lightbox -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visualizador de imagem">
+    <div class="lb-inner">
+      <img class="lb-img" id="lbImg" src="" alt="" />
+      <div class="lb-bar">
+        <div>
+          <div class="lb-title" id="lbTitle"></div>
+          <div class="lb-sub" id="lbSub"></div>
+        </div>
+        <div class="lb-controls">
+          <button type="button" class="lb-btn" id="lbPrev" aria-label="Anterior">← Anterior</button>
+          <button type="button" class="lb-btn" id="lbNext" aria-label="Seguinte">Seguinte →</button>
+          <button type="button" class="lb-btn" id="lbClose" aria-label="Fechar">Fechar ✕</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script type="module">
+    const toast = document.getElementById("toast");
+    let toastTimer = null;
+    function showToast(msg) {
+      toast.textContent = msg;
+      toast.classList.add("is-visible");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove("is-visible"), 2200);
+    }
+
+    // 1. Surface toggle for logo artboards
+    const logoGrid = document.getElementById("logoGrid");
+    document.querySelectorAll(".surface-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".surface-btn").forEach((b) => b.classList.remove("is-active"));
+        btn.classList.add("is-active");
+        logoGrid.classList.toggle("is-dark", btn.dataset.surface === "dark");
+      });
+    });
+
+    // 2. Click-to-copy color swatches
+    document.querySelectorAll(".swatch").forEach((sw) => {
+      sw.addEventListener("click", async () => {
+        const hex = sw.dataset.hex;
+        try { await navigator.clipboard.writeText(hex); } catch {}
+        showToast(`Código ${hex} copiado!`);
+      });
+    });
+
+    // 3. Lookbook category filter
+    const lookbookCards = Array.from(document.querySelectorAll("#galleryGrid .mock-card"));
+    document.querySelectorAll(".filter-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".filter-btn").forEach((b) => b.classList.remove("is-active"));
+        btn.classList.add("is-active");
+        const f = btn.dataset.filter;
+        lookbookCards.forEach((c) => {
+          c.classList.toggle("is-hidden", f !== "all" && c.dataset.cat !== f);
+        });
+      });
+    });
+
+    // 4. Full-screen Lightbox across all zoomable cards
+    const allZoomCards = Array.from(document.querySelectorAll(".mock-card[data-full]"));
+    const lightbox = document.getElementById("lightbox");
+    const lbImg = document.getElementById("lbImg");
+    const lbTitle = document.getElementById("lbTitle");
+    const lbSub = document.getElementById("lbSub");
+    let currentIndex = 0;
+
+    function openLightbox(idx) {
+      currentIndex = (idx + allZoomCards.length) % allZoomCards.length;
+      const card = allZoomCards[currentIndex];
+      lbImg.src = card.dataset.full;
+      lbImg.alt = card.dataset.title || "";
+      lbTitle.textContent = card.dataset.title || "";
+      lbSub.textContent = card.dataset.sub || "";
+      lightbox.classList.add("is-open");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove("is-open");
+      document.body.style.overflow = "";
+    }
+
+    allZoomCards.forEach((card, idx) => {
+      card.addEventListener("click", () => openLightbox(idx));
+    });
+
+    document.getElementById("lbPrev").addEventListener("click", () => openLightbox(currentIndex - 1));
+    document.getElementById("lbNext").addEventListener("click", () => openLightbox(currentIndex + 1));
+    document.getElementById("lbClose").addEventListener("click", closeLightbox);
+    lightbox.addEventListener("click", (e) => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener("keydown", (e) => {
+      if (!lightbox.classList.contains("is-open")) return;
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowLeft") openLightbox(currentIndex - 1);
+      if (e.key === "ArrowRight") openLightbox(currentIndex + 1);
+    });
+  </script>
+</body>
+</html>

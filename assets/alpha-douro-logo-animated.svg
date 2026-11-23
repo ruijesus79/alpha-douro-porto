@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 150" width="560" height="150" role="img" aria-label="ALPHA DOURO — Boat Tours Porto Official Animated Logo">
+  <title>ALPHA DOURO — Boat Tours Porto</title>
+  <defs>
+    <linearGradient id="ad-sheen" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0" />
+      <stop offset="45%" stop-color="#E0D0B8" stop-opacity="0.85" />
+      <stop offset="55%" stop-color="#58B9EE" stop-opacity="0.55" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0" />
+    </linearGradient>
+    <clipPath id="ad-mark-clip">
+      <path d="M60 12L18 90H32.5L60 36.8L87.5 90H102L60 12Z"/>
+      <path d="M40 73.5C49 69.2 61.5 68.4 77 71.2L72.2 79.4C59.8 77.6 49.5 78.2 40 73.5Z"/>
+      <path d="M12 98.5C29 87.5 47.5 87.5 64 95C78 101.4 93.5 99.6 108 90C96.8 104.2 78.5 109.2 60.5 101.5C45 94.8 28.5 95 12 98.5Z"/>
+    </clipPath>
+    <clipPath id="ad-word-clip">
+      <rect x="172" y="24" width="380" height="106" />
+    </clipPath>
+  </defs>
+
+  <style>
+    .bg { fill: #0A223D; }
+    .guide { fill: none; stroke: #FFFFFF; stroke-width: 1.4; opacity: 0.14; stroke-linecap: round; stroke-linejoin: round; }
+    .trace-wave {
+      fill: none; stroke: #58B9EE; stroke-width: 5.5; stroke-linecap: round; stroke-linejoin: round;
+      stroke-dasharray: 1; stroke-dashoffset: 1;
+      animation: adDraw 620ms cubic-bezier(0.22, 1, 0.36, 1) 80ms forwards, adFadeOut 360ms ease 920ms forwards;
+    }
+    .trace-a {
+      fill: none; stroke: #FFFFFF; stroke-width: 6.5; stroke-linecap: round; stroke-linejoin: round;
+      stroke-dasharray: 1; stroke-dashoffset: 1;
+      animation: adDraw 680ms cubic-bezier(0.16, 1, 0.3, 1) 240ms forwards, adFadeOut 360ms ease 960ms forwards;
+    }
+    .trace-hull {
+      fill: none; stroke: #E0D0B8; stroke-width: 4.5; stroke-linecap: round; stroke-linejoin: round;
+      stroke-dasharray: 1; stroke-dashoffset: 1;
+      animation: adDraw 440ms cubic-bezier(0.16, 1, 0.3, 1) 480ms forwards, adFadeOut 340ms ease 960ms forwards;
+    }
+    .fill-solid {
+      fill: #FFFFFF; opacity: 0;
+      animation: adFadeIn 460ms cubic-bezier(0.16, 1, 0.3, 1) 760ms forwards;
+    }
+    .sheen-rect {
+      transform: translateX(-140px);
+      animation: adSheen 950ms cubic-bezier(0.22, 1, 0.36, 1) 1040ms forwards;
+    }
+    .divider {
+      stroke: rgba(224, 208, 184, 0.38); stroke-width: 1.2;
+      transform-origin: 156px 75px; transform: scaleY(0);
+      animation: adScaleY 480ms cubic-bezier(0.16, 1, 0.3, 1) 820ms forwards;
+    }
+    .word-group {
+      opacity: 0; transform: translateX(-16px);
+      animation: adWordIn 620ms cubic-bezier(0.16, 1, 0.3, 1) 920ms forwards;
+    }
+    .title-txt {
+      font-family: Georgia, "Cormorant Garamond", serif;
+      font-size: 36px; font-weight: 500; letter-spacing: 7.5px; fill: #F5F1E8;
+    }
+    .sub-txt {
+      font-family: system-ui, -apple-system, sans-serif;
+      font-size: 11px; font-weight: 500; letter-spacing: 5.5px; fill: #E0D0B8;
+    }
+    @keyframes adDraw { to { stroke-dashoffset: 0; } }
+    @keyframes adFadeIn { to { opacity: 1; } }
+    @keyframes adFadeOut { to { opacity: 0; } }
+    @keyframes adSheen { from { transform: translateX(-140px); } to { transform: translateX(150px); } }
+    @keyframes adScaleY { to { transform: scaleY(1); } }
+    @keyframes adWordIn { to { opacity: 1; transform: translateX(0); } }
+    @media (prefers-reduced-motion: reduce) {
+      .trace-wave, .trace-a, .trace-hull { animation: none; opacity: 0; }
+      .fill-solid, .word-group { animation: none; opacity: 1; transform: none; }
+      .divider { animation: none; transform: scaleY(1); }
+      .sheen-rect { animation: none; opacity: 0; }
+    }
+  </style>
+
+  <rect class="bg" width="560" height="150" rx="16" />
+
+  <!-- Official Wave-A Monogram (centered at x=30..136, y=19..125) -->
+  <g transform="translate(30, 17) scale(0.95)">
+    <!-- Faint architectural engraving guides -->
+    <path class="guide" d="M25.25 90 L60 24.4 L94.75 90" />
+    <path class="guide" d="M12 98.5 C29 90.5 47 91 63 98 C77.5 104 93 102 108 90" />
+
+    <!-- Animated single-stroke choreographed paths -->
+    <path class="trace-wave" pathLength="1" d="M12 98.5 C29 90.5 47 91 63 98 C77.5 104 93 102 108 90" />
+    <path class="trace-a" pathLength="1" d="M25.25 90 L60 24.4 L94.75 90" />
+    <path class="trace-hull" pathLength="1" d="M41 73.5 C50 71 61 71 74.5 74.5" />
+
+    <!-- Exact official filled vector geometry -->
+    <g class="fill-solid">
+      <path d="M60 12L18 90H32.5L60 36.8L87.5 90H102L60 12Z"/>
+      <path d="M40 73.5C49 69.2 61.5 68.4 77 71.2L72.2 79.4C59.8 77.6 49.5 78.2 40 73.5Z"/>
+      <path d="M12 98.5C29 87.5 47.5 87.5 64 95C78 101.4 93.5 99.6 108 90C96.8 104.2 78.5 109.2 60.5 101.5C45 94.8 28.5 95 12 98.5Z"/>
+    </g>
+
+    <!-- Single sunlight-on-water metallic specular sweep -->
+    <g clip-path="url(#ad-mark-clip)">
+      <rect class="sheen-rect" x="0" y="0" width="120" height="120" fill="url(#ad-sheen)" />
+    </g>
+  </g>
+
+  <!-- Hairline divider -->
+  <line class="divider" x1="156" y1="34" x2="156" y2="116" />
+
+  <!-- Official Wordmark -->
+  <g clip-path="url(#ad-word-clip)">
+    <g class="word-group">
+      <text class="title-txt" x="180" y="80">ALPHA DOURO</text>
+      <text class="sub-txt" x="182" y="106">BOAT TOURS · PORTO</text>
+    </g>
+  </g>
+</svg>

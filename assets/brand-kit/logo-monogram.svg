@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none" role="img" aria-label="Alpha Douro Monogram">
+  <!-- Compact High-Legibility Monogram (Optimized down to 16px Favicon & 28mm Embroidery) -->
+  <g fill="#0A223D">
+    <path d="M60 12L18 90H32.5L60 36.8L87.5 90H102L60 12Z"/>
+    <!-- Simplified Bold Bow Crossbar -->
+    <path d="M40 73.5C49 69.2 61.5 68.4 77 71.2L72.2 79.4C59.8 77.6 49.5 78.2 40 73.5Z"/>
+    <!-- Bold River Crest -->
+    <path d="M12 98.5C29 87.5 47.5 87.5 64 95C78 101.4 93.5 99.6 108 90C96.8 104.2 78.5 109.2 60.5 101.5C45 94.8 28.5 95 12 98.5Z"/>
+  </g>
+</svg>

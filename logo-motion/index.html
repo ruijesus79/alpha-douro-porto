@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ALPHA DOURO — Identidade em Movimento | Logótipo Oficial Animado</title>
+  <meta name="description" content="Apresentação interativa do logótipo oficial ALPHA DOURO em movimento: traço hidro-dinâmico da onda do Douro, revelação do monograma A, selo náutico giratório e preloader." />
+  <meta name="theme-color" content="#06111D" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Crect width='120' height='120' rx='24' fill='%230A223D'/%3E%3Cpath fill='%23FFFFFF' d='M60 16L22 88H35.5L60 39L84.5 88H98L60 16ZM41 72.5C50 68.5 61.5 67.8 75.5 70.5L71 78C59.8 76.4 50.2 77 41 72.5ZM16 96C31.5 86 48.5 86 64 93C76.5 98.8 90.5 97.2 104 88.5C93.8 101.2 77 105.8 60.5 98.8C46.2 92.8 31 93 16 96Z'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&family=Onest:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --abyss: #06111D;
+      --navy: #0A223D;
+      --capri: #1A92D2;
+      --capri-light: #58B9EE;
+      --sand: #E0D0B8;
+      --ivory: #F6F3EC;
+      --slate: #8FA3B8;
+      --line: rgba(224, 208, 184, 0.16);
+      --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-quart: cubic-bezier(0.23, 1, 0.32, 1);
+
+      /* Dynamic stage theme defaults (Deep Sea Navy) */
+      --stage-bg: #0A223D;
+      --stage-fg: #F5F1E8;
+      --stage-sub: #E0D0B8;
+      --stage-wave: #58B9EE;
+      --stage-hull: #E0D0B8;
+      --stage-guide: rgba(255, 255, 255, 0.14);
+      --stage-divider: rgba(224, 208, 184, 0.36);
+      --speed-mult: 1;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      background: var(--abyss);
+      color: var(--ivory);
+      font-family: "Onest", system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: clip;
+    }
+
+    /* Static analog grain (zero GPU per-frame cost) */
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: 300;
+      pointer-events: none;
+      opacity: 0.032;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 160px 160px;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; color: inherit; }
+    h1, h2, h3 { text-wrap: balance; }
+    p { text-wrap: pretty; }
+    .serif { font-family: "Cormorant Garamond", Georgia, serif; }
+    .mono { font-family: "JetBrains Mono", monospace; font-variant-numeric: tabular-nums; }
+
+    .container {
+      width: min(82rem, 100%);
+      margin: 0 auto;
+      padding: clamp(1.25rem, 3vw, 2.5rem);
+    }
+
+    /* Top Bar */
+    .top-nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      font-size: 0.88rem;
+      color: var(--sand);
+      transition: color 160ms ease;
+    }
+    .back-link:hover { color: var(--ivory); }
+
+    .nav-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+    }
+
+    .pill-link {
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-size: 0.82rem;
+      color: rgba(246, 243, 236, 0.85);
+      transition: border-color 160ms ease, background-color 160ms ease;
+    }
+    .pill-link:hover {
+      border-color: var(--capri-light);
+      background: rgba(26, 146, 210, 0.14);
+    }
+
+    /* Intro Heading */
+    .studio-head {
+      margin: 2.75rem 0 2rem;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .studio-note {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-style: italic;
+      font-size: 1.18rem;
+      color: var(--sand);
+      margin-bottom: 0.45rem;
+    }
+
+    .studio-head h1 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(2.4rem, 5vw, 4.3rem);
+      font-weight: 400;
+      line-height: 1.02;
+    }
+
+    .studio-head p {
+      max-width: 31rem;
+      font-size: 0.94rem;
+      line-height: 1.62;
+      color: var(--slate);
+    }
+
+    /* ==========================================================================
+       MAIN STAGE — OFFICIAL WAVE-A SIGNATURE REVEAL
+       ========================================================================== */
+    .stage-shell {
+      border: 1px solid var(--line);
+      border-radius: 1.5rem;
+      overflow: hidden;
+      background: #081829;
+    }
+
+    .stage-canvas {
+      position: relative;
+      min-height: clamp(22rem, 48vh, 30rem);
+      background: var(--stage-bg);
+      color: var(--stage-fg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(2rem, 6vw, 4.5rem);
+      transition: background-color 320ms var(--ease-quart), color 320ms var(--ease-quart);
+      overflow: hidden;
+    }
+
+    /* Theme variants */
+    .stage-canvas[data-theme="sand"] {
+      --stage-bg: #E0D0B8;
+      --stage-fg: #0A223D;
+      --stage-sub: #3A5068;
+      --stage-wave: #1A92D2;
+      --stage-hull: #0A223D;
+      --stage-guide: rgba(10, 34, 61, 0.14);
+      --stage-divider: rgba(10, 34, 61, 0.28);
+    }
+    .stage-canvas[data-theme="capri"] {
+      --stage-bg: #1A92D2;
+      --stage-fg: #FFFFFF;
+      --stage-sub: rgba(255, 255, 255, 0.86);
+      --stage-wave: #E0D0B8;
+      --stage-hull: #FFFFFF;
+      --stage-guide: rgba(255, 255, 255, 0.22);
+      --stage-divider: rgba(255, 255, 255, 0.42);
+    }
+    .stage-canvas[data-theme="ivory"] {
+      --stage-bg: #F7F5F0;
+      --stage-fg: #0A223D;
+      --stage-sub: #4F647B;
+      --stage-wave: #1A92D2;
+      --stage-hull: #A64B2A;
+      --stage-guide: rgba(10, 34, 61, 0.12);
+      --stage-divider: rgba(10, 34, 61, 0.24);
+    }
+
+    .stage-canvas.is-slow { --speed-mult: 2.2; }
+
+    /* Official Lockup Motion SVG */
+    .hero-logo-lockup {
+      display: flex;
+      align-items: center;
+      gap: clamp(1.25rem, 3vw, 2.4rem);
+      max-width: 100%;
+    }
+
+    .hero-mark-svg {
+      width: clamp(5.5rem, 11vw, 8.6rem);
+      height: auto;
+      flex-shrink: 0;
+      overflow: visible;
+    }
+
+    .ad-guide {
+      fill: none;
+      stroke: var(--stage-guide);
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .ad-trace-wave {
+      fill: none;
+      stroke: var(--stage-wave);
+      stroke-width: 5.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 1;
+      stroke-dashoffset: 1;
+    }
+
+    .ad-trace-a {
+      fill: none;
+      stroke: var(--stage-fg);
+      stroke-width: 6.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 1;
+      stroke-dashoffset: 1;
+    }
+
+    .ad-trace-hull {
+      fill: none;
+      stroke: var(--stage-hull);
+      stroke-width: 4.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 1;
+      stroke-dashoffset: 1;
+    }
+
+    .ad-fill-group {
+      fill: var(--stage-fg);
+      opacity: 0;
+    }
+
+    .ad-sheen-bar {
+      transform: translateX(-140px);
+    }
+
+    .ad-divider-line {
+      width: 1.5px;
+      height: clamp(4.2rem, 8.5vw, 6.4rem);
+      background: var(--stage-divider);
+      transform: scaleY(0);
+      transform-origin: center;
+    }
+
+    .ad-word-wrap {
+      overflow: hidden;
+      padding: 0.2rem 0;
+    }
+
+    .ad-word-inner {
+      opacity: 0;
+      transform: translateX(-18px);
+    }
+
+    .ad-word-title {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(2rem, 5.2vw, 4.2rem);
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .ad-word-sub {
+      font-size: clamp(0.68rem, 1.15vw, 0.92rem);
+      font-weight: 500;
+      letter-spacing: 0.34em;
+      color: var(--stage-sub);
+      margin-top: 0.65rem;
+    }
+
+    /* Active Playback Keyframes */
+    .stage-canvas.is-playing .ad-trace-wave {
+      animation:
+        drawPath calc(620ms * var(--speed-mult)) var(--ease-expo) calc(80ms * var(--speed-mult)) forwards,
+        fadeOut calc(360ms * var(--speed-mult)) ease calc(900ms * var(--speed-mult)) forwards;
+    }
+    .stage-canvas.is-playing .ad-trace-a {
+      animation:
+        drawPath calc(680ms * var(--speed-mult)) var(--ease-expo) calc(240ms * var(--speed-mult)) forwards,
+        fadeOut calc(360ms * var(--speed-mult)) ease calc(940ms * var(--speed-mult)) forwards;
+    }
+    .stage-canvas.is-playing .ad-trace-hull {
+      animation:
+        drawPath calc(440ms * var(--speed-mult)) var(--ease-expo) calc(460ms * var(--speed-mult)) forwards,
+        fadeOut calc(320ms * var(--speed-mult)) ease calc(940ms * var(--speed-mult)) forwards;
+    }
+    .stage-canvas.is-playing .ad-fill-group {
+      animation: fadeIn calc(460ms * var(--speed-mult)) var(--ease-expo) calc(740ms * var(--speed-mult)) forwards;
+    }
+    .stage-canvas.is-playing .ad-sheen-bar {
+      animation: sheenSweep calc(960ms * var(--speed-mult)) var(--ease-expo) calc(1020ms * var(--speed-mult)) forwards;
+    }
+    .stage-canvas.is-playing .ad-divider-line {
+      animation: scaleYIn calc(460ms * var(--speed-mult)) var(--ease-expo) calc(800ms * var(--speed-mult)) forwards;
+    }
+    .stage-canvas.is-playing .ad-word-inner {
+      animation: slideIn calc(620ms * var(--speed-mult)) var(--ease-expo) calc(900ms * var(--speed-mult)) forwards;
+    }
+
+    @keyframes drawPath { to { stroke-dashoffset: 0; } }
+    @keyframes fadeIn { to { opacity: 1; } }
+    @keyframes fadeOut { to { opacity: 0; } }
+    @keyframes scaleYIn { to { transform: scaleY(1); } }
+    @keyframes slideIn { to { opacity: 1; transform: translateX(0); } }
+    @keyframes sheenSweep { from { transform: translateX(-140px); } to { transform: translateX(160px); } }
+
+    /* Stage Controls Bar */
+    .stage-controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.15rem 1.5rem;
+      border-top: 1px solid var(--line);
+      background: #071525;
+    }
+
+    .ctrl-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.55rem;
+    }
+
+    .btn-ctrl {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.55rem 1.05rem;
+      border-radius: 999px;
+      border: 1px solid rgba(224, 208, 184, 0.24);
+      background: transparent;
+      color: var(--ivory);
+      font-size: 0.84rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease, transform 140ms var(--ease-quart);
+    }
+    .btn-ctrl:hover { border-color: var(--sand); background: rgba(224, 208, 184, 0.1); }
+    .btn-ctrl:active { transform: scale(0.97); }
+    .btn-ctrl.is-primary { background: var(--capri); border-color: var(--capri); color: #FFFFFF; }
+    .btn-ctrl.is-primary:hover { background: #147CB4; border-color: #147CB4; }
+    .btn-ctrl.is-active { background: var(--sand); border-color: var(--sand); color: var(--abyss); }
+
+    .swatch-btn {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.24);
+      cursor: pointer;
+      transition: transform 150ms var(--ease-quart), border-color 150ms ease;
+    }
+    .swatch-btn:hover { transform: scale(1.08); }
+    .swatch-btn.is-active { border-color: #FFFFFF; box-shadow: 0 0 0 2px var(--capri); }
+
+    /* ==========================================================================
+       3 SPECIMEN CARDS BELOW — SEAL, PRELOADER TRACE, HEADER MICRO-MOTION
+       ========================================================================== */
+    .specimens-grid {
+      margin-top: 2rem;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    .specimen-card {
+      border: 1px solid var(--line);
+      border-radius: 1.35rem;
+      background: #09192B;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.4rem;
+    }
+
+    .spec-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.82rem;
+      color: var(--sand);
+    }
+
+    .spec-stage {
+      min-height: 14rem;
+      border-radius: 1rem;
+      background: var(--navy);
+      border: 1px solid rgba(224, 208, 184, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      padding: 1.25rem;
+    }
+
+    .spec-title {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.65rem;
+      font-weight: 500;
+      margin-bottom: 0.4rem;
+    }
+
+    .spec-desc {
+      font-size: 0.86rem;
+      line-height: 1.55;
+      color: var(--slate);
+    }
+
+    /* Specimen 2: Circular Rotating Harbour Seal */
+    .seal-orbit {
+      width: 11.2rem;
+      height: 11.2rem;
+    }
+    .seal-ring-spin {
+      transform-origin: 100px 100px;
+      animation: sealSpin 28s linear infinite;
+    }
+    .seal-orbit:hover .seal-ring-spin { animation-play-state: paused; }
+    @keyframes sealSpin { to { transform: rotate(360deg); } }
+
+    /* Specimen 3: dqnamo Preloader Trace Loop -> Fill */
+    .trace-loader-svg {
+      width: 6.4rem;
+      height: 6.4rem;
+      color: var(--ivory);
+    }
+    .trace-loop-seg {
+      fill: none;
+      stroke: var(--capri-light);
+      stroke-width: 5.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 0.22 0.78;
+      stroke-dashoffset: 0;
+      animation: traceOrbit 1.45s linear infinite;
+    }
+    @keyframes traceOrbit { to { stroke-dashoffset: -1; } }
+
+    .trace-loader-svg.is-resolved .trace-loop-seg {
+      animation: none;
+      stroke-dasharray: 1 0;
+      stroke-dashoffset: 0;
+      opacity: 0;
+      transition: opacity 320ms ease;
+    }
+    .trace-fill-paths {
+      fill: currentColor;
+      opacity: 0;
+      transition: opacity 420ms var(--ease-expo);
+    }
+    .trace-loader-svg.is-resolved .trace-fill-paths { opacity: 1; }
+
+    /* Specimen 4: Interactive Header Hover Micro-Motion */
+    .mini-header-preview {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0.85rem 1.4rem;
+      border-radius: 999px;
+      background: #06111D;
+      border: 1px solid rgba(224, 208, 184, 0.24);
+      cursor: pointer;
+      transition: border-color 180ms ease, transform 180ms var(--ease-quart);
+    }
+    .mini-header-preview:hover {
+      border-color: var(--capri-light);
+      transform: translateY(-2px);
+    }
+    .mini-header-preview svg { width: 2.35rem; height: 2.35rem; fill: var(--ivory); overflow: visible; }
+    .mini-header-preview .wave-part {
+      transition: transform 420ms var(--ease-expo), fill 240ms ease;
+    }
+    .mini-header-preview .a-part {
+      transition: transform 420ms var(--ease-expo);
+    }
+    .mini-header-preview:hover .wave-part {
+      transform: translateX(3px);
+      fill: var(--capri-light);
+    }
+    .mini-header-preview:hover .a-part {
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 960px) {
+      .specimens-grid { grid-template-columns: 1fr; }
+      .hero-logo-lockup { flex-direction: column; text-align: center; gap: 1.25rem; }
+      .ad-divider-line { width: 5rem; height: 1.5px; transform: scaleX(0); }
+      .stage-canvas.is-playing .ad-divider-line { animation: scaleXIn calc(460ms * var(--speed-mult)) var(--ease-expo) calc(800ms * var(--speed-mult)) forwards; }
+      @keyframes scaleXIn { to { transform: scaleX(1); } }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .ad-trace-wave, .ad-trace-a, .ad-trace-hull, .trace-loop-seg { animation: none !important; opacity: 0 !important; }
+      .ad-fill-group, .ad-word-inner, .trace-fill-paths { animation: none !important; opacity: 1 !important; transform: none !important; }
+      .ad-divider-line { animation: none !important; transform: none !important; }
+      .seal-ring-spin { animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="top-nav">
+      <a href="../index.html" class="back-link">← Voltar ao Portal Alpha Douro</a>
+      <div class="nav-pills">
+        <a href="../site-1-editorial/index.html" class="pill-link">Website 01 · Editorial</a>
+        <a href="../site-2-atelier/index.html" class="pill-link">Website 02 · Atelier</a>
+        <a href="../assets/alpha-douro-logo-animated.svg" target="_blank" class="pill-link">Ficheiro SVG Animado ↗</a>
+      </div>
+    </header>
+
+    <section class="studio-head">
+      <div>
+        <div class="studio-note">Identidade em movimento · Apresentação para o Gil</div>
+        <h1>Logótipo Oficial ALPHA DOURO</h1>
+      </div>
+      <p>
+        Coreografia vetorial desenhada à medida sobre os traços exatos da Opção 1 (Wave-A): a onda do Douro desenha-se primeiro, o "A" arquitetónico fecha a proa, o preenchimento sólido cristaliza e um único reflexo de sol percorre o símbolo.
+      </p>
+    </section>
+
+    <!-- ======================================================================
+         MAIN INTERACTIVE LOGO REVEAL STAGE
+         ====================================================================== -->
+    <section class="stage-shell" aria-label="Palco principal do logótipo animado">
+      <div class="stage-canvas is-playing" id="stageCanvas" data-theme="navy">
+        <div class="hero-logo-lockup">
+          <svg class="hero-mark-svg" viewBox="0 0 120 120" role="img" aria-label="Monograma Wave-A Alpha Douro">
+            <defs>
+              <linearGradient id="stageSheen" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0" />
+                <stop offset="46%" stop-color="#E0D0B8" stop-opacity="0.88" />
+                <stop offset="56%" stop-color="#58B9EE" stop-opacity="0.6" />
+                <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0" />
+              </linearGradient>
+              <clipPath id="stageMarkClip">
+                <path d="M60 12L18 90H32.5L60 36.8L87.5 90H102L60 12Z"/>
+                <path d="M40 73.5C49 69.2 61.5 68.4 77 71.2L72.2 79.4C59.8 77.6 49.5 78.2 40 73.5Z"/>
+                <path d="M12 98.5C29 87.5 47.5 87.5 64 95C78 101.4 93.5 99.6 108 90C96.8 104.2 78.5 109.2 60.5 101.5C45 94.8 28.5 95 12 98.5Z"/>
+              </clipPath>
+            </defs>
+
+            <!-- Blueprint guide -->
+            <path class="ad-guide" d="M25.25 90 L60 24.4 L94.75 90" />
+            <path class="ad-guide" d="M12 98.5 C29 90.5 47 91 63 98 C77.5 104 93 102 108 90" />
+
+            <!-- Choreographed single-stroke trace paths -->
+            <path class="ad-trace-wave" pathLength="1" d="M12 98.5 C29 90.5 47 91 63 98 C77.5 104 93 102 108 90" />
+            <path class="ad-trace-a" pathLength="1" d="M25.25 90 L60 24.4 L94.75 90" />
+            <path class="ad-trace-hull" pathLength="1" d="M41 73.5 C50 71 61 71 74.5 74.5" />
+
+            <!-- Official exact filled vector mark -->
+            <g class="ad-fill-group">
+              <path d="M60 12L18 90H32.5L60 36.8L87.5 90H102L60 12Z"/>
+              <path d="M40 73.5C49 69.2 61.5 68.4 77 71.2L72.2 79.4C59.8 77.6 49.5 78.2 40 73.5Z"/>
+              <path d="M12 98.5C29 87.5 47.5 87.5 64 95C78 101.4 93.5 99.6 108 90C96.8 104.2 78.5 109.2 60.5 101.5C45 94.8 28.5 95 12 98.5Z"/>
+            </g>
+
+            <!-- Specular sunlight-on-water sheen -->
+            <g clip-path="url(#stageMarkClip)">
+              <rect class="ad-sheen-bar" x="0" y="0" width="120" height="120" fill="url(#stageSheen)" />
+            </g>
+          </svg>
+
+          <div class="ad-divider-line" aria-hidden="true"></div>
+
+          <div class="ad-word-wrap">
+            <div class="ad-word-inner">
+              <div class="ad-word-title">ALPHA DOURO</div>
+              <div class="ad-word-sub">BOAT TOURS · PORTO</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stage-controls">
+        <div class="ctrl-group">
+          <button type="button" class="btn-ctrl is-primary" id="replayBtn">↻ Repetir Revelação</button>
+          <button type="button" class="btn-ctrl" id="slowMoBtn" aria-pressed="false">Câmara Lenta 0.5×</button>
+          <a href="../assets/alpha-douro-logo-animated.svg" download="ALPHA_DOURO_Logo_Animado.svg" class="btn-ctrl">↓ Descarregar SVG</a>
+        </div>
+
+        <div class="ctrl-group" role="group" aria-label="Escolher fundo de apresentação">
+          <span style="font-size: 0.8rem; color: var(--slate); margin-right: 0.3rem;">Fundo:</span>
+          <button type="button" class="swatch-btn is-active" data-set-theme="navy" style="background:#0A223D;" aria-label="Azul Marinho"></button>
+          <button type="button" class="swatch-btn" data-set-theme="capri" style="background:#1A92D2;" aria-label="Azul Amalfi Capri"></button>
+          <button type="button" class="swatch-btn" data-set-theme="sand" style="background:#E0D0B8;" aria-label="Areia Linho"></button>
+          <button type="button" class="swatch-btn" data-set-theme="ivory" style="background:#F7F5F0;" aria-label="Marfim Espuma"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         3 REAL-WORLD MOTION SPECIMENS
+         ====================================================================== -->
+    <section class="specimens-grid" aria-label="Aplicações em movimento">
+      <!-- 01: Rotating Circular Harbour Seal -->
+      <article class="specimen-card">
+        <div class="spec-header">
+          <span class="mono">01 · Selo Náutico</span>
+          <span>Reels, Rodapé &amp; Bilhetes</span>
+        </div>
+        <div class="spec-stage" style="background:#E0D0B8;">
+          <svg class="seal-orbit" viewBox="0 0 200 200" role="img" aria-label="Selo circular giratório Alpha Douro Porto 2025">
+            <defs>
+              <path id="sealTextRing" d="M 100,100 m -73,0 a 73,73 0 1,1 146,0 a 73,73 0 1,1 -146,0" />
+            </defs>
+            <circle cx="100" cy="100" r="92" fill="none" stroke="#0A223D" stroke-width="1.3" />
+            <circle cx="100" cy="100" r="56" fill="none" stroke="rgba(10,34,61,0.28)" stroke-width="1" />
+            <g class="seal-ring-spin">
+              <text fill="#0A223D" font-family="JetBrains Mono, monospace" font-size="10.2" letter-spacing="4.2">
+                <textPath href="#sealTextRing" startOffset="0%">ALPHA DOURO · PORTO · EST. 2025 · 41°08'N · </textPath>
+              </text>
+            </g>
+            <g transform="translate(64, 63) scale(0.6)" fill="#0A223D">
+              <path d="M60 12L18 90H32.5L60 36.8L87.5 90H102L60 12Z"/>
+              <path d="M40 73.5C49 69.2 61.5 68.4 77 71.2L72.2 79.4C59.8 77.6 49.5 78.2 40 73.5Z"/>
+              <path d="M12 98.5C29 87.5 47.5 87.5 64 95C78 101.4 93.5 99.6 108 90C96.8 104.2 78.5 109.2 60.5 101.5C45 94.8 28.5 95 12 98.5Z"/>
+            </g>
+          </svg>
+        </div>
+        <div>
+          <h2 class="spec-title">Selo Circular Giratório</h2>
+          <p class="spec-desc">Rotação contínua de relojoaria (28s por volta, pausa ao passar o rato). Ideal para marcas d'água em Reels, secções de autor e rodapés premium.</p>
+        </div>
+      </article>
+
+      <!-- 02: dqnamo Preloader Trace Loop -->
+      <article class="specimen-card">
+        <div class="spec-header">
+          <span class="mono">02 · Preloader Trace</span>
+          <span>Integrado nos 2 Sites</span>
+        </div>
+        <div class="spec-stage" style="flex-direction:column; gap:1.25rem;">
+          <svg class="trace-loader-svg" id="preloaderDemo" viewBox="0 0 120 120" role="img" aria-label="Demonstração do preloader Alpha Douro">
+            <path fill="none" stroke="rgba(255,255,255,0.16)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  d="M12 98.5 C29 90.5 47 91 63 98 C77.5 104 93 102 108 90 M25.25 90 L60 24.4 L94.75 90" />
+            <path class="trace-loop-seg" pathLength="1"
+                  d="M12 98.5 C29 90.5 47 91 63 98 C77.5 104 93 102 108 90 M25.25 90 L60 24.4 L94.75 90" />
+            <g class="trace-fill-paths">
+              <path d="M60 12L18 90H32.5L60 36.8L87.5 90H102L60 12Z"/>
+              <path d="M40 73.5C49 69.2 61.5 68.4 77 71.2L72.2 79.4C59.8 77.6 49.5 78.2 40 73.5Z"/>
+              <path d="M12 98.5C29 87.5 47.5 87.5 64 95C78 101.4 93.5 99.6 108 90C96.8 104.2 78.5 109.2 60.5 101.5C45 94.8 28.5 95 12 98.5Z"/>
+            </g>
+          </svg>
+          <button type="button" class="btn-ctrl" id="toggleResolveBtn">Simular Carregamento Concluído</button>
+        </div>
+        <div>
+          <h2 class="spec-title">Traço de Carregamento</h2>
+          <p class="spec-desc">Enquanto a página carrega, um filamento azul Amalfi percorre o contorno do monograma e funde-se no símbolo sólido assim que a página abre.</p>
+        </div>
+      </article>
+
+      <!-- 03: Header Tactile Hover Micro-Motion -->
+      <article class="specimen-card">
+        <div class="spec-header">
+          <span class="mono">03 · Micro-Interação</span>
+          <span>Passa o Rato por Cima</span>
+        </div>
+        <div class="spec-stage">
+          <div class="mini-header-preview" tabindex="0" role="button" aria-label="Testar micro-interação do logótipo no cabeçalho">
+            <svg viewBox="0 0 120 120" aria-hidden="true">
+              <g class="a-part">
+                <path d="M60 12L18 90H32.5L60 36.8L87.5 90H102L60 12Z"/>
+                <path d="M40 73.5C49 69.2 61.5 68.4 77 71.2L72.2 79.4C59.8 77.6 49.5 78.2 40 73.5Z"/>
+              </g>
+              <path class="wave-part" d="M12 98.5C29 87.5 47.5 87.5 64 95C78 101.4 93.5 99.6 108 90C96.8 104.2 78.5 109.2 60.5 101.5C45 94.8 28.5 95 12 98.5Z"/>
+            </svg>
+            <div style="border-left:1px solid rgba(255,255,255,0.24); padding-left:0.75rem; line-height:1;">
+              <div class="serif" style="font-size:1.08rem; letter-spacing:0.15em; white-space:nowrap;">ALPHA DOURO</div>
+              <div style="font-size:0.56rem; letter-spacing:0.2em; color:var(--sand); margin-top:0.25rem; white-space:nowrap;">BOAT TOURS · PORTO</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h2 class="spec-title">Onda Viva no Cabeçalho</h2>
+          <p class="spec-desc">No topo dos websites, passar o cursor sobre o logótipo faz a onda deslizar suavemente em azul Amalfi Capri enquanto a proa "A" flutua sobre a água.</p>
+        </div>
+      </article>
+    </section>
+  </div>
+
+  <script>
+    const stageCanvas = document.getElementById("stageCanvas");
+    const replayBtn = document.getElementById("replayBtn");
+    const slowMoBtn = document.getElementById("slowMoBtn");
+
+    function replayStage() {
+      stageCanvas.classList.remove("is-playing");
+      void stageCanvas.offsetWidth;
+      stageCanvas.classList.add("is-playing");
+    }
+
+    replayBtn.addEventListener("click", replayStage);
+
+    slowMoBtn.addEventListener("click", () => {
+      const slow = stageCanvas.classList.toggle("is-slow");
+      slowMoBtn.classList.toggle("is-active", slow);
+      slowMoBtn.setAttribute("aria-pressed", String(slow));
+      replayStage();
+    });
+
+    document.querySelectorAll("[data-set-theme]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll("[data-set-theme]").forEach((b) => b.classList.remove("is-active"));
+        btn.classList.add("is-active");
+        stageCanvas.dataset.theme = btn.dataset.setTheme;
+        replayStage();
+      });
+    });
+
+    const preloaderDemo = document.getElementById("preloaderDemo");
+    const toggleResolveBtn = document.getElementById("toggleResolveBtn");
+    toggleResolveBtn.addEventListener("click", () => {
+      const resolved = preloaderDemo.classList.toggle("is-resolved");
+      toggleResolveBtn.textContent = resolved ? "↺ Voltar ao Traço de Loading" : "Simular Carregamento Concluído";
+    });
+  </script>
+</body>
+</html>
