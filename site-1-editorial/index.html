@@ -74,7 +74,7 @@
         "description": "Passeios de barco boutique e charters privados no Rio Douro a partir do Cais da Afurada (Vila Nova de Gaia / Porto). Embarcação Embarcação Boutique Privada · Máx. 10 Pessoasde 2025 com lotação máxima de 10 pessoas, toldo solar no verão, capota panorâmica transparente 360° no inverno (365 dias/ano), luzes 2200K, rota das 7 pontes e pôr do sol junto ao mar na Afurada.",
         "url": "https://alphadouro.pt/",
         "image": "https://alphadouro.pt/assets/boat-amalfi-hero.jpg",
-        "telephone": "+351 910 000 000",
+        "telephone": "+351 914 160 240",
         "email": "bookings@alphadouro.pt",
         "priceRange": "€45–€590",
         "currenciesAccepted": "EUR",
@@ -3957,7 +3957,7 @@
           <p style="font-size: 0.82rem; color: var(--ink-muted); flex: 1 1 14rem;" data-i18n="pass_note">Boarding pass ready. Send directly to Cap. Gil on WhatsApp for 0% commission instant confirmation.</p>
           <div style="display: flex; flex-wrap: wrap; gap: 0.55rem;">
             <button type="button" class="btn-pill btn-direct-pay" id="passDirectPayBtn" data-i18n="pay_2click_cta">Pay in 2 Clicks · Apple Pay / Card ↗</button>
-            <a href="https://wa.me/351910000000" target="_blank" rel="noopener noreferrer" class="btn-pill btn-whatsapp" id="waBookingLink">
+            <a href="https://wa.me/351914160240" target="_blank" rel="noopener noreferrer" class="btn-pill btn-whatsapp" id="waBookingLink">
               <span data-i18n="pass_wa_cta">MB WAY / WhatsApp (Cap. Gil) ↗</span>
             </a>
             <button type="button" class="btn-pill btn-navy" id="newBookingBtn" data-i18n="pass_done">Done</button>
@@ -3978,8 +3978,8 @@
        ====================================================================== */
     const CHECKOUT_CONFIG = {
       provider: "stripe", // "stripe" (Stripe Payment Links — Apple Pay / Cartão / Multibanco) ou "cal" (Cal.com + Stripe)
-      whatsappNumber: "351910000000", // Substituir pelo nº real do Cap. Gil (ex: "351912345678")
-      mbwayDisplay: "+351 910 000 000",
+      whatsappNumber: "351914160240", // Substituir pelo nº real do Cap. Gil (ex: "351912345678")
+      mbwayDisplay: "+351 914 160 240",
       links: {
         bridges:  "https://buy.stripe.com/SUBSTITUIR_7_PONTES",
         sunset:   "https://buy.stripe.com/SUBSTITUIR_SUNSET_MAR",
@@ -4755,8 +4755,8 @@
 
       if (feedbackEl) {
         feedbackEl.innerHTML = currentLang === "pt"
-          ? `<strong>Modo Demonstração (€0/mês):</strong> Cole o seu link gratuito do Stripe em <code>CHECKOUT_CONFIG.links.${tourKey}</code> para abrir Apple Pay / Cartão em 2 cliques. Entretanto, abrimos o pedido imediato de pagamento MB WAY / Link com o Cap. Gil (€${total}).`
-          : `<strong>Preview Mode (€0/mo):</strong> Paste your free Stripe Payment Link in <code>CHECKOUT_CONFIG.links.${tourKey}</code> for instant 2-click Apple Pay / Card checkout. Opening direct MB WAY / Payment Link dispatch with Cap. Gil (€${total}).`;
+          ? `<strong>Reserva Direta Ativa (0% Comissões):</strong> A abrir o WhatsApp do Cap. Gil (+351 914 160 240) com o seu Boarding Pass (${passRefCode} · ${totalStr}) para confirmação imediata via MB WAY ou link seguro.`
+          : `<strong>Direct Booking Active (0% Fees):</strong> Opening Cap. Gil’s WhatsApp (+351 914 160 240) with your Boarding Pass (${passRefCode} · ${totalStr}) for instant MB WAY or payment link confirmation.`;
         feedbackEl.classList.add("is-visible");
       }
       window.open(`https://wa.me/${CHECKOUT_CONFIG.whatsappNumber}?text=${encodeURIComponent(waMsg)}`, "_blank", "noopener,noreferrer");
