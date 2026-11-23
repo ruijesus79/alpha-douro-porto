@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ALPHA DOURO ATELIER — Passeios de Barco Privados no Douro | Porto &amp; Cais da Afurada</title>
-  <meta name="description" content="Casa náutica boutique no Rio Douro a partir do Cais da Afurada (Porto/Gaia). Navegue pelas 7 pontes e pôr do sol no mar a bordo da embarcação Alpha Douro · Máx. 10 Pessoas (máx. 10 pessoas, capota panorâmica 360° todo o ano) e pague em 2 cliques." />
+  <meta name="description" content="Casa náutica boutique no Rio Douro a partir da Douro Marina (Afurada · Portão Alpha) (Porto/Gaia). Navegue pelas 7 pontes e pôr do sol no mar a bordo da embarcação Alpha Douro · Máx. 10 Pessoas (máx. 10 pessoas, capota panorâmica 360° todo o ano) e pague em 2 cliques." />
   <meta name="keywords" content="passeio de barco privado porto, cruzeiro 7 pontes porto luxo, sunset barco douro afurada, cais da afurada barco, private boat charter porto, alpha douro atelier" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <meta name="geo.region" content="PT-13" />
-  <meta name="geo.placename" content="Cais da Afurada, Vila Nova de Gaia, Porto" />
+  <meta name="geo.placename" content="Douro Marina · Portão Alpha, Afurada, Vila Nova de Gaia, Porto" />
   <meta name="geo.position" content="41.14333;-8.64778" />
   <meta name="ICBM" content="41.14333, -8.64778" />
   <link rel="canonical" href="https://alphadouro.pt/" />
@@ -70,7 +70,7 @@
         "@id": "https://alphadouro.pt/#business",
         "name": "Alpha Douro — Passeios de Barco Privados no Porto",
         "alternateName": "Alpha Douro Boat Tours",
-        "description": "Passeios de barco boutique e charters privados no Rio Douro a partir do Cais da Afurada (Vila Nova de Gaia / Porto). Embarcação Embarcação Boutique Privada · Máx. 10 Pessoasde 2025 com lotação máxima de 10 pessoas, toldo solar no verão, capota panorâmica transparente 360° no inverno (365 dias/ano), luzes 2200K, rota das 7 pontes e pôr do sol junto ao mar na Afurada.",
+        "description": "Passeios de barco boutique e charters privados no Rio Douro a partir da Douro Marina (Afurada · Portão Alpha) (Vila Nova de Gaia / Porto). Embarcação Embarcação Boutique Privada · Máx. 10 Pessoasde 2025 com lotação máxima de 10 pessoas, toldo solar no verão, capota panorâmica transparente 360° no inverno (365 dias/ano), luzes 2200K, rota das 7 pontes e pôr do sol junto ao mar na Afurada.",
         "url": "https://alphadouro.pt/",
         "image": "https://alphadouro.pt/assets/boat-amalfi-hero.jpg",
         "telephone": "+351 910 000 000",
@@ -90,7 +90,7 @@
         ],
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "Cais da Afurada, Douro Marina",
+          "streetAddress": "Douro Marina · Portão Alpha, Afurada",
           "addressLocality": "São Pedro da Afurada, Vila Nova de Gaia",
           "addressRegion": "Porto",
           "postalCode": "4400-554",
@@ -151,7 +151,7 @@
             {
               "@type": "TouristTrip",
               "name": "Cruzeiro das 7 Pontes do Douro — Cais da Afurada",
-              "description": "Passeio de 2 horas a partir do Cais da Afurada virando à direita pelas 7 pontes históricas do Porto até ao Freixo e regresso, com Vinho Verde / Douro DOC e foto Polaroid.",
+              "description": "Passeio de 2 horas a partir da Douro Marina (Afurada · Portão Alpha) virando à direita pelas 7 pontes históricas do Porto até ao Freixo e regresso, com Vinho Verde / Douro DOC e foto Polaroid.",
               "touristType": [
                 "Casais",
                 "Famílias",
@@ -270,7 +270,7 @@
             "name": "O barco navega no inverno ou em dias de vento e chuva?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Sim, navegamos 365 dias por ano. A nossa embarcação Embarcação Boutique Privada · Máx. 10 Pessoasde 2025 dispõe de capota panorâmica transparente 360° para inverno, luzes quentes 2200K no teto e mantas de lã portuguesa, além de garantia meteorológica com reagendamento gratuito ou reembolso em caso de mau tempo severo."
+              "text": "Sim, navegamos 365 dias por ano. A nossa embarcação privada (máx. 10 convidados) dispõe de capota panorâmica transparente 360° para inverno, luzes quentes 2200K no teto e mantas de lã portuguesa, além de garantia meteorológica com reagendamento gratuito ou reembolso em caso de mau tempo severo."
             }
           },
           {
@@ -2387,6 +2387,225 @@
         font-size: 0.68rem;
       }
     }
+
+    /* ==========================================================================
+       MOBILE / iPHONE FULL-BOAT HERO FRAMING (ZERO BOW/STERN CROPPING!)
+       ========================================================================== */
+    @media (max-width: 768px) {
+      .hero-atelier {
+        min-height: auto;
+        padding-top: 3.15rem;
+        justify-content: flex-start;
+      }
+      .hero-media {
+        position: relative;
+        inset: auto;
+        width: 100%;
+        aspect-ratio: 16 / 10;
+        overflow: hidden;
+        background: #040D18;
+      }
+      .hero-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 52%;
+        transform: none !important;
+        filter: contrast(1.04) brightness(0.96);
+      }
+      .hero-vignette {
+        top: 3.15rem;
+        bottom: auto;
+        height: calc(100vw * 0.625);
+        background: linear-gradient(180deg, rgba(6, 17, 29, 0.24) 0%, transparent 28%, transparent 66%, rgba(6, 17, 29, 0.98) 100%);
+      }
+      .spyker-frame { display: none; }
+      .hero-content {
+        padding-top: 1.1rem;
+        padding-bottom: 2.25rem;
+      }
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 1.15rem;
+      }
+      .hero-eyebrow {
+        font-size: 0.98rem;
+        margin-bottom: 0.65rem;
+      }
+      .hero-title {
+        font-size: clamp(2.15rem, 9.2vw, 2.8rem);
+      }
+      .atelier-solar-pill {
+        margin-top: 0.75rem;
+        padding: 0.42rem 0.7rem;
+        font-size: 0.64rem;
+        line-height: 1.38;
+      }
+      .hero-lead {
+        font-size: 0.92rem;
+        line-height: 1.56;
+      }
+    }
+
+    /* ==========================================================================
+       SECTION 5B — LUXURY EDITORIAL TESTIMONIALS (#reviews)
+       ========================================================================== */
+    .atelier-reviews-section {
+      padding: clamp(4.5rem, 8vw, 7rem) 0;
+      background: linear-gradient(180deg, #06111D 0%, #08182A 50%, #06111D 100%);
+      border-top: 1px solid var(--hairline);
+      border-bottom: 1px solid var(--hairline);
+    }
+
+    .reviews-head-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 2rem;
+      margin-bottom: 2.75rem;
+    }
+
+    .reviews-rating-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 1.15rem;
+      padding: 1rem 1.45rem;
+      border: 1px solid var(--hairline-strong);
+      background: rgba(11, 27, 46, 0.78);
+    }
+
+    .reviews-big-score {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 2.85rem;
+      font-weight: 500;
+      line-height: 1;
+      color: var(--ivory);
+    }
+
+    .reviews-stars {
+      color: #E3B867;
+      font-size: 0.92rem;
+      letter-spacing: 0.14em;
+      line-height: 1;
+      margin-bottom: 0.32rem;
+    }
+
+    .reviews-score-meta {
+      font-size: 0.78rem;
+      color: var(--slate);
+    }
+
+    .atelier-reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.35rem;
+    }
+
+    .atelier-review-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.5rem;
+      padding: 1.85rem 1.75rem;
+      border: 1px solid var(--hairline);
+      background: rgba(11, 27, 46, 0.62);
+      transition: transform 320ms var(--ease-expo), border-color 260ms ease, background-color 260ms ease;
+    }
+
+    .atelier-review-card.is-featured {
+      border-color: rgba(224, 208, 184, 0.42);
+      background: linear-gradient(160deg, rgba(15, 35, 58, 0.94) 0%, rgba(10, 24, 42, 0.82) 100%);
+    }
+
+    .atelier-review-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(88, 185, 238, 0.48);
+    }
+
+    .arc-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.65rem;
+      flex-wrap: wrap;
+    }
+
+    .arc-stars {
+      color: #E3B867;
+      font-size: 0.84rem;
+      letter-spacing: 0.1em;
+    }
+
+    .arc-voyage-tag {
+      font-size: 0.76rem;
+      color: var(--sand);
+      padding: 0.24rem 0.65rem;
+      border: 1px solid rgba(224, 208, 184, 0.24);
+      background: rgba(6, 17, 29, 0.45);
+    }
+
+    .arc-quote {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.36rem;
+      font-style: italic;
+      font-weight: 400;
+      line-height: 1.44;
+      color: var(--ivory);
+    }
+
+    .arc-author {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      padding-top: 1.05rem;
+      border-top: 1px solid var(--hairline);
+    }
+
+    .arc-avatar {
+      width: 2.55rem;
+      height: 2.55rem;
+      border-radius: 50%;
+      border: 1px solid rgba(224, 208, 184, 0.44);
+      background: rgba(26, 146, 210, 0.14);
+      color: var(--sand);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.02rem;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    .arc-name {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--ivory);
+      line-height: 1.2;
+    }
+
+    .arc-origin {
+      font-size: 0.78rem;
+      color: var(--slate);
+      margin-top: 0.18rem;
+    }
+
+    @media (max-width: 960px) {
+      .atelier-reviews-grid {
+        grid-template-columns: 1fr;
+      }
+      .reviews-head-row {
+        margin-bottom: 1.85rem;
+      }
+      .atelier-review-card {
+        padding: 1.45rem 1.35rem;
+      }
+      .arc-quote {
+        font-size: 1.22rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -2413,7 +2632,7 @@
       </svg>
     </div>
     <div class="loader-title">ALPHA DOURO</div>
-    <div class="loader-telemetry mono">41°08'36"N · 08°38'52"W · CAIS DA AFURADA</div>
+    <div class="loader-telemetry mono">41°08'36"N · 08°38'52"W · DOURO MARINA · PORTÃO ALPHA</div>
   </div>
 
   <!-- ======================================================================
@@ -2483,18 +2702,18 @@
     <div class="container hero-content">
       <div class="hero-grid">
         <div>
-          <div class="hero-eyebrow" data-i18n="hero_eyebrow">Porto Maritime Atelier · Cais da Afurada · Est. 2026</div>
+          <div class="hero-eyebrow" data-i18n="hero_eyebrow">Douro Marina · Afurada · Gate Alpha · Est. 2026</div>
           <h1 class="hero-title" data-i18n="hero_title">
             Private <em>Horizon</em><br />on the Douro
           </h1>
           <div class="atelier-solar-pill mono" id="atelierSolarBar">
             <span class="atelier-solar-dot" aria-hidden="true"></span>
-            <span id="atelierSolarText">AFURADA SEA SUNSET TODAY 17:16 · AFURADA DEPARTURE 15:45 · 1 SUNSET SLOT OPEN</span>
+            <span id="atelierSolarText">AFURADA SEA SUNSET TODAY 17:16 · DOURO MARINA · GATE ALPHA 15:45 · 1 SUNSET SLOT OPEN</span>
           </div>
         </div>
         <div class="hero-aside">
           <p class="hero-lead" data-i18n="hero_lead">
-            A single private boutique vessel (max. 10 guests) moored at Cais da Afurada (max 10 guests) — open-air canopy in summer and crystal-clear 360° winter enclosure year-round. Turn right upriver for all 7 bridges of Porto and return — then glide left of Afurada to the sea for sunset.
+            A single private boutique vessel (max. 10 guests) moored at Douro Marina, Afurada · Gate Alpha (max. 10 guests) — open-air canopy in summer and crystal-clear 360° winter enclosure year-round. Turn right upriver for all 7 bridges of Porto and return — then glide left of Afurada to the sea for sunset.
           </p>
           <div class="hero-cta-group">
             <a href="#configurator" class="btn-capri-solid" data-i18n="hero_cta">Commission a Voyage ↗</a>
@@ -2611,7 +2830,7 @@
                 <text x="500" y="121" class="city-monument" data-monument-wp="3" text-anchor="middle">✦ 1886</text>
                 <text x="610" y="126" class="city-monument" data-monument-wp="4" text-anchor="middle">✦ EIFFEL 1877</text>
                 <text x="742" y="103" class="city-monument" data-monument-wp="5" text-anchor="end">✦ VIRAGEM 180° NO RIO</text>
-                <text x="192" y="246" class="city-monument is-lit" data-monument-wp="0" text-anchor="middle">✦ PARTIDA · MARINA</text>
+                <text x="192" y="246" class="city-monument is-lit" data-monument-wp="0" text-anchor="middle">✦ GATE ALPHA · DOURO MARINA</text>
                 <text x="476" y="236" class="city-monument" data-monument-wp="3" text-anchor="middle">✦ SERRA DO PILAR</text>
                 <text x="648" y="236" class="city-monument" data-monument-wp="4" text-anchor="middle">✦ 3.ª &amp; 4.ª PONTES</text>
                 <text x="18" y="274" class="city-monument" data-monument-wp="6" text-anchor="start">✦ PÔR DO SOL NO MAR</text>
@@ -2653,7 +2872,7 @@
                   <line x1="0" y1="8" x2="22" y2="27" stroke="rgba(224,208,184,0.22)" stroke-width="0.9" />
                   <circle class="waypoint-pulse" r="14" />
                   <circle class="waypoint-dot" r="7" fill="#58B9EE" />
-                  <text class="waypoint-label" x="24" y="38" text-anchor="middle">01 CAIS DA AFURADA</text>
+                  <text class="waypoint-label" x="24" y="38" text-anchor="middle">01 DOURO MARINA · GATE ALPHA</text>
                 </g>
                 <!-- 02: Ponte da Arrábida (1st Bridge, Porto Bank) -->
                 <g class="waypoint-group" data-wp="1" transform="translate(278, 138)">
@@ -3073,7 +3292,7 @@
           <div class="luxury-ticket" id="liveTicket" data-cursor-label="INCLINAR PASS">
             <div class="ticket-sheen" id="ticketSheen" aria-hidden="true"></div>
             <div class="ticket-border-inner">
-              <div class="ticket-stamp" id="ticketStamp">ISSUED · AFURADA</div>
+              <div class="ticket-stamp" id="ticketStamp">PORTÃO ALPHA · DOURO MARINA</div>
 
               <div class="ticket-head">
                 <div class="ticket-brand">
@@ -3120,7 +3339,7 @@
               <!-- Captain Gil Animated Calligraphic SVG Signature on 3D Cotton Boarding Pass -->
               <div class="tk-sig-row is-sig-drawn" id="tkSigRow">
                 <div>
-                  <div class="tk-label mono" data-i18n="tk_sig_label">SKIPPER ENDORSEMENT · CAIS DA AFURADA</div>
+                  <div class="tk-label mono" data-i18n="tk_sig_label">SKIPPER ENDORSEMENT · DOURO MARINA · GATE ALPHA</div>
                   <div style="font-size: 0.78rem; font-weight: 600; color: #0A223D;">Cap. Gil — Alpha Douro</div>
                 </div>
                 <div style="display:flex; align-items:center; gap:0.45rem;">
@@ -3187,6 +3406,76 @@
     </div>
   </section>
 
+
+  <!-- ======================================================================
+       SECTION 5B — LUXURY EDITORIAL TESTIMONIALS (DOURO MARINA · PORTÃO ALPHA)
+       ====================================================================== -->
+  <section class="atelier-reviews-section" id="reviews">
+    <div class="container">
+      <div class="reviews-head-row">
+        <div>
+          <div class="sec-kicker" data-i18n="rev_kicker">Testemunhos · Douro Marina · Portão Alpha</div>
+          <h2 class="sec-serif-title" data-i18n="rev_title" data-word-scrub>O Que Fica Depois do Cais</h2>
+          <span class="atelier-rule-draw" aria-hidden="true"></span>
+        </div>
+        <div class="reviews-rating-box">
+          <div class="reviews-big-score">5,0</div>
+          <div>
+            <div class="reviews-stars" aria-label="5 de 5 estrelas">★★★★★</div>
+            <div class="reviews-score-meta" data-i18n="rev_score_lbl">Avaliação Média · Embarque Portão Alpha · Douro Marina</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="atelier-reviews-grid">
+        <article class="atelier-review-card is-featured">
+          <div class="arc-top">
+            <span class="arc-stars" aria-label="5 estrelas">★★★★★</span>
+            <span class="arc-voyage-tag" data-i18n="rev1_tag">Sunset &amp; Prova de Vinhos · Privado</span>
+          </div>
+          <p class="arc-quote" data-i18n="rev1_q">“Embarcámos no Portão Alpha da Douro Marina sem uma única fila. Quando o Cap. Gil desligou o motor junto ao mar na Afurada, com as luzes quentes acesas na capota e dois copos de Porto Tawny, o tempo parou. Noutro campeonato face aos barcos apinhados da Ribeira.”</p>
+          <div class="arc-author">
+            <span class="arc-avatar" aria-hidden="true">CL</span>
+            <div>
+              <div class="arc-name">Claire &amp; Thomas Laurent</div>
+              <div class="arc-origin" data-i18n="rev1_loc">Lyon, França · Reserva Direta Verificada</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="atelier-review-card">
+          <div class="arc-top">
+            <span class="arc-stars" aria-label="5 estrelas">★★★★★</span>
+            <span class="arc-voyage-tag" data-i18n="rev2_tag">Cruzeiro 7 Pontes · 6 Convidados</span>
+          </div>
+          <p class="arc-quote" data-i18n="rev2_q">“Fomos num sábado fresco de inverno e ficámos rendidos: com a capota transparente 360° fechada e as mantas de lã portuguesa, estávamos super confortáveis com vista limpa para as 7 pontes. A foto Polaroid no regresso à Douro Marina foi o detalhe perfeito.”</p>
+          <div class="arc-author">
+            <span class="arc-avatar" aria-hidden="true">MF</span>
+            <div>
+              <div class="arc-name">Mariana &amp; Diogo Ferreira</div>
+              <div class="arc-origin" data-i18n="rev2_loc">Lisboa, Portugal · Grupo Privado</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="atelier-review-card">
+          <div class="arc-top">
+            <span class="arc-stars" aria-label="5 estrelas">★★★★★</span>
+            <span class="arc-voyage-tag" data-i18n="rev3_tag">Charter Privado Sunset</span>
+          </div>
+          <p class="arc-quote" data-i18n="rev3_q">“O concierge do nosso hotel em Gaia recomendou-nos a Alpha Douro. Chegámos em 8 minutos de Uber ao Portão Alpha, aproveitámos o solário enorme na proa e tirámos as melhores fotos de toda a viagem ao Porto. Vale cada euro.”</p>
+          <div class="arc-author">
+            <span class="arc-avatar" aria-hidden="true">DM</span>
+            <div>
+              <div class="arc-name">Daniel &amp; Hannah Mercer</div>
+              <div class="arc-origin" data-i18n="rev3_loc">Boston, EUA · Concierge Hotel 5★</div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <!-- ======================================================================
        SECTION 5A — EDITORIAL COMPARISON: 90-PAX FERRY VS. ALPHA DOURO 10-MAX
        ====================================================================== -->
@@ -3221,7 +3510,7 @@
             <tr>
               <td class="acmp-axis mono" data-i18n="cmp_r2_k">Embarkation</td>
               <td class="acmp-ferry" data-i18n="cmp_r2_f">Long tourist queues and street hawkers at busy Ribeira piers.</td>
-              <td class="acmp-alpha" data-i18n="cmp_r2_a">Tranquil Cais da Afurada marina — zero queues, free parking 30m away.</td>
+              <td class="acmp-alpha" data-i18n="cmp_r2_a">Douro Marina (Gate Alpha · Afurada) — zero queues, free parking 30m away.</td>
             </tr>
             <tr>
               <td class="acmp-axis mono" data-i18n="cmp_r3_k">Real Route</td>
@@ -3251,7 +3540,7 @@
     <div class="container">
       <div class="afurada-atelier-grid">
         <div>
-          <div class="sec-kicker" data-i18n="arr_kicker">Private marina embarkation · Cais da Afurada</div>
+          <div class="sec-kicker" data-i18n="arr_kicker">Private marina embarkation · Douro Marina, Afurada · Gate Alpha</div>
           <h2 class="sec-serif-title" data-i18n="arr_title" data-word-scrub>Calm Water Before You Even Board</h2>
           <span class="atelier-rule-draw" aria-hidden="true"></span>
           <p class="atelier-head-copy" style="margin-top: 1rem; max-width: 31rem;" data-i18n="arr_copy">
@@ -3261,7 +3550,7 @@
             <a href="https://www.google.com/maps/search/?api=1&amp;query=41.14333,-8.64778" target="_blank" rel="noopener noreferrer" class="btn-capri-solid" data-magnetic>
               <span data-i18n="arr_gmaps">Open Google Maps ↗</span>
             </a>
-            <a href="https://maps.apple.com/?ll=41.14333,-8.64778&amp;q=Cais+da+Afurada+Alpha+Douro" target="_blank" rel="noopener noreferrer" class="btn-brass">
+            <a href="https://maps.apple.com/?ll=41.14333,-8.64778&amp;q=Douro+Marina+Afurada+Vila+Nova+de+Gaia+Alpha+Douro" target="_blank" rel="noopener noreferrer" class="btn-brass">
               <span data-i18n="arr_amaps">Apple Maps ↗</span>
             </a>
             <button type="button" class="btn-brass mono" id="atelierCopyGpsBtn">
@@ -3274,7 +3563,7 @@
           <div class="afurada-atelier-box">
             <span class="afurada-box-num mono">01 · UBER / BOLT</span>
             <h3 class="afurada-box-title" data-i18n="arr_c1_t">8 Min from Ribeira &amp; 5★ Hotels</h3>
-            <p class="afurada-box-desc" data-i18n="arr_c1_d">Set drop-off to "Cais da Afurada / Douro Marina". Your driver drops you level with the pier — zero stairs or crowds.</p>
+            <p class="afurada-box-desc" data-i18n="arr_c1_d">Set drop-off to "Douro Marina — Portão Alpha (Afurada)". Your driver drops you level with the pier — zero stairs or crowds.</p>
           </div>
           <div class="afurada-atelier-box">
             <span class="afurada-box-num mono">02 · FREE PARKING</span>
@@ -3326,7 +3615,7 @@
             <span class="atelier-brand-name">ALPHA DOURO</span>
           </div>
           <p style="font-size:0.86rem; line-height:1.6; color:var(--slate); max-width:19rem;" data-i18n="f_bio">
-            Boutique Douro River nautical house operating a custom private boutique vessel (max. 10 guests) from Cais da Afurada, Vila Nova de Gaia.
+            Boutique Douro River nautical house operating a custom private boutique vessel (max. 10 guests) from Douro Marina · Portão Alpha, Afurada, Vila Nova de Gaia.
           </p>
         </div>
 
@@ -3458,9 +3747,9 @@
         badge: "STOP 01 · HOME MARINA EMBARKATION (CAIS DA AFURADA)",
         badgePt: "PARAGEM 01 · EMBARQUE NO CAIS DA AFURADA",
         titleEn: "Cais da Afurada (Departure Pier)",
-        titlePt: "Cais da Afurada (Partida)",
+        titlePt: "Douro Marina · Portão Alpha (Afurada)",
         descEn: "Every voyage departs from Cais da Afurada. Leaving the pier, turning RIGHT takes us upriver through Porto's 7 iconic bridges (and back); turning LEFT takes us to the sea opening at Afurada for the sunset.",
-        descPt: "Todos os passeios partem do Cais da Afurada. Ao sair do cais, virando à DIREITA subimos o Rio Douro pelas 7 pontes históricas (e voltamos para trás); virando à ESQUERDA vamos até ao mar na Afurada ver o pôr do sol.",
+        descPt: "Todos os passeios partem da Douro Marina (Afurada · Portão Alpha). Ao sair do cais, virando à DIREITA subimos o Rio Douro pelas 7 pontes históricas (e voltamos para trás); virando à ESQUERDA vamos até ao mar na Afurada ver o pôr do sol.",
         ritualEn: "RITUAL · EMBOSSED BOARDING PASS & WELCOME POUR",
         ritualPt: "RITUAL · BOARDING PASS EM ALGODÃO & VINHO DE BOAS-VINDAS",
         light: "DEPARTURE PIER",
@@ -4184,8 +4473,8 @@
 
       if (atelierWaBtn) {
         const waMsg = currentLang === "pt"
-          ? `Olá Cap. Gil! Configurei o meu Boarding Pass Alpha Douro (Cais da Afurada):\n• Ref: ${passRefCode}\n• Passeio: ${vName}\n• Data & Hora: ${cfgDate.value} às ${cfgSlot.value}\n• Passageiros: ${partySize} (${guestNameStr})${activeNames.length ? `\n• Rituais a bordo: ${activeNames.join(", ")}` : ""}\n• Total Direto: €${total}`
-          : `Hello Cap. Gil! I composed my Alpha Douro Boarding Pass (Cais da Afurada):\n• Ref: ${passRefCode}\n• Voyage: ${vName}\n• Date & Time: ${cfgDate.value} at ${cfgSlot.value}\n• Party: ${partySize} (${guestNameStr})${activeNames.length ? `\n• Onboard Rituals: ${activeNames.join(", ")}` : ""}\n• Direct Total: €${total}`;
+          ? `Olá Cap. Gil! Configurei o meu Boarding Pass Alpha Douro (Douro Marina · Portão Alpha):\n• Ref: ${passRefCode}\n• Passeio: ${vName}\n• Data & Hora: ${cfgDate.value} às ${cfgSlot.value}\n• Passageiros: ${partySize} (${guestNameStr})${activeNames.length ? `\n• Rituais a bordo: ${activeNames.join(", ")}` : ""}\n• Total Direto: €${total}`
+          : `Hello Cap. Gil! I composed my Alpha Douro Boarding Pass (Douro Marina · Gate Alpha):\n• Ref: ${passRefCode}\n• Voyage: ${vName}\n• Date & Time: ${cfgDate.value} at ${cfgSlot.value}\n• Party: ${partySize} (${guestNameStr})${activeNames.length ? `\n• Onboard Rituals: ${activeNames.join(", ")}` : ""}\n• Direct Total: €${total}`;
         atelierWaBtn.href = `https://wa.me/${CHECKOUT_CONFIG.whatsappNumber}?text=${encodeURIComponent(waMsg)}`;
       }
     }
@@ -4232,8 +4521,8 @@
       }
 
       const waMsg = currentLang === "pt"
-        ? `Olá Cap. Gil! Quero pagar e confirmar imediatamente o meu Boarding Pass Alpha Douro (Cais da Afurada):\n• Ref: ${passRefCode}\n• Passeio: ${vName}\n• Data & Hora: ${cfgDate.value} às ${cfgSlot.value}\n• Passageiros: ${partySize} (${guestNameStr})\n• Total Direto: ${totalStr}\n• Preferência: Link Stripe (Apple Pay/Cartão) ou MB WAY`
-        : `Hello Cap. Gil! I want to pay and confirm my Alpha Douro Boarding Pass (Cais da Afurada):\n• Ref: ${passRefCode}\n• Voyage: ${vName}\n• Date & Time: ${cfgDate.value} at ${cfgSlot.value}\n• Party: ${partySize} (${guestNameStr})\n• Direct Total: ${totalStr}\n• Preference: Stripe Link (Apple Pay/Card) or MB WAY`;
+        ? `Olá Cap. Gil! Quero pagar e confirmar imediatamente o meu Boarding Pass Alpha Douro (Douro Marina · Portão Alpha):\n• Ref: ${passRefCode}\n• Passeio: ${vName}\n• Data & Hora: ${cfgDate.value} às ${cfgSlot.value}\n• Passageiros: ${partySize} (${guestNameStr})\n• Total Direto: ${totalStr}\n• Preferência: Link Stripe (Apple Pay/Cartão) ou MB WAY`
+        : `Hello Cap. Gil! I want to pay and confirm my Alpha Douro Boarding Pass (Douro Marina · Gate Alpha):\n• Ref: ${passRefCode}\n• Voyage: ${vName}\n• Date & Time: ${cfgDate.value} at ${cfgSlot.value}\n• Party: ${partySize} (${guestNameStr})\n• Direct Total: ${totalStr}\n• Preference: Stripe Link (Apple Pay/Card) or MB WAY`;
 
       if (feedbackEl) {
         feedbackEl.innerHTML = currentLang === "pt"
@@ -4319,7 +4608,7 @@
       if (heroTxt) {
         heroTxt.textContent = currentLang === "pt"
           ? `PÔR DO SOL HOJE NO MAR (AFURADA) ${todaySun.sunset} · SAÍDA IDEAL AFURADA ${todaySun.board} · 1 VAGA SUNSET`
-          : `AFURADA SEA SUNSET TODAY ${todaySun.sunset} · IDEAL AFURADA DEPARTURE ${todaySun.board} · 1 SUNSET SLOT OPEN`;
+          : `AFURADA SEA SUNSET TODAY ${todaySun.sunset} · IDEAL DOURO MARINA · GATE ALPHA ${todaySun.board} · 1 SUNSET SLOT OPEN`;
       }
       if (cfgTxt) {
         cfgTxt.textContent = currentLang === "pt"
@@ -4488,7 +4777,7 @@
       en: {
         nav_journey: "7 Bridges & Sea Chart", nav_voyages: "Voyages", nav_pass: "Boarding Pass", nav_atelier: "Atelier", nav_commission: "Commission",
         at_sound_btn: "DOURO SOUND",
-        hero_eyebrow: "Porto Maritime Atelier · Cais da Afurada · Est. 2026",
+        hero_eyebrow: "Douro Marina · Afurada · Gate Alpha · Est. 2026",
         hero_title: "Private <em>Horizon</em><br />on the Douro",
         hero_lead: "A single private boutique vessel (max. 10 guests) crafted for ten guests at most — open-air sun canopy in summer and crystal-clear 360° winter enclosure year-round. Departing Cais da Afurada: turn right upriver for all 7 bridges of Porto and return — or glide left of Afurada to the sea for sunset.",
         hero_cta: "Commission a Voyage ↗", hero_scroll: "Sail the Chart ↓",
@@ -4513,85 +4802,109 @@
         wa_atelier_cta: "MB WAY / WhatsApp (Cap. Gil) ↗",
         pay_2click_cta: "Pay in 2 Clicks · Apple Pay / Card ↗",
         pay_trust_line: "0% COMMISSION · APPLE PAY / CARD / MB WAY · 4-SEASON WEATHER GUARANTEE (360° WINTER CANOPY)",
-        tk_sig_label: "SKIPPER ENDORSEMENT · CAIS DA AFURADA",
+        tk_sig_label: "SKIPPER ENDORSEMENT · DOURO MARINA · GATE ALPHA",
         g_kicker: "Physical touchpoints", g_title: "Crafted Beyond the Hull",
         g_copy: "From embossed cotton boarding passes and matte frosted tumblers to wax-sealed VIP concierge invitations, every tactile object on board belongs to one cohesive Porto house.",
+        rev_kicker: "Guest Impressions · Douro Marina · Gate Alpha",
+        rev_title: "What Stays After the Pier",
+        rev_score_lbl: "Average Rating · Douro Marina · Gate Alpha",
+        rev1_tag: "Sunset & Wine Tasting · Private",
+        rev1_q: "“We boarded at Gate Alpha in Douro Marina with zero queues. When Cap. Gil cut the engine by the sea off Afurada, with the warm canopy lights glowing and two glasses of Tawny Port, time stood still. Worlds apart from crowded Ribeira ferries.”",
+        rev1_loc: "Lyon, France · Verified Direct Booking",
+        rev2_tag: "Seven Bridges Cruise · 6 Guests",
+        rev2_q: "“We sailed on a crisp winter Saturday and loved every minute: with the crystal-clear 360° enclosure zipped and Portuguese wool throws, we stayed warm with unobstructed views of all 7 bridges. The Polaroid back at Douro Marina was the sweetest touch.”",
+        rev2_loc: "Lisbon, Portugal · Private Group",
+        rev3_tag: "Private Sunset Charter",
+        rev3_q: "“Our hotel concierge in Gaia recommended Alpha Douro. An easy 8-minute Uber straight to Gate Alpha, a huge bow sunpad, and the finest golden-hour light we photographed anywhere in Porto. Worth every euro.”",
+        rev3_loc: "Boston, USA · 5★ Hotel Concierge",
         cmp_kicker: "The quiet benchmark · Ribeira Ferry vs. Alpha Douro",
         cmp_title: "Ninety Seats or Ten Water-Level Views",
         cmp_copy: "Same seven historic bridges, an unmistakably different afternoon. Why discerning travelers and 5★ hotel concierges depart from Cais da Afurada instead of crowded Ribeira docks.",
         cmp_h_axis: "DIMENSION", cmp_h_ferry: "STANDARD RIBEIRA FERRY (€18–€22)", cmp_h_alpha: "ALPHA DOURO · AMALFI CAPRI 2025 (€45–€65)",
         cmp_r1_k: "Capacity", cmp_r1_f: "60 to 90 guests packed shoulder-to-shoulder on timber benches.", cmp_r1_a: "Strictly capped at 10 guests on embroidered cream marine cushions.",
-        cmp_r2_k: "Embarkation", cmp_r2_f: "Long tourist queues and street hawkers at busy Ribeira piers.", cmp_r2_a: "Tranquil Cais da Afurada marina — zero queues, free parking 30m away.",
+        cmp_r2_k: "Embarkation", cmp_r2_f: "Long tourist queues and street hawkers at busy Ribeira piers.", cmp_r2_a: "Douro Marina (Gate Alpha · Afurada) — zero queues, free parking 30m away.",
         cmp_r3_k: "Real Route", cmp_r3_f: "50-minute scripted loop with pre-recorded loudspeaker audio.", cmp_r3_a: "2 full hours: Right to all 7 bridges & return, plus Left of Afurada to the sea for sunset.",
         cmp_r4_k: "365-Day Comfort", cmp_r4_f: "Exposed plastic benches or noisy enclosed cabin with no table service.", cmp_r4_a: "Summer canopy + 360° transparent winter enclosure, 2200K ceiling lights, wool throws & Port.",
         cmp_r5_k: "Direct Desk", cmp_r5_f: "Automated aggregator ticket with rigid weather cancellation.", cmp_r5_a: "Direct WhatsApp confirmation with Cap. Gil · 0% commissions · flexible rescheduling.",
-        arr_kicker: "Private marina embarkation · Cais da Afurada",
+        arr_kicker: "Private marina embarkation · Douro Marina, Afurada · Gate Alpha",
         arr_title: "Calm Water Before You Even Board",
         arr_copy: "Instead of fighting tourist queues on Ribeira quays, every Alpha Douro voyage departs from Cais da Afurada — a picturesque fishermen's village and tranquil marina on the Gaia estuary, 8 minutes by Uber from central Porto.",
         arr_gmaps: "Open Google Maps ↗", arr_amaps: "Apple Maps ↗", arr_gps: "COPY GPS · 41°08'36\"N 08°38'52\"W",
         arr_c1_t: "8 Min from Ribeira & 5★ Hotels",
-        arr_c1_d: "Set drop-off to 'Cais da Afurada / Douro Marina'. Your driver drops you level with the pier — zero stairs or crowds.",
+        arr_c1_d: "Set drop-off to 'Douro Marina — Portão Alpha (Afurada)'. Your driver drops you level with the pier — zero stairs or crowds.",
         arr_c2_t: "Park 30m from the Hull",
         arr_c2_d: "Arriving by car? Effortless free waterfront parking along São Pedro da Afurada promenade right opposite our berth.",
         arr_c3_t: "Charcoal-Grilled Fish After Sunset",
         arr_c3_d: "Dine on fresh sea bass grilled over open street coals in Afurada right after watching the sunset over the sea at Afurada.",
         f_kicker: "Five-star hotel & private concierge desk", f_title: "Priority Charters for Porto's Finest Addresses",
         f_copy: "Dedicated WhatsApp dispatch, same-day weather rescheduling, and wax-sealed invitation delivery for concierges at The Yeatman, Maison Albar, Torel Avantgarde, and private event planners.",
-        f_bio: "Boutique Douro River nautical house operating our custom private boutique vessel (max. 10 guests) from Cais da Afurada, Vila Nova de Gaia."
+        f_bio: "Boutique Douro River nautical house operating our custom private boutique vessel (max. 10 guests) from Douro Marina · Portão Alpha, Afurada, Vila Nova de Gaia."
       },
       pt: {
         nav_journey: "Rota 7 Pontes & Mar", nav_voyages: "Passeios", nav_pass: "Boarding Pass", nav_atelier: "Atelier", nav_commission: "Reservar",
         at_sound_btn: "SOM DOURO",
-        hero_eyebrow: "Atelier Náutico no Porto · Cais da Afurada · 365 Dias",
+        hero_eyebrow: "Douro Marina · Afurada · Portão Alpha · 365 Dias",
         hero_title: "Horizonte <em>Privado</em><br />no Rio Douro",
-        hero_lead: "Uma embarcação panorâmica boutique privada para até 10 convidados para dez convidados no máximo — aberta ao sol no verão e equipada com capota transparente 360° para navegar com conforto todo o ano. Ao sair da Afurada: à direita as 7 pontes (ida e volta) e à esquerda o pôr do sol no mar.",
+        hero_lead: "Uma embarcação boutique privada para até dez convidados — aberta ao sol no verão e equipada com capota transparente 360° para navegar com conforto todo o ano. Ao sair da Douro Marina (Portão Alpha · Afurada): à direita as 7 pontes (ida e volta) e à esquerda o pôr do sol no mar.",
         hero_cta: "Configurar Passeio ↗", hero_scroll: "Navegar a Carta ↓",
         j_kicker: "Travessia real com fotos dos locais · Cais da Afurada → Direita: 7 Pontes (Ida e Volta) → Esquerda: Mar na Afurada", j_title: "À Direita as 7 Pontes · À Esquerda o Mar na Afurada",
         manifesto_kicker: "41°08'36\"N · 08°38'52\"W · ← À ESQUERDA DA AFURADA: MAR (PÔR DO SOL) | À DIREITA: 7 PONTES & REGRESSO →",
         v_kicker: "Saídas todo o ano · capota 4 estações · máx. 10 pessoas", v_title: "Seis Passeios, Uma Embarcação",
-        v_copy: "Todas as saídas partem do Cais da Afurada 365 dias por ano (toldo solar no verão e capota panorâmica transparente no inverno) — virando à direita para as 7 pontes e à esquerda na Afurada até ao mar.",
+        v_copy: "Todas as saídas partem da Douro Marina (Afurada · Portão Alpha) 365 dias por ano (toldo solar no verão e capota panorâmica transparente no inverno) — virando à direita para as 7 pontes e à esquerda na Afurada até ao mar.",
         vt1: "Cruzeiro das 7 Pontes do Douro",
-        vd1: "Saída do Cais da Afurada virando à direita pelo Douro acima nos estofos creme do nosso Alpha Douro · Máx. 10 Pessoas (com toldo de verão ou capota panorâmica no inverno). Passagem pelas 7 pontes até ao Freixo e regresso com Vinho Verde / Douro DOC e Polaroid.",
+        vd1: "Saída da Douro Marina (Portão Alpha · Afurada) virando à direita pelo Douro acima nos estofos creme do nosso Alpha Douro · Máx. 10 Pessoas (com toldo de verão ou capota panorâmica no inverno). Passagem pelas 7 pontes até ao Freixo e regresso com Vinho Verde / Douro DOC e Polaroid.",
         vt2: "7 Pontes & Pôr do Sol junto ao Mar na Afurada",
-        vd2: "Saída do Cais da Afurada à direita pela Ribeira e pontes em luz dourada; regressamos rio abaixo e viramos à esquerda na Afurada até ao mar para o brinde ao pôr do sol sob as nossas luzes solares quentes 2200K no toldo.",
+        vd2: "Saída da Douro Marina (Portão Alpha · Afurada) à direita pela Ribeira e pontes em luz dourada; regressamos rio abaixo e viramos à esquerda na Afurada até ao mar para o brinde ao pôr do sol sob as nossas luzes solares quentes 2200K no toldo.",
         vt3: "Charter Privado Exclusivo & Mesa Reserva",
-        vd3: "O barco Alpha Douro · Máx. 10 Pessoas em exclusivo a partir do Cais da Afurada (1–10 pessoas) com mesa de teca posta como na foto: Quinta da Aveleda & Planalto, Porto Taylor's 10 Anos, tábua de queijo e Pastéis de Nata, mantas de lã e projeção privada opcional no teto do toldo.",
+        vd3: "O barco Alpha Douro · Máx. 10 Pessoas em exclusivo a partir da Douro Marina (Afurada · Portão Alpha) (1–10 pessoas) com mesa de teca posta como na foto: Quinta da Aveleda & Planalto, Porto Taylor's 10 Anos, tábua de queijo e Pastéis de Nata, mantas de lã e projeção privada opcional no teto do toldo.",
         vt4: "Prova Cega \"1·2·3\" de Porto, Conservas & Garrafa a Lacre",
         vd4: "A experiência gastronómica retratada na imagem: tabuleiro de cortiça com conservas artesanais de sardinha portuguesa e broa de milho, duelo de prova cega em 3 decantadores numerados (1·2·3) à passagem pelas pontes, fichas de prova e garrafa selada a lacre vermelho.",
         vt5: "Sunset Acústico: Guitarra, Luzes no Toldo & Céu Estrelado",
-        vd5: "Saída do Cais da Afurada ao entardecer com guitarrista acústico ao vivo sob luzes solares quentes 2200K suspensas no toldo, projeção subtil de céu estrelado no teto do bimini, copos de Vinho do Porto e capota transparente 360° nas noites frescas.",
+        vd5: "Saída da Douro Marina (Portão Alpha · Afurada) ao entardecer com guitarrista acústico ao vivo sob luzes solares quentes 2200K suspensas no toldo, projeção subtil de céu estrelado no teto do bimini, copos de Vinho do Porto e capota transparente 360° nas noites frescas.",
         vt6: "Ritual Pastel de Nata, Porto Tawny & Copo Térmico",
-        vd6: "Passeio luminoso todo o ano a partir do Cais da Afurada pela Ribeira e Ponte Dom Luís I, servido na mesa de teca exatamente como na foto: Pastel de Nata com canela, garrafa de Porto Tawny envelhecido e os dois copos térmicos mate ALPHA DOURO.",
+        vd6: "Passeio luminoso todo o ano a partir da Douro Marina (Afurada · Portão Alpha) pela Ribeira e Ponte Dom Luís I, servido na mesa de teca exatamente como na foto: Pastel de Nata com canela, garrafa de Porto Tawny envelhecido e os dois copos térmicos mate ALPHA DOURO.",
         c_kicker: "Mesa de comissão privada", c_title: "Crie o Seu Boarding Pass",
         c_copy: "Personalize a sua partida do Cais da Afurada, convidados e rituais a bordo — incluindo a projeção privada no teto do toldo para pedidos de casamento e datas especiais.",
         wa_atelier_cta: "MB WAY / WhatsApp (Cap. Gil) ↗",
         pay_2click_cta: "Pagar em 2 Cliques · Apple Pay / Cartão ↗",
         pay_trust_line: "0% COMISSÃO · APPLE PAY / CARTÃO / MB WAY · GARANTIA METEOROLÓGICA 4 ESTAÇÕES (CAPOTA 360°)",
-        tk_sig_label: "VISTO DO COMANDANTE · CAIS DA AFURADA",
+        tk_sig_label: "VISTO DO COMANDANTE · DOURO MARINA · PORTÃO ALPHA",
         g_kicker: "Detalhes materiais", g_title: "Cuidado Além do Casco",
         g_copy: "Dos bilhetes em papel de algodão e copos térmicos mate aos convites selados a lacre para hotéis 5 estrelas, cada detalhe físico pertence à mesma casa náutica do Porto.",
+        rev_kicker: "Testemunhos · Douro Marina · Portão Alpha",
+        rev_title: "O Que Fica Depois do Cais",
+        rev_score_lbl: "Avaliação Média · Douro Marina · Portão Alpha",
+        rev1_tag: "Sunset & Prova de Vinhos · Privado",
+        rev1_q: "“Embarcámos no Portão Alpha da Douro Marina sem uma única fila. Quando o Cap. Gil desligou o motor junto ao mar na Afurada, com as luzes quentes acesas na capota e dois copos de Porto Tawny, o tempo parou. Noutro campeonato face aos barcos apinhados da Ribeira.”",
+        rev1_loc: "Lyon, França · Reserva Direta Verificada",
+        rev2_tag: "Cruzeiro 7 Pontes · 6 Convidados",
+        rev2_q: "“Fomos num sábado fresco de inverno e ficámos rendidos: com a capota transparente 360° fechada e as mantas de lã portuguesa, estávamos super confortáveis com vista limpa para as 7 pontes. A foto Polaroid no regresso à Douro Marina foi o detalhe perfeito.”",
+        rev2_loc: "Lisboa, Portugal · Grupo Privado",
+        rev3_tag: "Charter Privado Sunset",
+        rev3_q: "“O concierge do nosso hotel em Gaia recomendou-nos a Alpha Douro. Chegámos em 8 minutos de Uber ao Portão Alpha, aproveitámos o solário enorme na proa e tirámos as melhores fotos de toda a viagem ao Porto. Vale cada euro.”",
+        rev3_loc: "Boston, EUA · Concierge Hotel 5★",
         cmp_kicker: "A diferença silenciosa · Barco Turístico vs. Alpha Douro",
         cmp_title: "Noventa Lugares ou Dez Vistas ao Nível da Água",
         cmp_copy: "As mesmas sete pontes históricas, uma tarde completamente diferente. Veja porque quem valoriza luz, bom vinho e tranquilidade embarca no Cais da Afurada em vez dos cais massificados da Ribeira.",
         cmp_h_axis: "DETALHE", cmp_h_ferry: "BARCO TURÍSTICO RIBEIRA (€18–€22)", cmp_h_alpha: "ALPHA DOURO · AMALFI CAPRI 2025 (€45–€65)",
         cmp_r1_k: "Lotação", cmp_r1_f: "60 a 90 pessoas ombro a ombro em bancos corridos de madeira.", cmp_r1_a: "Lotação estrita de 10 convidados em estofos náuticos creme bordados.",
-        cmp_r2_k: "Embarque", cmp_r2_f: "Filas turísticas demoradas e confusão nos pontões da Ribeira.", cmp_r2_a: "Marina calma do Cais da Afurada — zero filas, estacionamento gratuito a 30m.",
+        cmp_r2_k: "Embarque", cmp_r2_f: "Filas turísticas demoradas e confusão nos pontões da Ribeira.", cmp_r2_a: "Douro Marina (Portão Alpha · Afurada) — zero filas, estacionamento gratuito a 30m.",
         cmp_r3_k: "Rota Real", cmp_r3_f: "Volta rápida de 50 minutos com gravação em altifalante.", cmp_r3_a: "2 horas completas: à direita pelas 7 pontes (ida e volta) e à esquerda na Afurada até ao mar.",
         cmp_r4_k: "Conforto 365 Dias", cmp_r4_f: "Exposto ao frio/chuva ou cabine fechada ruidosa sem serviço.", cmp_r4_a: "Toldo de verão + capota panorâmica 360° de inverno, luzes 2200K no teto, mantas de lã & Porto.",
         cmp_r5_k: "Reserva Direta", cmp_r5_f: "Bilhete impessoal de plataforma com regras rígidas de alteração.", cmp_r5_a: "WhatsApp direto com o Cap. Gil · 0% comissões · reagendamento flexível por clima.",
-        arr_kicker: "Embarque privado em marina · Cais da Afurada",
+        arr_kicker: "Embarque privado · Douro Marina, Afurada · Portão Alpha",
         arr_title: "Tranquilidade Antes Mesmo de Embarcar",
-        arr_copy: "Em vez de enfrentar as filas turísticas da Ribeira, todos os passeios Alpha Douro partem do Cais da Afurada — a pitoresca vila piscatória e marina tranquila no estuário de Gaia, a 8 minutos de Uber do centro do Porto.",
+        arr_copy: "Em vez de enfrentar as filas turísticas da Ribeira, todos os passeios Alpha Douro partem da Douro Marina (Afurada · Portão Alpha) — a pitoresca vila piscatória e marina tranquila no estuário de Gaia, a 8 minutos de Uber do centro do Porto.",
         arr_gmaps: "Abrir Google Maps ↗", arr_amaps: "Apple Maps ↗", arr_gps: "COPIAR GPS · 41°08'36\"N 08°38'52\"W",
         arr_c1_t: "8 Min de Uber da Ribeira & Hotéis 5★",
-        arr_c1_d: "Coloque como destino 'Cais da Afurada / Douro Marina'. O motorista deixa-o ao nível do pontão — sem escadas nem multidões.",
+        arr_c1_d: "Coloque como destino 'Douro Marina — Portão Alpha (Afurada)'. O motorista deixa-o ao nível do pontão — sem escadas nem multidões.",
         arr_c2_t: "Estacionamento a 30m do Barco",
         arr_c2_d: "Vem em viatura própria? Estacionamento fácil e gratuito ao longo da marginal de São Pedro da Afurada, mesmo em frente ao cais.",
         arr_c3_t: "Vila Piscatória & Peixe na Brasa",
         arr_c3_d: "Ao regressar do pôr do sol junto ao mar na Afurada, jante robalo ou dourada grelhada no carvão nas ruas tradicionais de azulejo da Afurada.",
         f_kicker: "Concierge de hotéis 5 estrelas", f_title: "Charters Prioritários para os Melhores Hotéis do Porto",
         f_copy: "Atendimento direto por WhatsApp, reagendamento meteorológico no próprio dia e entrega de convites lacrados para equipas de concierge do The Yeatman, Maison Albar e Torel Avantgarde.",
-        f_bio: "Casa náutica boutique no Rio Douro a partir do Cais da Afurada, operando a nossa embarcação panorâmica 4 estações Alpha Douro · Máx. 10 Pessoas para no máximo dez convidados."
+        f_bio: "Casa náutica boutique no Rio Douro a partir da Douro Marina (Afurada · Portão Alpha), operando a nossa embarcação panorâmica 4 estações Alpha Douro · Máx. 10 Pessoas para no máximo dez convidados."
       }
     };
 
@@ -4613,7 +4926,8 @@
       ["✦ OCEANO ATLÂNTICO", "✦ ATLANTIC OCEAN"],
       ["✦ CAVES DE GAIA", "✦ GAIA PORT CELLARS"],
       ["✦ VIRAGEM 180° NO RIO", "✦ 180° IN-RIVER TURN"],
-      ["✦ PARTIDA · MARINA", "✦ DEPARTURE · MARINA"],
+      ["✦ GATE ALPHA · DOURO MARINA", "✦ PORTÃO ALPHA · DOURO MARINA"],
+      ["01 DOURO MARINA · GATE ALPHA", "01 DOURO MARINA · PORTÃO ALPHA"],
       ["✦ 3.ª & 4.ª PONTES", "✦ 3RD & 4TH BRIDGES"],
       ["✦ PÔR DO SOL NO MAR", "✦ OCEAN SUNSET"],
       ["02 ARRÁBIDA (1.ª)", "02 ARRÁBIDA (1ST)"],
@@ -4667,7 +4981,7 @@
       ["Herringbone Wool Throw (Keep)", "Manta de Lã Portuguesa (Oferta)"],
       ["Stamp & Issue Boarding Pass ↗", "Emitir Boarding Pass ↗"],
       ["INSTANT PREVIEW · ZERO BOOKING FEES · DIRECT CAIS DA AFURADA DISPATCH", "PRÉ-VISUALIZAÇÃO IMEDIATA · 0% COMISSÕES · PARTIDA CAIS DA AFURADA"],
-      ["ISSUED · AFURADA", "EMITIDO · AFURADA"],
+      ["PORTÃO ALPHA · DOURO MARINA", "EMITIDO · AFURADA"],
       ["SELECTED VOYAGE", "PASSEIO SELECIONADO"],
       ["LEAD PASSENGER", "PASSAGEIRO PRINCIPAL"],
       ["PARTY & EMBARKATION", "CONVIDADOS & EMBARQUE"],
