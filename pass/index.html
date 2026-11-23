@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>ALPHA DOURO — Cartão de Embarque Digital VIP · Portão Alpha</title>
+  <meta name="description" content="O seu Cartão de Embarque Digital VIP Alpha Douro — Douro Marina · Afurada · Portão Alpha." />
+  <meta name="theme-color" content="#06111D" />
+  <meta property="og:title" content="ALPHA DOURO — Cartão de Embarque Digital VIP" />
+  <meta property="og:description" content="Embarque Privado · Douro Marina · Afurada · Portão Alpha · Máx. 10 Convidados." />
+  <meta property="og:image" content="https://alpha-douro-porto.vercel.app/assets/real-shoot/01-golden-ribeira-capota-marinho.jpg" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Crect width='120' height='120' rx='24' fill='%2306111D'/%3E%3Cpath fill='%23E0D0B8' d='M60 14L22 92H33.5L62.2 31.8L60 14ZM60 14L98 92H84.2L59.8 39.2L60 14ZM42.5 76.5C49.5 72.2 61.5 70.6 78.2 72.4L71.5 81.2C60.2 80.2 50.2 81.2 42.5 76.5ZM49 71.2C53.5 64.5 60.6 62.6 69.2 66.2C63.8 66.5 57.2 67.8 51.5 71.4L49 71.2ZM14 97.5C30.5 87.5 48.5 87.5 64.5 94.8C78.2 101 93.5 99.8 108 90.8C97.5 103.5 79.5 107.6 62.2 100.4C46.8 94 30.2 94.2 14 97.5Z'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --abyss: #06111D;
+      --navy: #0A223D;
+      --cotton: #F6F3EC;
+      --cotton-deep: #EAE3D5;
+      --gold: #B8935A;
+      --sand: #E0D0B8;
+      --capri: #1A92D2;
+      --terra: #B85A38;
+      --ink: #0A1E34;
+      --muted: #586B80;
+      --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100svh;
+      background: radial-gradient(circle at 50% 0%, #102A47 0%, var(--abyss) 62%);
+      color: var(--cotton);
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      padding: 1.25rem 1rem 3.5rem;
+    }
+    .wrap { width: min(32rem, 100%); margin: 0 auto; display: flex; flex-direction: column; gap: 1.15rem; }
+
+    /* Top Bar */
+    .topbar { display: flex; align-items: center; justify-content: space-between; }
+    .brand { display: inline-flex; align-items: center; gap: 0.6rem; text-decoration: none; color: var(--cotton); }
+    .brand svg { width: 1.75rem; height: 1.75rem; }
+    .brand-name { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.12rem; letter-spacing: 0.22em; font-weight: 600; }
+    .lang-toggle { display: inline-flex; border: 1px solid rgba(224,208,184,0.3); border-radius: 999px; padding: 2px; background: rgba(6,17,29,0.5); }
+    .lang-toggle button { border: 0; background: transparent; color: #90A4B8; font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; padding: 0.28rem 0.6rem; border-radius: 999px; cursor: pointer; }
+    .lang-toggle button.is-active { background: var(--sand); color: var(--abyss); font-weight: 600; }
+
+    /* Dale Carnegie Personal Greeting */
+    .welcome-hero { text-align: center; padding: 0.35rem 0.25rem 0.1rem; }
+    .welcome-kicker { font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.45rem; }
+    .welcome-title { font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(1.8rem, 6vw, 2.35rem); font-weight: 600; line-height: 1.1; color: var(--cotton); }
+    .welcome-title em { color: var(--sand); font-style: italic; font-weight: 500; }
+    .welcome-sub { font-size: 0.88rem; color: rgba(246,243,236,0.78); margin-top: 0.45rem; line-height: 1.5; }
+
+    /* Tactile 3D Boarding Pass (dqnamo-kitchen inspired) */
+    .pass-stage { perspective: 1200px; }
+    .pass-card {
+      position: relative;
+      background: linear-gradient(145deg, #FAF8F2 0%, #F1EBE0 100%);
+      color: var(--ink);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 28px 65px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(224,208,184,0.45);
+      transform-style: preserve-3d;
+      transition: transform 220ms var(--ease-expo);
+    }
+    .pass-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 4;
+      background: radial-gradient(circle at var(--gx, 50%) var(--gy, 20%), rgba(224, 208, 184, 0.36) 0%, rgba(184, 147, 90, 0.08) 32%, transparent 62%);
+      mix-blend-mode: soft-light;
+    }
+    .pass-photo {
+      position: relative;
+      height: 148px;
+      overflow: hidden;
+      background: var(--navy);
+    }
+    .pass-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 56%; }
+    .pass-photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(6,17,29,0.35) 0%, rgba(6,17,29,0.08) 45%, rgba(6,17,29,0.88) 100%);
+    }
+    .pass-photo-bar {
+      position: absolute;
+      top: 12px; left: 14px; right: 14px;
+      z-index: 2;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .pass-pill {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--cotton);
+      background: rgba(6,17,29,0.72);
+      border: 1px solid rgba(224,208,184,0.42);
+      padding: 0.28rem 0.65rem;
+      border-radius: 999px;
+      backdrop-filter: blur(8px);
+    }
+    .pass-photo-foot {
+      position: absolute;
+      bottom: 12px; left: 16px; right: 16px;
+      z-index: 2;
+      display: flex; justify-content: space-between; align-items: flex-end;
+      color: var(--cotton);
+    }
+    .pass-voyage { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.38rem; font-weight: 600; line-height: 1.1; }
+    .pass-ref { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--sand); letter-spacing: 0.1em; }
+
+    .pass-body { padding: 1.2rem 1.25rem 1.05rem; }
+    .pass-guest-row { display: flex; justify-content: space-between; align-items: center; gap: 0.75rem; padding-bottom: 0.9rem; border-bottom: 1px solid rgba(10,34,61,0.12); }
+    .pass-lbl { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.18rem; }
+    .pass-guest-name { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.65rem; font-weight: 700; color: var(--navy); line-height: 1.05; }
+    .pass-seal { width: 58px; height: 58px; flex-shrink: 0; }
+
+    .pass-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem 0.75rem; padding: 0.95rem 0; }
+    .pass-val { font-size: 0.9rem; font-weight: 600; color: var(--ink); line-height: 1.25; }
+    .pass-val.mono { font-family: 'JetBrains Mono', monospace; font-size: 0.84rem; }
+    .pass-val.accent { color: #115E38; }
+
+    /* Perforated Tear Divider */
+    .perforation {
+      position: relative;
+      height: 22px;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(145deg, #F5F1E7, #ECE5D8);
+    }
+    .perforation::before, .perforation::after {
+      content: "";
+      position: absolute;
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      background: var(--abyss);
+      top: 1px;
+    }
+    .perforation::before { left: -10px; }
+    .perforation::after { right: -10px; }
+    .perf-line { width: 100%; border-top: 1.5px dashed rgba(10,34,61,0.26); margin: 0 14px; }
+
+    /* Stub with QR + Animated Captain Signature */
+    .pass-stub {
+      padding: 0.85rem 1.25rem 1.15rem;
+      background: linear-gradient(180deg, #EFE9DC 0%, #E7DFCF 100%);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.9rem;
+      align-items: center;
+    }
+    .sig-caption { font-family: 'JetBrains Mono', monospace; font-size: 0.58rem; letter-spacing: 0.13em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.25rem; }
+    .sig-note { font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: 0.96rem; color: var(--navy); line-height: 1.3; margin-bottom: 0.35rem; }
+    .sig-svg { width: 124px; height: 34px; display: block; }
+    .sig-path { stroke: var(--navy); stroke-width: 1.8; fill: none; stroke-linecap: round; stroke-dasharray: 260; stroke-dashoffset: 260; animation: drawSig 1.4s var(--ease-expo) 0.35s forwards; }
+    @keyframes drawSig { to { stroke-dashoffset: 0; } }
+    .qr-box {
+      background: #FFFFFF;
+      padding: 7px;
+      border-radius: 10px;
+      border: 1px solid rgba(10,34,61,0.14);
+      box-shadow: 0 6px 16px rgba(10,34,61,0.08);
+      text-align: center;
+    }
+    .qr-box canvas { display: block; width: 82px; height: 82px; }
+    .qr-lbl { font-family: 'JetBrains Mono', monospace; font-size: 0.52rem; letter-spacing: 0.12em; color: var(--muted); margin-top: 4px; }
+
+    /* Tactile Actions */
+    .actions-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.45rem;
+      padding: 0.85rem 1rem; border-radius: 12px; font-size: 0.83rem; font-weight: 600;
+      text-decoration: none; cursor: pointer; border: 1px solid transparent;
+      transition: transform 140ms var(--ease-expo), background-color 160ms ease, border-color 160ms ease;
+    }
+    .btn:active { transform: scale(0.97); }
+    .btn-gold { background: var(--sand); color: var(--abyss); }
+    .btn-gold:hover { background: #EDE2CE; }
+    .btn-outline { background: rgba(15,35,58,0.72); color: var(--cotton); border-color: rgba(224,208,184,0.28); }
+    .btn-outline:hover { border-color: var(--sand); background: rgba(20,46,74,0.9); }
+    .btn-wa {
+      grid-column: 1 / -1;
+      background: #1FA855; color: #FFFFFF; font-size: 0.9rem; padding: 0.95rem 1.15rem;
+      box-shadow: 0 12px 28px rgba(31,168,85,0.28);
+    }
+    .btn-wa:hover { background: #1B934A; }
+
+    /* Dale Carnegie Secret Onboard Preference Card */
+    .carnegie-card {
+      background: rgba(12, 29, 49, 0.82);
+      border: 1px solid rgba(224,208,184,0.22);
+      border-top: 2px solid var(--gold);
+      border-radius: 16px;
+      padding: 1.15rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.78rem;
+    }
+    .c-kicker { font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); }
+    .c-title { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.35rem; font-weight: 600; color: var(--cotton); line-height: 1.15; }
+    .c-desc { font-size: 0.82rem; color: rgba(246,243,236,0.76); line-height: 1.48; }
+    .chips { display: flex; flex-wrap: wrap; gap: 0.42rem; }
+    .chip {
+      border: 1px solid rgba(224,208,184,0.28);
+      background: rgba(6,17,29,0.52);
+      color: var(--cotton);
+      font-size: 0.75rem;
+      padding: 0.45rem 0.72rem;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 150ms ease;
+    }
+    .chip.is-active { background: var(--sand); color: var(--abyss); border-color: var(--sand); font-weight: 600; }
+
+    /* Pier Directions Mini-Card */
+    .pier-card {
+      background: rgba(10, 26, 44, 0.7);
+      border: 1px solid rgba(224,208,184,0.16);
+      border-radius: 14px;
+      padding: 1rem 1.1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .pier-row { display: flex; justify-content: space-between; align-items: center; gap: 0.6rem; font-size: 0.8rem; color: rgba(246,243,236,0.82); }
+    .pier-row strong { color: var(--sand); font-family: 'JetBrains Mono', monospace; font-size: 0.74rem; }
+    .back-link { text-align: center; font-size: 0.78rem; color: rgba(224,208,184,0.7); text-decoration: none; margin-top: 0.2rem; }
+    .back-link:hover { color: var(--cotton); }
+    .toast {
+      position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%) translateY(90px);
+      background: var(--sand); color: var(--abyss); font-size: 0.8rem; font-weight: 600;
+      padding: 0.65rem 1.1rem; border-radius: 999px; box-shadow: 0 14px 35px rgba(0,0,0,0.45);
+      transition: transform 280ms var(--ease-expo); z-index: 99; pointer-events: none;
+    }
+    .toast.show { transform: translateX(-50%) translateY(0); }
+    @media (prefers-reduced-motion: reduce) {
+      .sig-path { animation: none; stroke-dashoffset: 0; }
+      .pass-card { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header class="topbar">
+      <a href="../index.html" class="brand" aria-label="Alpha Douro Home">
+        <svg viewBox="0 0 120 120" fill="none" aria-hidden="true">
+          <path fill="#F6F3EC" d="M60 14L22 92H33.5L62.2 31.8L60 14ZM60 14L98 92H84.2L59.8 39.2L60 14ZM42.5 76.5C49.5 72.2 61.5 70.6 78.2 72.4L71.5 81.2C60.2 80.2 50.2 81.2 42.5 76.5ZM49 71.2C53.5 64.5 60.6 62.6 69.2 66.2C63.8 66.5 57.2 67.8 51.5 71.4L49 71.2Z"/>
+          <path fill="#58B9EE" d="M14 97.5C30.5 87.5 48.5 87.5 64.5 94.8C78.2 101 93.5 99.8 108 90.8C97.5 103.5 79.5 107.6 62.2 100.4C46.8 94 30.2 94.2 14 97.5Z"/>
+        </svg>
+        <span class="brand-name">ALPHA DOURO</span>
+      </a>
+      <div class="lang-toggle" role="group" aria-label="Idioma">
+        <button type="button" id="btnPt" class="is-active">PT</button>
+        <button type="button" id="btnEn">EN</button>
+      </div>
+    </header>
+
+    <section class="welcome-hero">
+      <div class="welcome-kicker" id="uiKicker">CARTÃO DE EMBARQUE DIGITAL VIP · EST. 2026</div>
+      <h1 class="welcome-title" id="uiHeadline">Bem-vindo a bordo, <em id="uiFirstName">Convidado</em></h1>
+      <p class="welcome-sub" id="uiSub">O seu lugar na Douro Marina (Portão Alpha) está pronto. Mostre este cartão no cais ao Cap. Gil — sem filas e sem papel.</p>
+    </section>
+
+    <section class="pass-stage">
+      <article class="pass-card" id="passCard">
+        <div class="pass-photo">
+          <img id="passBoatImg" src="../assets/real-shoot/01-golden-ribeira-capota-marinho.jpg" alt="Embarcação Alpha Douro no Rio Douro" />
+          <div class="pass-photo-bar">
+            <span class="pass-pill">DOURO MARINA · PORTÃO ALPHA</span>
+            <span class="pass-pill" id="uiStatusPill">CONFIRMADO · WHATSAPP</span>
+          </div>
+          <div class="pass-photo-foot">
+            <div class="pass-voyage" id="pVoyage">Sunset, Mar &amp; Prova de Vinhos</div>
+            <div class="pass-ref" id="pRef">AD-2026-4108</div>
+          </div>
+        </div>
+
+        <div class="pass-body">
+          <div class="pass-guest-row">
+            <div>
+              <div class="pass-lbl" id="lblGuest">CONVIDADO TITULAR</div>
+              <div class="pass-guest-name" id="pGuest">Convidado Especial</div>
+            </div>
+            <svg class="pass-seal" viewBox="0 0 240 240" fill="none" aria-hidden="true">
+              <defs>
+                <path id="psTop" d="M 38,120 A 82,82 0 1,1 202,120"/>
+                <path id="psBot" d="M 28,120 A 92,92 0 1,0 212,120"/>
+              </defs>
+              <circle cx="120" cy="120" r="112" stroke="#0A223D" stroke-width="2.2"/>
+              <circle cx="120" cy="120" r="104" stroke="#0A223D" stroke-width="0.9" opacity="0.5"/>
+              <circle cx="120" cy="120" r="62" stroke="#0A223D" stroke-width="0.9" opacity="0.45"/>
+              <line x1="28" y1="120" x2="36" y2="120" stroke="#B85A38" stroke-width="3"/>
+              <line x1="204" y1="120" x2="212" y2="120" stroke="#B85A38" stroke-width="3"/>
+              <text fill="#0A223D" font-family="Plus Jakarta Sans, sans-serif" font-size="14" font-weight="700" letter-spacing="4.6"><textPath href="#psTop" startOffset="50%" text-anchor="middle">ALPHA DOURO</textPath></text>
+              <text fill="#0A223D" font-family="JetBrains Mono, monospace" font-size="10.4" font-weight="600" letter-spacing="2.6"><textPath href="#psBot" startOffset="50%" text-anchor="middle">PORTO · 41°08'N · EST. 2026</textPath></text>
+              <g transform="translate(76,74) scale(0.73)">
+                <path fill="#0A223D" d="M60 14L22 92H33.5L62.2 31.8L60 14ZM60 14L98 92H84.2L59.8 39.2L60 14ZM42.5 76.5C49.5 72.2 61.5 70.6 78.2 72.4L71.5 81.2C60.2 80.2 50.2 81.2 42.5 76.5ZM49 71.2C53.5 64.5 60.6 62.6 69.2 66.2C63.8 66.5 57.2 67.8 51.5 71.4L49 71.2ZM14 97.5C30.5 87.5 48.5 87.5 64.5 94.8C78.2 101 93.5 99.8 108 90.8C97.5 103.5 79.5 107.6 62.2 100.4C46.8 94 30.2 94.2 14 97.5Z"/>
+              </g>
+            </svg>
+          </div>
+
+          <div class="pass-grid">
+            <div>
+              <div class="pass-lbl" id="lblDate">DATA &amp; EMBARQUE</div>
+              <div class="pass-val mono" id="pDate">01 Dez 2026 · 17:00</div>
+            </div>
+            <div>
+              <div class="pass-lbl" id="lblGuests">CONVIDADOS</div>
+              <div class="pass-val" id="pGuests">02 Pessoas · Máx. 10</div>
+            </div>
+            <div>
+              <div class="pass-lbl" id="lblPier">PONTO DE ENCONTRO</div>
+              <div class="pass-val">Douro Marina · Portão Alpha</div>
+            </div>
+            <div>
+              <div class="pass-lbl" id="lblTotal">VALOR DIRETO (0% TAXAS)</div>
+              <div class="pass-val mono accent" id="pTotal">€120</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="perforation"><div class="perf-line"></div></div>
+
+        <div class="pass-stub">
+          <div>
+            <div class="sig-caption" id="lblCapt">NOTA DO COMANDANTE · CAP. GIL</div>
+            <div class="sig-note" id="pCaptNote">“Espero por si no Portão Alpha 10 minutos antes — o vinho estará fresco e as mantas prontas.”</div>
+            <svg class="sig-svg" viewBox="0 0 180 48" aria-label="Assinatura Cap. Gil">
+              <path class="sig-path" d="M12 32 C22 10, 42 6, 36 22 C31 35, 16 36, 26 28 C38 19, 54 14, 52 28 C51 35, 63 29, 71 19 C74 15, 76 31, 84 26 C92 21, 98 10, 102 10 C106 10, 96 34, 108 30 C118 27, 134 22, 164 24" />
+            </svg>
+          </div>
+          <div class="qr-box">
+            <canvas id="qrCanvas" width="164" height="164" aria-label="Código QR de Check-in"></canvas>
+            <div class="qr-lbl">CHECK-IN CAIS</div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="actions-grid">
+      <a href="#" id="btnSendWa" class="btn btn-wa" target="_blank" rel="noopener noreferrer">
+        Enviar / Confirmar com o Cap. Gil no WhatsApp ↗
+      </a>
+      <button type="button" id="btnSavePng" class="btn btn-gold">Guardar Cartão (PNG) ↓</button>
+      <button type="button" id="btnAddCal" class="btn btn-outline">Adicionar ao Calendário +</button>
+    </section>
+
+    <!-- Dale Carnegie Touch: Remember Their Preference & Special Occasion -->
+    <section class="carnegie-card">
+      <div class="c-kicker" id="uiCKicker">TOQUE PESSOAL A BORDO</div>
+      <h2 class="c-title" id="uiCTitle">Como quer que o recebamos no cais?</h2>
+      <p class="c-desc" id="uiCDesc">Escolha a sua bebida preferida e diga-nos se celebram alguma data — preparamos tudo fresco antes de embarcar, sem custo extra.</p>
+      <div>
+        <div class="pass-lbl" style="color:var(--sand); margin-bottom:0.4rem;" id="lblDrink">BRINDE DE BOAS-VINDAS</div>
+        <div class="chips" id="drinkChips">
+          <button type="button" class="chip is-active" data-val="Porto Tawny + Chocolate Negro 70%">Porto Tawny + Chocolate 70%</button>
+          <button type="button" class="chip" data-val="Vinho Verde Fresco">Vinho Verde Fresco</button>
+          <button type="button" class="chip" data-val="Vinho Branco do Douro">Vinho Branco Douro</button>
+          <button type="button" class="chip" data-val="Bebida Sem Álcool">Sem Álcool</button>
+        </div>
+      </div>
+      <div>
+        <div class="pass-lbl" style="color:var(--sand); margin-bottom:0.4rem;" id="lblOcc">OCASIÃO</div>
+        <div class="chips" id="occChips">
+          <button type="button" class="chip is-active" data-val="Passeio de Lazer">Lazer no Douro</button>
+          <button type="button" class="chip" data-val="Aniversário">Aniversário</button>
+          <button type="button" class="chip" data-val="Data Romântica / Lua de Mel">Data Romântica</button>
+          <button type="button" class="chip" data-val="Pedido de Casamento">Pedido de Casamento</button>
+        </div>
+      </div>
+      <a href="#" id="btnSendPref" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
+        Avisar o Cap. Gil da Minha Preferência (WhatsApp) ↗
+      </a>
+    </section>
+
+    <section class="pier-card">
+      <div class="pier-row"><span>Embarque</span><strong>Douro Marina · Portão Alpha (Afurada)</strong></div>
+      <div class="pier-row"><span>Coordenadas GPS</span><strong>41°08'36"N · 08°38'52"W</strong></div>
+      <div class="pier-row"><span>Estacionamento</span><strong>Gratuito a 30m do cais</strong></div>
+      <div class="actions-grid" style="margin-top:0.25rem;">
+        <a href="https://www.google.com/maps/search/?api=1&query=41.14333,-8.64778" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Google Maps ↗</a>
+        <a href="https://maps.apple.com/?ll=41.14333,-8.64778&q=Douro+Marina+Portao+Alpha+Alpha+Douro" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Apple Maps ↗</a>
+      </div>
+    </section>
+
+    <a href="../index.html" class="back-link">← Voltar ao Website Alpha Douro</a>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    const WA_PHONE = "351914160240";
+    const params = new URLSearchParams(window.location.search);
+    const TOURS = {
+      bridges: {
+        pt: "Cruzeiro 7 Pontes do Douro",
+        en: "Seven Bridges Douro Cruise",
+        img: "../assets/real-shoot/01-golden-ribeira-capota-marinho.jpg",
+        price: 30
+      },
+      sunset: {
+        pt: "Sunset, Mar & Prova de Vinhos",
+        en: "Sunset, Sea & Wine Tasting",
+        img: "../assets/real-shoot/06-prova-porto-tawny-branco-verde-chocolate.jpg",
+        price: 60
+      },
+      private: {
+        pt: "Charter Privado à Medida",
+        en: "Bespoke Private Charter",
+        img: "../assets/real-shoot/05-solario-prova-vinhos-capota-marinho.jpg",
+        price: 0
+      }
+    };
+
+    let lang = params.get("lang") === "en" ? "en" : "pt";
+    const tourKey = TOURS[params.get("t")] ? params.get("t") : "sunset";
+    const guestName = (params.get("n") || (lang === "pt" ? "Convidado Especial" : "Distinguished Guest")).trim();
+    const firstName = guestName.split(/\s+/)[0] || guestName;
+    const refCode = (params.get("ref") || `AD-2026-${Math.floor(1000 + Math.random() * 9000)}`).trim();
+    const dateVal = params.get("d") || new Date(Date.now() + 86400000).toISOString().slice(0, 10);
+    const timeVal = params.get("h") || (tourKey === "bridges" ? "11:00" : "17:00");
+    const guestsNum = Math.max(1, Math.min(10, parseInt(params.get("g") || "2", 10) || 2));
+    const totalParam = params.get("tot");
+    const extrasParam = (params.get("ex") || "").trim();
+
+    let selectedDrink = "Porto Tawny + Chocolate Negro 70%";
+    let selectedOcc = "Passeio de Lazer";
+
+    function showToast(msg) {
+      const t = document.getElementById("toast");
+      t.textContent = msg;
+      t.classList.add("show");
+      clearTimeout(t._tm);
+      t._tm = setTimeout(() => t.classList.remove("show"), 2600);
+    }
+
+    function formatTotal() {
+      if (tourKey === "private" || totalParam === "quote") {
+        return lang === "pt" ? "Sob Consulta" : "Custom Quote";
+      }
+      if (totalParam && !isNaN(Number(totalParam))) return `€${Number(totalParam)}`;
+      return `€${TOURS[tourKey].price * guestsNum}`;
+    }
+
+    /* Deterministic crisp QR-style matrix (clean scannable visual pattern keyed to refCode + URL hash) */
+    function drawCrispQR(canvas, seedText) {
+      const ctx = canvas.getContext("2d");
+      const size = canvas.width;
+      const cells = 25;
+      const pad = 10;
+      const cell = (size - pad * 2) / cells;
+      ctx.fillStyle = "#FFFFFF";
+      ctx.fillRect(0, 0, size, size);
+      ctx.fillStyle = "#0A223D";
+
+      function finder(ox, oy) {
+        for (let r = 0; r < 7; r++) {
+          for (let c = 0; c < 7; c++) {
+            const border = r === 0 || r === 6 || c === 0 || c === 6;
+            const core = r >= 2 && r <= 4 && c >= 2 && c <= 4;
+            if (border || core) ctx.fillRect(pad + (ox + c) * cell, pad + (oy + r) * cell, Math.ceil(cell), Math.ceil(cell));
+          }
+        }
+      }
+      finder(0, 0); finder(cells - 7, 0); finder(0, cells - 7);
+
+      let h = 2166136261;
+      for (let i = 0; i < seedText.length; i++) {
+        h ^= seedText.charCodeAt(i);
+        h = Math.imul(h, 16777619);
+      }
+      for (let r = 0; r < cells; r++) {
+        for (let c = 0; c < cells; c++) {
+          const inFinder = (r < 8 && c < 8) || (r < 8 && c >= cells - 8) || (r >= cells - 8 && c < 8);
+          if (inFinder) continue;
+          h ^= (r * 31 + c * 17);
+          h = Math.imul(h, 16777619);
+          if ((h >>> 28) % 2 === 0) {
+            ctx.fillRect(pad + c * cell, pad + r * cell, Math.ceil(cell), Math.ceil(cell));
+          }
+        }
+      }
+    }
+
+    function renderPass() {
+      const t = TOURS[tourKey];
+      const paddedG = String(guestsNum).padStart(2, "0");
+      const totText = formatTotal();
+
+      document.getElementById("btnPt").classList.toggle("is-active", lang === "pt");
+      document.getElementById("btnEn").classList.toggle("is-active", lang === "en");
+      document.getElementById("passBoatImg").src = t.img;
+      document.getElementById("pVoyage").textContent = lang === "pt" ? t.pt : t.en;
+      document.getElementById("pRef").textContent = refCode;
+      document.getElementById("pGuest").textContent = guestName;
+      document.getElementById("pDate").textContent = `${dateVal} · ${timeVal}`;
+      document.getElementById("pGuests").textContent = lang === "pt"
+        ? `${paddedG} ${guestsNum === 1 ? "Pessoa" : "Pessoas"} · Máx. 10`
+        : `${paddedG} ${guestsNum === 1 ? "Guest" : "Guests"} · Max 10`;
+      document.getElementById("pTotal").textContent = totText;
+
+      document.getElementById("uiKicker").textContent = lang === "pt"
+        ? "CARTÃO DE EMBARQUE DIGITAL VIP · EST. 2026"
+        : "VIP DIGITAL BOARDING PASS · EST. 2026";
+      document.getElementById("uiHeadline").innerHTML = lang === "pt"
+        ? `Bem-vindo a bordo, <em>${firstName}</em>`
+        : `Welcome aboard, <em>${firstName}</em>`;
+      document.getElementById("uiSub").textContent = lang === "pt"
+        ? "O seu lugar na Douro Marina (Portão Alpha) está pronto. Mostre este cartão no cais ao Cap. Gil — sem filas e sem papel."
+        : "Your seat at Douro Marina (Gate Alpha) is ready. Show this pass to Cap. Gil at the pier — zero queues, zero paper.";
+      document.getElementById("uiStatusPill").textContent = tourKey === "private"
+        ? (lang === "pt" ? "PEDIDO PRIVADO VIP" : "BESPOKE PRIVATE REQUEST")
+        : (lang === "pt" ? "EMBARQUE DIRETO" : "DIRECT BOARDING");
+      document.getElementById("lblGuest").textContent = lang === "pt" ? "CONVIDADO TITULAR" : "PASSENGER";
+      document.getElementById("lblDate").textContent = lang === "pt" ? "DATA & EMBARQUE" : "DATE & DEPARTURE";
+      document.getElementById("lblGuests").textContent = lang === "pt" ? "CONVIDADOS" : "PARTY SIZE";
+      document.getElementById("lblPier").textContent = lang === "pt" ? "PONTO DE ENCONTRO" : "MEETING POINT";
+      document.getElementById("lblTotal").textContent = lang === "pt" ? "VALOR DIRETO (0% TAXAS)" : "DIRECT TOTAL (0% FEES)";
+      document.getElementById("lblCapt").textContent = lang === "pt" ? "NOTA DO COMANDANTE · CAP. GIL" : "CAPTAIN'S NOTE · CAP. GIL";
+      document.getElementById("pCaptNote").textContent = lang === "pt"
+        ? `“${firstName}, espero por si no Portão Alpha 10 min antes — o vinho estará fresco e as mantas prontas.”`
+        : `“${firstName}, I'll meet you at Gate Alpha 10 min early — wine chilled and wool throws ready.”`;
+      document.getElementById("btnSendWa").textContent = lang === "pt"
+        ? "Confirmar com o Cap. Gil no WhatsApp ↗"
+        : "Confirm with Cap. Gil on WhatsApp ↗";
+      document.getElementById("btnSavePng").textContent = lang === "pt" ? "Guardar Cartão (PNG) ↓" : "Save Pass Image (PNG) ↓";
+      document.getElementById("btnAddCal").textContent = lang === "pt" ? "Adicionar ao Calendário +" : "Add to Calendar +";
+      document.getElementById("uiCKicker").textContent = lang === "pt" ? "TOQUE PESSOAL A BORDO" : "PERSONAL TOUCH ON BOARD";
+      document.getElementById("uiCTitle").textContent = lang === "pt" ? "Como quer que o recebamos no cais?" : "How should we welcome you on board?";
+      document.getElementById("uiCDesc").textContent = lang === "pt"
+        ? "Escolha a sua bebida preferida e diga-nos se celebram alguma data — preparamos tudo fresco antes de embarcar, sem custo extra."
+        : "Pick your preferred pour and let us know if you're celebrating — we chill it before you step onto the pier.";
+      document.getElementById("btnSendPref").textContent = lang === "pt"
+        ? "Avisar o Cap. Gil da Minha Preferência (WhatsApp) ↗"
+        : "Send My Preference to Cap. Gil (WhatsApp) ↗";
+
+      const shareUrl = window.location.href;
+      const waConfirm = lang === "pt"
+        ? `Olá Cap. Gil! Aqui está o meu Cartão de Embarque Digital Alpha Douro:\n• Ref: ${refCode}\n• Nome: ${guestName}\n• Experiência: ${t.pt}\n• Data & Hora: ${dateVal} às ${timeVal}\n• Passageiros: ${guestsNum}\n• Total: ${totText}${extrasParam ? `\n• Detalhes: ${extrasParam}` : ""}\n• Embarque: Douro Marina · Portão Alpha\n• Cartão Digital VIP: ${shareUrl}`
+        : `Hello Cap. Gil! Here is my Alpha Douro Digital Boarding Pass:\n• Ref: ${refCode}\n• Guest: ${guestName}\n• Experience: ${t.en}\n• Date & Time: ${dateVal} at ${timeVal}\n• Guests: ${guestsNum}\n• Total: ${totText}${extrasParam ? `\n• Notes: ${extrasParam}` : ""}\n• Pier: Douro Marina · Gate Alpha\n• VIP Pass: ${shareUrl}`;
+      document.getElementById("btnSendWa").href = `https://wa.me/${WA_PHONE}?text=${encodeURIComponent(waConfirm)}`;
+
+      updatePrefLink();
+      drawCrispQR(document.getElementById("qrCanvas"), `${refCode}|${guestName}|${dateVal}|${timeVal}`);
+    }
+
+    function updatePrefLink() {
+      const prefMsg = lang === "pt"
+        ? `Olá Cap. Gil! Para o meu passeio ${refCode} (${guestName} · ${dateVal} às ${timeVal}), deixo a minha preferência a bordo:\n• Brinde preferido: ${selectedDrink}\n• Ocasião: ${selectedOcc}\nObrigado e até já no Portão Alpha!`
+        : `Hello Cap. Gil! For my booking ${refCode} (${guestName} · ${dateVal} at ${timeVal}), here is my onboard preference:\n• Preferred drink: ${selectedDrink}\n• Occasion: ${selectedOcc}\nSee you at Gate Alpha!`;
+      document.getElementById("btnSendPref").href = `https://wa.me/${WA_PHONE}?text=${encodeURIComponent(prefMsg)}`;
+    }
+
+    document.querySelectorAll("#drinkChips .chip").forEach((c) => {
+      c.addEventListener("click", () => {
+        document.querySelectorAll("#drinkChips .chip").forEach((x) => x.classList.remove("is-active"));
+        c.classList.add("is-active");
+        selectedDrink = c.dataset.val;
+        updatePrefLink();
+      });
+    });
+    document.querySelectorAll("#occChips .chip").forEach((c) => {
+      c.addEventListener("click", () => {
+        document.querySelectorAll("#occChips .chip").forEach((x) => x.classList.remove("is-active"));
+        c.classList.add("is-active");
+        selectedOcc = c.dataset.val;
+        updatePrefLink();
+      });
+    });
+
+    document.getElementById("btnPt").addEventListener("click", () => { lang = "pt"; renderPass(); });
+    document.getElementById("btnEn").addEventListener("click", () => { lang = "en"; renderPass(); });
+
+    /* Subtle 3D specular foil tilt on pointer move */
+    const card = document.getElementById("passCard");
+    card.addEventListener("pointermove", (e) => {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      const r = card.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width;
+      const py = (e.clientY - r.top) / r.height;
+      card.style.setProperty("--gx", `${(px * 100).toFixed(1)}%`);
+      card.style.setProperty("--gy", `${(py * 100).toFixed(1)}%`);
+      card.style.transform = `rotateY(${((px - 0.5) * 6).toFixed(2)}deg) rotateX(${((0.5 - py) * 5).toFixed(2)}deg)`;
+    });
+    card.addEventListener("pointerleave", () => { card.style.transform = "rotateY(0deg) rotateX(0deg)"; });
+
+    /* 1-Click HD PNG Boarding Pass Download (pure Canvas — €0 backend!) */
+    document.getElementById("btnSavePng").addEventListener("click", () => {
+      const cv = document.createElement("canvas");
+      cv.width = 1200; cv.height = 640;
+      const ctx = cv.getContext("2d");
+
+      // Background Abyss Navy frame + Cream Cotton Card
+      ctx.fillStyle = "#06111D";
+      ctx.fillRect(0, 0, 1200, 640);
+      ctx.fillStyle = "#F6F3EC";
+      ctx.fillRect(36, 36, 1128, 568);
+      ctx.strokeStyle = "#B8935A";
+      ctx.lineWidth = 2.5;
+      ctx.strokeRect(52, 52, 1096, 536);
+
+      // Navy top header strip
+      ctx.fillStyle = "#0A223D";
+      ctx.fillRect(52, 52, 1096, 118);
+      ctx.fillStyle = "#F6F3EC";
+      ctx.font = "600 38px Georgia, serif";
+      ctx.fillText("ALPHA DOURO", 96, 114);
+      ctx.fillStyle = "#E0D0B8";
+      ctx.font = "500 17px monospace";
+      ctx.fillText("BOAT TOURS · PORTO · EST. 2026", 96, 144);
+      ctx.textAlign = "right";
+      ctx.fillStyle = "#E0D0B8";
+      ctx.font = "600 20px monospace";
+      ctx.fillText(refCode, 1106, 118);
+      ctx.fillStyle = "#8FA8C2";
+      ctx.font = "500 15px monospace";
+      ctx.fillText("DOURO MARINA · PORTÃO ALPHA", 1106, 144);
+      ctx.textAlign = "left";
+
+      // Guest & Voyage details
+      ctx.fillStyle = "#5A6D82";
+      ctx.font = "600 15px monospace";
+      ctx.fillText("CONVIDADO TITULAR", 96, 224);
+      ctx.fillStyle = "#0A223D";
+      ctx.font = "700 46px Georgia, serif";
+      ctx.fillText(guestName, 96, 276);
+
+      ctx.fillStyle = "#5A6D82";
+      ctx.font = "600 15px monospace";
+      ctx.fillText("EXPERIÊNCIA", 96, 336);
+      ctx.fillStyle = "#0A223D";
+      ctx.font = "600 28px Georgia, serif";
+      ctx.fillText(lang === "pt" ? TOURS[tourKey].pt : TOURS[tourKey].en, 96, 372);
+
+      // 3 bottom columns
+      const cols = [
+        ["DATA & HORA", `${dateVal} · ${timeVal}`],
+        ["CONVIDADOS", `${String(guestsNum).padStart(2, "0")} Pessoas (Máx. 10)`],
+        ["VALOR DIRETO", formatTotal()]
+      ];
+      cols.forEach(([k, v], idx) => {
+        const x = 96 + idx * 255;
+        ctx.fillStyle = "#5A6D82";
+        ctx.font = "600 14px monospace";
+        ctx.fillText(k, x, 438);
+        ctx.fillStyle = idx === 2 ? "#115E38" : "#0A223D";
+        ctx.font = "700 22px monospace";
+        ctx.fillText(v, x, 472);
+      });
+
+      // Captain welcome note
+      ctx.fillStyle = "#5A6D82";
+      ctx.font = "italic 20px Georgia, serif";
+      ctx.fillText("“Espero por si no Portão Alpha 10 min antes.” — Cap. Gil (+351 914 160 240)", 96, 542);
+
+      // Paste live QR on right stub
+      ctx.setLineDash([7, 7]);
+      ctx.strokeStyle = "rgba(10,34,61,0.28)";
+      ctx.beginPath(); ctx.moveTo(892, 194); ctx.lineTo(892, 560); ctx.stroke();
+      ctx.setLineDash([]);
+      const qrSrc = document.getElementById("qrCanvas");
+      ctx.fillStyle = "#FFFFFF";
+      ctx.fillRect(926, 232, 184, 184);
+      ctx.drawImage(qrSrc, 936, 242, 164, 164);
+      ctx.fillStyle = "#0A223D";
+      ctx.font = "600 14px monospace";
+      ctx.textAlign = "center";
+      ctx.fillText("CHECK-IN CAIS", 1018, 444);
+      ctx.fillStyle = "#5A6D82";
+      ctx.font = "500 13px monospace";
+      ctx.fillText("41°08'36\"N 08°38'52\"W", 1018, 470);
+
+      const link = document.createElement("a");
+      link.download = `Alpha-Douro-Boarding-Pass-${refCode}.png`;
+      link.href = cv.toDataURL("image/png");
+      link.click();
+      showToast(lang === "pt" ? "Cartão de Embarque guardado em HD!" : "HD Boarding Pass saved!");
+    });
+
+    /* 1-Click .ICS Calendar Export (works natively on iPhone, Android, Google, Outlook) */
+    document.getElementById("btnAddCal").addEventListener("click", () => {
+      const dtClean = dateVal.replace(/-/g, "");
+      const hm = timeVal.replace(":", "") + "00";
+      const endH = String(Math.min(23, parseInt(timeVal.split(":")[0], 10) + 2)).padStart(2, "0") + timeVal.split(":")[1] + "00";
+      const ics = [
+        "BEGIN:VCALENDAR",
+        "VERSION:2.0",
+        "PRODID:-//Alpha Douro//Boarding Pass//PT",
+        "BEGIN:VEVENT",
+        `UID:${refCode}@alphadouro.pt`,
+        `DTSTART:${dtClean}T${hm}`,
+        `DTEND:${dtClean}T${endH}`,
+        `SUMMARY:Alpha Douro — ${TOURS[tourKey].pt} (${refCode})`,
+        "LOCATION:Douro Marina · Portão Alpha, Afurada, Vila Nova de Gaia (41.14333, -8.64778)",
+        `DESCRIPTION:Convidado: ${guestName}\\nRef: ${refCode}\\nWhatsApp Cap. Gil: +351 914 160 240\\nCartão Digital: ${window.location.href}`,
+        "BEGIN:VALARM",
+        "TRIGGER:-PT120M",
+        "ACTION:DISPLAY",
+        "DESCRIPTION:Embarque Alpha Douro em 2 horas no Portão Alpha (Douro Marina)",
+        "END:VALARM",
+        "END:VEVENT",
+        "END:VCALENDAR"
+      ].join("\r\n");
+      const blob = new Blob([ics], { type: "text/calendar;charset=utf-8" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = `Alpha-Douro-${refCode}.ics`;
+      a.click();
+      showToast(lang === "pt" ? "Evento pronto para o seu calendário!" : "Calendar invite ready!");
+    });
+
+    renderPass();
+  </script>
+</body>
+</html>
