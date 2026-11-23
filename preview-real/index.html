@@ -2606,6 +2606,91 @@
         font-size: 1.22rem;
       }
     }
+
+    /* ==========================================================================
+       BESPOKE PRIVATE CHARTER BUILDER ("SOB CONSULTA" — ZERO FIXED PRICE!)
+       ========================================================================== */
+    .bespoke-private-box {
+      display: none;
+      flex-direction: column;
+      gap: 0.95rem;
+      padding: 1.15rem 1.2rem;
+      border: 1px solid rgba(224, 208, 184, 0.36);
+      background: linear-gradient(155deg, rgba(16, 40, 68, 0.92) 0%, rgba(8, 22, 38, 0.92) 100%);
+    }
+
+    .bespoke-private-box.is-open {
+      display: flex;
+    }
+
+    .bespoke-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      padding-bottom: 0.65rem;
+      border-bottom: 1px solid rgba(224, 208, 184, 0.16);
+    }
+
+    .bespoke-title {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.32rem;
+      font-weight: 500;
+      color: var(--sand);
+    }
+
+    .bespoke-pill {
+      font-size: 0.74rem;
+      color: var(--ivory);
+      padding: 0.24rem 0.65rem;
+      border: 1px solid rgba(88, 185, 238, 0.45);
+      background: rgba(26, 146, 210, 0.16);
+    }
+
+    .bespoke-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.48rem;
+    }
+
+    .bespoke-chip {
+      padding: 0.48rem 0.8rem;
+      border: 1px solid rgba(224, 208, 184, 0.24);
+      background: rgba(6, 17, 29, 0.55);
+      color: var(--ivory);
+      font-family: inherit;
+      font-size: 0.79rem;
+      cursor: pointer;
+      transition: border-color 180ms ease, background-color 180ms ease, color 180ms ease;
+    }
+
+    .bespoke-chip:hover {
+      border-color: var(--capri-glow);
+    }
+
+    .bespoke-chip.is-active {
+      border-color: var(--sand);
+      background: rgba(224, 208, 184, 0.18);
+      color: #ffffff;
+      font-weight: 500;
+    }
+
+    .bespoke-notes {
+      width: 100%;
+      min-height: 4.4rem;
+      padding: 0.7rem 0.85rem;
+      border: 1px solid rgba(224, 208, 184, 0.22);
+      background: rgba(6, 17, 29, 0.62);
+      color: var(--ivory);
+      font-family: inherit;
+      font-size: 0.84rem;
+      resize: vertical;
+    }
+
+    .bespoke-notes::placeholder {
+      color: rgba(143, 163, 184, 0.75);
+    }
   </style>
 </head>
 <body>
@@ -3047,12 +3132,12 @@
                 <span class="av-tag">ABERTURA −33% · MÁX. 10</span>
               </div>
               <h3 class="av-title">Cruzeiro das 7 Pontes do Douro</h3>
-              <p class="av-desc">Saída da tranquila Douro Marina (Afurada · Portão Alpha) no nosso barco real com capota Azul-Marinho lisa (e proteção panorâmica 360° no inverno). Subida pelas 7 pontes até ao Freixo e regresso, com bebida de boas-vindas e foto Polaroid. <strong>Partilhado (€30 abertura em vez de €45) ou Privado Exclusivo (€390 até 10 pessoas).</strong></p>
+              <p class="av-desc">Saída da tranquila Douro Marina (Afurada · Portão Alpha) no nosso barco real com capota Azul-Marinho lisa (e proteção panorâmica 360° no inverno). Subida pelas 7 pontes até ao Freixo e regresso, com bebida de boas-vindas e foto Polaroid. <strong>Partilhado (€30 abertura em vez de €45) ou peça versão 100% privada à medida.</strong></p>
             </div>
             <div class="av-foot">
               <div>
                 <div class="av-price mono"><span style="text-decoration:line-through; opacity:0.45; font-size:1.15rem; margin-right:0.4rem;">€45</span>€30</div>
-                <div class="av-unit mono">POR PESSOA (ABERTURA) · €390 PRIVADO</div>
+                <div class="av-unit mono">POR PESSOA · TARIFA DE ABERTURA</div>
               </div>
               <button type="button" class="btn-brass" data-select-voyage="bridges">Reservar Tour 01 →</button>
             </div>
@@ -3072,12 +3157,12 @@
                 <span class="av-tag">SUNSET &amp; PROVA VINHOS</span>
               </div>
               <h3 class="av-title">Sunset 7 Pontes, Mar &amp; Prova de Vinhos</h3>
-              <p class="av-desc">Subida pelas 7 pontes em luz dourada e ida à esquerda da Afurada até ao mar para o pôr do sol sob as luzes quentes 2200K na capota Azul-Marinho, com <strong>Prova de Vinhos do Porto &amp; Douro, Pastéis de Nata e Mantas de lã portuguesa</strong>. <strong>Partilhado (€60/p) ou Privado Exclusivo (€490 até 6p · €590 até 10p c/ tábua completa).</strong></p>
+              <p class="av-desc">Subida pelas 7 pontes em luz dourada e ida à esquerda da Afurada até ao mar para o pôr do sol sob as luzes quentes 2200K na capota Azul-Marinho, com <strong>Prova de Vinhos do Porto &amp; Douro, Pastéis de Nata e Mantas de lã portuguesa</strong>. <strong>Partilhado (€60/p) ou configure a sua versão privada à medida.</strong></p>
             </div>
             <div class="av-foot">
               <div>
                 <div class="av-price mono">€60</div>
-                <div class="av-unit mono">POR PESSOA · €490 / €590 PRIVADO</div>
+                <div class="av-unit mono">POR PESSOA · PARTILHADO MÁX. 10</div>
               </div>
               <button type="button" class="btn-capri-solid" data-magnetic data-select-voyage="sunset">Reservar Sunset →</button>
             </div>
@@ -3121,7 +3206,7 @@
             <select id="cfgTour" class="atelier-select">
                 <option value="bridges">Tour 01 · 7 Pontes (Tarifa de Abertura — €30 / pessoa)</option>
                 <option value="sunset" selected>Tour 02 · Sunset, Mar &amp; Prova de Vinhos (€60 / pessoa)</option>
-                <option value="private">Charter Privado Exclusivo (Dia €390 · Sunset €590 · até 10p)</option>
+                <option value="private">Charter Privado à Medida (Barco Exclusivo 1–10p · Sob Consulta)</option>
               </select>
           </div>
 
@@ -3157,7 +3242,52 @@
             </div>
           </div>
 
-          <div class="cfg-field">
+          <!-- Bespoke Private Charter Builder (Visible ONLY when "Charter Privado à Medida" is selected — ZERO Fixed Price!) -->
+          <div class="bespoke-private-box" id="bespokePrivateBox" aria-label="Personalizar Charter Privado">
+            <div class="bespoke-head">
+              <div class="bespoke-title" data-i18n="bp_title">Personalize o Seu Charter Privado</div>
+              <span class="bespoke-pill" data-i18n="bp_pill">Orçamento Personalizado · Sem Preço Fixo</span>
+            </div>
+            <div class="cfg-row-2">
+              <div class="cfg-field">
+                <label class="cfg-label mono" for="cfgOccasion" data-i18n="bp_occ_lbl">OCASIÃO</label>
+                <select id="cfgOccasion" class="cfg-select">
+                  <option value="Sunset Romântico">Sunset Romântico / Casal</option>
+                  <option value="Pedido de Casamento">Pedido de Casamento</option>
+                  <option value="Aniversário / Celebração">Aniversário / Celebração</option>
+                  <option value="Família & Amigos">Família &amp; Amigos</option>
+                  <option value="Evento Corporativo / Hotel 5★">Evento Corporativo / Hotel 5★</option>
+                  <option value="Outro / À Medida">Outro / À Medida</option>
+                </select>
+              </div>
+              <div class="cfg-field">
+                <label class="cfg-label mono" for="cfgDuration" data-i18n="bp_dur_lbl">DURAÇÃO PRETENDIDA</label>
+                <select id="cfgDuration" class="cfg-select">
+                  <option value="2 Horas">2 Horas (7 Pontes &amp; Mar)</option>
+                  <option value="3 Horas">3 Horas (Ritmo Lento &amp; Prova)</option>
+                  <option value="Meio Dia (4 Horas)">Meio Dia (4 Horas)</option>
+                  <option value="Horário Personalizado">Horário Personalizado</option>
+                </select>
+              </div>
+            </div>
+            <div class="cfg-field">
+              <span class="cfg-label mono" data-i18n="bp_wish_lbl">ESCOLHA O QUE DESEJA A BORDO (NÓS DAMOS O ORÇAMENTO)</span>
+              <div class="bespoke-chips" id="bespokeChips">
+                <button type="button" class="bespoke-chip is-active" data-wish="Prova de Vinhos do Porto & Douro">Prova de Vinhos do Porto &amp; Douro</button>
+                <button type="button" class="bespoke-chip" data-wish="Tábua de Queijos, Conservas & Pastéis de Nata">Tábua Queijos, Conservas &amp; Natas</button>
+                <button type="button" class="bespoke-chip" data-wish="Guitarrista Acústico ao Vivo">Guitarrista Acústico ao Vivo</button>
+                <button type="button" class="bespoke-chip" data-wish="Projeção Privada no Teto Azul-Marinho («Marry Me» / Data)">Projeção Privada no Teto («Marry Me»)</button>
+                <button type="button" class="bespoke-chip" data-wish="Fotógrafo / Vídeo Profissional">Fotógrafo / Vídeo Profissional</button>
+                <button type="button" class="bespoke-chip" data-wish="Champanhe & Decoração Floral">Champanhe &amp; Decoração Floral</button>
+              </div>
+            </div>
+            <div class="cfg-field">
+              <label class="cfg-label mono" for="cfgPrivateNotes" data-i18n="bp_notes_lbl">NOTAS OU PEDIDOS ESPECIAIS (OPCIONAL)</label>
+              <textarea id="cfgPrivateNotes" class="bespoke-notes" placeholder="Ex.: gostávamos de surpreender no pôr do sol, música favorita, vinho específico ou hora de embarque..."></textarea>
+            </div>
+          </div>
+
+          <div class="cfg-field" id="cfgRitualsWrap">
             <span class="cfg-label mono">06 · ONBOARD RITUALS &amp; KEEPSAKES</span>
             <div class="ritual-toggles" id="cfgRituals">
               <button type="button" class="ritual-btn is-active" data-key="conservas" data-price="32" data-mode="flat">
@@ -4324,7 +4454,7 @@
     const VOYAGES = {
       bridges:  { nameEn: "Tour 01 · Seven Bridges Opening (€30)", namePt: "Tour 01 · 7 Pontes (Abertura €30)", price: 30, mode: "guest", slot: "11:30" },
       sunset:   { nameEn: "Tour 02 · Sunset, Sea & Wine Tasting (€60)", namePt: "Tour 02 · Sunset & Prova de Vinhos (€60)", price: 60, mode: "guest", slot: "18:30" },
-      private:  { nameEn: "Private Charter (Day €390 · Sunset €590)", namePt: "Charter Privado (Dia €390 · Sunset €590)", price: 390, mode: "flat", slot: "15:00" },
+      private:  { nameEn: "Bespoke Private Charter (Custom Quote)", namePt: "Charter Privado à Medida (Sob Consulta)", price: 0, mode: "quote", slot: "18:30" },
       proposal: { nameEn: "1·2·3 Blind Port Duel, Conservas & Wax Bottle", namePt: "Prova Cega 1·2·3, Conservas & Garrafa a Lacre", price: 75, mode: "guest", slot: "15:00" },
       acoustic: { nameEn: "Acoustic Guitar & Starlight Canopy Sunset", namePt: "Sunset Acústico: Guitarra & Luzes no Toldo", price: 85, mode: "guest", slot: "18:30" },
       espresso: { nameEn: "Pastel de Nata, Tawny Port & Tumbler Cruise", namePt: "Ritual Pastel de Nata, Porto Tawny & Copos", price: 55, mode: "guest", slot: "11:30" }
@@ -4347,19 +4477,35 @@
     function syncBoardingPass() {
       const v = VOYAGES[cfgTour.value] || VOYAGES.sunset;
       const vName = currentLang === "pt" ? v.namePt : v.nameEn;
-      let base = v.mode === "flat" ? v.price : v.price * partySize;
-      if (cfgTour.value === "private" && cfgSlot.value === "18:30") base = 590;
+      const isQuote = v.mode === "quote";
+      const bespokeBox = document.getElementById("bespokePrivateBox");
+      const ritualsWrap = document.getElementById("cfgRitualsWrap");
+      const payBtnEl = document.getElementById("atelierPayBtn");
+      if (bespokeBox) bespokeBox.classList.toggle("is-open", isQuote);
+      if (ritualsWrap) ritualsWrap.style.display = isQuote ? "none" : "";
+      if (payBtnEl) payBtnEl.style.display = isQuote ? "none" : "";
 
       const activeNames = [];
       let addons = 0;
-      ritualBtns.forEach((btn) => {
-        if (btn.classList.contains("is-active")) {
-          const price = Number(btn.dataset.price);
-          addons += btn.dataset.mode === "guest" ? price * partySize : price;
-          activeNames.push(btn.querySelector(".ritual-name").textContent.split(" (")[0]);
-        }
-      });
+      let bespokeSummary = "";
+      if (isQuote) {
+        const occ = document.getElementById("cfgOccasion")?.value || "Charter Privado";
+        const dur = document.getElementById("cfgDuration")?.value || "2 Horas";
+        const wishes = Array.from(document.querySelectorAll("#bespokeChips .bespoke-chip.is-active")).map((b) => b.dataset.wish || b.textContent.trim());
+        activeNames.push(occ, dur, ...wishes);
+        const notes = (document.getElementById("cfgPrivateNotes")?.value || "").trim();
+        bespokeSummary = `\n• Ocasião: ${occ}\n• Duração: ${dur}${wishes.length ? `\n• Desejos a bordo: ${wishes.join(", ")}` : ""}${notes ? `\n• Notas especiais: ${notes}` : ""}`;
+      } else {
+        ritualBtns.forEach((btn) => {
+          if (btn.classList.contains("is-active")) {
+            const price = Number(btn.dataset.price);
+            addons += btn.dataset.mode === "guest" ? price * partySize : price;
+            activeNames.push(btn.querySelector(".ritual-name").textContent.split(" (")[0]);
+          }
+        });
+      }
 
+      let base = isQuote ? 0 : (v.mode === "flat" ? v.price : v.price * partySize);
       const total = base + addons;
       const paddedGuests = String(partySize).padStart(2, "0");
       const guestNameStr = cfgGuestName.value.trim() || (currentLang === "pt" ? "Convidado Especial" : "Distinguished Guest");
@@ -4376,12 +4522,23 @@
       document.getElementById("tkRituals").textContent = activeNames.length
         ? activeNames.join(" · ")
         : (currentLang === "pt" ? "Brinde de Boas-Vindas Incluído" : "Signature Pour Included");
-      document.getElementById("tkTotal").textContent = `€${total}`;
+      const totalDisplay = isQuote ? (currentLang === "pt" ? "Sob Consulta" : "Custom Quote") : `€${total}`;
+      document.getElementById("tkTotal").textContent = totalDisplay;
+      const waSpan = atelierWaBtn?.querySelector("span");
+      if (waSpan) {
+        waSpan.textContent = isQuote
+          ? (currentLang === "pt" ? "Pedir Orçamento Privado (WhatsApp Cap. Gil) ↗" : "Request Private Quote (WhatsApp Cap. Gil) ↗")
+          : (currentLang === "pt" ? "MB WAY / WhatsApp (Cap. Gil) ↗" : "MB WAY / WhatsApp (Cap. Gil) ↗");
+      }
 
       if (atelierWaBtn) {
-        const waMsg = currentLang === "pt"
-          ? `Olá Cap. Gil! Configurei o meu Boarding Pass Alpha Douro (Douro Marina · Portão Alpha):\n• Ref: ${passRefCode}\n• Passeio: ${vName}\n• Data & Hora: ${cfgDate.value} às ${cfgSlot.value}\n• Passageiros: ${partySize} (${guestNameStr})${activeNames.length ? `\n• Rituais a bordo: ${activeNames.join(", ")}` : ""}\n• Total Direto: €${total}`
-          : `Hello Cap. Gil! I composed my Alpha Douro Boarding Pass (Douro Marina · Gate Alpha):\n• Ref: ${passRefCode}\n• Voyage: ${vName}\n• Date & Time: ${cfgDate.value} at ${cfgSlot.value}\n• Party: ${partySize} (${guestNameStr})${activeNames.length ? `\n• Onboard Rituals: ${activeNames.join(", ")}` : ""}\n• Direct Total: €${total}`;
+        const waMsg = isQuote
+          ? (currentLang === "pt"
+              ? `Olá Cap. Gil! Gostaria de pedir um ORÇAMENTO PERSONALIZADO para um Charter Privado Alpha Douro (Douro Marina · Portão Alpha):\n• Ref: ${passRefCode}\n• Data & Hora pretendida: ${cfgDate.value} às ${cfgSlot.value}\n• Passageiros: ${partySize} (${guestNameStr})${bespokeSummary}\n• Aguardo o vosso orçamento à medida!`
+              : `Hello Cap. Gil! I would like to request a BESPOKE QUOTE for a Private Alpha Douro Charter (Douro Marina · Gate Alpha):\n• Ref: ${passRefCode}\n• Preferred Date & Time: ${cfgDate.value} at ${cfgSlot.value}\n• Guests: ${partySize} (${guestNameStr})${bespokeSummary}\n• Looking forward to your custom quote!`)
+          : (currentLang === "pt"
+              ? `Olá Cap. Gil! Configurei o meu Boarding Pass Alpha Douro (Douro Marina · Portão Alpha):\n• Ref: ${passRefCode}\n• Passeio: ${vName}\n• Data & Hora: ${cfgDate.value} às ${cfgSlot.value}\n• Passageiros: ${partySize} (${guestNameStr})${activeNames.length ? `\n• Rituais a bordo: ${activeNames.join(", ")}` : ""}\n• Total Direto: €${total}`
+              : `Hello Cap. Gil! I composed my Alpha Douro Boarding Pass (Douro Marina · Gate Alpha):\n• Ref: ${passRefCode}\n• Voyage: ${vName}\n• Date & Time: ${cfgDate.value} at ${cfgSlot.value}\n• Party: ${partySize} (${guestNameStr})${activeNames.length ? `\n• Onboard Rituals: ${activeNames.join(", ")}` : ""}\n• Direct Total: €${total}`);
         atelierWaBtn.href = `https://wa.me/${CHECKOUT_CONFIG.whatsappNumber}?text=${encodeURIComponent(waMsg)}`;
       }
     }
@@ -4707,6 +4864,18 @@
         c_kicker: "The commissioning desk", c_title: "Compose Your Boarding Pass",
         c_copy: "Personalize your Cais da Afurada departure, guest party, and curated onboard rituals — including private canopy ceiling projections for proposals. Watch your tactile cotton-paper boarding pass update live before issuing your reservation code.",
         wa_atelier_cta: "MB WAY / WhatsApp (Cap. Gil) ↗",
+        bp_title: "Personalize o Seu Charter Privado",
+        bp_pill: "Orçamento Personalizado · Sem Preço Fixo",
+        bp_occ_lbl: "OCASIÃO",
+        bp_dur_lbl: "DURAÇÃO PRETENDIDA",
+        bp_wish_lbl: "ESCOLHA O QUE DESEJA A BORDO (NÓS DAMOS O ORÇAMENTO)",
+        bp_notes_lbl: "NOTAS OU PEDIDOS ESPECIAIS (OPCIONAL)",
+        bp_title: "Tailor Your Private Charter",
+        bp_pill: "Bespoke Quote · No Fixed Price",
+        bp_occ_lbl: "OCCASION",
+        bp_dur_lbl: "PREFERRED DURATION",
+        bp_wish_lbl: "CHOOSE WHAT YOU WANT ON BOARD (WE SEND YOUR CUSTOM QUOTE)",
+        bp_notes_lbl: "SPECIAL WISHES OR NOTES (OPTIONAL)",
         pay_2click_cta: "Pay in 2 Clicks · Apple Pay / Card ↗",
         pay_trust_line: "0% COMMISSION · APPLE PAY / CARD / MB WAY · 4-SEASON WEATHER GUARANTEE (360° WINTER CANOPY)",
         tk_sig_label: "SKIPPER ENDORSEMENT · DOURO MARINA · GATE ALPHA",
