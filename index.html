@@ -2807,6 +2807,425 @@
     .floating-wa-pill:hover { background: #199047; transform: translateY(-2px); }
     .floating-wa-pill svg { width: 1.1rem; height: 1.1rem; flex-shrink: 0; }
 
+
+    /* === 21ST GOLDEN TRIO CSS START === */
+    /* A. 21st.dev Pricing Interaction Cards (Visual Tour Selector + Rolling Total) */
+    .pricing-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-bottom: 0.35rem;
+    }
+    .pcard-btn {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.28rem;
+      padding: 0.85rem 0.9rem;
+      border: 1px solid var(--hairline-strong);
+      border-radius: 10px;
+      background: rgba(11, 27, 46, 0.58);
+      color: var(--ivory);
+      text-align: left;
+      cursor: pointer;
+      touch-action: manipulation;
+      transition: border-color 240ms var(--ease-expo), background-color 240ms ease, transform 200ms var(--ease-expo), box-shadow 260ms ease;
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .pcard-btn:hover {
+        border-color: rgba(224, 208, 184, 0.55);
+        background: rgba(16, 38, 64, 0.78);
+        transform: translateY(-2px);
+      }
+    }
+    .pcard-btn:active { transform: scale(0.985); }
+    .pcard-btn.is-selected {
+      border-color: var(--sand);
+      background: linear-gradient(155deg, rgba(224, 208, 184, 0.14) 0%, rgba(11, 27, 46, 0.92) 72%);
+      box-shadow: 0 0 0 1px rgba(224, 208, 184, 0.35), 0 14px 28px -18px rgba(0, 0, 0, 0.75);
+    }
+    .pcard-top {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.4rem;
+    }
+    .pcard-tag {
+      font-size: 0.72rem;
+      color: var(--sand);
+      font-weight: 500;
+    }
+    .pcard-radio {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 1.5px solid var(--hairline-strong);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: border-color 200ms ease;
+    }
+    .pcard-radio::after {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--sand);
+      transform: scale(0);
+      transition: transform 240ms var(--ease-expo);
+    }
+    .pcard-btn.is-selected .pcard-radio { border-color: var(--sand); }
+    .pcard-btn.is-selected .pcard-radio::after { transform: scale(1); }
+    .pcard-name {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      line-height: 1.15;
+      color: var(--ivory);
+    }
+    .pcard-price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 0.32rem;
+      margin-top: 0.15rem;
+    }
+    .pcard-price {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--sand);
+      font-variant-numeric: tabular-nums;
+    }
+    .pcard-unit {
+      font-size: 0.72rem;
+      color: var(--slate);
+    }
+    .pcard-sub {
+      font-size: 0.72rem;
+      color: var(--slate);
+      line-height: 1.3;
+    }
+    .pcard-live-strip {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding: 0.65rem 0.95rem;
+      border-radius: 8px;
+      border: 1px solid var(--hairline);
+      background: rgba(8, 22, 38, 0.72);
+      margin-top: 0.25rem;
+    }
+    .pcard-live-lbl {
+      font-size: 0.78rem;
+      color: var(--slate);
+    }
+    .pcard-live-val {
+      font-size: 1.18rem;
+      font-weight: 600;
+      color: var(--sand);
+      font-variant-numeric: tabular-nums;
+      letter-spacing: 0.01em;
+    }
+    .sr-select-sync {
+      position: absolute !important;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0,0,0,0);
+      white-space: nowrap; border: 0;
+    }
+    @media (max-width: 680px) {
+      .pricing-cards-grid { grid-template-columns: 1fr; gap: 0.55rem; }
+      .pcard-btn { padding: 0.8rem 0.95rem; }
+    }
+
+    /* B. 21st.dev Tags Selector (Selected Tray + Spring Chip Transfer inside Private Charter) */
+    .tags-tray {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.45rem;
+      min-height: 2.75rem;
+      padding: 0.55rem 0.7rem;
+      border-radius: 9px;
+      border: 1px solid rgba(224, 208, 184, 0.34);
+      background: rgba(6, 17, 29, 0.78);
+      margin-bottom: 0.65rem;
+    }
+    .tags-tray-empty {
+      font-size: 0.78rem;
+      color: var(--slate);
+      font-style: italic;
+    }
+    .tag-selected-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.34rem 0.68rem;
+      border-radius: 999px;
+      border: 1px solid var(--sand);
+      background: rgba(224, 208, 184, 0.16);
+      color: var(--ivory);
+      font-size: 0.78rem;
+      font-weight: 500;
+      cursor: pointer;
+      animation: tagPopIn 220ms var(--ease-expo) both;
+      transition: background-color 160ms ease, transform 140ms ease;
+    }
+    .tag-selected-pill:hover { background: rgba(224, 208, 184, 0.28); }
+    .tag-selected-pill:active { transform: scale(0.95); }
+    .tag-x {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: rgba(224, 208, 184, 0.22);
+      font-size: 0.72rem;
+      line-height: 1;
+      color: var(--sand);
+    }
+    @keyframes tagPopIn {
+      from { opacity: 0; transform: scale(0.86) translateY(4px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    #bespokeChips .bespoke-chip.is-active {
+      border-color: rgba(224, 208, 184, 0.5);
+      background: rgba(224, 208, 184, 0.14);
+      color: var(--sand);
+    }
+
+    /* C. 21st.dev Interactive Bento Gallery (#atelier — 7 Real Boat & Craft Photos + Lightbox) */
+    .bento-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 1rem;
+    }
+    .bento-tile {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--hairline);
+      background: #0A1B2E;
+      padding: 0;
+      margin: 0;
+      cursor: pointer;
+      display: block;
+      width: 100%;
+      text-align: left;
+      aspect-ratio: 16 / 10;
+      transition: transform 320ms var(--ease-expo), border-color 260ms ease, box-shadow 320ms ease;
+    }
+    .bento-span-7 { grid-column: span 7; aspect-ratio: 16 / 10; }
+    .bento-span-5 { grid-column: span 5; aspect-ratio: 11.4 / 10; }
+    .bento-span-4 { grid-column: span 4; aspect-ratio: 4 / 3; }
+    .bento-tile img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 540ms var(--ease-expo);
+    }
+    .bento-tile::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(6, 17, 29, 0.04) 45%, rgba(6, 17, 29, 0.82) 100%);
+      pointer-events: none;
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .bento-tile:hover {
+        transform: translateY(-2px);
+        border-color: rgba(224, 208, 184, 0.52);
+        box-shadow: 0 20px 38px -22px rgba(0, 0, 0, 0.85);
+      }
+      .bento-tile:hover img { transform: scale(1.03); }
+    }
+    .bento-tile:focus-visible {
+      outline: 2px solid var(--sand);
+      outline-offset: 3px;
+    }
+    .bento-meta {
+      position: absolute;
+      left: 1rem;
+      right: 1rem;
+      bottom: 0.9rem;
+      z-index: 2;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+    .bento-title {
+      display: block;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(1.08rem, 1.55vw, 1.38rem);
+      font-weight: 500;
+      color: var(--ivory);
+      line-height: 1.18;
+    }
+    .bento-sub {
+      display: block;
+      font-size: 0.78rem;
+      color: rgba(224, 208, 184, 0.88);
+      margin-top: 0.16rem;
+    }
+    .bento-expand-ico {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 1px solid rgba(245, 241, 232, 0.28);
+      background: rgba(6, 17, 29, 0.62);
+      color: var(--ivory);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background-color 200ms ease, border-color 200ms ease, color 200ms ease;
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .bento-tile:hover .bento-expand-ico {
+        background: var(--sand);
+        border-color: var(--sand);
+        color: var(--abyss);
+      }
+    }
+    @media (max-width: 900px) {
+      .bento-gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; }
+      .bento-span-7, .bento-span-5, .bento-span-4 { grid-column: span 1; aspect-ratio: 4 / 3; }
+      .bento-tile:first-child { grid-column: span 2; aspect-ratio: 16 / 10; }
+    }
+    @media (max-width: 560px) {
+      .bento-gallery-grid { grid-template-columns: 1fr; gap: 0.8rem; }
+      .bento-span-7, .bento-span-5, .bento-span-4, .bento-tile:first-child { grid-column: span 1; aspect-ratio: 16 / 10; }
+    }
+
+    /* Fullscreen Editorial Bento Lightbox */
+    .bento-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(4, 12, 22, 0.92);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(1rem, 3vw, 2.2rem);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 240ms ease, visibility 240ms ease;
+    }
+    .bento-lightbox.is-open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+    .bento-lb-frame {
+      position: relative;
+      max-width: min(1120px, 94vw);
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+    .bento-lb-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .bento-lb-count {
+      font-size: 0.82rem;
+      color: var(--sand);
+    }
+    .bento-lb-close, .bento-lb-arrow {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1px solid var(--hairline-strong);
+      background: rgba(11, 27, 46, 0.82);
+      color: var(--ivory);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      touch-action: manipulation;
+      transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease;
+    }
+    .bento-lb-close:hover, .bento-lb-arrow:hover {
+      background: var(--sand);
+      border-color: var(--sand);
+      color: var(--abyss);
+    }
+    .bento-lb-img-wrap {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--hairline);
+      background: #06111D;
+      max-height: 74vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      touch-action: pan-y;
+    }
+    .bento-lb-img-wrap img {
+      max-width: 100%;
+      max-height: 74vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      display: block;
+    }
+    .bento-lb-foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .bento-lb-title {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(1.25rem, 2.2vw, 1.65rem);
+      color: var(--ivory);
+    }
+    .bento-lb-sub {
+      font-size: 0.84rem;
+      color: var(--slate);
+      margin-top: 0.15rem;
+    }
+    .bento-lb-nav { display: flex; align-items: center; gap: 0.6rem; }
+
+    /* D. Silent Editorial Text Roll on Desktop Header Nav Links */
+    @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+      .header-nav a.is-roll {
+        position: relative;
+        display: inline-flex;
+        overflow: hidden;
+        height: 1.35em;
+        line-height: 1.35em;
+      }
+      .header-nav a.is-roll .roll-track {
+        display: flex;
+        flex-direction: column;
+        transition: transform 280ms var(--ease-expo);
+      }
+      .header-nav a.is-roll:hover .roll-track,
+      .header-nav a.is-roll:focus-visible .roll-track {
+        transform: translateY(-50%);
+      }
+      .header-nav a.is-roll .roll-copy {
+        color: var(--sand);
+      }
+    }
+    /* === 21ST GOLDEN TRIO CSS END === */
+
   </style>
 </head>
 <body>
@@ -3302,8 +3721,51 @@
         <!-- Left: Tactile Atelier Controls -->
         <div class="config-panel">
           <div class="cfg-field">
-            <label class="cfg-label mono" for="cfgTour">01 · SELECT VOYAGE</label>
-            <select id="cfgTour" class="atelier-select">
+            <label class="cfg-label mono" for="cfgTour" data-i18n="cfg_step1_lbl">01 · ESCOLHA O PASSEIO</label>
+            <div class="pricing-cards-grid" id="pricingCards" role="radiogroup" aria-label="Escolher passeio Alpha Douro">
+              <button type="button" class="pcard-btn" role="radio" aria-checked="false" data-tour-card="bridges">
+                <span class="pcard-top">
+                  <span class="pcard-tag" data-i18n="pc_b_tag">Abertura · Diurno</span>
+                  <span class="pcard-radio" aria-hidden="true"></span>
+                </span>
+                <span class="pcard-name" data-i18n="pc_b_name">7 Pontes do Douro</span>
+                <span class="pcard-price-row">
+                  <span class="pcard-price mono">€30</span>
+                  <span class="pcard-unit" data-i18n="pc_per_pax">/ pessoa</span>
+                </span>
+                <span class="pcard-sub" data-i18n="pc_b_sub">Prova de Vinhos incluída · 2h</span>
+              </button>
+
+              <button type="button" class="pcard-btn is-selected" role="radio" aria-checked="true" data-tour-card="sunset">
+                <span class="pcard-top">
+                  <span class="pcard-tag" data-i18n="pc_s_tag">Mais Pedido · Sunset</span>
+                  <span class="pcard-radio" aria-hidden="true"></span>
+                </span>
+                <span class="pcard-name" data-i18n="pc_s_name">Sunset &amp; Mar</span>
+                <span class="pcard-price-row">
+                  <span class="pcard-price mono">€60</span>
+                  <span class="pcard-unit" data-i18n="pc_per_pax">/ pessoa</span>
+                </span>
+                <span class="pcard-sub" data-i18n="pc_s_sub">7 Pontes, Atlântico &amp; Prova · 2h</span>
+              </button>
+
+              <button type="button" class="pcard-btn" role="radio" aria-checked="false" data-tour-card="private">
+                <span class="pcard-top">
+                  <span class="pcard-tag" data-i18n="pc_p_tag">Exclusivo 1–10p</span>
+                  <span class="pcard-radio" aria-hidden="true"></span>
+                </span>
+                <span class="pcard-name" data-i18n="pc_p_name">Charter Privado</span>
+                <span class="pcard-price-row">
+                  <span class="pcard-price" data-i18n="pc_quote">Sob Consulta</span>
+                </span>
+                <span class="pcard-sub" data-i18n="pc_p_sub">Barco só vosso · 100% à medida</span>
+              </button>
+            </div>
+            <div class="pcard-live-strip" aria-live="polite">
+              <span class="pcard-live-lbl" id="pcardLiveDesc">Prova de Vinhos incluída · Douro Marina · Portão A</span>
+              <span class="pcard-live-val mono" id="pcardLiveTotal">€120</span>
+            </div>
+            <select id="cfgTour" class="atelier-select sr-select-sync" tabindex="-1" aria-hidden="true">
                 <option value="bridges">Tour 01 · 7 Pontes + Prova de Vinhos (Abertura — €30 / pessoa)</option>
                 <option value="sunset" selected>Tour 02 · Sunset, Mar &amp; Prova de Vinhos (€60 / pessoa)</option>
                 <option value="private">Charter Privado à Medida (Barco Exclusivo 1–10p · Sob Consulta)</option>
@@ -3371,14 +3833,16 @@
               </div>
             </div>
             <div class="cfg-field">
-              <span class="cfg-label mono" data-i18n="bp_wish_lbl">ESCOLHA O QUE DESEJA A BORDO (NÓS DAMOS O ORÇAMENTO)</span>
+              <span class="cfg-label mono" data-i18n="bp_wish_lbl">SELECIONE O QUE DESEJA A BORDO (VAI LOGO NO WHATSAPP)</span>
+              <div class="tags-tray" id="bespokeSelectedTray" aria-live="polite" aria-label="Preferências selecionadas para o charter privado"></div>
               <div class="bespoke-chips" id="bespokeChips">
-                <button type="button" class="bespoke-chip is-active" data-wish="Prova de Vinhos do Porto & Douro">Prova de Vinhos do Porto &amp; Douro</button>
-                <button type="button" class="bespoke-chip" data-wish="Tábua de Queijos, Conservas & Pastéis de Nata">Tábua Queijos, Conservas &amp; Natas</button>
-                <button type="button" class="bespoke-chip" data-wish="Guitarrista Acústico ao Vivo">Guitarrista Acústico ao Vivo</button>
-                <button type="button" class="bespoke-chip" data-wish="Projeção Privada no Teto Azul-Marinho («Marry Me» / Data)">Projeção Privada no Teto («Marry Me»)</button>
-                <button type="button" class="bespoke-chip" data-wish="Fotógrafo / Vídeo Profissional">Fotógrafo / Vídeo Profissional</button>
-                <button type="button" class="bespoke-chip" data-wish="Champanhe & Decoração Floral">Champanhe &amp; Decoração Floral</button>
+                <button type="button" class="bespoke-chip is-active" data-wish="Prova de Vinhos do Porto & Douro" data-wish-en="Port & Douro Wine Tasting">Prova de Vinhos do Porto &amp; Douro</button>
+                <button type="button" class="bespoke-chip" data-wish="Pedido de Casamento («Marry Me»)" data-wish-en="Marriage Proposal («Marry Me»)">Pedido de Casamento («Marry Me»)</button>
+                <button type="button" class="bespoke-chip" data-wish="Aniversário / Celebração" data-wish-en="Birthday / Celebration">Aniversário / Celebração</button>
+                <button type="button" class="bespoke-chip" data-wish="Tábua Queijos, Conservas & Natas" data-wish-en="Cheese, Conservas & Pastel de Nata Board">Tábua Queijos, Conservas &amp; Natas</button>
+                <button type="button" class="bespoke-chip" data-wish="Espumante & Decoração Floral" data-wish-en="Sparkling Wine & Floral Styling">Espumante &amp; Decoração Floral</button>
+                <button type="button" class="bespoke-chip" data-wish="Música Acústica ao Vivo" data-wish-en="Live Acoustic Music">Música Acústica ao Vivo</button>
+                <button type="button" class="bespoke-chip" data-wish="Fotógrafo / Vídeo Profissional" data-wish-en="Pro Photographer / Video">Fotógrafo / Vídeo Profissional</button>
               </div>
             </div>
             <div class="cfg-field">
@@ -3586,22 +4050,83 @@
         </p>
       </div>
 
-      <div class="museum-grid">
-        <div class="museum-item m-span-7" data-photo-curtain data-cursor-label="ATELIER">
-          <img src="./assets/boarding-pass-polaroid.jpg" alt="Cotton Alpha Douro boarding pass and Ribeira Polaroid held over teak deck" />
-        </div>
-        <div class="museum-item m-span-5" data-photo-curtain data-cursor-label="ATELIER">
-          <img src="./assets/real-shoot/06-prova-porto-tawny-branco-verde-chocolate.jpg" alt="Prova de Porto Tawny, Vinho Branco, Vinho Verde e chocolate negro 70% a bordo" />
-        </div>
-        <div class="museum-item m-span-4" data-photo-curtain data-cursor-label="ATELIER">
-          <img src="./assets/tote-blanket.jpg" alt="Canvas tote bag and navy Portuguese herringbone wool throw on boat bench" />
-        </div>
-        <div class="museum-item m-span-4" data-photo-curtain data-cursor-label="ATELIER">
-          <img src="./assets/merch-capsule.jpg" alt="Alpha Douro cream dad cap with 3D wave-A embroidery and navy organic cotton tee" />
-        </div>
-        <div class="museum-item m-span-4" data-photo-curtain data-cursor-label="ATELIER">
-          <img src="./assets/wallet-qr.jpg" alt="Apple Wallet Alpha Douro boarding pass beside frosted acrylic QR stand" />
-        </div>
+      <div class="bento-gallery-grid" id="bentoGallery">
+        <button type="button" class="bento-tile bento-span-7" data-bento-idx="0" aria-label="Ampliar: Barco Alpha Douro na Ribeira em hora dourada">
+          <img src="./assets/real-shoot/01-golden-ribeira-capota-marinho.jpg" alt="Barco Alpha Douro azul-cobalto na Ribeira do Porto ao pôr do sol com motor Suzuki" loading="lazy" />
+          <span class="bento-meta">
+            <span>
+              <span class="bento-title" data-i18n="bg_0_t">Ribeira em Hora Dourada</span>
+              <span class="bento-sub" data-i18n="bg_0_s">Casco privado máx. 10 convidados · Luzes quentes 2200K</span>
+            </span>
+            <span class="bento-expand-ico" aria-hidden="true">↗</span>
+          </span>
+        </button>
+
+        <button type="button" class="bento-tile bento-span-5" data-bento-idx="1" aria-label="Ampliar: Prova de Vinhos do Porto, Branco, Verde e chocolate negro">
+          <img src="./assets/real-shoot/06-prova-porto-tawny-branco-verde-chocolate.jpg" alt="Prova de Porto Tawny, Vinho Branco, Vinho Verde e chocolate negro 70% a bordo" loading="lazy" />
+          <span class="bento-meta">
+            <span>
+              <span class="bento-title" data-i18n="bg_1_t">Prova de Vinhos Incluída</span>
+              <span class="bento-sub" data-i18n="bg_1_s">Porto Tawny, Branco, Verde &amp; chocolate negro 70%</span>
+            </span>
+            <span class="bento-expand-ico" aria-hidden="true">↗</span>
+          </span>
+        </button>
+
+        <button type="button" class="bento-tile bento-span-4" data-bento-idx="2" aria-label="Ampliar: Hora azul junto à Ponte Luís I">
+          <img src="./assets/real-shoot/02-hora-azul-domluis-capota-marinho.jpg" alt="Barco Alpha Douro na hora azul junto à Ponte Luís I no Porto" loading="lazy" />
+          <span class="bento-meta">
+            <span>
+              <span class="bento-title" data-i18n="bg_2_t">Hora Azul · Ponte Luís I</span>
+              <span class="bento-sub" data-i18n="bg_2_s">Reflexos noturnos no Douro</span>
+            </span>
+            <span class="bento-expand-ico" aria-hidden="true">↗</span>
+          </span>
+        </button>
+
+        <button type="button" class="bento-tile bento-span-4" data-bento-idx="3" aria-label="Ampliar: Pôr do sol no Atlântico à saída da Afurada">
+          <img src="./assets/real-shoot/03-sunset-mar-abordo-capota-marinho.jpg" alt="Vista a bordo do Alpha Douro ao pôr do sol sobre o mar na Foz do Douro" loading="lazy" />
+          <span class="bento-meta">
+            <span>
+              <span class="bento-title" data-i18n="bg_3_t">Pôr do Sol no Atlântico</span>
+              <span class="bento-sub" data-i18n="bg_3_s">Foz do Douro · Brinde no mar</span>
+            </span>
+            <span class="bento-expand-ico" aria-hidden="true">↗</span>
+          </span>
+        </button>
+
+        <button type="button" class="bento-tile bento-span-4" data-bento-idx="4" aria-label="Ampliar: Capota panorâmica transparente 360 graus">
+          <img src="./assets/real-shoot/04-inverno-360-afurada-capota-marinho.jpg" alt="Capota panorâmica transparente 360 graus para conforto de inverno na Afurada" loading="lazy" />
+          <span class="bento-meta">
+            <span>
+              <span class="bento-title" data-i18n="bg_4_t">Conforto 365 Dias</span>
+              <span class="bento-sub" data-i18n="bg_4_s">Capota panorâmica 360° &amp; mantas de lã</span>
+            </span>
+            <span class="bento-expand-ico" aria-hidden="true">↗</span>
+          </span>
+        </button>
+
+        <button type="button" class="bento-tile bento-span-5" data-bento-idx="5" aria-label="Ampliar: Solário de proa para relaxar no Douro">
+          <img src="./assets/real-shoot/05-solario-prova-vinhos-capota-marinho.jpg" alt="Solário de proa em pele bege e mesa de prova no barco Alpha Douro" loading="lazy" />
+          <span class="bento-meta">
+            <span>
+              <span class="bento-title" data-i18n="bg_5_t">Solário de Proa</span>
+              <span class="bento-sub" data-i18n="bg_5_s">Estofos creme &amp; vista sem obstáculos</span>
+            </span>
+            <span class="bento-expand-ico" aria-hidden="true">↗</span>
+          </span>
+        </button>
+
+        <button type="button" class="bento-tile bento-span-7" data-bento-idx="6" aria-label="Ampliar: Cartão de embarque em algodão e Polaroid">
+          <img src="./assets/boarding-pass-polaroid.jpg" alt="Cartão de embarque Alpha Douro em papel de algodão e Polaroid da Ribeira" loading="lazy" />
+          <span class="bento-meta">
+            <span>
+              <span class="bento-title" data-i18n="bg_6_t">Cartão de Embarque &amp; Polaroid</span>
+              <span class="bento-sub" data-i18n="bg_6_s">Embarque exclusivo no Portão A · Douro Marina</span>
+            </span>
+            <span class="bento-expand-ico" aria-hidden="true">↗</span>
+          </span>
+        </button>
       </div>
     </div>
   </section>
@@ -4704,6 +5229,8 @@
       liveTicket.classList.remove("is-issued");
       syncBoardingPass();
       if (typeof window.__syncEditorialReviewLang === "function") window.__syncEditorialReviewLang();
+      if (typeof window.__sync21stGoldenTrio === "function") window.__sync21stGoldenTrio();
+      if (typeof window.__syncNavRollLabels === "function") window.__syncNavRollLabels();
     });
     cfgGuestName.addEventListener("input", syncBoardingPass);
     cfgDate.addEventListener("change", syncBoardingPass);
@@ -5027,7 +5554,7 @@
         g_copy: "Cotton boarding passes, Portuguese wool throws, chilled Tawny Port and dark chocolate — prepared before you step on the dock.",
         rev_kicker: "Guest Reviews · Douro Marina · Gate A",
         rev_title: "What People Actually Say",
-        rev_rail: "REVIEWS", rev_score_lbl: "5.0 · Gate A · Douro Marina",
+        rev_rail: "REVIEWS", cfg_step1_lbl: "01 · CHOOSE YOUR VOYAGE", pc_b_tag: "Opening Rate · Day", pc_b_name: "7 Bridges Cruise", pc_per_pax: "/ guest", pc_b_sub: "Wine Tasting included · 2h", pc_s_tag: "Most Popular · Sunset", pc_s_name: "Sunset & Ocean", pc_s_sub: "7 Bridges, Atlantic & Wine · 2h", pc_p_tag: "Exclusive 1–10p", pc_p_name: "Private Charter", pc_quote: "Custom Quote", pc_p_sub: "Entire boat · 100% bespoke", bg_0_t: "Golden Hour at Ribeira", bg_0_s: "Private hull max 10 guests · 2200K warm lights", bg_1_t: "Wine Tasting Included", bg_1_s: "Tawny Port, Douro White, Vinho Verde & 70% chocolate", bg_2_t: "Blue Hour · Dom Luís I", bg_2_s: "Twilight reflections across Porto", bg_3_t: "Atlantic Ocean Sunset", bg_3_s: "Douro river mouth · Sunset toast at sea", bg_4_t: "365-Day Comfort", bg_4_s: "360° clear canopy & Portuguese wool throws", bg_5_t: "Bow Sunpad Lounge", bg_5_s: "Ivory marine upholstery & unobstructed views", bg_6_t: "Boarding Pass & Polaroid", bg_6_s: "Direct boarding at Gate A · Douro Marina",  rev_score_lbl: "5.0 · Gate A · Douro Marina",
         rev1_tag: "Sunset & Wine Tasting · Couple",
         rev1_q: "“Booked on WhatsApp the night before and Gil sent us our boarding pass right away. No waiting in line at Ribeira. When we stopped by the river mouth at sunset he poured chilled Tawny Port with dark chocolate — honestly the calmest two hours we had in Porto.”",
         rev1_loc: "Claire & Thomas · Lyon",
@@ -5107,7 +5634,7 @@
         g_copy: "Cartões em algodão, mantas de lã portuguesa, Porto Tawny fresco e chocolate negro 70% — tudo pronto antes de embarcar.",
         rev_kicker: "Opiniões · Douro Marina · Portão A",
         rev_title: "Quem Já Navegou Connosco",
-        rev_rail: "OPINIÕES", rev_score_lbl: "5,0 · Portão A · Douro Marina",
+        rev_rail: "OPINIÕES", cfg_step1_lbl: "01 · ESCOLHA O PASSEIO", pc_b_tag: "Abertura · Diurno", pc_b_name: "7 Pontes do Douro", pc_per_pax: "/ pessoa", pc_b_sub: "Prova de Vinhos incluída · 2h", pc_s_tag: "Mais Pedido · Sunset", pc_s_name: "Sunset & Mar", pc_s_sub: "7 Pontes, Atlântico & Prova · 2h", pc_p_tag: "Exclusivo 1–10p", pc_p_name: "Charter Privado", pc_quote: "Sob Consulta", pc_p_sub: "Barco só vosso · 100% à medida", bg_0_t: "Ribeira em Hora Dourada", bg_0_s: "Casco privado máx. 10 convidados · Luzes quentes 2200K", bg_1_t: "Prova de Vinhos Incluída", bg_1_s: "Porto Tawny, Branco, Verde & chocolate negro 70%", bg_2_t: "Hora Azul · Ponte Luís I", bg_2_s: "Reflexos noturnos no Douro", bg_3_t: "Pôr do Sol no Atlântico", bg_3_s: "Foz do Douro · Brinde no mar", bg_4_t: "Conforto 365 Dias", bg_4_s: "Capota panorâmica 360° & mantas de lã", bg_5_t: "Solário de Proa", bg_5_s: "Estofos creme & vista sem obstáculos", bg_6_t: "Cartão de Embarque & Polaroid", bg_6_s: "Embarque exclusivo no Portão A · Douro Marina",  rev_score_lbl: "5,0 · Portão A · Douro Marina",
         rev1_tag: "Sunset & Prova de Vinhos · Casal",
         rev1_q: "“Reservámos por WhatsApp na véspera e recebemos logo o cartão de embarque no telemóvel. Zero filas na Ribeira. Quando parámos perto da foz ao pôr do sol, o Gil serviu Porto Tawny fresco com uns quadrados de chocolate negro — foram de longe as duas horas mais calmas da nossa viagem.”",
         rev1_loc: "Claire & Thomas · Lyon",
@@ -5444,12 +5971,271 @@
       revTimer = setInterval(() => { if (!paused) goRev(revIdx + 1); }, 7000);
     })();
 
+  
+    /* === 21ST GOLDEN TRIO JS START === */
+    (function init21stGoldenTrio() {
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+      /* 1. PRICING INTERACTION: 2-way synced visual cards + Swiss-watch rolling numeric total */
+      const pCards = Array.from(document.querySelectorAll("[data-tour-card]"));
+      const liveTotalEl = document.getElementById("pcardLiveTotal");
+      const liveDescEl = document.getElementById("pcardLiveDesc");
+      const tkTotalEl = document.getElementById("tkTotal");
+      let lastNumericTotal = null;
+      let rollRaf = 0;
+
+      function animateEuro(elList, targetVal) {
+        if (rollRaf) cancelAnimationFrame(rollRaf);
+        if (reducedMotion || lastNumericTotal === null || lastNumericTotal === targetVal) {
+          elList.forEach((el) => { if (el) el.textContent = `€${targetVal}`; });
+          lastNumericTotal = targetVal;
+          return;
+        }
+        const startVal = lastNumericTotal;
+        const t0 = performance.now();
+        const dur = 360;
+        function step(now) {
+          const p = Math.min(1, (now - t0) / dur);
+          const ease = 1 - Math.pow(1 - p, 3);
+          const cur = Math.round(startVal + (targetVal - startVal) * ease);
+          elList.forEach((el) => { if (el) el.textContent = `€${cur}`; });
+          if (p < 1) {
+            rollRaf = requestAnimationFrame(step);
+          } else {
+            lastNumericTotal = targetVal;
+          }
+        }
+        rollRaf = requestAnimationFrame(step);
+      }
+
+      function syncPricingUI() {
+        const curTour = cfgTour.value;
+        pCards.forEach((btn) => {
+          const on = btn.dataset.tourCard === curTour;
+          btn.classList.toggle("is-selected", on);
+          btn.setAttribute("aria-checked", on ? "true" : "false");
+        });
+        const v = VOYAGES[curTour] || VOYAGES.sunset;
+        const isQuote = v.mode === "quote";
+        if (liveDescEl) {
+          liveDescEl.textContent = isQuote
+            ? (currentLang === "pt" ? "Barco exclusivo 1–10 pessoas · Orçamento direto pelo Cap. Gil" : "Exclusive boat 1–10 guests · Direct quote by Cap. Gil")
+            : (currentLang === "pt" ? `Total direto (${partySize} ${partySize === 1 ? "pessoa" : "pessoas"}) · Prova de Vinhos incluída` : `Direct total (${partySize} ${partySize === 1 ? "guest" : "guests"}) · Wine Tasting included`);
+        }
+        if (isQuote) {
+          lastNumericTotal = null;
+          const qTxt = currentLang === "pt" ? "Sob Consulta" : "Custom Quote";
+          if (liveTotalEl) liveTotalEl.textContent = qTxt;
+        } else {
+          const rawStr = (tkTotalEl?.textContent || "").replace(/[^\d]/g, "");
+          const numeric = Number(rawStr) || 0;
+          animateEuro([liveTotalEl, tkTotalEl], numeric);
+        }
+      }
+
+      pCards.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const key = btn.dataset.tourCard;
+          if (!key) return;
+          cfgTour.value = key;
+          cfgTour.dispatchEvent(new Event("change", { bubbles: true }));
+        });
+      });
+
+      /* 2. TAGS SELECTOR: Live Selected Tray inside Charter Privado */
+      const trayEl = document.getElementById("bespokeSelectedTray");
+      const chipBtns = Array.from(document.querySelectorAll("#bespokeChips .bespoke-chip"));
+
+      function syncTagsSelector() {
+        const isPt = currentLang === "pt";
+        chipBtns.forEach((b) => {
+          const label = isPt ? (b.dataset.wish || b.textContent) : (b.dataset.wishEn || b.dataset.wish || b.textContent);
+          b.textContent = label;
+        });
+        if (!trayEl) return;
+        const active = chipBtns.filter((b) => b.classList.contains("is-active"));
+        trayEl.innerHTML = "";
+        if (!active.length) {
+          const emp = document.createElement("span");
+          emp.className = "tags-tray-empty";
+          emp.textContent = isPt ? "Toque nas opções abaixo para montar o seu passeio privado..." : "Tap options below to compose your private charter...";
+          trayEl.appendChild(emp);
+          return;
+        }
+        active.forEach((chip) => {
+          const pill = document.createElement("button");
+          pill.type = "button";
+          pill.className = "tag-selected-pill";
+          const txtVal = isPt ? (chip.dataset.wish || chip.textContent) : (chip.dataset.wishEn || chip.dataset.wish);
+          pill.innerHTML = `<span>${txtVal}</span><span class="tag-x" aria-hidden="true">×</span>`;
+          pill.setAttribute("aria-label", (isPt ? "Remover " : "Remove ") + txtVal);
+          pill.addEventListener("click", () => {
+            chip.classList.remove("is-active");
+            syncBoardingPass();
+            syncTagsSelector();
+          });
+          trayEl.appendChild(pill);
+        });
+      }
+
+      chipBtns.forEach((chip) => {
+        chip.addEventListener("click", () => {
+          chip.classList.toggle("is-active");
+          syncBoardingPass();
+          syncTagsSelector();
+        });
+      });
+      ["cfgOccasion", "cfgDuration"].forEach((id) => {
+        document.getElementById(id)?.addEventListener("change", syncBoardingPass);
+      });
+      document.getElementById("cfgPrivateNotes")?.addEventListener("input", syncBoardingPass);
+
+      /* Wrap syncBoardingPass so every tour/guest/addon/lang update triggers Pricing Roll & Tags Tray */
+      const origSync = window.syncBoardingPass || syncBoardingPass;
+      const hookedSync = function() {
+        origSync();
+        syncPricingUI();
+        syncTagsSelector();
+      };
+      ["cfgMinus", "cfgPlus"].forEach((id) => {
+        document.getElementById(id)?.addEventListener("click", () => setTimeout(syncPricingUI, 0));
+      });
+      cfgTour.addEventListener("change", () => setTimeout(() => { syncPricingUI(); syncTagsSelector(); }, 0));
+      document.querySelectorAll("#cfgRituals .ritual-btn").forEach((b) => {
+        b.addEventListener("click", () => setTimeout(syncPricingUI, 0));
+      });
+      window.__sync21stGoldenTrio = () => { syncPricingUI(); syncTagsSelector(); };
+      syncPricingUI();
+      syncTagsSelector();
+
+      /* 3. INTERACTIVE BENTO GALLERY + EDITORIAL LIGHTBOX (Keyboard + Mobile Swipe) */
+      const bentoTiles = Array.from(document.querySelectorAll("#bentoGallery .bento-tile"));
+      const lb = document.getElementById("bentoLightbox");
+      const lbImg = document.getElementById("bentoLbImg");
+      const lbTitle = document.getElementById("bentoLbTitle");
+      const lbSub = document.getElementById("bentoLbSub");
+      const lbCount = document.getElementById("bentoLbCount");
+      const lbStage = document.getElementById("bentoLbStage");
+      let lbIdx = 0;
+
+      function renderLb(i) {
+        if (!bentoTiles.length || !lb) return;
+        lbIdx = (i + bentoTiles.length) % bentoTiles.length;
+        const tile = bentoTiles[lbIdx];
+        const img = tile.querySelector("img");
+        const t = tile.querySelector(".bento-title")?.textContent || "";
+        const s = tile.querySelector(".bento-sub")?.textContent || "";
+        lbImg.src = img.getAttribute("src");
+        lbImg.alt = img.getAttribute("alt") || t;
+        lbTitle.textContent = t;
+        lbSub.textContent = s;
+        lbCount.textContent = `${String(lbIdx + 1).padStart(2, "0")} / ${String(bentoTiles.length).padStart(2, "0")}`;
+      }
+
+      function openLb(i) {
+        if (!lb) return;
+        renderLb(i);
+        lb.classList.add("is-open");
+        lb.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+        document.getElementById("bentoLbClose")?.focus();
+      }
+
+      function closeLb() {
+        if (!lb) return;
+        lb.classList.remove("is-open");
+        lb.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+        bentoTiles[lbIdx]?.focus();
+      }
+
+      bentoTiles.forEach((tile, idx) => {
+        tile.addEventListener("click", () => openLb(idx));
+      });
+      document.getElementById("bentoLbClose")?.addEventListener("click", closeLb);
+      document.getElementById("bentoLbPrev")?.addEventListener("click", () => renderLb(lbIdx - 1));
+      document.getElementById("bentoLbNext")?.addEventListener("click", () => renderLb(lbIdx + 1));
+      lb?.addEventListener("click", (e) => { if (e.target === lb) closeLb(); });
+      document.addEventListener("keydown", (e) => {
+        if (!lb || !lb.classList.contains("is-open")) return;
+        if (e.key === "Escape") closeLb();
+        if (e.key === "ArrowLeft") renderLb(lbIdx - 1);
+        if (e.key === "ArrowRight") renderLb(lbIdx + 1);
+      });
+      let lbTouchX = 0;
+      lbStage?.addEventListener("touchstart", (e) => { lbTouchX = e.touches[0].clientX; }, { passive: true });
+      lbStage?.addEventListener("touchend", (e) => {
+        const dx = e.changedTouches[0].clientX - lbTouchX;
+        if (Math.abs(dx) > 42) renderLb(dx < 0 ? lbIdx + 1 : lbIdx - 1);
+      }, { passive: true });
+
+      /* 4. SILENT TEXT ROLL ON DESKTOP NAV LINKS + SUBTLE MAGNETIZE ON PRIMARY CTA */
+      if (finePointer && !reducedMotion) {
+        document.querySelectorAll(".header-nav a").forEach((a) => {
+          const orig = a.textContent.trim();
+          if (!orig || a.classList.contains("is-roll")) return;
+          a.classList.add("is-roll");
+          a.innerHTML = `<span class="roll-track"><span class="roll-orig">${orig}</span><span class="roll-copy" aria-hidden="true">${orig}</span></span>`;
+        });
+        /* Keep rolled nav link labels synced when PT/EN changes */
+        window.__syncNavRollLabels = () => {
+          document.querySelectorAll(".header-nav a.is-roll").forEach((a) => {
+            const k = a.getAttribute("data-i18n");
+            if (k && DICT[currentLang] && DICT[currentLang][k]) {
+              const txtNew = DICT[currentLang][k];
+              const orig = a.querySelector(".roll-orig");
+              const copy = a.querySelector(".roll-copy");
+              if (orig && copy) { orig.textContent = txtNew; copy.textContent = txtNew; }
+            }
+          });
+        };
+        /* Subtle 4.5px magnetic pull on main Hero & WhatsApp CTA */
+        document.querySelectorAll(".hero-cta-primary, #atelierWaBtn").forEach((btn) => {
+          btn.addEventListener("pointermove", (e) => {
+            const r = btn.getBoundingClientRect();
+            const dx = ((e.clientX - (r.left + r.width / 2)) / (r.width / 2)) * 4.5;
+            const dy = ((e.clientY - (r.top + r.height / 2)) / (r.height / 2)) * 3.5;
+            btn.style.transform = `translate3d(${dx.toFixed(1)}px, ${dy.toFixed(1)}px, 0)`;
+          });
+          btn.addEventListener("pointerleave", () => {
+            btn.style.transform = "";
+          });
+        });
+      }
+    })();
+    /* === 21ST GOLDEN TRIO JS END === */
+
   </script>
 
   <a href="https://wa.me/351914160240?text=Ol%C3%A1%20Cap.%20Gil!%20Gostaria%20de%20saber%20disponibilidade%20na%20Alpha%20Douro%20(Douro%20Marina%20%C2%B7%20Port%C3%A3o%20A)." target="_blank" rel="noopener noreferrer" class="floating-wa-pill" id="floatingWaPill" aria-label="Falar com Cap. Gil no WhatsApp">
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.03 2C6.5 2 2 6.49 2 12.02c0 1.77.46 3.5 1.34 5.02L2 22l5.1-1.34a9.97 9.97 0 0 0 4.93 1.3h.01c5.52 0 10.01-4.49 10.01-10.02A9.98 9.98 0 0 0 12.03 2zm5.82 14.15c-.24.68-1.42 1.3-1.96 1.38-.5.08-1.14.11-1.84-.11-.43-.14-.98-.32-1.69-.63-2.97-1.28-4.91-4.28-5.06-4.48-.15-.2-1.21-1.61-1.21-3.07s.76-2.18 1.04-2.48c.27-.3.6-.37.8-.37h.58c.19 0 .44-.07.69.52.25.6.85 2.08.92 2.23.08.15.13.33.03.53-.1.2-.15.33-.3.5-.15.18-.31.4-.45.53-.15.15-.3.31-.13.61.18.3.78 1.29 1.68 2.09 1.15 1.03 2.13 1.35 2.43 1.5.3.15.48.13.66-.08.18-.2.75-.88.95-1.18.2-.3.4-.25.68-.15.27.1 1.75.83 2.05.98.3.15.5.22.58.35.07.12.07.72-.17 1.4z"/></svg>
     <span data-i18n="float_wa">WhatsApp · Cap. Gil</span>
   </a>
+
+
+  <div class="bento-lightbox" id="bentoLightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Galeria em ecrã inteiro">
+    <div class="bento-lb-frame">
+      <div class="bento-lb-top">
+        <span class="bento-lb-count mono" id="bentoLbCount">01 / 07</span>
+        <button type="button" class="bento-lb-close" id="bentoLbClose" aria-label="Fechar galeria">✕</button>
+      </div>
+      <div class="bento-lb-img-wrap" id="bentoLbStage">
+        <img id="bentoLbImg" src="./assets/real-shoot/01-golden-ribeira-capota-marinho.jpg" alt="" />
+      </div>
+      <div class="bento-lb-foot">
+        <div>
+          <div class="bento-lb-title" id="bentoLbTitle">Ribeira em Hora Dourada</div>
+          <div class="bento-lb-sub" id="bentoLbSub">Casco privado máx. 10 convidados · Luzes quentes 2200K</div>
+        </div>
+        <div class="bento-lb-nav">
+          <button type="button" class="bento-lb-arrow" id="bentoLbPrev" aria-label="Foto anterior">←</button>
+          <button type="button" class="bento-lb-arrow" id="bentoLbNext" aria-label="Próxima foto">→</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /bento-lightbox -->
 
 </body>
 </html>
