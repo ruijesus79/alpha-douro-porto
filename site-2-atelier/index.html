@@ -2,7 +2,7 @@
 <html lang="pt-PT">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>ALPHA DOURO ATELIER — Passeios de Barco Privados no Douro | Porto &amp; Cais da Afurada</title>
   <meta name="description" content="Casa náutica boutique no Rio Douro a partir da Douro Marina (Afurada · Portão A) (Porto/Gaia). Navegue pelas 7 pontes e pôr do sol no mar a bordo da embarcação Alpha Douro · Máx. 10 Pessoas (máx. 10 pessoas, capota panorâmica 360° todo o ano) e pague em 2 cliques." />
   <meta name="keywords" content="passeio de barco privado porto, cruzeiro 7 pontes porto luxo, sunset barco douro afurada, cais da afurada barco, private boat charter porto, alpha douro atelier" />
@@ -168,6 +168,8 @@
       color: var(--ivory);
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      -webkit-tap-highlight-color: transparent;
+      overscroll-behavior-y: none;
     }
 
     html.scroll-locked { overflow: hidden; }
@@ -491,6 +493,7 @@
       z-index: 0;
     }
 
+    .hero-img-mobile { display: none; }
     .hero-media img {
       width: 100%;
       height: 100%;
@@ -2234,61 +2237,104 @@
     }
 
     /* ==========================================================================
-       MOBILE / iPHONE FULL-BOAT HERO FRAMING (ZERO BOW/STERN CROPPING!)
+       MOBILE / iPHONE CINEMATIC FULL-BOAT HERO WITH EDITORIAL OVERLAY
+       (100% full boat bow-to-stern + dramatic serif headline overlaid just like Desktop!)
        ========================================================================== */
     @media (max-width: 768px) {
       .hero-atelier {
-        min-height: auto;
-        padding-top: 3.15rem;
-        justify-content: flex-start;
+        min-height: 86svh;
+        min-height: clamp(38rem, 86svh, 48rem);
+        padding-top: 0;
+        justify-content: flex-end;
+        background: #06111D;
       }
       .hero-media {
-        position: relative;
-        inset: auto;
+        position: absolute;
+        inset: 0;
         width: 100%;
-        aspect-ratio: 16 / 10;
+        height: 100%;
         overflow: hidden;
-        background: #040D18;
+        background: #06111D;
       }
+      .hero-media::before { display: none; }
+      .hero-img-desktop { display: none !important; }
+      .hero-img-mobile { display: block !important; }
       .hero-media img {
+        position: absolute;
+        inset: 0;
         width: 100%;
         height: 100%;
         object-fit: cover;
-        object-position: center 52%;
+        object-position: center top;
         transform: none !important;
-        filter: contrast(1.04) brightness(0.96);
+        filter: contrast(1.03) brightness(0.95);
+        -webkit-mask-image: none;
+        mask-image: none;
       }
       .hero-vignette {
-        top: 3.15rem;
-        bottom: auto;
-        height: calc(100vw * 0.625);
-        background: linear-gradient(180deg, rgba(6, 17, 29, 0.24) 0%, transparent 28%, transparent 66%, rgba(6, 17, 29, 0.98) 100%);
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        background: linear-gradient(
+          180deg,
+          rgba(6, 17, 29, 0.36) 0%,
+          rgba(6, 17, 29, 0.04) 22%,
+          rgba(6, 17, 29, 0.08) 38%,
+          rgba(6, 17, 29, 0.56) 44%,
+          rgba(6, 17, 29, 0.88) 64%,
+          #06111D 100%
+        );
       }
       .spyker-frame { display: none; }
       .hero-content {
-        padding-top: 1.1rem;
-        padding-bottom: 2.25rem;
+        position: relative;
+        z-index: 3;
+        padding-top: 16.5rem;
+        padding-bottom: 1.45rem;
       }
       .hero-grid {
         grid-template-columns: 1fr;
-        gap: 1.15rem;
+        gap: 0.9rem;
       }
       .hero-eyebrow {
-        font-size: 0.98rem;
-        margin-bottom: 0.65rem;
+        font-size: 0.86rem;
+        margin-bottom: 0.45rem;
+        text-shadow: 0 2px 14px rgba(6, 17, 29, 0.95);
       }
       .hero-title {
-        font-size: clamp(2.15rem, 9.2vw, 2.8rem);
+        font-size: clamp(2.45rem, 10.6vw, 3.1rem);
+        line-height: 0.97;
+        text-shadow: 0 4px 26px rgba(6, 17, 29, 0.95);
       }
       .atelier-solar-pill {
-        margin-top: 0.75rem;
-        padding: 0.42rem 0.7rem;
-        font-size: 0.64rem;
+        margin-top: 0.72rem;
+        padding: 0.44rem 0.72rem;
+        font-size: 0.62rem;
         line-height: 1.38;
+        background: rgba(6, 17, 29, 0.78);
+        backdrop-filter: blur(8px);
       }
       .hero-lead {
         font-size: 0.92rem;
-        line-height: 1.56;
+        line-height: 1.5;
+        color: rgba(245, 241, 232, 0.92);
+        text-shadow: 0 2px 12px rgba(6, 17, 29, 0.9);
+      }
+      .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.6rem;
+        width: 100%;
+      }
+      .hero-actions a {
+        justify-content: center;
+        padding: 0.82rem 0.7rem;
+        font-size: 0.82rem;
+        touch-action: manipulation;
+        user-select: none;
+      }
+      .cfg-input, .cfg-select, .atelier-select, .bespoke-notes {
+        font-size: 16px !important;
       }
     }
 
@@ -2685,9 +2731,17 @@
   <section class="hero-atelier" id="hero">
     <div class="hero-media">
       <img
+        class="hero-img-desktop"
         src="../assets/real-shoot/01-golden-ribeira-capota-marinho.jpg"
         alt="Alpha Douro private boutique vessel (max. 10 guests) moored before Dom Luís I Bridge in Porto"
         id="atelierHeroImg"
+        fetchpriority="high"
+      />
+      <img
+        class="hero-img-mobile"
+        src="../assets/real-shoot/01-golden-ribeira-mobile-hero.jpg"
+        alt="Embarcação Alpha Douro no Rio Douro frente à Ribeira do Porto"
+        fetchpriority="high"
       />
     </div>
     <div class="hero-vignette" aria-hidden="true"></div>
