@@ -641,7 +641,7 @@
       document.getElementById("uiSub").innerHTML = pt
         ? "Douro Marina · <strong>Pontão A</strong> · Chegue <strong>10 min antes</strong> · Prova de vinhos e Polaroid incluídas."
         : "Douro Marina · <strong>Pontoon A</strong> · Arrive <strong>10 min early</strong> · Wine tasting &amp; Polaroid included.";
-      document.getElementById("lblGate").textContent = pt ? "PORTÃO" : "GATE";
+      document.getElementById("lblGate").textContent = pt ? "PONTÃO" : "PONTOON";
       document.getElementById("lblVoyage").textContent = pt ? "PASSEIO" : "VOYAGE";
       document.getElementById("lblBoard").textContent = pt ? "EMBARQUE (10M ANTES)" : "BOARDING (10M EARLY)";
       document.getElementById("lblDepart").textContent = pt ? "PARTIDA" : "DEPARTURE";
@@ -666,8 +666,8 @@
 
       const shareUrl = window.location.href;
       const waConfirm = pt
-        ? `Olá Gil! Aqui está o meu Cartão de Embarque Alpha Douro:\n• Ref: ${refCode}\n• Nome: ${guestName}\n• Passeio: ${t.pt} (Prova de Vinhos + Polaroid incluídas)\n• Data: ${prettyDate} (${dateVal})\n• Embarque: ${boardTime} (Partida ${timeVal}) · Pontão A\n• Pessoas: ${guestsNum}\n• Total: ${totText}${extrasParam ? `\n• Detalhes: ${extrasParam}` : ""}\n• Cartão Digital: ${shareUrl}`
-        : `Hello Gil! Here is my Alpha Douro Boarding Pass:\n• Ref: ${refCode}\n• Guest: ${guestName}\n• Voyage: ${t.en} (Wine Tasting + Polaroid included)\n• Date: ${prettyDate} (${dateVal})\n• Boarding: ${boardTime} (Departure ${timeVal}) · Pontoon A\n• Guests: ${guestsNum}\n• Total: ${totText}${extrasParam ? `\n• Notes: ${extrasParam}` : ""}\n• Digital Pass: ${shareUrl}`;
+        ? `Olá Gil, espero que esteja tudo ótimo por aí no Douro.\nPartilho consigo o nosso Cartão de Embarque Digital Alpha Douro — estamos ansiosos por navegar consigo a partir do Pontão A:\n\n• Experiência: ${t.pt} (Prova de Vinhos & Polaroid incluídas)\n• Em nome de: ${guestName} (${guestsNum} ${guestsNum === 1 ? "pessoa" : "pessoas"})\n• Data: ${prettyDate} (${dateVal}) · Embarque ${boardTime} (Partida ${timeVal})\n• Valor direto: ${totText}${extrasParam ? `\n• Detalhes: ${extrasParam}` : ""}\n• Cartão Digital VIP: ${shareUrl}\n\nMuito obrigado, Gil — até já no cais!`
+        : `Hi Gil, hope all is wonderful on the Douro!\nHere is our Alpha Douro Digital Boarding Pass — we are really looking forward to stepping aboard with you at Pontoon A:\n\n• Experience: ${t.en} (Wine Tasting & Polaroid included)\n• Guest: ${guestName} (${guestsNum} ${guestsNum === 1 ? "guest" : "guests"})\n• Date: ${prettyDate} (${dateVal}) · Boarding ${boardTime} (Departure ${timeVal})\n• Direct total: ${totText}${extrasParam ? `\n• Notes: ${extrasParam}` : ""}\n• VIP Digital Pass: ${shareUrl}\n\nThank you so much, Gil — see you soon on the dock!`;
       document.getElementById("btnSendWa").href = `https://wa.me/${WA_PHONE}?text=${encodeURIComponent(waConfirm)}`;
 
       updatePrefLink();
