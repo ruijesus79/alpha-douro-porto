@@ -2,3 +2,5 @@ User-agent: *
 Disallow: /brand-kit
 Disallow: /whatsapp-kit
 Allow: /
+
+Sitemap: https://alpha-douro-porto.vercel.app/sitemap.xml

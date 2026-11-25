@@ -456,7 +456,7 @@
 
     <section class="actions-grid">
       <a href="#" id="btnSendWa" class="btn btn-wa" target="_blank" rel="noopener noreferrer">
-        Confirmar no WhatsApp · Cap. Gil ↗
+        Confirmar no WhatsApp · Gil ↗
       </a>
       <button type="button" id="btnSavePng" class="btn btn-gold">Guardar Cartão (PNG) ↓</button>
       <button type="button" id="btnAddCal" class="btn btn-outline">Calendário + Lembrete</button>
@@ -653,7 +653,7 @@
       document.getElementById("perkPolaroid").textContent = pt ? "◆ Foto Polaroid incluída" : "◆ Instant Polaroid included";
       document.getElementById("lblCheckin").textContent = pt ? "CHECK-IN NO CAIS" : "PIER CHECK-IN";
       document.getElementById("stubHint").textContent = pt ? "Apresente este cartão no telemóvel ao embarcar." : "Show this pass on your phone when boarding.";
-      document.getElementById("btnSendWa").textContent = pt ? "Confirmar no WhatsApp · Cap. Gil ↗" : "Confirm on WhatsApp · Cap. Gil ↗";
+      document.getElementById("btnSendWa").textContent = pt ? "Confirmar no WhatsApp · Gil ↗" : "Confirm on WhatsApp · Gil ↗";
       document.getElementById("btnSavePng").textContent = pt ? "Guardar Cartão (PNG) ↓" : "Save Pass (PNG) ↓";
       document.getElementById("btnAddCal").textContent = pt ? "Calendário + Lembrete" : "Calendar + Reminder";
       document.getElementById("lblPierRow").textContent = pt ? "Embarque" : "Boarding";
@@ -666,8 +666,8 @@
 
       const shareUrl = window.location.href;
       const waConfirm = pt
-        ? `Olá Cap. Gil! Aqui está o meu Cartão de Embarque Alpha Douro:\n• Ref: ${refCode}\n• Nome: ${guestName}\n• Passeio: ${t.pt} (Prova de Vinhos + Polaroid incluídas)\n• Data: ${prettyDate} (${dateVal})\n• Embarque: ${boardTime} (Partida ${timeVal}) · Portão A\n• Pessoas: ${guestsNum}\n• Total: ${totText}${extrasParam ? `\n• Detalhes: ${extrasParam}` : ""}\n• Cartão Digital: ${shareUrl}`
-        : `Hello Cap. Gil! Here is my Alpha Douro Boarding Pass:\n• Ref: ${refCode}\n• Guest: ${guestName}\n• Voyage: ${t.en} (Wine Tasting + Polaroid included)\n• Date: ${prettyDate} (${dateVal})\n• Boarding: ${boardTime} (Departure ${timeVal}) · Gate A\n• Guests: ${guestsNum}\n• Total: ${totText}${extrasParam ? `\n• Notes: ${extrasParam}` : ""}\n• Digital Pass: ${shareUrl}`;
+        ? `Olá Gil! Aqui está o meu Cartão de Embarque Alpha Douro:\n• Ref: ${refCode}\n• Nome: ${guestName}\n• Passeio: ${t.pt} (Prova de Vinhos + Polaroid incluídas)\n• Data: ${prettyDate} (${dateVal})\n• Embarque: ${boardTime} (Partida ${timeVal}) · Portão A\n• Pessoas: ${guestsNum}\n• Total: ${totText}${extrasParam ? `\n• Detalhes: ${extrasParam}` : ""}\n• Cartão Digital: ${shareUrl}`
+        : `Hello Gil! Here is my Alpha Douro Boarding Pass:\n• Ref: ${refCode}\n• Guest: ${guestName}\n• Voyage: ${t.en} (Wine Tasting + Polaroid included)\n• Date: ${prettyDate} (${dateVal})\n• Boarding: ${boardTime} (Departure ${timeVal}) · Gate A\n• Guests: ${guestsNum}\n• Total: ${totText}${extrasParam ? `\n• Notes: ${extrasParam}` : ""}\n• Digital Pass: ${shareUrl}`;
       document.getElementById("btnSendWa").href = `https://wa.me/${WA_PHONE}?text=${encodeURIComponent(waConfirm)}`;
 
       updatePrefLink();
@@ -677,8 +677,8 @@
     function updatePrefLink() {
       const pt = lang === "pt";
       const prefMsg = pt
-        ? `Olá Cap. Gil! Para o passeio ${refCode} (${guestName} · ${dateVal} às ${timeVal}), deixo a minha preferência:\n• Vinho favorito: ${selectedDrink}\n• Ocasião: ${selectedOcc}\nAté já no Portão A!`
-        : `Hello Cap. Gil! For booking ${refCode} (${guestName} · ${dateVal} at ${timeVal}), my onboard preference:\n• Favorite wine: ${selectedDrink}\n• Occasion: ${selectedOcc}\nSee you at Gate A!`;
+        ? `Olá Gil! Para o passeio ${refCode} (${guestName} · ${dateVal} às ${timeVal}), deixo a minha preferência:\n• Vinho favorito: ${selectedDrink}\n• Ocasião: ${selectedOcc}\nAté já no Portão A!`
+        : `Hello Gil! For booking ${refCode} (${guestName} · ${dateVal} at ${timeVal}), my onboard preference:\n• Favorite wine: ${selectedDrink}\n• Occasion: ${selectedOcc}\nSee you at Gate A!`;
       document.getElementById("btnSendPref").href = `https://wa.me/${WA_PHONE}?text=${encodeURIComponent(prefMsg)}`;
     }
 

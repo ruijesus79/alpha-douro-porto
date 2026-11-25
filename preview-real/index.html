@@ -70,7 +70,10 @@
         "url": "https://alpha-douro-porto.vercel.app/",
         "image": "https://alpha-douro-porto.vercel.app/assets/real-shoot/01-golden-ribeira-capota-marinho.jpg",
         "telephone": "+351 914 160 240",
-        "email": "bookings@alphadouro.pt",
+        "email": "ola@alphadouro.com",
+        "knowsLanguage": ["pt", "en", "es"],
+        "openingHours": "Mo-Su 08:00-21:00",
+        "sameAs": ["https://instagram.com/alphadouroporto"],
         "priceRange": "€30–€60 · Privado Sob Consulta",
         "currenciesAccepted": "EUR",
         "paymentAccepted": "MB WAY, Apple Pay, Cartão, Multibanco",
@@ -102,7 +105,7 @@
             {
               "@type": "TouristTrip",
               "name": "Charter Privado à Medida (Até 10 Pessoas · Sob Consulta)",
-              "description": "Barco exclusivo com Cap. Gil a partir do Portão A — rota, prova de vinhos, música ou pedido de casamento sob orçamento personalizado."
+              "description": "Barco exclusivo com o Gil a partir do Portão A — rota, prova de vinhos, música ou pedido de casamento sob orçamento personalizado."
             }
           ]
         }
@@ -119,7 +122,7 @@
           {
             "@type": "Question",
             "name": "Como funciona a reserva e o Cartão de Embarque Digital?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Configure o seu passeio e confirme diretamente no WhatsApp (+351 914 160 240) sem comissões. Recebe logo o seu Cartão de Embarque Digital VIP personalizado com código QR, GPS e assinatura do Cap. Gil." }
+            "acceptedAnswer": { "@type": "Answer", "text": "Configure o seu passeio e confirme diretamente no WhatsApp (+351 914 160 240) sem comissões. Recebe logo o seu Cartão de Embarque Digital VIP personalizado com código QR, GPS e assinatura do Gil." }
           },
           {
             "@type": "Question",
@@ -134,7 +137,7 @@
           {
             "@type": "Question",
             "name": "Como pedir orçamento para um Charter Privado?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Selecione «Charter Privado à Medida» no configurador, indique ocasião, duração e extras desejados, e envie diretamente ao Cap. Gil no WhatsApp para receber o orçamento à medida." }
+            "acceptedAnswer": { "@type": "Answer", "text": "Selecione «Charter Privado à Medida» no configurador, indique ocasião, duração e extras desejados, e envie diretamente ao Gil no WhatsApp para receber o orçamento à medida." }
           }
         ]
       }
@@ -1675,7 +1678,7 @@
     /* ==========================================================================
        5 LUXURY AWWWARDS UPGRADES (ATELIER EDITION):
        1. Live Solar Sunset Telemetry at Foz do Douro
-       2. Captain Gil Handwritten SVG Signature on 3D Cotton Boarding Pass
+       2. Gil Handwritten SVG Signature on 3D Cotton Boarding Pass
        3. Procedural Web Audio "Engine-Off at Foz" Soundscape
        4. 11:30 Capri vs 18:30 Atlantic Sunset Atmosphere Mode
        5. 1-Click Cais da Afurada Private Marina Arrival Concierge
@@ -1754,7 +1757,7 @@
       box-shadow: 0 0 10px #F2A663;
     }
 
-    /* Captain Gil Calligraphic SVG Signature on 3D Boarding Pass */
+    /* Gil Calligraphic SVG Signature on 3D Boarding Pass */
     .tk-sig-row {
       margin-top: 0.25rem;
       padding-top: 0.85rem;
@@ -3838,6 +3841,103 @@
     }
     /* === 3-TAP QUICK RESERVE SHEET CSS END === */
 
+
+    /* === PT LEGAL FOOTER & MODAL CSS START === */
+    .footer-legal-strip {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0.65rem 1.4rem;
+      padding: 1.15rem 0 1.35rem;
+      border-top: 1px solid var(--hairline);
+      font-size: 0.76rem;
+      color: var(--slate);
+    }
+    .footer-legal-strip a,
+    .footer-legal-strip button {
+      background: none;
+      border: 0;
+      padding: 0.25rem 0;
+      font: inherit;
+      color: rgba(224, 208, 184, 0.78);
+      text-decoration: none;
+      cursor: pointer;
+      transition: color 180ms ease;
+    }
+    .footer-legal-strip a:hover,
+    .footer-legal-strip button:hover {
+      color: var(--ivory);
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+    .footer-legal-sep { opacity: 0.35; user-select: none; }
+    .legal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 1250;
+      background: rgba(4, 11, 20, 0.84);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.25rem;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 240ms var(--ease-expo), visibility 240ms ease;
+    }
+    .legal-backdrop.is-open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+    .legal-dialog {
+      width: min(40rem, 100%);
+      max-height: 85svh;
+      overflow-y: auto;
+      background: #081728;
+      border: 1px solid rgba(224, 208, 184, 0.26);
+      border-radius: 18px;
+      padding: 1.5rem 1.65rem;
+      color: var(--ivory);
+      box-shadow: 0 28px 65px rgba(0, 0, 0, 0.65);
+    }
+    .legal-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-bottom: 0.9rem;
+      border-bottom: 1px solid var(--hairline);
+      margin-bottom: 1rem;
+    }
+    .legal-title {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.7rem;
+      font-weight: 500;
+      color: var(--ivory);
+      line-height: 1.1;
+    }
+    .legal-body {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      font-size: 0.88rem;
+      line-height: 1.62;
+      color: var(--slate);
+    }
+    .legal-body strong { color: var(--ivory); font-weight: 500; }
+    .legal-body a { color: var(--sand); text-underline-offset: 3px; }
+    .legal-body h3 {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--sand);
+      margin-top: 0.35rem;
+    }
+    /* === PT LEGAL FOOTER & MODAL CSS END === */
+
   </style>
 </head>
 <body>
@@ -4499,7 +4599,7 @@
               <span data-i18n="open_pass_cta">Abrir Cartão Digital VIP ↗</span>
             </button>
             <button type="button" class="btn-pay-atelier" data-magnetic id="atelierPayBtn" data-i18n="pay_2click_cta" style="display:none;">Pagar em 2 Cliques · Apple Pay / Cartão ↗</button>
-            <span class="mono" id="issueStatusText" data-i18n="pay_trust_line" style="font-size:0.72rem; color: var(--sand-dim); width: 100%;">0% COMISSÕES · WHATSAPP DIRETO CAP. GIL (+351 914 160 240) · CARTÃO DIGITAL VIP NA HORA</span>
+            <span class="mono" id="issueStatusText" data-i18n="pay_trust_line" style="font-size:0.72rem; color: var(--sand-dim); width: 100%;">0% COMISSÕES · WHATSAPP DIRETO · GIL (+351 914 160 240) · CARTÃO DIGITAL VIP NA HORA</span>
             <div class="atelier-pay-feedback" id="atelierPayFeedback" role="status" aria-live="polite"></div>
           </div>
         </div>
@@ -4553,19 +4653,19 @@
 
               <div class="ticket-perf-line"></div>
 
-              <!-- Captain Gil Animated Calligraphic SVG Signature on 3D Cotton Boarding Pass -->
+              <!-- Gil Animated Calligraphic SVG Signature on 3D Cotton Boarding Pass -->
               <div class="tk-sig-row is-sig-drawn" id="tkSigRow">
                 <div>
-                  <div class="tk-label mono" data-i18n="tk_sig_label">SKIPPER ENDORSEMENT · DOURO MARINA · GATE A</div>
-                  <div style="font-size: 0.78rem; font-weight: 600; color: #0A223D;">Cap. Gil — Alpha Douro</div>
+                  <div class="tk-label mono" data-i18n="tk_sig_label">ASSINATURA · DOURO MARINA · PORTÃO A</div>
+                  <div style="font-size: 0.78rem; font-weight: 600; color: #0A223D;">Gil — Alpha Douro</div>
                 </div>
                 <div style="display:flex; align-items:center; gap:0.45rem;">
-                  <svg class="tk-sig-svg" viewBox="0 0 240 66" aria-label="Assinatura manuscrita Cap. Gil">
+                  <svg class="tk-sig-svg" viewBox="0 0 240 66" aria-label="Assinatura manuscrita do Gil">
                     <path class="tk-sig-stroke tk-sig-1" pathLength="1" d="M14 44 C10 20, 32 10, 40 24 C44 32, 24 48, 36 50 C48 52, 62 22, 74 16 C80 14, 70 46, 82 46 C92 46, 98 28, 106 34 C112 40, 108 48, 118 44 C128 40, 134 14, 130 12 C125 10, 122 44, 140 46" />
                     <path class="tk-sig-stroke tk-sig-2" pathLength="1" d="M148 44 L162 16 L174 44 M152 34 C162 30, 174 30, 186 35 C196 39, 208 22, 218 24 C226 26, 222 44, 210 45" />
                     <path class="tk-sig-stroke tk-sig-3" pathLength="1" d="M22 56 C72 48, 142 58, 226 49 M101 21 L103 19" />
                   </svg>
-                  <button type="button" class="tk-sig-replay mono" id="tkSigReplayBtn" title="Replay Captain Signature">↻</button>
+                  <button type="button" class="tk-sig-replay mono" id="tkSigReplayBtn" title="Repetir assinatura do Gil">↻</button>
                 </div>
               </div>
 
@@ -4757,11 +4857,11 @@
       <div class="atelier-compare-box">
         <div class="cmdr-grid">
           <figure class="cmdr-photo">
-            <img src="../assets/real-shoot/gil-comandante-sunset.webp" alt="Cap. Gil ao leme de um veleiro ao pôr do sol no mar" width="864" height="1536" loading="lazy" decoding="async" />
-            <figcaption class="cmdr-photo-cap mono" data-i18n="cmdr_photo_cap">CAP. GIL · VELA AO PÔR DO SOL NO MAR</figcaption>
+            <img src="../assets/real-shoot/gil-comandante-sunset.webp" alt="Gil ao leme de um veleiro ao pôr do sol no mar" width="864" height="1536" loading="lazy" decoding="async" />
+            <figcaption class="cmdr-photo-cap mono" data-i18n="cmdr_photo_cap">GIL · VELA AO PÔR DO SOL NO MAR</figcaption>
           </figure>
           <div class="cmdr-copy">
-            <div class="sec-kicker" data-i18n="cmdr_kicker">O seu comandante hoje</div>
+            <div class="sec-kicker" data-i18n="cmdr_kicker">Ao leme consigo</div>
             <h2 class="sec-serif-title" data-i18n="cmdr_title">Do Cockpit ao <em>Leme</em></h2>
             <span class="atelier-rule-draw" aria-hidden="true"></span>
             <p class="cmdr-bio" data-i18n="cmdr_bio">Começou a fazer vela aos <strong>5 anos</strong> e nunca mais deixou a água.</p>
@@ -4885,7 +4985,7 @@
         </details>
         <details class="atelier-faq-item">
           <summary data-i18n="faq_q2">Como funciona a reserva e o Cartão de Embarque Digital?</summary>
-          <div class="faq-body-anim"><div class="faq-body-inner"><div class="atelier-faq-ans" data-i18n="faq_a2">Escolha o passeio acima e clique no botão verde do WhatsApp: a mensagem vai direta ao Cap. Gil (<strong>+351 914 160 240</strong>) já com o link do seu Cartão Digital VIP personalizado (com QR, GPS e assinatura), sem comissões de intermediários.</div></div></div>
+          <div class="faq-body-anim"><div class="faq-body-inner"><div class="atelier-faq-ans" data-i18n="faq_a2">Escolha o passeio acima e clique no botão verde do WhatsApp: a mensagem vai direta ao Gil (<strong>+351 914 160 240</strong>) já com o link do seu Cartão Digital VIP personalizado (com QR, GPS e assinatura), sem comissões de intermediários.</div></div></div>
         </details>
         <details class="atelier-faq-item">
           <summary data-i18n="faq_q3">E se chover ou fizer vento no dia do passeio?</summary>
@@ -4897,7 +4997,7 @@
         </details>
         <details class="atelier-faq-item">
           <summary data-i18n="faq_q5">Como funciona o Charter Privado (Sob Consulta)?</summary>
-          <div class="faq-body-anim"><div class="faq-body-inner"><div class="atelier-faq-ans" data-i18n="faq_a5">No configurador, selecione «Charter Privado à Medida», escolha ocasião, duração e extras (prova de vinhos, tábua, música ou pedido de casamento) e envie no WhatsApp — o Cap. Gil responde rapidamente com o orçamento exato para o seu grupo.</div></div></div>
+          <div class="faq-body-anim"><div class="faq-body-inner"><div class="atelier-faq-ans" data-i18n="faq_a5">No configurador, selecione «Charter Privado à Medida», escolha ocasião, duração e extras (prova de vinhos, tábua, música ou pedido de casamento) e envie no WhatsApp — o Gil responde rapidamente com o orçamento exato para o seu grupo.</div></div></div>
         </details>
       </div>
     </div>
@@ -4910,7 +5010,7 @@
       <div class="prefooter-inner">
         <h2 class="prefooter-title" data-i18n="pf_title">Dez lugares. Portão A. Sem multidões.</h2>
         <p class="prefooter-sub" data-i18n="pf_sub">
-          Reserva direta com o Cap. Gil, prova de vinhos do Porto e Douro incluída em todos os passeios e Cartão de Embarque Digital VIP na hora.
+          Reserva direta com o Gil, prova de vinhos do Porto e Douro incluída em todos os passeios e Cartão de Embarque Digital VIP na hora.
         </p>
         <div class="prefooter-actions">
           <a href="#configurator" class="btn-capri-solid" data-open-quick-reserve="" style="min-height:48px; padding:0 1.6rem;">
@@ -4941,7 +5041,7 @@
             Dedicated WhatsApp dispatch, same-day weather rescheduling, and wax-sealed invitation delivery for concierges at The Yeatman, Maison Albar, Torel Avantgarde, and private event planners.
           </p>
           <a href="https://wa.me/351914160240?text=Ol%C3%A1%20Cap.%20Gil!%20Contacto%20de%20Concierge%20%2F%20Charter%20Privado%20Alpha%20Douro." target="_blank" rel="noopener noreferrer" class="btn-brass">
-            <span data-i18n="f_cta">WhatsApp Concierge · Cap. Gil ↗</span>
+            <span data-i18n="f_cta">WhatsApp Direto · Gil ↗</span>
           </a>
         </div>
         <div class="concierge-photo">
@@ -5005,6 +5105,18 @@
       </div>
       <!-- FOOTER WATERMARK END -->
 
+            <!-- PT LEGAL COMPLIANCE STRIP START -->
+      <div class="footer-legal-strip" aria-label="Informação Legal Obrigatória em Portugal">
+        <a href="https://www.livroreclamacoes.pt/Inicio/" target="_blank" rel="noopener noreferrer" data-i18n="leg_livro">Livro de Reclamações Eletrónico ↗</a>
+        <span class="footer-legal-sep" aria-hidden="true">·</span>
+        <button type="button" data-open-legal="ral" data-i18n="leg_ral">Resolução de Litígios (RAL · CICAP)</button>
+        <span class="footer-legal-sep" aria-hidden="true">·</span>
+        <button type="button" data-open-legal="privacy" data-i18n="leg_priv">Privacidade &amp; Cookies (RGPD)</button>
+        <span class="footer-legal-sep" aria-hidden="true">·</span>
+        <button type="button" data-open-legal="terms" data-i18n="leg_terms">Termos &amp; Condições</button>
+      </div>
+      <!-- PT LEGAL COMPLIANCE STRIP END -->
+
       <div class="footer-base">
         <span>© 2026 Alpha Douro Boat Tours · Porto. All rights reserved.</span>
           <a href="../pass/index.html" class="mono" style="color: var(--sand); letter-spacing: 0.08em;">CARTÃO DIGITAL VIP ↗</a>
@@ -5019,11 +5131,11 @@
     /* ======================================================================
        CONFIGURAÇÃO DE PAGAMENTO DIRETO EM 2 CLIQUES (€0/MÊS FIXO)
        1. Crie links gratuitos em dashboard.stripe.com/payment-links (ou cal.com)
-       2. Cole os 6 URLs abaixo + o nº real de WhatsApp/MB WAY do Cap. Gil.
+       2. Cole os 6 URLs abaixo + o nº real de WhatsApp/MB WAY do Gil.
        ====================================================================== */
     const CHECKOUT_CONFIG = {
       provider: "stripe", // "stripe" (Stripe Payment Links — Apple Pay / Cartão / Multibanco) ou "cal" (Cal.com + Stripe)
-      whatsappNumber: "351914160240", // Substituir pelo nº real do Cap. Gil (ex: "351912345678")
+      whatsappNumber: "351914160240", // Substituir pelo nº real do Gil (ex: "351912345678")
       mbwayDisplay: "+351 914 160 240",
       links: {
         bridges:  "https://buy.stripe.com/SUBSTITUIR_7_PONTES",
@@ -5913,12 +6025,12 @@
       if (atelierWaBtn) {
         const waMsg = isQuote
           ? (currentLang === "pt"
-              ? `Olá Cap. Gil! Gostaria de pedir um ORÇAMENTO PERSONALIZADO para um Charter Privado Alpha Douro (Douro Marina · Portão A):\n• Ref: ${passRefCode}\n• Nome: ${guestNameStr}\n• Data & Hora: ${cfgDate.value} às ${cfgSlot.value} (Portão A · chegar 10 min antes)\n• Passageiros: ${partySize}${bespokeSummary}\n• Cartão Digital VIP: ${livePassUrl}`
-              : `Hello Cap. Gil! I would like to request a BESPOKE QUOTE for a Private Alpha Douro Charter (Douro Marina · Gate A):\n• Ref: ${passRefCode}\n• Guest: ${guestNameStr}\n• Date & Time: ${cfgDate.value} at ${cfgSlot.value} (Gate A · arrive 10 min early)\n• Guests: ${partySize}${bespokeSummary}\n• VIP Digital Pass: ${livePassUrl}`)
+              ? `Olá Gil! Gostaria de pedir um ORÇAMENTO PERSONALIZADO para um Charter Privado Alpha Douro (Douro Marina · Portão A):\n• Ref: ${passRefCode}\n• Nome: ${guestNameStr}\n• Data & Hora: ${cfgDate.value} às ${cfgSlot.value} (Portão A · chegar 10 min antes)\n• Passageiros: ${partySize}${bespokeSummary}\n• Cartão Digital VIP: ${livePassUrl}`
+              : `Hello Gil! I would like to request a BESPOKE QUOTE for a Private Alpha Douro Charter (Douro Marina · Gate A):\n• Ref: ${passRefCode}\n• Guest: ${guestNameStr}\n• Date & Time: ${cfgDate.value} at ${cfgSlot.value} (Gate A · arrive 10 min early)\n• Guests: ${partySize}${bespokeSummary}\n• VIP Digital Pass: ${livePassUrl}`)
           : (currentLang === "pt"
-              ? `Olá Cap. Gil! Quero confirmar a minha reserva Alpha Douro (Douro Marina · Portão A):\n• Ref: ${passRefCode}\n• Nome: ${guestNameStr}\n• Passeio: ${vName}\n• Data & Hora: ${cfgDate.value} às ${cfgSlot.value} (Portão A · chegar 10 min antes)\n• Passageiros: ${partySize}${activeNames.length ? `\n• Extras: ${activeNames.join(", ")}` : ""}\n• Prova de Vinhos: Incluída
+              ? `Olá Gil! Quero confirmar a minha reserva Alpha Douro (Douro Marina · Portão A):\n• Ref: ${passRefCode}\n• Nome: ${guestNameStr}\n• Passeio: ${vName}\n• Data & Hora: ${cfgDate.value} às ${cfgSlot.value} (Portão A · chegar 10 min antes)\n• Passageiros: ${partySize}${activeNames.length ? `\n• Extras: ${activeNames.join(", ")}` : ""}\n• Prova de Vinhos: Incluída
 • Total Direto: €${total}\n• Cartão de Embarque Digital VIP: ${livePassUrl}`
-              : `Hello Cap. Gil! I would like to confirm my Alpha Douro booking (Douro Marina · Gate A):\n• Ref: ${passRefCode}\n• Guest: ${guestNameStr}\n• Voyage: ${vName}\n• Date & Time: ${cfgDate.value} at ${cfgSlot.value} (Gate A · arrive 10 min early)\n• Party: ${partySize}${activeNames.length ? `\n• Extras: ${activeNames.join(", ")}` : ""}\n• Wine Tasting: Included
+              : `Hello Gil! I would like to confirm my Alpha Douro booking (Douro Marina · Gate A):\n• Ref: ${passRefCode}\n• Guest: ${guestNameStr}\n• Voyage: ${vName}\n• Date & Time: ${cfgDate.value} at ${cfgSlot.value} (Gate A · arrive 10 min early)\n• Party: ${partySize}${activeNames.length ? `\n• Extras: ${activeNames.join(", ")}` : ""}\n• Wine Tasting: Included
 • Direct Total: €${total}\n• VIP Digital Boarding Pass: ${livePassUrl}`);
         atelierWaBtn.href = `https://wa.me/${CHECKOUT_CONFIG.whatsappNumber}?text=${encodeURIComponent(waMsg)}`;
       }
@@ -5969,13 +6081,13 @@
       }
 
       const waMsg = currentLang === "pt"
-        ? `Olá Cap. Gil! Quero pagar e confirmar imediatamente o meu Boarding Pass Alpha Douro (Douro Marina · Portão A):\n• Ref: ${passRefCode}\n• Passeio: ${vName}\n• Data & Hora: ${cfgDate.value} às ${cfgSlot.value} (Portão A · chegar 10 min antes)\n• Passageiros: ${partySize} (${guestNameStr})\n• Total Direto: ${totalStr}\n• Preferência: Link Stripe (Apple Pay/Cartão) ou MB WAY`
-        : `Hello Cap. Gil! I want to pay and confirm my Alpha Douro Boarding Pass (Douro Marina · Gate A):\n• Ref: ${passRefCode}\n• Voyage: ${vName}\n• Date & Time: ${cfgDate.value} at ${cfgSlot.value} (Gate A · arrive 10 min early)\n• Party: ${partySize} (${guestNameStr})\n• Direct Total: ${totalStr}\n• Preference: Stripe Link (Apple Pay/Card) or MB WAY`;
+        ? `Olá Gil! Quero pagar e confirmar imediatamente o meu Boarding Pass Alpha Douro (Douro Marina · Portão A):\n• Ref: ${passRefCode}\n• Passeio: ${vName}\n• Data & Hora: ${cfgDate.value} às ${cfgSlot.value} (Portão A · chegar 10 min antes)\n• Passageiros: ${partySize} (${guestNameStr})\n• Total Direto: ${totalStr}\n• Preferência: Link Stripe (Apple Pay/Cartão) ou MB WAY`
+        : `Hello Gil! I want to pay and confirm my Alpha Douro Boarding Pass (Douro Marina · Gate A):\n• Ref: ${passRefCode}\n• Voyage: ${vName}\n• Date & Time: ${cfgDate.value} at ${cfgSlot.value} (Gate A · arrive 10 min early)\n• Party: ${partySize} (${guestNameStr})\n• Direct Total: ${totalStr}\n• Preference: Stripe Link (Apple Pay/Card) or MB WAY`;
 
       if (feedbackEl) {
         feedbackEl.innerHTML = currentLang === "pt"
-          ? `<strong>Reserva Direta Ativa (0% Comissões):</strong> A abrir o WhatsApp do Cap. Gil (+351 914 160 240) com o seu Boarding Pass (${passRefCode} · ${totalStr}) para confirmação imediata via MB WAY ou link seguro.`
-          : `<strong>Direct Booking Active (0% Fees):</strong> Opening Cap. Gil’s WhatsApp (+351 914 160 240) with your Boarding Pass (${passRefCode} · ${totalStr}) for instant MB WAY or payment link confirmation.`;
+          ? `<strong>Reserva Direta Ativa (0% Comissões):</strong> A abrir o WhatsApp do Gil (+351 914 160 240) com o seu Boarding Pass (${passRefCode} · ${totalStr}) para confirmação imediata via MB WAY ou link seguro.`
+          : `<strong>Direct Booking Active (0% Fees):</strong> Opening Gil’s WhatsApp (+351 914 160 240) with your Boarding Pass (${passRefCode} · ${totalStr}) for instant MB WAY or payment link confirmation.`;
         feedbackEl.classList.add("is-visible");
       }
       window.open(`https://wa.me/${CHECKOUT_CONFIG.whatsappNumber}?text=${encodeURIComponent(waMsg)}`, "_blank", "noopener,noreferrer");
@@ -6035,7 +6147,7 @@
 
     /* 4B. 5 Luxury Awwwards Upgrades Engine (Atelier Edition):
        1. Live Astronomical Foz Sunset Telemetry
-       2. Captain Gil Handwritten SVG Signature Replay
+       2. Gil Handwritten SVG Signature Replay
        3. Procedural Web Audio "Engine-Off at Foz" Soundscape
        4. 11:30 Capri vs 18:30 Atlantic Sunset Atmosphere Mode
        5. 1-Click Cais da Afurada GPS Coordinates Clipboard Copy */
@@ -6237,7 +6349,7 @@
         v_title: "Two Opening Tours · Or Private Charter",
         v_copy: "Simple choice: daytime 7 bridges, golden-hour sunset with wine tasting, or the whole boat tailored to your group.",
         c_kicker: "Instant Digital Boarding Pass",
-        c_title: "Reserve Directly with Cap. Gil",
+        c_title: "Reserve Directly with Gil",
         c_copy: "Fill in your details and confirm on WhatsApp in one tap — you get a personalized Digital Boarding Pass with QR and pier GPS straight away.",
         wa_atelier_cta: "Book & Get Digital Pass on WhatsApp ↗",
         open_pass_cta: "Open VIP Digital Pass ↗",
@@ -6248,14 +6360,14 @@
         bp_wish_lbl: "PICK WHAT YOU WANT ON BOARD (WE SEND YOUR QUOTE)",
         bp_notes_lbl: "SPECIAL NOTES (OPTIONAL)",
         pay_2click_cta: "Pay in 2 Clicks · Apple Pay / Card ↗",
-        pay_trust_line: "0% FEES · DIRECT WHATSAPP CAP. GIL (+351 914 160 240) · INSTANT DIGITAL BOARDING PASS",
+        pay_trust_line: "0% FEES · DIRECT WHATSAPP · GIL (+351 914 160 240) · INSTANT DIGITAL BOARDING PASS",
         tk_sig_label: "GATE A (10 MIN EARLY) · WINE TASTING INCLUDED",
         g_kicker: "Details on board",
         g_title: "Small Things Done Properly",
         g_copy: "Cotton boarding passes, Portuguese wool throws, chilled Tawny Port and dark chocolate — prepared before you step on the dock.",
         rev_kicker: "Guest Reviews · Douro Marina · Gate A",
         rev_title: "What People Actually Say",
-        rev_rail: "REVIEWS", cc_title: "Drag to Compare · Open Golden Hour or 360° Shelter", cc_hint: "← Slide to preview the 360° panoramic winter enclosure →", cc_lbl_open: "Open · Golden Hour", cc_lbl_winter: "Winter · 360° Canopy", pf_title: "Ten seats. Gate A. Zero crowds.", pf_sub: "Book direct with Cap. Gil, Port & Douro wine tasting included on every voyage, plus your instant VIP Digital Boarding Pass.", pf_cta_book: "Choose Voyage & Time ↗", pf_cta_wa: "WhatsApp Cap. Gil · +351 914 160 240 ↗", f_copy_gps: "Copy Gate A Address", mb_price: "From €30 · Sunset €60", mb_sub: "Wine Tasting Included · Gate A", mb_cta: "Book Now ↗",  cfg_step1_lbl: "01 · CHOOSE YOUR VOYAGE", pc_b_tag: "Opening Rate · Day", pc_b_name: "7 Bridges Cruise", pc_per_pax: "/ guest", pc_b_sub: "Wine Tasting included · 2h", pc_s_tag: "Most Popular · Sunset", pc_s_name: "Sunset & Ocean", pc_s_sub: "7 Bridges, Atlantic & Wine · 2h", pc_p_tag: "Exclusive 1–10p", pc_p_name: "Private Charter", pc_quote: "Custom Quote", pc_p_sub: "Entire boat · 100% bespoke", bg_0_t: "Golden Hour at Ribeira", bg_0_s: "Private hull max 10 guests · 2200K warm lights", bg_1_t: "Wine Tasting Included", bg_1_s: "Tawny Port, Douro White, Vinho Verde & 70% chocolate", bg_2_t: "Blue Hour · Dom Luís I", bg_2_s: "Twilight reflections across Porto", bg_3_t: "Atlantic Ocean Sunset", bg_3_s: "Douro river mouth · Sunset toast at sea", bg_4_t: "365-Day Comfort", bg_4_s: "360° clear canopy & Portuguese wool throws", bg_5_t: "Bow Sunpad Lounge", bg_5_s: "Ivory marine upholstery & unobstructed views", bg_6_t: "Boarding Pass & Polaroid", bg_6_s: "Direct boarding at Gate A · Douro Marina",  rev_score_lbl: "5.0 · Gate A · Douro Marina",
+        rev_rail: "REVIEWS", cc_title: "Drag to Compare · Open Golden Hour or 360° Shelter", cc_hint: "← Slide to preview the 360° panoramic winter enclosure →", cc_lbl_open: "Open · Golden Hour", cc_lbl_winter: "Winter · 360° Canopy", pf_title: "Ten seats. Gate A. Zero crowds.", pf_sub: "Book direct with Gil, Port & Douro wine tasting included on every voyage, plus your instant VIP Digital Boarding Pass.", pf_cta_book: "Choose Voyage & Time ↗", pf_cta_wa: "WhatsApp Gil · +351 914 160 240 ↗", f_copy_gps: "Copy Gate A Address", mb_price: "From €30 · Sunset €60", mb_sub: "Wine Tasting Included · Gate A", mb_cta: "Book Now ↗",  cfg_step1_lbl: "01 · CHOOSE YOUR VOYAGE", pc_b_tag: "Opening Rate · Day", pc_b_name: "7 Bridges Cruise", pc_per_pax: "/ guest", pc_b_sub: "Wine Tasting included · 2h", pc_s_tag: "Most Popular · Sunset", pc_s_name: "Sunset & Ocean", pc_s_sub: "7 Bridges, Atlantic & Wine · 2h", pc_p_tag: "Exclusive 1–10p", pc_p_name: "Private Charter", pc_quote: "Custom Quote", pc_p_sub: "Entire boat · 100% bespoke", bg_0_t: "Golden Hour at Ribeira", bg_0_s: "Private hull max 10 guests · 2200K warm lights", bg_1_t: "Wine Tasting Included", bg_1_s: "Tawny Port, Douro White, Vinho Verde & 70% chocolate", bg_2_t: "Blue Hour · Dom Luís I", bg_2_s: "Twilight reflections across Porto", bg_3_t: "Atlantic Ocean Sunset", bg_3_s: "Douro river mouth · Sunset toast at sea", bg_4_t: "365-Day Comfort", bg_4_s: "360° clear canopy & Portuguese wool throws", bg_5_t: "Bow Sunpad Lounge", bg_5_s: "Ivory marine upholstery & unobstructed views", bg_6_t: "Boarding Pass & Polaroid", bg_6_s: "Direct boarding at Gate A · Douro Marina",  rev_score_lbl: "5.0 · Gate A · Douro Marina",
         rev1_tag: "Sunset & Wine Tasting · Couple",
         rev1_q: "“Booked on WhatsApp the night before and Gil sent us our boarding pass right away. No waiting in line at Ribeira. When we stopped by the river mouth at sunset he poured chilled Tawny Port with dark chocolate — honestly the calmest two hours we had in Porto.”",
         rev1_loc: "Claire & Thomas · Lyon",
@@ -6265,11 +6377,11 @@
         rev3_tag: "Private Charter · Sunset",
         rev3_q: "“Our hotel desk in Gaia gave us Gil's number. Eight minutes in an Uber to Gate A, straight onto the boat. No loudspeakers, no rushing through photos. Just good white wine, great light on the bridges, and easy conversation.”",
         rev3_loc: "Daniel Mercer · Boston",
-        cmdr_kicker: "Your captain today",
+        cmdr_kicker: "At the helm with you",
         cmdr_title: "From Cockpit to <em>Helm</em>",
         cmdr_bio: "He started sailing at <strong>5</strong> and never left the water: <strong>15 years</strong> working on boats, with water sports as a way of life. He is also a <strong>commercial airline pilot</strong> — and brings a cockpit's calm and precision to the helm, with the route studied and the weather checked before casting off. Welcomed aboard in <strong>Portuguese, English or Spanish</strong>.",
         cmdr_s1: "years old · started sailing", cmdr_s2: "years working on boats", cmdr_s3: "passions · sky &amp; sea", cmdr_s4: "languages · PT · EN · ES",
-        cmdr_photo_cap: "CAP. GIL · SAILING AT SUNSET",
+        cmdr_photo_cap: "GIL · SAILING AT SUNSET",
         mt_head: "DOURO METAR · LIVE", mt_wind: "WIND", mt_temp: "TEMPERATURE", mt_sky: "SKY", mt_sunset: "SUNSET",
         hud_hdg: "HEADING", hud_time: "ELAPSED",
         arr_kicker: "Meeting point · Douro Marina, Afurada · Gate A",
@@ -6288,19 +6400,20 @@
         faq_q1: "Where do we board and where can we park?",
         faq_a1: "We board at <strong>Douro Marina · Gate A</strong> (Afurada, Vila Nova de Gaia), 8 min by Uber from Ribeira with free parking 30m away. <strong>Always arrive 10 minutes early</strong> — Portuguese wine tasting is included on every tour.",
         faq_q2: "How does booking and the Digital Boarding Pass work?",
-        faq_a2: "Pick your tour above and tap the green WhatsApp button: your booking goes straight to Cap. Gil (<strong>+351 914 160 240</strong>) with your personalized VIP Digital Boarding Pass link (QR, GPS, and Captain's note) and 0% middleman fees.",
+        faq_a2: "Pick your tour above and tap the green WhatsApp button: your booking goes straight to Gil (<strong>+351 914 160 240</strong>) with your personalized VIP Digital Boarding Pass link (QR, GPS, and Captain's note) and 0% middleman fees.",
         faq_q3: "What if it rains or gets windy?",
         faq_a3: "Our boat has a clear 360° panoramic enclosure and Portuguese wool blankets for year-round sailing. In severe weather, we reschedule for free or refund your deposit.",
         faq_q4: "How many guests fit and are children welcome?",
         faq_a4: "We cap every trip at <strong>10 passengers</strong> so everyone has room. Kids are welcome and certified lifejackets are on board for all sizes.",
         faq_q5: "How do Private Charters (Custom Quote) work?",
-        faq_a5: "Choose 'Private Charter' in the configurator, tick your occasion, duration, and extras (wine tasting, snacks, music, or proposal setup), and send it on WhatsApp — Cap. Gil replies quickly with a tailored quote.",
+        faq_a5: "Choose 'Private Charter' in the configurator, tick your occasion, duration, and extras (wine tasting, snacks, music, or proposal setup), and send it on WhatsApp — Gil replies quickly with a tailored quote.",
         f_kicker: "Hotels & private events",
         f_title: "Direct Line for Concierges & Groups",
         f_copy: "Instant availability on WhatsApp, same-day weather flexibility, and private charters for Porto hotels and small events.",
-        f_cta: "WhatsApp Concierge · Cap. Gil ↗",
+        f_cta: "WhatsApp Direto · Gil ↗",
         f_bio: "Boutique Douro River boat tours (max. 10 guests) departing from Douro Marina · Gate A, Afurada.",
-        float_wa: "WhatsApp · Cap. Gil"
+        leg_livro: "Electronic Complaints Book ↗", leg_ral: "Dispute Resolution (RAL · CICAP)", leg_priv: "Privacy &amp; Cookies (GDPR)", leg_terms: "Terms &amp; Conditions",
+        float_wa: "WhatsApp · Gil"
       },
       pt: {
         nav_journey: "Rota 7 Pontes", nav_voyages: "Passeios", nav_pass: "Reservar", nav_atelier: "A Bordo", nav_commission: "Reservar",
@@ -6315,7 +6428,7 @@
         v_title: "Dois Passeios de Abertura · Ou Privado",
         v_copy: "Escolha simples: cruzeiro diurno de abertura, pôr do sol com prova de vinhos ou barco exclusivo à sua medida.",
         c_kicker: "Cartão de Embarque Digital na Hora",
-        c_title: "Reserve Direto com o Cap. Gil",
+        c_title: "Reserve Direto com o Gil",
         c_copy: "Preencha os seus dados e confirme no WhatsApp em 1 clique — recebe imediatamente o seu Cartão Digital VIP personalizado com QR e GPS do cais.",
         wa_atelier_cta: "Reservar & Receber Cartão no WhatsApp ↗",
         open_pass_cta: "Abrir Cartão Digital VIP ↗",
@@ -6326,14 +6439,14 @@
         bp_wish_lbl: "ESCOLHA O QUE DESEJA A BORDO (NÓS DAMOS O ORÇAMENTO)",
         bp_notes_lbl: "NOTAS OU PEDIDOS ESPECIAIS (OPCIONAL)",
         pay_2click_cta: "Pagar em 2 Cliques · Apple Pay / Cartão ↗",
-        pay_trust_line: "0% COMISSÕES · WHATSAPP DIRETO CAP. GIL (+351 914 160 240) · CARTÃO DIGITAL VIP NA HORA",
+        pay_trust_line: "0% COMISSÕES · WHATSAPP DIRETO · GIL (+351 914 160 240) · CARTÃO DIGITAL VIP NA HORA",
         tk_sig_label: "PORTÃO A (10 MIN ANTES) · PROVA DE VINHOS INCLUÍDA",
         g_kicker: "Detalhes a bordo",
         g_title: "Pequenos Gestos Bem Feitos",
         g_copy: "Cartões em algodão, mantas de lã portuguesa, Porto Tawny fresco e chocolate negro 70% — tudo pronto antes de embarcar.",
         rev_kicker: "Opiniões · Douro Marina · Portão A",
         rev_title: "Quem Já Navegou Connosco",
-        rev_rail: "OPINIÕES", cc_title: "Arraste para Comparar · Sol de Verão ou Abrigo 360°", cc_hint: "← Deslize para ver a capota panorâmica 360° →", cc_lbl_open: "Aberto · Hora Dourada", cc_lbl_winter: "Inverno · Capota 360°", pf_title: "Dez lugares. Portão A. Sem multidões.", pf_sub: "Reserva direta com o Cap. Gil, prova de vinhos do Porto e Douro incluída em todos os passeios e Cartão de Embarque Digital VIP na hora.", pf_cta_book: "Escolher Passeio & Horário ↗", pf_cta_wa: "Falar no WhatsApp · +351 914 160 240 ↗", f_copy_gps: "Copiar Morada Portão A", mb_price: "Desde €30 · Sunset €60", mb_sub: "Vinho + Polaroid · Portão A", mb_cta: "Reservar ↗",  cfg_step1_lbl: "01 · ESCOLHA O PASSEIO", pc_b_tag: "Abertura · Diurno", pc_b_name: "7 Pontes do Douro", pc_per_pax: "/ pessoa", pc_b_sub: "Prova de Vinhos incluída · 2h", pc_s_tag: "Mais Pedido · Sunset", pc_s_name: "Sunset & Mar", pc_s_sub: "7 Pontes, Atlântico & Prova · 2h", pc_p_tag: "Exclusivo 1–10p", pc_p_name: "Charter Privado", pc_quote: "Sob Consulta", pc_p_sub: "Barco só vosso · 100% à medida", bg_0_t: "Ribeira em Hora Dourada", bg_0_s: "Casco privado máx. 10 convidados · Luzes quentes 2200K", bg_1_t: "Prova de Vinhos Incluída", bg_1_s: "Porto Tawny, Branco, Verde & chocolate negro 70%", bg_2_t: "Hora Azul · Ponte Luís I", bg_2_s: "Reflexos noturnos no Douro", bg_3_t: "Pôr do Sol no Atlântico", bg_3_s: "Foz do Douro · Brinde no mar", bg_4_t: "Conforto 365 Dias", bg_4_s: "Capota panorâmica 360° & mantas de lã", bg_5_t: "Solário de Proa", bg_5_s: "Estofos creme & vista sem obstáculos", bg_6_t: "Cartão de Embarque & Polaroid", bg_6_s: "Embarque exclusivo no Portão A · Douro Marina",  rev_score_lbl: "5,0 · Portão A · Douro Marina",
+        rev_rail: "OPINIÕES", cc_title: "Arraste para Comparar · Sol de Verão ou Abrigo 360°", cc_hint: "← Deslize para ver a capota panorâmica 360° →", cc_lbl_open: "Aberto · Hora Dourada", cc_lbl_winter: "Inverno · Capota 360°", pf_title: "Dez lugares. Portão A. Sem multidões.", pf_sub: "Reserva direta com o Gil, prova de vinhos do Porto e Douro incluída em todos os passeios e Cartão de Embarque Digital VIP na hora.", pf_cta_book: "Escolher Passeio & Horário ↗", pf_cta_wa: "Falar no WhatsApp · +351 914 160 240 ↗", f_copy_gps: "Copiar Morada Portão A", mb_price: "Desde €30 · Sunset €60", mb_sub: "Vinho + Polaroid · Portão A", mb_cta: "Reservar ↗",  cfg_step1_lbl: "01 · ESCOLHA O PASSEIO", pc_b_tag: "Abertura · Diurno", pc_b_name: "7 Pontes do Douro", pc_per_pax: "/ pessoa", pc_b_sub: "Prova de Vinhos incluída · 2h", pc_s_tag: "Mais Pedido · Sunset", pc_s_name: "Sunset & Mar", pc_s_sub: "7 Pontes, Atlântico & Prova · 2h", pc_p_tag: "Exclusivo 1–10p", pc_p_name: "Charter Privado", pc_quote: "Sob Consulta", pc_p_sub: "Barco só vosso · 100% à medida", bg_0_t: "Ribeira em Hora Dourada", bg_0_s: "Casco privado máx. 10 convidados · Luzes quentes 2200K", bg_1_t: "Prova de Vinhos Incluída", bg_1_s: "Porto Tawny, Branco, Verde & chocolate negro 70%", bg_2_t: "Hora Azul · Ponte Luís I", bg_2_s: "Reflexos noturnos no Douro", bg_3_t: "Pôr do Sol no Atlântico", bg_3_s: "Foz do Douro · Brinde no mar", bg_4_t: "Conforto 365 Dias", bg_4_s: "Capota panorâmica 360° & mantas de lã", bg_5_t: "Solário de Proa", bg_5_s: "Estofos creme & vista sem obstáculos", bg_6_t: "Cartão de Embarque & Polaroid", bg_6_s: "Embarque exclusivo no Portão A · Douro Marina",  rev_score_lbl: "5,0 · Portão A · Douro Marina",
         rev1_tag: "Sunset & Prova de Vinhos · Casal",
         rev1_q: "“Reservámos por WhatsApp na véspera e recebemos logo o cartão de embarque no telemóvel. Zero filas na Ribeira. Quando parámos perto da foz ao pôr do sol, o Gil serviu Porto Tawny fresco com uns quadrados de chocolate negro — foram de longe as duas horas mais calmas da nossa viagem.”",
         rev1_loc: "Claire & Thomas · Lyon",
@@ -6343,11 +6456,11 @@
         rev3_tag: "Charter Privado · Sunset",
         rev3_q: "“Na receção do hotel em Gaia deram-nos o WhatsApp do Gil. Oito minutos de Uber até ao Portão A e entrámos logo no barco. Sem altifalantes nem pressas para tirar fotos — bom vinho branco, luz incrível nas pontes e conversa fácil.”",
         rev3_loc: "Daniel Mercer · Boston",
-        cmdr_kicker: "O seu comandante hoje",
+        cmdr_kicker: "Ao leme consigo",
         cmdr_title: "Do Cockpit ao <em>Leme</em>",
         cmdr_bio: "Começou a fazer vela aos <strong>5 anos</strong> e nunca mais deixou a água: há <strong>15 anos</strong> que trabalha em barcos e os desportos náuticos são a sua vida. É também <strong>piloto comercial de aviação</strong> — e leva para o leme a serenidade e o rigor de um cockpit, com a rota estudada e a meteorologia confirmada antes de largar. Recebe-o a bordo em <strong>português, inglês ou espanhol</strong>.",
         cmdr_s1: "anos · começou na vela", cmdr_s2: "anos a trabalhar em barcos", cmdr_s3: "paixões · céu e mar", cmdr_s4: "línguas · PT · EN · ES",
-        cmdr_photo_cap: "CAP. GIL · VELA AO PÔR DO SOL NO MAR",
+        cmdr_photo_cap: "GIL · VELA AO PÔR DO SOL NO MAR",
         mt_head: "METAR DO DOURO · AO VIVO", mt_wind: "VENTO", mt_temp: "TEMPERATURA", mt_sky: "CÉU", mt_sunset: "PÔR DO SOL",
         hud_hdg: "RUMO", hud_time: "TEMPO",
         arr_kicker: "Ponto de encontro · Douro Marina, Afurada · Portão A",
@@ -6366,19 +6479,20 @@
         faq_q1: "Onde fica o embarque e onde posso estacionar?",
         faq_a1: "Embarcamos na <strong>Douro Marina · Portão A</strong> (Afurada, Vila Nova de Gaia), 8 min de Uber da Ribeira e parque grátis a 30m. <strong>Chegue sempre 10 minutos antes</strong> — a prova de vinhos já está incluída em todos os passeios.",
         faq_q2: "Como funciona a reserva e o Cartão de Embarque Digital?",
-        faq_a2: "Escolha o passeio acima e clique no botão verde do WhatsApp: a mensagem vai direta ao Cap. Gil (<strong>+351 914 160 240</strong>) já com o link do seu Cartão Digital VIP personalizado (com QR, GPS e assinatura), sem comissões de intermediários.",
+        faq_a2: "Escolha o passeio acima e clique no botão verde do WhatsApp: a mensagem vai direta ao Gil (<strong>+351 914 160 240</strong>) já com o link do seu Cartão Digital VIP personalizado (com QR, GPS e assinatura), sem comissões de intermediários.",
         faq_q3: "E se chover ou fizer vento no dia do passeio?",
         faq_a3: "A embarcação tem capota panorâmica transparente 360° e mantas de lã portuguesa para navegar com conforto todo o ano. Em caso de mau tempo severo, reagendamos gratuitamente ou devolvemos o sinal.",
         faq_q4: "Quantas pessoas cabem e podem ir crianças?",
         faq_a4: "Limitamos sempre a <strong>10 passageiros</strong> para garantir espaço e calma a bordo. Crianças são muito bem-vindas e temos coletes homologados para todas as idades.",
         faq_q5: "Como funciona o Charter Privado (Sob Consulta)?",
-        faq_a5: "No configurador, selecione «Charter Privado à Medida», escolha ocasião, duração e extras (prova de vinhos, tábua, música ou pedido de casamento) e envie no WhatsApp — o Cap. Gil responde rapidamente com o orçamento exato para o seu grupo.",
+        faq_a5: "No configurador, selecione «Charter Privado à Medida», escolha ocasião, duração e extras (prova de vinhos, tábua, música ou pedido de casamento) e envie no WhatsApp — o Gil responde rapidamente com o orçamento exato para o seu grupo.",
         f_kicker: "Hotéis & eventos privados",
         f_title: "Linha Direta para Concierges & Grupos",
         f_copy: "Disponibilidade imediata no WhatsApp, flexibilidade meteorológica no próprio dia e charters privados para hotéis do Porto.",
-        f_cta: "WhatsApp Concierge · Cap. Gil ↗",
+        f_cta: "WhatsApp Direto · Gil ↗",
         f_bio: "Passeios de barco boutique no Rio Douro (máx. 10 pessoas) a partir da Douro Marina · Portão A, Afurada.",
-        float_wa: "WhatsApp · Cap. Gil"
+        leg_livro: "Livro de Reclamações Eletrónico ↗", leg_ral: "Resolução de Litígios (RAL · CICAP)", leg_priv: "Privacidade &amp; Cookies (RGPD)", leg_terms: "Termos &amp; Condições",
+        float_wa: "WhatsApp · Gil"
       }
     };
 
@@ -6524,7 +6638,7 @@
       if (!metarData) {
         v.dataset.state = metarFailed ? "ok" : "idle";
         v.textContent = metarFailed
-          ? (pt ? "Condições confirmadas pelo Cap. Gil no WhatsApp antes de cada saída." : "Conditions confirmed by Cap. Gil on WhatsApp before every departure.")
+          ? (pt ? "Condições confirmadas pelo Gil no WhatsApp antes de cada saída." : "Conditions confirmed by Gil on WhatsApp before every departure.")
           : (pt ? "A ler as condições do rio…" : "Reading river conditions…");
         return;
       }
@@ -6546,10 +6660,10 @@
       let msg = pt ? "Ótimas condições para navegar hoje." : "Great conditions on the river today.";
       if (d.code >= 95 || d.gust >= 28) {
         state = "check";
-        msg = pt ? "Condições a confirmar — fale com o Cap. Gil no WhatsApp." : "Conditions to confirm — message Cap. Gil on WhatsApp.";
+        msg = pt ? "Condições a confirmar — fale com o Gil no WhatsApp." : "Conditions to confirm — message Gil on WhatsApp.";
       } else if (d.code === 45 || d.code === 48) {
         state = "ok";
-        msg = pt ? "Neblina no rio — horário confirmado pelo Cap. Gil." : "River fog — timing confirmed by Cap. Gil.";
+        msg = pt ? "Neblina no rio — horário confirmado pelo Gil." : "River fog — timing confirmed by Gil.";
       } else if ((d.code >= 51 && d.code <= 67) || (d.code >= 80 && d.code <= 82) || d.wind >= 15) {
         state = "ok";
         msg = pt ? "Navegável com a capota 360° fechada e mantas a bordo." : "Sailing with the 360° canopy closed and blankets on board.";
@@ -6807,7 +6921,7 @@
         const isQuote = v.mode === "quote";
         if (liveDescEl) {
           liveDescEl.textContent = isQuote
-            ? (currentLang === "pt" ? "Barco exclusivo 1–10 pessoas · Orçamento direto pelo Cap. Gil" : "Exclusive boat 1–10 guests · Direct quote by Cap. Gil")
+            ? (currentLang === "pt" ? "Barco exclusivo 1–10 pessoas · Orçamento direto pelo Gil" : "Exclusive boat 1–10 guests · Direct quote by Gil")
             : (currentLang === "pt" ? `Total direto (${partySize} ${partySize === 1 ? "pessoa" : "pessoas"}) · Prova de Vinhos incluída` : `Direct total (${partySize} ${partySize === 1 ? "guest" : "guests"}) · Wine Tasting included`);
         }
         if (isQuote) {
@@ -7120,7 +7234,7 @@
           other_d: "Ou escolha outra data:", next_btn: "Continuar →",
           guests_lbl: "Pessoas", guests_sub: "Máximo 10 convidados a bordo",
           name_ph: "O seu nome (opcional, aparece no cartão)",
-          wa_cta: "Confirmar no WhatsApp · Cap. Gil ↗",
+          wa_cta: "Confirmar no WhatsApp · Gil ↗",
           pass_cta: "Ver o Meu Cartão de Embarque VIP ↗",
           s3_foot: "Prova de vinhos + foto Polaroid incluídas · Reagendamento flexível",
           today: "Hoje", tmrw: "Amanhã",
@@ -7138,7 +7252,7 @@
           other_d: "Or pick another date:", next_btn: "Continue →",
           guests_lbl: "Guests", guests_sub: "Maximum 10 guests on board",
           name_ph: "Your name (optional, printed on pass)",
-          wa_cta: "Confirm on WhatsApp · Cap. Gil ↗",
+          wa_cta: "Confirm on WhatsApp · Gil ↗",
           pass_cta: "View My VIP Boarding Pass ↗",
           s3_foot: "Wine tasting + Polaroid photo included · Flexible weather reschedule",
           today: "Today", tmrw: "Tmrw",
@@ -7264,8 +7378,8 @@
         const fullPassUrl = `https://alpha-douro-porto.vercel.app/pass/?${passQuery}`;
 
         const waMsg = pt
-          ? `Olá Cap. Gil! Quero reservar na Alpha Douro:\n• Passeio: ${names.pt || names[QR_STATE.tour]} (Prova de vinhos + Polaroid incluídas)\n• Nome: ${gName}\n• Data: ${pDate} (${QR_STATE.date})\n• Partida: ${QR_STATE.time} (Embarque ${board10} no Portão A)\n• Pessoas: ${QR_STATE.guests}\n• Total: ${totLabel}\n• Cartão Digital: ${fullPassUrl}`
-          : `Hello Cap. Gil! I'd like to book Alpha Douro:\n• Voyage: ${names[QR_STATE.tour]} (Wine tasting + Polaroid included)\n• Name: ${gName}\n• Date: ${pDate} (${QR_STATE.date})\n• Departure: ${QR_STATE.time} (Boarding ${board10} at Gate A)\n• Guests: ${QR_STATE.guests}\n• Total: ${totLabel}\n• Digital Pass: ${fullPassUrl}`;
+          ? `Olá Gil! Quero reservar na Alpha Douro:\n• Passeio: ${names.pt || names[QR_STATE.tour]} (Prova de vinhos + Polaroid incluídas)\n• Nome: ${gName}\n• Data: ${pDate} (${QR_STATE.date})\n• Partida: ${QR_STATE.time} (Embarque ${board10} no Portão A)\n• Pessoas: ${QR_STATE.guests}\n• Total: ${totLabel}\n• Cartão Digital: ${fullPassUrl}`
+          : `Hello Gil! I'd like to book Alpha Douro:\n• Voyage: ${names[QR_STATE.tour]} (Wine tasting + Polaroid included)\n• Name: ${gName}\n• Date: ${pDate} (${QR_STATE.date})\n• Departure: ${QR_STATE.time} (Boarding ${board10} at Gate A)\n• Guests: ${QR_STATE.guests}\n• Total: ${totLabel}\n• Digital Pass: ${fullPassUrl}`;
         waBtn.href = `https://wa.me/351914160240?text=${encodeURIComponent(waMsg)}`;
 
         // Keep underlying configurator in sync
@@ -7352,11 +7466,108 @@
       window.syncQuickReserveLang = () => { syncCopy(); renderDays(); renderTimes(); renderSummary(); };
     })();
 
+  
+    /* ========================================================================
+       PORTUGUESE LEGAL COMPLIANCE MODAL (RAL/CICAP · RGPD · TERMOS)
+       ======================================================================== */
+    (function initLegalModal() {
+      const modal = document.getElementById("legalModal");
+      if (!modal) return;
+      const titleEl = document.getElementById("legalModalTitle");
+      const bodyEl = document.getElementById("legalModalBody");
+      const closeBtn = document.getElementById("legalCloseBtn");
+
+      const CONTENT = {
+        ral: {
+          ptTitle: "Resolução Alternativa de Litígios (RAL)",
+          enTitle: "Alternative Dispute Resolution (RAL · Portugal)",
+          pt: `
+            <p>Nos termos do <strong>artigo 18.º da Lei n.º 144/2015</strong>, informa-se que, em caso de litígio de consumo, o cliente pode recorrer à seguinte Entidade de Resolução Alternativa de Litígios competente na área do Porto e Vila Nova de Gaia:</p>
+            <p><strong>CICAP — Centro de Informação de Consumo e Arbitragem do Porto</strong><br/>Rua Damião de Góis, 31, Loja 6 · 4050-225 Porto<br/>Website: <a href="https://www.cicap.pt" target="_blank" rel="noopener noreferrer">www.cicap.pt</a> · Tel.: +351 225 508 349</p>
+            <p>Pode igualmente consultar o Portal do Consumidor (<a href="https://www.consumidor.gov.pt" target="_blank" rel="noopener noreferrer">www.consumidor.gov.pt</a>) ou aceder diretamente ao <a href="https://www.livroreclamacoes.pt/Inicio/" target="_blank" rel="noopener noreferrer">Livro de Reclamações Eletrónico</a>.</p>
+          `,
+          en: `
+            <p>Under <strong>Portuguese Law no. 144/2015 (Art. 18)</strong>, in the event of a consumer dispute, guests may resort to the competent Alternative Dispute Resolution entity for Porto &amp; Vila Nova de Gaia:</p>
+            <p><strong>CICAP — Porto Consumer Information &amp; Arbitration Center</strong><br/>Rua Damião de Góis, 31, Loja 6 · 4050-225 Porto, Portugal<br/>Website: <a href="https://www.cicap.pt" target="_blank" rel="noopener noreferrer">www.cicap.pt</a> · Phone: +351 225 508 349</p>
+            <p>You may also use Portugal's official <a href="https://www.livroreclamacoes.pt/Inicio/" target="_blank" rel="noopener noreferrer">Electronic Complaints Book (Livro de Reclamações)</a>.</p>
+          `
+        },
+        privacy: {
+          ptTitle: "Privacidade & Cookies (RGPD)",
+          enTitle: "Privacy & Cookies Policy (GDPR)",
+          pt: `
+            <p>A <strong>Alpha Douro</strong> respeita o Regulamento Geral sobre a Proteção de Dados (<strong>RGPD — Regulamento UE 2016/679</strong>) e a legislação portuguesa aplicável.</p>
+            <h3>1. Zero cookies de publicidade ou rastreio</h3>
+            <p>Este website <strong>não instala cookies publicitários, de perfilagem ou de terceiros</strong>. Utiliza apenas a consulta anónima de meteorologia (Open-Meteo) para mostrar vento e hora do pôr do sol no Douro.</p>
+            <h3>2. Dados de reserva</h3>
+            <p>O nome, data e preferências que introduz servem exclusivamente para gerar o seu Cartão de Embarque no seu próprio aparelho e preparar a mensagem direta de reserva no WhatsApp (+351 914 160 240). Nenhum dado é vendido ou cedido a terceiros.</p>
+            <h3>3. Os seus direitos</h3>
+            <p>Pode solicitar a qualquer momento o acesso, retificação ou eliminação dos seus dados de contacto através do WhatsApp <strong>+351 914 160 240</strong> ou por email para <strong>ola@alphadouro.com</strong>, tendo ainda o direito de reclamar junto da <strong>CNPD</strong> (<a href="https://www.cnpd.pt" target="_blank" rel="noopener noreferrer">www.cnpd.pt</a>).</p>
+          `,
+          en: `
+            <p><strong>Alpha Douro</strong> complies with the EU General Data Protection Regulation (<strong>GDPR — Regulation EU 2016/679</strong>).</p>
+            <h3>1. Zero advertising or tracking cookies</h3>
+            <p>This website <strong>does not use advertising, analytics, or third-party tracking cookies</strong>. It only fetches anonymous weather telemetry (Open-Meteo) for live Douro wind and sunset times.</p>
+            <h3>2. Booking details</h3>
+            <p>Your name, date, and preferences stay in your browser to build your Digital Boarding Pass and prefill your direct WhatsApp message (+351 914 160 240). No personal data is sold or shared with third parties.</p>
+            <h3>3. Your GDPR rights</h3>
+            <p>You may request access, correction, or deletion of your booking contact details at any time via WhatsApp <strong>+351 914 160 240</strong> or email <strong>ola@alphadouro.com</strong>.</p>
+          `
+        },
+        terms: {
+          ptTitle: "Termos, Condições & Identificação Legal",
+          enTitle: "Terms, Conditions & Legal Notice",
+          pt: `
+            <h3>1. Identificação do Operador</h3>
+            <p><strong>Alpha Douro · Passeios Marítimo-Turísticos</strong> · Embarque: Douro Marina, Portão A, Rua da Praia, 4400-554 São Pedro da Afurada, Vila Nova de Gaia, Porto · Contacto direto: +351 914 160 240 · Atividade Marítimo-Turística (RNAAT — Turismo de Portugal).</p>
+            <h3>2. Embarque e pontualidade</h3>
+            <p>O embarque realiza-se na <strong>Douro Marina · Portão A</strong>. Pedimos a chegada <strong>10 minutos antes</strong> da hora de partida indicada no Cartão de Embarque. A prova de vinhos e a foto Polaroid estão incluídas em todos os passeios.</p>
+            <h3>3. Meteorologia e reagendamento</h3>
+            <p>A embarcação dispõe de capota panorâmica 360° e mantas para navegar todo o ano. Caso as condições de segurança no rio não permitam a saída, o Gil reagenda sem custos ou devolve 100% do valor pago.</p>
+            <h3>4. Direito de livre resolução</h3>
+            <p>Nos termos do <strong>artigo 17.º, n.º 1, alínea k) do Decreto-Lei n.º 24/2014</strong>, reservas de atividades de lazer com data ou período de execução específicos não estão sujeitas ao direito legal de livre resolução de 14 dias, aplicando-se a nossa política flexível de remarcação com aviso prévio de 24 horas.</p>
+          `,
+          en: `
+            <h3>1. Operator Details</h3>
+            <p><strong>Alpha Douro · Maritime-Tourism Cruises</strong> · Departure: Douro Marina, Gate A, Rua da Praia, 4400-554 Vila Nova de Gaia, Porto, Portugal · Direct WhatsApp: +351 914 160 240 · Licensed Maritime-Tourism Activity (RNAAT — Turismo de Portugal).</p>
+            <h3>2. Boarding &amp; punctuality</h3>
+            <p>All cruises board at <strong>Douro Marina · Gate A</strong>. Please arrive <strong>10 minutes early</strong>. Portuguese wine tasting and an instant Polaroid photo are included on every cruise.</p>
+            <h3>3. Weather &amp; rescheduling</h3>
+            <p>Our clear 360° panoramic canopy and wool throws allow year-round sailing. If river safety conditions require cancellation, Gil offers a free reschedule or a full 100% refund.</p>
+            <h3>4. Free cancellation notice</h3>
+            <p>Under <strong>Portuguese Decree-Law 24/2014 (Art. 17(1)(k))</strong>, dated leisure bookings are exempt from the 14-day statutory cooling-off period; instead, we offer free rescheduling with at least 24 hours' notice.</p>
+          `
+        }
+      };
+
+      function openLegal(key) {
+        const item = CONTENT[key] || CONTENT.terms;
+        const pt = currentLang === "pt";
+        titleEl.textContent = pt ? item.ptTitle : item.enTitle;
+        bodyEl.innerHTML = pt ? item.pt : item.en;
+        modal.classList.add("is-open");
+        modal.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+      }
+      function closeLegal() {
+        modal.classList.remove("is-open");
+        modal.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+      }
+
+      document.querySelectorAll("[data-open-legal]").forEach((btn) => {
+        btn.addEventListener("click", () => openLegal(btn.dataset.openLegal));
+      });
+      closeBtn.addEventListener("click", closeLegal);
+      modal.addEventListener("click", (e) => { if (e.target === modal) closeLegal(); });
+      window.addEventListener("keydown", (e) => { if (e.key === "Escape" && modal.classList.contains("is-open")) closeLegal(); });
+    })();
+
   </script>
 
-  <a href="https://wa.me/351914160240?text=Ol%C3%A1%20Cap.%20Gil!%20Gostaria%20de%20saber%20disponibilidade%20na%20Alpha%20Douro%20(Douro%20Marina%20%C2%B7%20Port%C3%A3o%20A)." target="_blank" rel="noopener noreferrer" class="floating-wa-pill" id="floatingWaPill" aria-label="Falar com Cap. Gil no WhatsApp">
+  <a href="https://wa.me/351914160240?text=Ol%C3%A1%20Cap.%20Gil!%20Gostaria%20de%20saber%20disponibilidade%20na%20Alpha%20Douro%20(Douro%20Marina%20%C2%B7%20Port%C3%A3o%20A)." target="_blank" rel="noopener noreferrer" class="floating-wa-pill" id="floatingWaPill" aria-label="Falar com o Gil no WhatsApp">
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.03 2C6.5 2 2 6.49 2 12.02c0 1.77.46 3.5 1.34 5.02L2 22l5.1-1.34a9.97 9.97 0 0 0 4.93 1.3h.01c5.52 0 10.01-4.49 10.01-10.02A9.98 9.98 0 0 0 12.03 2zm5.82 14.15c-.24.68-1.42 1.3-1.96 1.38-.5.08-1.14.11-1.84-.11-.43-.14-.98-.32-1.69-.63-2.97-1.28-4.91-4.28-5.06-4.48-.15-.2-1.21-1.61-1.21-3.07s.76-2.18 1.04-2.48c.27-.3.6-.37.8-.37h.58c.19 0 .44-.07.69.52.25.6.85 2.08.92 2.23.08.15.13.33.03.53-.1.2-.15.33-.3.5-.15.18-.31.4-.45.53-.15.15-.3.31-.13.61.18.3.78 1.29 1.68 2.09 1.15 1.03 2.13 1.35 2.43 1.5.3.15.48.13.66-.08.18-.2.75-.88.95-1.18.2-.3.4-.25.68-.15.27.1 1.75.83 2.05.98.3.15.5.22.58.35.07.12.07.72-.17 1.4z"/></svg>
-    <span data-i18n="float_wa">WhatsApp · Cap. Gil</span>
+    <span data-i18n="float_wa">WhatsApp · Gil</span>
   </a>
 
 
@@ -7469,7 +7680,7 @@
           <div class="qr-summary-total mono" id="qrSummaryTotal">€120</div>
         </div>
         <a href="#" class="qr-primary-btn" id="qrWaBtn" target="_blank" rel="noopener noreferrer">
-          Confirmar no WhatsApp · Cap. Gil ↗
+          Confirmar no WhatsApp · Gil ↗
         </a>
         <a href="./pass/index.html" class="qr-gold-btn" id="qrPassBtn" target="_blank" rel="noopener noreferrer">
           Ver o Meu Cartão de Embarque VIP ↗
@@ -7479,6 +7690,19 @@
     </div>
   </div>
   <!-- 3-TAP QUICK RESERVE SHEET END -->
+
+  <!-- PT LEGAL COMPLIANCE MODAL START -->
+  <div class="legal-backdrop" id="legalModal" role="dialog" aria-modal="true" aria-labelledby="legalModalTitle" aria-hidden="true">
+    <div class="legal-dialog">
+      <div class="legal-head">
+        <h2 class="legal-title" id="legalModalTitle">Informação Legal</h2>
+        <button type="button" class="qr-nav-btn" id="legalCloseBtn" aria-label="Fechar">✕</button>
+      </div>
+      <div class="legal-body" id="legalModalBody"></div>
+    </div>
+  </div>
+  <!-- PT LEGAL COMPLIANCE MODAL END -->
+
 
 
 </body>
