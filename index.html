@@ -3610,6 +3610,234 @@
       .metar-dot::after { animation: none; }
     }
     /* === COMMANDER & RIVER STORIES CSS END === */
+
+    /* === 3-TAP QUICK RESERVE SHEET CSS START === */
+    .qr-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 1200;
+      background: rgba(4, 11, 20, 0.86);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 260ms var(--ease-expo), visibility 260ms ease;
+    }
+    .qr-backdrop.is-open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+    .qr-sheet {
+      width: min(31rem, 100%);
+      max-height: 90svh;
+      overflow-y: auto;
+      background: #081728;
+      border: 1px solid rgba(224, 208, 184, 0.24);
+      border-bottom: 0;
+      border-radius: 26px 26px 0 0;
+      padding: 0.75rem 1.3rem calc(1.45rem + env(safe-area-inset-bottom, 0px));
+      color: var(--ivory);
+      box-shadow: 0 -24px 60px rgba(0, 0, 0, 0.65);
+      transform: translateY(36px);
+      transition: transform 320ms var(--ease-expo);
+    }
+    .qr-backdrop.is-open .qr-sheet { transform: translateY(0); }
+    @media (min-width: 769px) {
+      .qr-backdrop { align-items: center; padding: 1.5rem; }
+      .qr-sheet {
+        border-bottom: 1px solid rgba(224, 208, 184, 0.24);
+        border-radius: 22px;
+        padding: 1.25rem 1.65rem 1.65rem;
+        transform: translateY(18px) scale(0.985);
+      }
+      .qr-backdrop.is-open .qr-sheet { transform: translateY(0) scale(1); }
+    }
+    .qr-grab {
+      width: 42px; height: 4px; border-radius: 99px;
+      background: rgba(245, 241, 232, 0.24);
+      margin: 0 auto 0.85rem;
+    }
+    @media (min-width: 769px) { .qr-grab { display: none; } }
+    .qr-top {
+      display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+    .qr-nav-btn {
+      width: 38px; height: 38px; border-radius: 999px;
+      border: 1px solid rgba(224, 208, 184, 0.24);
+      background: rgba(6, 17, 29, 0.55);
+      color: var(--ivory);
+      display: grid; place-items: center; cursor: pointer;
+      font-size: 0.95rem;
+      transition: border-color 180ms ease, background-color 180ms ease;
+    }
+    .qr-nav-btn:hover { border-color: var(--sand); background: rgba(224, 208, 184, 0.12); }
+    .qr-nav-btn[hidden] { visibility: hidden; pointer-events: none; display: grid; }
+    .qr-step-label {
+      font-size: 0.74rem; letter-spacing: 0.04em;
+      color: var(--sand);
+    }
+    .qr-bars {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px;
+      margin-bottom: 1.1rem;
+    }
+    .qr-bars i {
+      display: block; height: 3px; border-radius: 99px;
+      background: rgba(245, 241, 232, 0.14);
+      transition: background-color 240ms ease;
+    }
+    .qr-bars i.is-on { background: var(--sand); }
+    .qr-title {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(1.7rem, 4.5vw, 2.05rem);
+      font-weight: 500; line-height: 1.08; color: var(--ivory);
+      margin-bottom: 0.95rem;
+    }
+    .qr-pane { display: none; }
+    .qr-pane.is-active { display: block; }
+    .qr-tour-list { display: grid; gap: 0.65rem; }
+    .qr-tour-btn {
+      width: 100%; text-align: left; cursor: pointer;
+      border: 1px solid rgba(224, 208, 184, 0.2);
+      background: rgba(6, 17, 29, 0.52);
+      border-radius: 15px;
+      padding: 0.95rem 1.05rem;
+      display: flex; align-items: center; justify-content: space-between; gap: 0.85rem;
+      color: var(--ivory);
+      transition: border-color 180ms ease, background-color 180ms ease, transform 140ms var(--ease-expo);
+    }
+    .qr-tour-btn:hover, .qr-tour-btn.is-sel {
+      border-color: var(--sand);
+      background: rgba(224, 208, 184, 0.1);
+    }
+    .qr-tour-btn:active { transform: scale(0.99); }
+    .qr-tour-name { display: flex; align-items: center; gap: 0.45rem; font-size: 1rem; font-weight: 600; color: var(--ivory); }
+    .qr-tour-badge {
+      font-size: 0.66rem; letter-spacing: 0.02em;
+      background: rgba(224, 208, 184, 0.18); color: var(--sand);
+      padding: 0.15rem 0.48rem; border-radius: 999px; font-weight: 600;
+    }
+    .qr-tour-sub { display: block; font-size: 0.78rem; color: var(--slate); margin-top: 0.22rem; line-height: 1.35; }
+    .qr-tour-price {
+      text-align: right; flex-shrink: 0;
+      font-size: 1.12rem; font-weight: 600; color: var(--sand);
+      font-variant-numeric: tabular-nums;
+    }
+    .qr-tour-price small { display: block; font-size: 0.64rem; color: var(--slate); font-weight: 400; }
+    .qr-days { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0.45rem; margin-bottom: 0.85rem; }
+    .qr-day {
+      border: 1px solid rgba(224, 208, 184, 0.2);
+      background: rgba(6, 17, 29, 0.5);
+      border-radius: 13px; padding: 0.58rem 0.2rem;
+      text-align: center; cursor: pointer; color: var(--ivory);
+      min-height: 60px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.12rem;
+      transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease;
+    }
+    .qr-day small { font-size: 0.7rem; color: var(--slate); }
+    .qr-day b { font-size: 1.02rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+    .qr-day.is-sel { background: var(--sand); color: var(--abyss); border-color: var(--sand); }
+    .qr-day.is-sel small { color: #24384E; }
+    .qr-other-date {
+      display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;
+      margin-bottom: 0.9rem; font-size: 0.78rem; color: var(--slate);
+    }
+    .qr-other-date input[type="date"] {
+      background: rgba(6, 17, 29, 0.65); color: var(--ivory);
+      border: 1px solid rgba(224, 208, 184, 0.26); border-radius: 10px;
+      padding: 0.42rem 0.65rem; font-family: "JetBrains Mono", monospace; font-size: 0.76rem;
+      color-scheme: dark;
+    }
+    .qr-times { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; margin-bottom: 0.8rem; }
+    .qr-time {
+      border: 1px solid rgba(224, 208, 184, 0.2);
+      background: rgba(6, 17, 29, 0.5);
+      border-radius: 12px; min-height: 46px;
+      color: var(--ivory); font-size: 0.9rem; font-weight: 500;
+      cursor: pointer; transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease;
+      font-variant-numeric: tabular-nums;
+    }
+    .qr-time.is-sel { border-color: var(--sand); background: rgba(224, 208, 184, 0.14); color: var(--sand); font-weight: 600; }
+    .qr-sun-note {
+      font-size: 0.75rem; color: var(--sand-dim); line-height: 1.4;
+      padding: 0.55rem 0.75rem; border-radius: 10px;
+      background: rgba(224, 208, 184, 0.06);
+      margin-bottom: 0.95rem;
+    }
+    .qr-stepper {
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+      border: 1px solid rgba(224, 208, 184, 0.22);
+      background: rgba(6, 17, 29, 0.52);
+      border-radius: 15px; padding: 0.78rem 1rem;
+      margin-bottom: 0.75rem;
+    }
+    .qr-stepper-lbl { font-size: 0.92rem; font-weight: 500; }
+    .qr-stepper-lbl small { display: block; font-size: 0.72rem; color: var(--slate); font-weight: 400; }
+    .qr-stepper-ctrl { display: flex; align-items: center; gap: 0.95rem; }
+    .qr-stp-btn {
+      width: 42px; height: 42px; border-radius: 999px;
+      border: 1px solid rgba(224, 208, 184, 0.42);
+      background: transparent; color: var(--ivory);
+      font-size: 1.25rem; cursor: pointer; display: grid; place-items: center;
+    }
+    .qr-stp-btn:hover { background: rgba(224, 208, 184, 0.14); border-color: var(--sand); }
+    .qr-stp-val { font-size: 1.35rem; font-weight: 600; min-width: 1.6ch; text-align: center; font-variant-numeric: tabular-nums; }
+    .qr-name-input {
+      width: 100%; min-height: 46px;
+      border: 1px solid rgba(224, 208, 184, 0.22);
+      background: rgba(6, 17, 29, 0.62);
+      border-radius: 13px; padding: 0.65rem 0.95rem;
+      color: var(--ivory); font-size: 0.9rem; margin-bottom: 0.85rem;
+    }
+    .qr-name-input::placeholder { color: rgba(142, 161, 182, 0.72); }
+    .qr-summary {
+      display: flex; align-items: baseline; justify-content: space-between; gap: 0.75rem;
+      padding: 0.75rem 0.95rem; border-radius: 13px;
+      background: rgba(224, 208, 184, 0.08);
+      border: 1px solid rgba(224, 208, 184, 0.18);
+      margin-bottom: 0.9rem;
+    }
+    .qr-summary-meta { font-size: 0.8rem; color: var(--ivory); line-height: 1.35; }
+    .qr-summary-meta small { display: block; font-size: 0.7rem; color: var(--sand-dim); }
+    .qr-summary-total { font-size: 1.32rem; font-weight: 600; color: var(--sand); white-space: nowrap; font-variant-numeric: tabular-nums; }
+    .qr-primary-btn {
+      width: 100%; min-height: 52px; border-radius: 14px; border: 0;
+      background: #1FA855; color: #FFFFFF;
+      font-size: 0.95rem; font-weight: 600; cursor: pointer;
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.45rem;
+      text-decoration: none;
+      box-shadow: 0 12px 28px rgba(31, 168, 85, 0.28);
+      transition: transform 140ms var(--ease-expo), background-color 160ms ease;
+    }
+    .qr-primary-btn:hover { background: #1B934A; }
+    .qr-primary-btn:active { transform: scale(0.99); }
+    .qr-gold-btn {
+      width: 100%; min-height: 48px; border-radius: 14px;
+      border: 1px solid rgba(224, 208, 184, 0.42);
+      background: rgba(224, 208, 184, 0.1); color: var(--sand);
+      font-size: 0.86rem; font-weight: 600; cursor: pointer;
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem;
+      text-decoration: none; margin-top: 0.55rem;
+    }
+    .qr-gold-btn:hover { background: rgba(224, 208, 184, 0.18); color: var(--ivory); }
+    .qr-next-btn {
+      width: 100%; min-height: 50px; border-radius: 14px; border: 0;
+      background: var(--sand); color: var(--abyss);
+      font-size: 0.94rem; font-weight: 700; cursor: pointer;
+    }
+    .qr-next-btn:hover { background: #EFE3CB; }
+    .qr-foot-note {
+      text-align: center; font-size: 0.72rem; color: var(--slate); margin-top: 0.65rem;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .qr-backdrop, .qr-sheet { transition: none !important; }
+    }
+    /* === 3-TAP QUICK RESERVE SHEET CSS END === */
+
   </style>
 </head>
 <body>
@@ -3674,7 +3902,7 @@
         <button type="button" class="is-active" data-lang="en">EN</button>
         <button type="button" data-lang="pt">PT</button>
       </div>
-      <a href="#configurator" class="btn-brass" data-i18n="nav_commission">Commission</a>
+      <a href="#configurator" class="btn-brass" data-open-quick-reserve="" data-i18n="nav_commission">Commission</a>
     </div>
   </header>
 
@@ -3725,7 +3953,7 @@
             A single private boutique vessel (max. 10 guests) moored at Douro Marina, Afurada · Gate A (max. 10 guests) — open-air canopy in summer and crystal-clear 360° winter enclosure year-round. Turn right upriver for all 7 bridges of Porto and return — then glide left of Afurada to the sea for sunset.
           </p>
           <div class="hero-cta-group">
-            <a href="#configurator" class="btn-capri-solid" data-i18n="hero_cta">Commission a Voyage ↗</a>
+            <a href="#configurator" class="btn-capri-solid" data-open-quick-reserve="" data-i18n="hero_cta">Commission a Voyage ↗</a>
             <a href="#journey" class="btn-brass" data-i18n="hero_scroll">Sail the Chart ↓</a>
           </div>
         </div>
@@ -4685,7 +4913,7 @@
           Reserva direta com o Cap. Gil, prova de vinhos do Porto e Douro incluída em todos os passeios e Cartão de Embarque Digital VIP na hora.
         </p>
         <div class="prefooter-actions">
-          <a href="#configurator" class="btn-capri-solid" style="min-height:48px; padding:0 1.6rem;">
+          <a href="#configurator" class="btn-capri-solid" data-open-quick-reserve="" style="min-height:48px; padding:0 1.6rem;">
             <span data-i18n="pf_cta_book">Escolher Passeio &amp; Horário ↗</span>
           </a>
           <a href="https://wa.me/351914160240?text=Ol%C3%A1%20Cap.%20Gil!%20Quero%20reservar%20um%20passeio%20Alpha%20Douro%20a%20partir%20do%20Port%C3%A3o%20A." target="_blank" rel="noopener noreferrer" class="btn-brass" style="min-height:48px; padding:0 1.5rem; border-color:#1FA855; color:#A7F3C5;">
@@ -6105,7 +6333,7 @@
         g_copy: "Cartões em algodão, mantas de lã portuguesa, Porto Tawny fresco e chocolate negro 70% — tudo pronto antes de embarcar.",
         rev_kicker: "Opiniões · Douro Marina · Portão A",
         rev_title: "Quem Já Navegou Connosco",
-        rev_rail: "OPINIÕES", cc_title: "Arraste para Comparar · Sol de Verão ou Abrigo 360°", cc_hint: "← Deslize para ver a capota panorâmica 360° →", cc_lbl_open: "Aberto · Hora Dourada", cc_lbl_winter: "Inverno · Capota 360°", pf_title: "Dez lugares. Portão A. Sem multidões.", pf_sub: "Reserva direta com o Cap. Gil, prova de vinhos do Porto e Douro incluída em todos os passeios e Cartão de Embarque Digital VIP na hora.", pf_cta_book: "Escolher Passeio & Horário ↗", pf_cta_wa: "Falar no WhatsApp · +351 914 160 240 ↗", f_copy_gps: "Copiar Morada Portão A", mb_price: "Desde €30 · Sunset €60", mb_sub: "Prova de Vinhos · Portão A", mb_cta: "Reservar ↗",  cfg_step1_lbl: "01 · ESCOLHA O PASSEIO", pc_b_tag: "Abertura · Diurno", pc_b_name: "7 Pontes do Douro", pc_per_pax: "/ pessoa", pc_b_sub: "Prova de Vinhos incluída · 2h", pc_s_tag: "Mais Pedido · Sunset", pc_s_name: "Sunset & Mar", pc_s_sub: "7 Pontes, Atlântico & Prova · 2h", pc_p_tag: "Exclusivo 1–10p", pc_p_name: "Charter Privado", pc_quote: "Sob Consulta", pc_p_sub: "Barco só vosso · 100% à medida", bg_0_t: "Ribeira em Hora Dourada", bg_0_s: "Casco privado máx. 10 convidados · Luzes quentes 2200K", bg_1_t: "Prova de Vinhos Incluída", bg_1_s: "Porto Tawny, Branco, Verde & chocolate negro 70%", bg_2_t: "Hora Azul · Ponte Luís I", bg_2_s: "Reflexos noturnos no Douro", bg_3_t: "Pôr do Sol no Atlântico", bg_3_s: "Foz do Douro · Brinde no mar", bg_4_t: "Conforto 365 Dias", bg_4_s: "Capota panorâmica 360° & mantas de lã", bg_5_t: "Solário de Proa", bg_5_s: "Estofos creme & vista sem obstáculos", bg_6_t: "Cartão de Embarque & Polaroid", bg_6_s: "Embarque exclusivo no Portão A · Douro Marina",  rev_score_lbl: "5,0 · Portão A · Douro Marina",
+        rev_rail: "OPINIÕES", cc_title: "Arraste para Comparar · Sol de Verão ou Abrigo 360°", cc_hint: "← Deslize para ver a capota panorâmica 360° →", cc_lbl_open: "Aberto · Hora Dourada", cc_lbl_winter: "Inverno · Capota 360°", pf_title: "Dez lugares. Portão A. Sem multidões.", pf_sub: "Reserva direta com o Cap. Gil, prova de vinhos do Porto e Douro incluída em todos os passeios e Cartão de Embarque Digital VIP na hora.", pf_cta_book: "Escolher Passeio & Horário ↗", pf_cta_wa: "Falar no WhatsApp · +351 914 160 240 ↗", f_copy_gps: "Copiar Morada Portão A", mb_price: "Desde €30 · Sunset €60", mb_sub: "Vinho + Polaroid · Portão A", mb_cta: "Reservar ↗",  cfg_step1_lbl: "01 · ESCOLHA O PASSEIO", pc_b_tag: "Abertura · Diurno", pc_b_name: "7 Pontes do Douro", pc_per_pax: "/ pessoa", pc_b_sub: "Prova de Vinhos incluída · 2h", pc_s_tag: "Mais Pedido · Sunset", pc_s_name: "Sunset & Mar", pc_s_sub: "7 Pontes, Atlântico & Prova · 2h", pc_p_tag: "Exclusivo 1–10p", pc_p_name: "Charter Privado", pc_quote: "Sob Consulta", pc_p_sub: "Barco só vosso · 100% à medida", bg_0_t: "Ribeira em Hora Dourada", bg_0_s: "Casco privado máx. 10 convidados · Luzes quentes 2200K", bg_1_t: "Prova de Vinhos Incluída", bg_1_s: "Porto Tawny, Branco, Verde & chocolate negro 70%", bg_2_t: "Hora Azul · Ponte Luís I", bg_2_s: "Reflexos noturnos no Douro", bg_3_t: "Pôr do Sol no Atlântico", bg_3_s: "Foz do Douro · Brinde no mar", bg_4_t: "Conforto 365 Dias", bg_4_s: "Capota panorâmica 360° & mantas de lã", bg_5_t: "Solário de Proa", bg_5_s: "Estofos creme & vista sem obstáculos", bg_6_t: "Cartão de Embarque & Polaroid", bg_6_s: "Embarque exclusivo no Portão A · Douro Marina",  rev_score_lbl: "5,0 · Portão A · Douro Marina",
         rev1_tag: "Sunset & Prova de Vinhos · Casal",
         rev1_q: "“Reservámos por WhatsApp na véspera e recebemos logo o cartão de embarque no telemóvel. Zero filas na Ribeira. Quando parámos perto da foz ao pôr do sol, o Gil serviu Porto Tawny fresco com uns quadrados de chocolate negro — foram de longe as duas horas mais calmas da nossa viagem.”",
         rev1_loc: "Claire & Thomas · Lyon",
@@ -6384,6 +6612,7 @@
       syncAtelierAtmoLabel();
       syncBoardingPass();
       renderMetar();
+      if (window.syncQuickReserveLang) window.syncQuickReserveLang();
     }
 
     document.querySelectorAll(".lang-pill button").forEach((btn) => {
@@ -6847,6 +7076,282 @@
     })();
     /* === 5STAR PACK JS END === */
 
+  
+    /* ========================================================================
+       3-TAP QUICK RESERVE SHEET (RESERAR EM 3 TOQUES · PT/EN · ZERO BLOAT)
+       ======================================================================== */
+    (function initQuickReserve() {
+      const modal = document.getElementById("quickReserveModal");
+      if (!modal) return;
+      const backBtn = document.getElementById("qrBackBtn");
+      const closeBtn = document.getElementById("qrCloseBtn");
+      const stepLabel = document.getElementById("qrStepLabel");
+      const titleEl = document.getElementById("qrTitle");
+      const bars = Array.from(modal.querySelectorAll("[data-qr-bar]"));
+      const panes = Array.from(modal.querySelectorAll("[data-qr-pane]"));
+      const daysWrap = document.getElementById("qrDays");
+      const customDate = document.getElementById("qrCustomDate");
+      const timesWrap = document.getElementById("qrTimes");
+      const sunNote = document.getElementById("qrSunNote");
+      const guestsVal = document.getElementById("qrGuestsVal");
+      const nameInput = document.getElementById("qrNameInput");
+      const sumMeta = document.getElementById("qrSummaryMeta");
+      const sumTotal = document.getElementById("qrSummaryTotal");
+      const waBtn = document.getElementById("qrWaBtn");
+      const passBtn = document.getElementById("qrPassBtn");
+
+      const QR_STATE = {
+        step: 1,
+        tour: "sunset",
+        date: new Date(Date.now() + 86400000).toISOString().slice(0, 10),
+        time: "16:00",
+        guests: 2
+      };
+
+      const QR_COPY = {
+        pt: {
+          titles: ["Que passeio prefere?", "Quando quer navegar?", "Quantas pessoas?"],
+          stepOf: (s) => `Passo ${s} de 3`,
+          t1n: "Cruzeiro 7 Pontes", t1s: "2 h · prova de vinhos + foto Polaroid incluídas",
+          t2n: "Sunset · 7 Pontes & Mar", t2b: "Favorito", t2s: "2 h · pôr do sol na foz · prova de vinhos + Polaroid",
+          t3n: "Charter Privado", t3s: "O barco só para o seu grupo (até 10 pessoas)",
+          per_p: "/ pessoa", quote_lbl: "Pedir",
+          s1_foot: "Douro Marina · Portão A · 0% comissões",
+          other_d: "Ou escolha outra data:", next_btn: "Continuar →",
+          guests_lbl: "Pessoas", guests_sub: "Máximo 10 convidados a bordo",
+          name_ph: "O seu nome (opcional, aparece no cartão)",
+          wa_cta: "Confirmar no WhatsApp · Cap. Gil ↗",
+          pass_cta: "Ver o Meu Cartão de Embarque VIP ↗",
+          s3_foot: "Prova de vinhos + foto Polaroid incluídas · Reagendamento flexível",
+          today: "Hoje", tmrw: "Amanhã",
+          wd: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"],
+          mo: ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"]
+        },
+        en: {
+          titles: ["Which cruise do you prefer?", "When would you like to sail?", "How many guests?"],
+          stepOf: (s) => `Step ${s} of 3`,
+          t1n: "7 Bridges Cruise", t1s: "2 h · wine tasting + instant Polaroid included",
+          t2n: "Sunset · 7 Bridges & Sea", t2b: "Popular", t2s: "2 h · sunset at the river mouth · wine + Polaroid",
+          t3n: "Private Charter", t3s: "The entire boat for your group (up to 10 guests)",
+          per_p: "/ guest", quote_lbl: "Quote",
+          s1_foot: "Douro Marina · Gate A · 0% commissions",
+          other_d: "Or pick another date:", next_btn: "Continue →",
+          guests_lbl: "Guests", guests_sub: "Maximum 10 guests on board",
+          name_ph: "Your name (optional, printed on pass)",
+          wa_cta: "Confirm on WhatsApp · Cap. Gil ↗",
+          pass_cta: "View My VIP Boarding Pass ↗",
+          s3_foot: "Wine tasting + Polaroid photo included · Flexible weather reschedule",
+          today: "Today", tmrw: "Tmrw",
+          wd: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+          mo: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+        }
+      };
+
+      function shiftMins(hhmm, delta) {
+        const m = /^(\d{1,2}):(\d{2})$/.exec(hhmm || "");
+        if (!m) return hhmm;
+        let tot = parseInt(m[1], 10) * 60 + parseInt(m[2], 10) + delta;
+        tot = ((tot % 1440) + 1440) % 1440;
+        return `${String(Math.floor(tot / 60)).padStart(2, "0")}:${String(tot % 60).padStart(2, "0")}`;
+      }
+
+      function prettyDate(iso) {
+        const c = QR_COPY[currentLang === "pt" ? "pt" : "en"];
+        const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || "");
+        if (!m) return iso;
+        const dt = new Date(Number(m[1]), Number(m[2]) - 1, Number(m[3]));
+        return `${c.wd[dt.getDay()]} ${String(dt.getDate()).padStart(2, "0")} ${c.mo[dt.getMonth()]}`;
+      }
+
+      function syncCopy() {
+        const pt = currentLang === "pt";
+        const c = QR_COPY[pt ? "pt" : "en"];
+        modal.querySelectorAll("[data-qr-t]").forEach((el) => {
+          const k = el.dataset.qrT;
+          if (c[k]) el.textContent = c[k];
+        });
+        nameInput.placeholder = c.name_ph;
+        waBtn.textContent = c.wa_cta;
+        passBtn.textContent = c.pass_cta;
+        stepLabel.textContent = c.stepOf(QR_STATE.step);
+        titleEl.textContent = c.titles[QR_STATE.step - 1];
+      }
+
+      function renderDays() {
+        const c = QR_COPY[currentLang === "pt" ? "pt" : "en"];
+        daysWrap.innerHTML = "";
+        const now = new Date();
+        customDate.min = now.toISOString().slice(0, 10);
+        customDate.value = QR_STATE.date;
+        for (let i = 0; i < 5; i++) {
+          const d = new Date(now.getFullYear(), now.getMonth(), now.getDate() + i);
+          const iso = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "qr-day" + (QR_STATE.date === iso ? " is-sel" : "");
+          const lbl = i === 0 ? c.today : (i === 1 ? c.tmrw : c.wd[d.getDay()]);
+          btn.innerHTML = `<small>${lbl}</small><b class="mono">${String(d.getDate()).padStart(2, "0")}</b>`;
+          btn.addEventListener("click", () => {
+            QR_STATE.date = iso;
+            customDate.value = iso;
+            renderDays();
+            renderTimes();
+            renderSummary();
+          });
+          daysWrap.appendChild(btn);
+        }
+      }
+
+      function renderTimes() {
+        const sun = typeof computeFozSunset === "function" ? computeFozSunset(QR_STATE.date) : { sunset: "18:00", board: "16:30" };
+        const slots = QR_STATE.tour === "bridges"
+          ? ["10:30", "13:30", "15:30"]
+          : [shiftMins(sun.board, -30), sun.board, shiftMins(sun.board, 20)];
+        if (!slots.includes(QR_STATE.time)) QR_STATE.time = slots[1];
+        timesWrap.innerHTML = "";
+        slots.forEach((slot) => {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "qr-time mono" + (QR_STATE.time === slot ? " is-sel" : "");
+          btn.textContent = slot;
+          btn.addEventListener("click", () => {
+            QR_STATE.time = slot;
+            renderTimes();
+            renderSummary();
+          });
+          timesWrap.appendChild(btn);
+        });
+        const board10 = shiftMins(QR_STATE.time, -10);
+        sunNote.textContent = currentLang === "pt"
+          ? `☀ Pôr do sol às ${sun.sunset} · Embarque às ${board10} (10 min antes) no Portão A`
+          : `☀ Sunset at ${sun.sunset} · Boarding at ${board10} (10 min early) at Gate A`;
+      }
+
+      function renderSummary() {
+        const pt = currentLang === "pt";
+        const names = {
+          bridges: pt ? "Cruzeiro 7 Pontes" : "7 Bridges Cruise",
+          sunset: pt ? "Sunset · 7 Pontes & Mar" : "Sunset · 7 Bridges & Sea",
+          private: pt ? "Charter Privado" : "Private Charter"
+        };
+        const unit = QR_STATE.tour === "bridges" ? 30 : (QR_STATE.tour === "sunset" ? 60 : 0);
+        const total = unit * QR_STATE.guests;
+        const totLabel = unit === 0 ? (pt ? "Sob Consulta" : "Custom Quote") : `€${total}`;
+        const board10 = shiftMins(QR_STATE.time, -10);
+        const pDate = prettyDate(QR_STATE.date);
+        const gWord = pt ? (QR_STATE.guests === 1 ? "pessoa" : "pessoas") : (QR_STATE.guests === 1 ? "guest" : "guests");
+
+        guestsVal.textContent = String(QR_STATE.guests);
+        sumMeta.innerHTML = `${names[QR_STATE.tour]} · ${QR_STATE.guests} ${gWord}<small>${pDate} · ${pt ? "Embarque" : "Boarding"} ${board10} (${pt ? "Partida" : "Dep."} ${QR_STATE.time})</small>`;
+        sumTotal.textContent = totLabel;
+
+        const gName = (nameInput.value || "").trim() || (pt ? "Convidado Especial" : "Distinguished Guest");
+        const ref = `AD-2026-${String(1000 + (QR_STATE.date.slice(-2) * 37 + QR_STATE.guests * 113) % 8999)}`;
+        const basePath = window.location.pathname.includes("/site-2-atelier") || window.location.pathname.includes("/preview-real")
+          ? "../pass/index.html"
+          : "./pass/index.html";
+        const passQuery = new URLSearchParams({
+          t: QR_STATE.tour,
+          n: gName,
+          d: QR_STATE.date,
+          h: QR_STATE.time,
+          g: String(QR_STATE.guests),
+          tot: unit === 0 ? "quote" : String(total),
+          ref,
+          lang: pt ? "pt" : "en"
+        }).toString();
+        passBtn.href = `${basePath}?${passQuery}`;
+        const fullPassUrl = `https://alpha-douro-porto.vercel.app/pass/?${passQuery}`;
+
+        const waMsg = pt
+          ? `Olá Cap. Gil! Quero reservar na Alpha Douro:\n• Passeio: ${names.pt || names[QR_STATE.tour]} (Prova de vinhos + Polaroid incluídas)\n• Nome: ${gName}\n• Data: ${pDate} (${QR_STATE.date})\n• Partida: ${QR_STATE.time} (Embarque ${board10} no Portão A)\n• Pessoas: ${QR_STATE.guests}\n• Total: ${totLabel}\n• Cartão Digital: ${fullPassUrl}`
+          : `Hello Cap. Gil! I'd like to book Alpha Douro:\n• Voyage: ${names[QR_STATE.tour]} (Wine tasting + Polaroid included)\n• Name: ${gName}\n• Date: ${pDate} (${QR_STATE.date})\n• Departure: ${QR_STATE.time} (Boarding ${board10} at Gate A)\n• Guests: ${QR_STATE.guests}\n• Total: ${totLabel}\n• Digital Pass: ${fullPassUrl}`;
+        waBtn.href = `https://wa.me/351914160240?text=${encodeURIComponent(waMsg)}`;
+
+        // Keep underlying configurator in sync
+        if (typeof cfgTour !== "undefined" && cfgTour) {
+          cfgTour.value = QR_STATE.tour;
+          if (typeof cfgDate !== "undefined" && cfgDate) cfgDate.value = QR_STATE.date;
+          if (typeof cfgTime !== "undefined" && cfgTime) cfgTime.value = QR_STATE.time;
+          if (typeof partySize !== "undefined") partySize = QR_STATE.guests;
+          if (typeof syncBoardingPass === "function") syncBoardingPass();
+        }
+      }
+
+      function setStep(s) {
+        QR_STATE.step = Math.max(1, Math.min(3, s));
+        backBtn.hidden = QR_STATE.step === 1;
+        bars.forEach((b) => b.classList.toggle("is-on", Number(b.dataset.qrBar) <= QR_STATE.step));
+        panes.forEach((p) => p.classList.toggle("is-active", Number(p.dataset.qrPane) === QR_STATE.step));
+        syncCopy();
+        if (QR_STATE.step === 2) { renderDays(); renderTimes(); }
+        if (QR_STATE.step === 3) { renderSummary(); }
+      }
+
+      function openSheet(preTour) {
+        if (preTour && ["bridges", "sunset", "private"].includes(preTour)) {
+          QR_STATE.tour = preTour;
+          modal.querySelectorAll("[data-qr-tour]").forEach((b) => b.classList.toggle("is-sel", b.dataset.qrTour === preTour));
+          setStep(2);
+        } else {
+          setStep(1);
+        }
+        modal.classList.add("is-open");
+        modal.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeSheet() {
+        modal.classList.remove("is-open");
+        modal.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+      }
+
+      modal.querySelectorAll("[data-qr-tour]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          QR_STATE.tour = btn.dataset.qrTour;
+          modal.querySelectorAll("[data-qr-tour]").forEach((b) => b.classList.toggle("is-sel", b === btn));
+          setStep(2);
+        });
+      });
+
+      customDate.addEventListener("change", () => {
+        if (customDate.value) {
+          QR_STATE.date = customDate.value;
+          renderDays();
+          renderTimes();
+          renderSummary();
+        }
+      });
+
+      document.getElementById("qrToStep3").addEventListener("click", () => setStep(3));
+      document.getElementById("qrMinusBtn").addEventListener("click", () => {
+        QR_STATE.guests = Math.max(1, QR_STATE.guests - 1);
+        renderSummary();
+      });
+      document.getElementById("qrPlusBtn").addEventListener("click", () => {
+        QR_STATE.guests = Math.min(10, QR_STATE.guests + 1);
+        renderSummary();
+      });
+      nameInput.addEventListener("input", renderSummary);
+      backBtn.addEventListener("click", () => setStep(QR_STATE.step - 1));
+      closeBtn.addEventListener("click", closeSheet);
+      modal.addEventListener("click", (e) => { if (e.target === modal) closeSheet(); });
+      window.addEventListener("keydown", (e) => { if (e.key === "Escape" && modal.classList.contains("is-open")) closeSheet(); });
+
+      // Wire primary Reserve CTAs across header, hero, pre-footer & mobile iOS bar
+      document.querySelectorAll("[data-open-quick-reserve]").forEach((el) => {
+        el.addEventListener("click", (e) => {
+          e.preventDefault();
+          openSheet(el.dataset.openQuickReserve || "");
+        });
+      });
+
+      // Expose refresh for language switcher & QA
+      window.openQuickReserve = openSheet;
+      window.syncQuickReserveLang = () => { syncCopy(); renderDays(); renderTimes(); renderSummary(); };
+    })();
+
   </script>
 
   <a href="https://wa.me/351914160240?text=Ol%C3%A1%20Cap.%20Gil!%20Gostaria%20de%20saber%20disponibilidade%20na%20Alpha%20Douro%20(Douro%20Marina%20%C2%B7%20Port%C3%A3o%20A)." target="_blank" rel="noopener noreferrer" class="floating-wa-pill" id="floatingWaPill" aria-label="Falar com Cap. Gil no WhatsApp">
@@ -6885,9 +7390,96 @@
       <strong data-i18n="mb_price">Desde €30 · Sunset €60</strong>
       <span data-i18n="mb_sub">Prova de Vinhos · Portão A</span>
     </div>
-    <a href="#configurator" class="mob-ios-cta" data-i18n="mb_cta">Reservar ↗</a>
+    <a href="#configurator" class="mob-ios-cta" data-open-quick-reserve="" data-i18n="mb_cta">Reservar ↗</a>
   </aside>
   <!-- MOBILE IOS STICKY BAR END -->
+
+  <!-- 3-TAP QUICK RESERVE SHEET START -->
+  <div class="qr-backdrop" id="quickReserveModal" role="dialog" aria-modal="true" aria-labelledby="qrTitle" aria-hidden="true">
+    <div class="qr-sheet" id="quickReserveSheet">
+      <div class="qr-grab" aria-hidden="true"></div>
+      <div class="qr-top">
+        <button type="button" class="qr-nav-btn" id="qrBackBtn" aria-label="Passo anterior" hidden>←</button>
+        <span class="qr-step-label mono" id="qrStepLabel">Passo 1 de 3</span>
+        <button type="button" class="qr-nav-btn" id="qrCloseBtn" aria-label="Fechar">✕</button>
+      </div>
+      <div class="qr-bars" aria-hidden="true">
+        <i class="is-on" data-qr-bar="1"></i>
+        <i data-qr-bar="2"></i>
+        <i data-qr-bar="3"></i>
+      </div>
+      <h2 class="qr-title" id="qrTitle">Que passeio prefere?</h2>
+
+      <!-- Step 1: Tour -->
+      <div class="qr-pane is-active" data-qr-pane="1">
+        <div class="qr-tour-list">
+          <button type="button" class="qr-tour-btn" data-qr-tour="bridges">
+            <div>
+              <span class="qr-tour-name" data-qr-t="t1n">Cruzeiro 7 Pontes</span>
+              <span class="qr-tour-sub" data-qr-t="t1s">2 h · prova de vinhos + foto Polaroid incluídas</span>
+            </div>
+            <div class="qr-tour-price mono">€30<small data-qr-t="per_p">/ pessoa</small></div>
+          </button>
+          <button type="button" class="qr-tour-btn is-sel" data-qr-tour="sunset">
+            <div>
+              <span class="qr-tour-name"><span data-qr-t="t2n">Sunset · 7 Pontes &amp; Mar</span> <span class="qr-tour-badge" data-qr-t="t2b">Favorito</span></span>
+              <span class="qr-tour-sub" data-qr-t="t2s">2 h · pôr do sol na foz · prova de vinhos + Polaroid</span>
+            </div>
+            <div class="qr-tour-price mono">€60<small data-qr-t="per_p">/ pessoa</small></div>
+          </button>
+          <button type="button" class="qr-tour-btn" data-qr-tour="private">
+            <div>
+              <span class="qr-tour-name" data-qr-t="t3n">Charter Privado</span>
+              <span class="qr-tour-sub" data-qr-t="t3s">O barco só para o seu grupo (até 10 pessoas)</span>
+            </div>
+            <div class="qr-tour-price mono" data-qr-t="quote_lbl">Pedir</div>
+          </button>
+        </div>
+        <p class="qr-foot-note" data-qr-t="s1_foot">Douro Marina · Portão A · 0% comissões</p>
+      </div>
+
+      <!-- Step 2: Date & Time -->
+      <div class="qr-pane" data-qr-pane="2">
+        <div class="qr-days" id="qrDays"></div>
+        <div class="qr-other-date">
+          <span data-qr-t="other_d">Ou escolha outra data:</span>
+          <input type="date" id="qrCustomDate" aria-label="Escolher outra data" />
+        </div>
+        <div class="qr-times" id="qrTimes"></div>
+        <div class="qr-sun-note" id="qrSunNote">☀ Pôr do sol previsto · embarque 10 min antes no Portão A</div>
+        <button type="button" class="qr-next-btn" id="qrToStep3" data-qr-t="next_btn">Continuar →</button>
+      </div>
+
+      <!-- Step 3: Guests & Confirm -->
+      <div class="qr-pane" data-qr-pane="3">
+        <div class="qr-stepper">
+          <div class="qr-stepper-lbl">
+            <span data-qr-t="guests_lbl">Pessoas</span>
+            <small data-qr-t="guests_sub">Máximo 10 convidados a bordo</small>
+          </div>
+          <div class="qr-stepper-ctrl">
+            <button type="button" class="qr-stp-btn" id="qrMinusBtn" aria-label="Menos uma pessoa">−</button>
+            <span class="qr-stp-val mono" id="qrGuestsVal">2</span>
+            <button type="button" class="qr-stp-btn" id="qrPlusBtn" aria-label="Mais uma pessoa">+</button>
+          </div>
+        </div>
+        <input type="text" class="qr-name-input" id="qrNameInput" placeholder="O seu nome (opcional, aparece no cartão)" autocomplete="name" />
+        <div class="qr-summary">
+          <div class="qr-summary-meta" id="qrSummaryMeta">Sunset &amp; Mar · Portão A</div>
+          <div class="qr-summary-total mono" id="qrSummaryTotal">€120</div>
+        </div>
+        <a href="#" class="qr-primary-btn" id="qrWaBtn" target="_blank" rel="noopener noreferrer">
+          Confirmar no WhatsApp · Cap. Gil ↗
+        </a>
+        <a href="./pass/index.html" class="qr-gold-btn" id="qrPassBtn" target="_blank" rel="noopener noreferrer">
+          Ver o Meu Cartão de Embarque VIP ↗
+        </a>
+        <p class="qr-foot-note" data-qr-t="s3_foot">Prova de vinhos + foto Polaroid incluídas · Cancelamento flexível por tempo</p>
+      </div>
+    </div>
+  </div>
+  <!-- 3-TAP QUICK RESERVE SHEET END -->
+
 
 </body>
 </html>
