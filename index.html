@@ -1953,7 +1953,7 @@
       transform: translate3d(0, 0, 0);
     }
 
-    /* Atelier Comparison Table: 90-Pax Rabelo vs. Alpha Douro 10-Max */
+    /* Atelier Commander Section (replaces old comparison table) */
     .atelier-compare-section {
       padding: 0 0 6.5rem;
       background: var(--abyss);
@@ -1963,56 +1963,6 @@
       border: 1px solid var(--hairline);
       background: var(--navy);
       padding: 3.25rem;
-    }
-
-    .atelier-compare-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 2.25rem;
-    }
-
-    .atelier-compare-table th {
-      text-align: left;
-      padding: 0.95rem 1rem;
-      font-size: 0.76rem;
-      letter-spacing: 0.08em;
-      color: var(--sand-dim);
-      border-bottom: 1px solid var(--hairline-strong);
-    }
-
-    .atelier-compare-table th.acmp-alpha-head {
-      color: var(--capri-glow);
-      background: rgba(26, 146, 210, 0.12);
-    }
-
-    .atelier-compare-table td {
-      padding: 1.1rem 1rem;
-      font-size: 0.9rem;
-      line-height: 1.5;
-      border-bottom: 1px solid var(--hairline);
-      vertical-align: top;
-    }
-
-    .atelier-compare-table tr:last-child td {
-      border-bottom: 0;
-    }
-
-    .acmp-axis {
-      color: var(--sand);
-      width: 22%;
-      font-size: 0.8rem;
-      letter-spacing: 0.04em;
-    }
-
-    .acmp-ferry {
-      color: var(--slate);
-      width: 35%;
-    }
-
-    .acmp-alpha {
-      color: var(--ivory);
-      width: 43%;
-      background: rgba(26, 146, 210, 0.08);
     }
 
     /* Direct WhatsApp Button in Atelier Configurator */
@@ -2156,7 +2106,6 @@
       .route-filmstrip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .hud-readout { text-align: left; }
       .cfg-row-2, .ritual-toggles { grid-template-columns: 1fr; }
-      .atelier-compare-table th, .atelier-compare-table td { padding: 0.7rem 0.5rem; font-size: 0.8rem; }
       .nm-hud-pill { display: none; }
       .m-span-7, .m-span-5, .m-span-4 { grid-column: span 12; }
       .footer-meta-grid { grid-template-columns: 1fr; }
@@ -3606,6 +3555,70 @@
     }
     /* === 5STAR PACK CSS END === */
 
+
+    /* === COMMANDER & RIVER STORIES CSS START === */
+    .cmdr-grid { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: clamp(1.6rem, 3.5vw, 3.5rem); align-items: center; }
+    .cmdr-photo { position: relative; margin: 0; aspect-ratio: 4 / 5; overflow: hidden; border: 1px solid var(--hairline-strong); background: var(--abyss); }
+    .cmdr-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; display: block; }
+    .cmdr-photo-cap { position: absolute; left: 0.85rem; bottom: 0.85rem; padding: 0.4rem 0.7rem; background: rgba(6, 17, 29, 0.8); border: 1px solid var(--hairline-strong); color: var(--sand); font-size: 0.62rem; letter-spacing: 0.1em; }
+    .cmdr-copy .sec-serif-title em { font-style: italic; color: var(--sand); }
+    .cmdr-bio { margin-top: 1.4rem; max-width: 60ch; color: var(--slate); font-size: 1rem; line-height: 1.72; }
+    .cmdr-bio strong { color: var(--ivory); font-weight: 500; }
+    .cmdr-stats { list-style: none; margin: 1.8rem 0 0; padding: 1.25rem 0 0; border-top: 1px solid var(--hairline); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+    .cmdr-stats li { display: flex; flex-direction: column; gap: 0.4rem; }
+    .cmdr-stats strong { font-size: clamp(1.7rem, 2.6vw, 2.3rem); font-weight: 400; color: var(--ivory); line-height: 1; font-variant-numeric: tabular-nums; }
+    .cmdr-stats span { font-size: 0.76rem; color: var(--sand-dim); line-height: 1.4; }
+    .cmdr-ops { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; margin-top: 2.6rem; }
+    .cmdr-check, .cmdr-metar { border: 1px solid var(--hairline); background: rgba(6, 17, 29, 0.55); padding: 1.5rem 1.6rem; }
+    .cmdr-ops-head { display: flex; justify-content: space-between; align-items: center; gap: 1rem; font-size: 0.68rem; letter-spacing: 0.12em; color: var(--sand); padding-bottom: 0.9rem; border-bottom: 1px solid var(--hairline); margin-bottom: 1rem; font-variant-numeric: tabular-nums; }
+    .cmdr-ck-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.72rem; }
+    .cmdr-ck-list li { display: grid; grid-template-columns: 22px 1fr; gap: 0.8rem; align-items: start; opacity: 0.4; transition: opacity 320ms var(--ease-expo); }
+    .cmdr-ck-list li.is-on { opacity: 1; }
+    .ck-box { width: 20px; height: 20px; border: 1px solid var(--hairline-strong); display: grid; place-items: center; margin-top: 1px; transition: background-color 240ms ease, border-color 240ms ease; }
+    .ck-box svg { width: 13px; height: 13px; fill: none; stroke: var(--abyss); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 16; stroke-dashoffset: 16; transition: stroke-dashoffset 360ms var(--ease-expo) 80ms; }
+    .cmdr-ck-list li.is-on .ck-box { background: var(--sand); border-color: var(--sand); }
+    .cmdr-ck-list li.is-on .ck-box svg { stroke-dashoffset: 0; }
+    .cmdr-ck-list strong { display: block; font-size: 0.66rem; letter-spacing: 0.1em; color: var(--sand); font-weight: 500; }
+    .cmdr-ck-list span { font-size: 0.88rem; color: var(--ivory); line-height: 1.45; }
+    .cmdr-ck-foot { margin-top: 1.1rem; font-size: 0.62rem; letter-spacing: 0.1em; color: var(--sand-dim); }
+    .metar-line { display: block; font-size: 0.82rem; letter-spacing: 0.06em; color: var(--capri-glow); background: rgba(26, 146, 210, 0.08); border: 1px solid rgba(88, 185, 238, 0.2); padding: 0.62rem 0.75rem; white-space: nowrap; overflow-x: auto; font-variant-numeric: tabular-nums; }
+    .metar-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.95rem 1.2rem; margin-top: 1.1rem; }
+    .metar-grid span { display: block; font-size: 0.64rem; letter-spacing: 0.1em; color: var(--sand-dim); margin-bottom: 0.2rem; }
+    .metar-grid strong { font-size: 1.02rem; font-weight: 500; color: var(--ivory); font-variant-numeric: tabular-nums; }
+    .metar-verdict { margin-top: 1.2rem; padding: 0.75rem 0.9rem; border-left: 2px solid var(--sand-dim); background: rgba(224, 208, 184, 0.06); font-size: 0.9rem; color: var(--ivory); line-height: 1.45; }
+    .metar-verdict[data-state="good"] { border-left-color: var(--capri-glow); }
+    .metar-verdict[data-state="ok"] { border-left-color: var(--sand); }
+    .metar-verdict[data-state="check"] { border-left-color: #B85D3B; }
+    .metar-src { margin-top: 0.8rem; font-size: 0.6rem; letter-spacing: 0.08em; color: var(--sand-dim); }
+    .metar-dot { position: relative; width: 7px; height: 7px; border-radius: 50%; background: var(--capri-glow); flex-shrink: 0; }
+    .metar-dot::after { content: ""; position: absolute; inset: 0; border-radius: 50%; border: 1px solid var(--capri-glow); animation: metarPulse 2.4s var(--ease-expo) infinite; }
+    @keyframes metarPulse { from { transform: scale(1); opacity: 0.75; } to { transform: scale(2.8); opacity: 0; } }
+
+    /* River stories inside the journey */
+    .chart-dusk { position: absolute; inset: 0; pointer-events: none; opacity: 0; background: radial-gradient(120% 95% at 0% 62%, rgba(242, 166, 99, 0.24), transparent 58%), linear-gradient(180deg, rgba(184, 93, 59, 0.07), rgba(6, 17, 29, 0) 70%); }
+    .river-chart-box > :not(.chart-dusk) { position: relative; z-index: 1; }
+    .chapter-photo-frame { cursor: pointer; }
+    .chapter-segs { position: absolute; left: 0.7rem; right: 0.7rem; bottom: 0.6rem; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 4px; z-index: 2; pointer-events: none; }
+    .chapter-segs i { display: block; height: 2px; background: rgba(245, 241, 232, 0.3); transition: background-color 300ms ease; }
+    .chapter-segs i.is-done { background: var(--sand); }
+    .chapter-log { margin-top: 0.15rem; padding: 0.5rem 0.75rem; border-left: 2px solid var(--sand); background: rgba(224, 208, 184, 0.05); }
+    .chapter-log-k { display: block; font-size: 0.6rem; letter-spacing: 0.12em; color: var(--sand); margin-bottom: 0.22rem; font-variant-numeric: tabular-nums; }
+    .chapter-story { font-size: 0.79rem; line-height: 1.45; color: var(--ivory); margin: 0; }
+
+    @media (max-width: 1024px) {
+      .cmdr-grid { grid-template-columns: 1fr; }
+      .cmdr-photo { max-width: 520px; }
+      .cmdr-ops { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .cmdr-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 1.2rem; }
+      .cmdr-check, .cmdr-metar { padding: 1.2rem; }
+      .journey-hud { display: grid; grid-template-columns: repeat(3, auto); gap: 0.7rem 1.1rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .metar-dot::after { animation: none; }
+    }
+    /* === COMMANDER & RIVER STORIES CSS END === */
   </style>
 </head>
 <body>
@@ -3779,12 +3792,15 @@
                 <span class="mono">COORDINATES</span>
                 <strong class="mono" id="hudCoords">41°08'36"N · 08°38'52"W</strong>
               </div>
+              <div class="hud-readout"><span class="mono" data-i18n="hud_hdg">RUMO</span><strong class="mono" id="hudHeading">067°</strong></div>
+              <div class="hud-readout"><span class="mono" data-i18n="hud_time">TEMPO</span><strong class="mono" id="hudTime">T+00 MIN</strong></div>
             </div>
           </div>
 
           <div class="journey-stage">
             <!-- Left: Interactive SVG Douro Chart with Geographically Accurate Afurada Split (Left=Sea, Right=7 Bridges & Return) -->
             <div class="river-chart-box">
+              <div class="chart-dusk" id="chartDusk" aria-hidden="true"></div>
               <div class="chart-corner-label mono">
                 <span>← OCEANO &amp; MAR NA AFURADA (SUNSET)</span>
                 <span id="chartLegBadge" style="color: var(--capri-glow);">IDA · MARGEM DO PORTO → 7 PONTES</span>
@@ -3944,8 +3960,9 @@
 
             <!-- Right: Active Landmark Editorial Card (Shows Real Photos of Each Location!) -->
             <article class="chapter-card">
-              <div class="chapter-photo-frame">
+              <div class="chapter-photo-frame" id="chapterPhotoFrame" role="button" tabindex="0" aria-label="Próxima paragem">
                 <img id="chapterImg" src="./assets/real-shoot/04-inverno-360-afurada-capota-marinho.jpg" alt="Cais da Afurada private departure pier" width="1376" height="768" decoding="async" />
+                <div class="chapter-segs" aria-hidden="true"><i class="is-done"></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
                 <span class="chapter-badge mono" id="chapterBadge">MARCO 01 · PARTIDA (← ESQUERDA: MAR | DIREITA: 7 PONTES →)</span>
               </div>
               <div class="chapter-body">
@@ -3953,6 +3970,7 @@
                 <p class="chapter-desc" id="chapterDesc">
                   Todos os passeios começam no Cais da Afurada. Ao sair do cais, se virarmos à direita subimos o Rio Douro em direção às 7 pontes; se virarmos à esquerda vamos até à abertura do mar na Afurada.
                 </p>
+                <div class="chapter-log"><span class="chapter-log-k mono" id="chapterLogK">DIÁRIO DE BORDO · MIN 00</span><p class="chapter-story" id="chapterStory">A Afurada é uma das últimas aldeias piscatórias do Porto: roupa a secar no lavadouro público e sardinha na brasa à porta de casa.</p></div>
                 <div class="chapter-ritual mono">
                   <span id="chapterRitual">EMBARQUE PRIVADO · ZERO FILAS TURÍSTICAS</span>
                   <span id="chapterLight">CAIS DA AFURADA</span>
@@ -4320,7 +4338,7 @@
               <div class="tk-sig-row is-sig-drawn" id="tkSigRow">
                 <div>
                   <div class="tk-label mono" data-i18n="tk_sig_label">SKIPPER ENDORSEMENT · DOURO MARINA · GATE A</div>
-                  <div style="font-size: 0.78rem; font-weight: 600; color: #0A223D;">Cap. Gil — Alpha Douro</div>
+                  <div style="font-size: 0.78rem; font-weight: 600; color: #0A223D;" data-i18n="tk_cmdr">Cmdt. Gil · Piloto Comercial &amp; Skipper</div>
                 </div>
                 <div style="display:flex; align-items:center; gap:0.45rem;">
                   <svg class="tk-sig-svg" viewBox="0 0 240 66" aria-label="Assinatura manuscrita Cap. Gil">
@@ -4518,53 +4536,52 @@
   <section class="atelier-compare-section" id="atelierCompare">
     <div class="container">
       <div class="atelier-compare-box">
-        <div class="atelier-section-head" style="margin-bottom: 0;">
-          <div>
-            <div class="sec-kicker" data-i18n="cmp_kicker">The quiet benchmark · Ribeira Ferry vs. Alpha Douro</div>
-            <h2 class="sec-serif-title" data-i18n="cmp_title" data-word-scrub>Ninety Seats or Ten Water-Level Views</h2>
+        <div class="cmdr-grid">
+          <figure class="cmdr-photo">
+            <img src="./assets/real-shoot/gil-comandante-sunset.jpg" alt="Cap. Gil ao leme de um veleiro ao pôr do sol no mar" width="864" height="1536" loading="lazy" decoding="async" />
+            <figcaption class="cmdr-photo-cap mono" data-i18n="cmdr_photo_cap">CAP. GIL · VELA AO PÔR DO SOL NO MAR</figcaption>
+          </figure>
+          <div class="cmdr-copy">
+            <div class="sec-kicker" data-i18n="cmdr_kicker">O seu comandante hoje</div>
+            <h2 class="sec-serif-title" data-i18n="cmdr_title">Do Cockpit ao <em>Convés</em></h2>
             <span class="atelier-rule-draw" aria-hidden="true"></span>
+            <p class="cmdr-bio" data-i18n="cmdr_bio">Fez a primeira vela aos <strong>5 anos</strong> e nunca mais saiu da água.</p>
+            <ul class="cmdr-stats" role="list">
+              <li><strong class="mono">5</strong><span data-i18n="cmdr_s1">anos · a primeira vela</span></li>
+              <li><strong class="mono">15</strong><span data-i18n="cmdr_s2">anos a trabalhar em barcos</span></li>
+              <li><strong class="mono">2</strong><span data-i18n="cmdr_s3">cockpits · céu e rio</span></li>
+              <li><strong class="mono">3</strong><span data-i18n="cmdr_s4">línguas · PT · EN · ES</span></li>
+            </ul>
           </div>
-          <p class="atelier-head-copy" data-i18n="cmp_copy">
-            Same seven historic bridges, an unmistakably different afternoon. Why discerning travelers and 5★ hotel concierges depart from Cais da Afurada instead of crowded Ribeira docks.
-          </p>
         </div>
 
-        <table class="atelier-compare-table" aria-label="Comparison between standard Ribeira boats and Alpha Douro">
-          <thead>
-            <tr>
-              <th class="mono" data-i18n="cmp_h_axis">DIMENSION</th>
-              <th class="mono" data-i18n="cmp_h_ferry">STANDARD RIBEIRA FERRY (€18–€22)</th>
-              <th class="mono acmp-alpha-head" data-i18n="cmp_h_alpha">ALPHA DOURO · PORTÃO A (€30–€60)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="acmp-axis mono" data-i18n="cmp_r1_k">Capacity</td>
-              <td class="acmp-ferry" data-i18n="cmp_r1_f">60 to 90 guests packed shoulder-to-shoulder on timber benches.</td>
-              <td class="acmp-alpha" data-i18n="cmp_r1_a">Strictly capped at 10 guests on embroidered cream marine cushions.</td>
-            </tr>
-            <tr>
-              <td class="acmp-axis mono" data-i18n="cmp_r2_k">Embarkation</td>
-              <td class="acmp-ferry" data-i18n="cmp_r2_f">Long tourist queues and street hawkers at busy Ribeira piers.</td>
-              <td class="acmp-alpha" data-i18n="cmp_r2_a">Douro Marina (Gate A · Afurada) — zero queues, free parking 30m away.</td>
-            </tr>
-            <tr>
-              <td class="acmp-axis mono" data-i18n="cmp_r3_k">Real Route</td>
-              <td class="acmp-ferry" data-i18n="cmp_r3_f">50-minute scripted loop with pre-recorded loudspeaker audio.</td>
-              <td class="acmp-alpha" data-i18n="cmp_r3_a">2 full hours: Right to all 7 bridges &amp; return, plus Left of Afurada to the sea for sunset.</td>
-            </tr>
-            <tr>
-              <td class="acmp-axis mono" data-i18n="cmp_r4_k">Table Rituals</td>
-              <td class="acmp-ferry" data-i18n="cmp_r4_f">No table service, no glassware, no blankets at dusk.</td>
-              <td class="acmp-alpha" data-i18n="cmp_r4_a">Teak table, chilled Douro DOC &amp; Tawny Port, matte tumblers, wool throws &amp; Polaroid.</td>
-            </tr>
-            <tr>
-              <td class="acmp-axis mono" data-i18n="cmp_r5_k">Direct Desk</td>
-              <td class="acmp-ferry" data-i18n="cmp_r5_f">Automated aggregator ticket with rigid weather cancellation.</td>
-              <td class="acmp-alpha" data-i18n="cmp_r5_a">Direct WhatsApp confirmation with Cap. Gil · 0% commissions · flexible rescheduling.</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="cmdr-ops">
+          <div class="cmdr-check" id="cmdrCheck">
+            <div class="cmdr-ops-head mono"><span data-i18n="ck_head">CHECKLIST DE PARTIDA · PADRÃO AVIAÇÃO</span><span id="cmdrCkCount">0/6</span></div>
+            <ol class="cmdr-ck-list">
+              <li><span class="ck-box" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></span><div><strong class="mono" data-i18n="ck1_k">METEO</strong><span data-i18n="ck1_v">Vento, maré e visibilidade confirmados</span></div></li>
+              <li><span class="ck-box" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></span><div><strong class="mono" data-i18n="ck2_k">MOTOR</strong><span data-i18n="ck2_v">Combustível e motor verificados</span></div></li>
+              <li><span class="ck-box" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></span><div><strong class="mono" data-i18n="ck3_k">COLETES</strong><span data-i18n="ck3_v">12 coletes homologados a bordo</span></div></li>
+              <li><span class="ck-box" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></span><div><strong class="mono" data-i18n="ck4_k">VHF</strong><span data-i18n="ck4_v">Rádio em escuta no canal 16</span></div></li>
+              <li><span class="ck-box" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></span><div><strong class="mono" data-i18n="ck5_k">BRIEFING</strong><span data-i18n="ck5_v">Segurança explicada em PT · EN · ES</span></div></li>
+              <li><span class="ck-box" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></span><div><strong class="mono" data-i18n="ck6_k">ROTA</strong><span data-i18n="ck6_v">Afurada → 7 Pontes → Foz planeada</span></div></li>
+            </ol>
+            <p class="cmdr-ck-foot mono" data-i18n="ck_foot">CUMPRIDA ANTES DE CADA SAÍDA · CAP. GIL</p>
+          </div>
+          <div class="cmdr-metar" id="metarCard">
+            <div class="cmdr-ops-head mono"><span data-i18n="mt_head">METAR DO DOURO · AO VIVO</span><span class="metar-dot" aria-hidden="true"></span></div>
+            <code class="metar-line mono" id="metarLine">AFURADA ······Z ···/··KT ··°C</code>
+            <div class="metar-grid">
+              <div><span class="mono" data-i18n="mt_wind">VENTO</span><strong class="mono" id="mtWind">—</strong></div>
+              <div><span class="mono" data-i18n="mt_temp">TEMPERATURA</span><strong class="mono" id="mtTemp">—</strong></div>
+              <div><span class="mono" data-i18n="mt_sky">CÉU</span><strong id="mtSky">—</strong></div>
+              <div><span class="mono" data-i18n="mt_sunset">PÔR DO SOL</span><strong class="mono" id="mtSunset">—</strong></div>
+            </div>
+            <div class="metar-verdict" id="mtVerdict" data-state="idle" role="status" aria-live="polite">A ler as condições do rio…</div>
+            <p class="metar-src mono" id="mtSrc">OPEN-METEO · 41°08'N 08°38'W</p>
+          </div>
+        </div>
+
         <!-- 365-DAY CANOPY COMPARATOR START -->
         <div class="canopy-compare-wrap">
           <div class="canopy-compare-head">
@@ -4883,7 +4900,10 @@
         ritualPt: "RITUAL · BOARDING PASS EM ALGODÃO & VINHO DE BOAS-VINDAS",
         light: "DEPARTURE PIER",
         lightPt: "CAIS DE PARTIDA",
-        img: "./assets/real-shoot/04-inverno-360-afurada-capota-marinho.jpg"
+        img: "./assets/real-shoot/04-inverno-360-afurada-capota-marinho.jpg",
+        min: 0,
+        storyPt: "A Afurada é uma das últimas aldeias piscatórias do Porto: roupa a secar no lavadouro público e sardinha na brasa à porta de casa.",
+        storyEn: "Afurada is one of Porto's last fishing villages: laundry drying at the public washhouse and sardines grilling at front doors."
       },
       {
         stop: "02 / 07", dist: "0.6 NM", coords: "41°08'50\"N · 08°38'24\"W",
@@ -4898,7 +4918,10 @@
         ritualPt: "RITUAL · PORTO TÓNICO BRANCO GELADO",
         light: "1ST BRIDGE · RIGHT",
         lightPt: "1.ª PONTE · À DIREITA",
-        img: "./assets/loc-02-ponte-arrabida.jpg"
+        img: "./assets/loc-02-ponte-arrabida.jpg",
+        min: 8,
+        storyPt: "Quando abriu, em 1963, tinha o maior arco de betão armado do mundo: 270 m de vão. Hoje há quem suba ao topo a pé.",
+        storyEn: "When it opened in 1963 it had the world's longest reinforced-concrete arch, spanning 270 m. Today you can even climb to the top."
       },
       {
         stop: "03 / 07", dist: "1.8 NM", coords: "41°08'26\"N · 08°36'47\"W",
@@ -4913,7 +4936,10 @@
         ritualPt: "RITUAL · POLAROID INSTANTÂNEA NA RIBEIRA",
         light: "UNESCO FACADES",
         lightPt: "FACHADAS UNESCO",
-        img: "./assets/loc-03-ribeira-cais-gaia.jpg"
+        img: "./assets/loc-03-ribeira-cais-gaia.jpg",
+        min: 20,
+        storyPt: "Até 1986, o Vinho do Porto só podia ser exportado a partir de Gaia — é por isso que as caves das grandes casas estão todas nesta margem.",
+        storyEn: "Until 1986, Port wine could only be exported from Gaia — which is why every great Port house keeps its cellars on this bank."
       },
       {
         stop: "04 / 07", dist: "2.2 NM", coords: "41°08'24\"N · 08°36'34\"W",
@@ -4928,7 +4954,10 @@
         ritualPt: "RITUAL · BRINDE DO SINO DE LATÃO SOB O ARCO",
         light: "2ND BRIDGE · ICON",
         lightPt: "2.ª PONTE · ÍCONE",
-        img: "./assets/loc-04-ponte-dom-luis.jpg"
+        img: "./assets/loc-04-ponte-dom-luis.jpg",
+        min: 30,
+        storyPt: "Aqui perto ficava a Ponte das Barcas: em 1809, em fuga às tropas francesas, a multidão fê-la ceder. As Alminhas da Ponte, na Ribeira, ainda lembram as vítimas.",
+        storyEn: "The old Bridge of Boats stood near here: in 1809, crowds fleeing French troops made it collapse. The Alminhas da Ponte shrine in Ribeira still remembers the victims."
       },
       {
         stop: "05 / 07", dist: "3.0 NM", coords: "41°08'23\"N · 08°35'48\"W",
@@ -4943,7 +4972,10 @@
         ritualPt: "RITUAL · PROVA CONSERVAS & CORTIÇA",
         light: "3RD & 4TH BRIDGES",
         lightPt: "3.ª & 4.ª PONTES",
-        img: "./assets/loc-05-ponte-infante-mariapia.jpg"
+        img: "./assets/loc-05-ponte-infante-mariapia.jpg",
+        min: 40,
+        storyPt: "A Maria Pia, da casa Eiffel, levou comboios até 1991. A do Infante (2003) vence 280 m com um arco de apenas 1,5 m de espessura.",
+        storyEn: "Maria Pia, built by Eiffel's company, carried trains until 1991. The Infante bridge (2003) spans 280 m with an arch only 1.5 m thick."
       },
       {
         stop: "06 / 07", dist: "3.8 NM", coords: "41°08'35\"N · 08°34'46\"W",
@@ -4958,7 +4990,10 @@
         ritualPt: "RITUAL · PORTO TAWNY & PASTEL DE NATA",
         light: "7TH BRIDGE · TURN ↺",
         lightPt: "7.ª PONTE · REGRESSO ↺",
-        img: "./assets/loc-06-saojoao-freixo.jpg"
+        img: "./assets/loc-06-saojoao-freixo.jpg",
+        min: 55,
+        storyPt: "A Ponte de São João, de Edgar Cardoso (1991), substituiu a Maria Pia nos comboios. Logo a seguir, a do Freixo marca a nossa viragem.",
+        storyEn: "Edgar Cardoso's São João bridge (1991) took over the trains from Maria Pia. Just beyond, Freixo bridge marks our turn back."
       },
       {
         stop: "07 / 07", dist: "7.2 NM", coords: "41°08'39\"N · 08°39'32\"W",
@@ -4973,7 +5008,10 @@
         ritualPt: "RITUAL · BRINDE AO PÔR DO SOL JUNTO AO MAR NA AFURADA",
         light: "← SEA AT AFURADA",
         lightPt: "← MAR NA AFURADA",
-        img: "./assets/loc-07-mar-afurada-sunset.jpg"
+        img: "./assets/loc-07-mar-afurada-sunset.jpg",
+        min: 100,
+        storyPt: "Depois de 897 km desde os Picos de Urbión, em Espanha, o Douro encontra aqui o Atlântico — e o sol põe-se mesmo à nossa frente.",
+        storyEn: "After 897 km from Spain's Picos de Urbión, the Douro meets the Atlantic right here — with the sun setting straight ahead."
       }
     ];
 
@@ -5209,6 +5247,8 @@
     window.addEventListener("wheel", stopAutoSail, { passive: true });
     window.addEventListener("touchmove", stopAutoSail, { passive: true });
 
+    const chapterSegs = Array.from(document.querySelectorAll(".chapter-segs i"));
+    const chapterFrameEl = document.getElementById("chapterPhotoFrame");
     function updateChapterUI(idx, force = false) {
       if (idx === activeWpIdx && manualProgress === null && !force) return;
       activeWpIdx = idx;
@@ -5221,6 +5261,14 @@
       document.getElementById("chapterDesc").textContent = currentLang === "pt" ? lm.descPt : lm.descEn;
       document.getElementById("chapterRitual").textContent = currentLang === "pt" ? lm.ritualPt : lm.ritualEn;
       document.getElementById("chapterLight").textContent = currentLang === "pt" ? (lm.lightPt || lm.light) : lm.light;
+      const logK = document.getElementById("chapterLogK");
+      if (logK) logK.textContent = (currentLang === "pt" ? "DIÁRIO DE BORDO · MIN " : "SHIP'S LOG · MIN ") + String(lm.min).padStart(2, "0");
+      const storyEl = document.getElementById("chapterStory");
+      if (storyEl) storyEl.textContent = currentLang === "pt" ? lm.storyPt : lm.storyEn;
+      const hudT = document.getElementById("hudTime");
+      if (hudT) hudT.textContent = "T+" + String(lm.min).padStart(2, "0") + " MIN";
+      chapterSegs.forEach((sg, si) => sg.classList.toggle("is-done", si <= idx));
+      if (chapterFrameEl) chapterFrameEl.setAttribute("aria-label", currentLang === "pt" ? "Próxima paragem" : "Next stop");
 
       const chImg = document.getElementById("chapterImg");
       if (chImg.getAttribute("src") !== lm.img) {
@@ -5253,6 +5301,9 @@
     }
 
     let lastIsReturn = null;
+    let lastHdg = -1;
+    const hudHeadingEl = document.getElementById("hudHeading");
+    const chartDuskEl = document.getElementById("chartDusk");
     function positionBoatAt(progress) {
       const p = Math.min(1, Math.max(0, progress));
       const pf = progressToPathFrac(p);
@@ -5262,6 +5313,9 @@
       const angle = Math.atan2(ptAhead.y - pt.y, ptAhead.x - pt.x) * (180 / Math.PI);
 
       boatMarker.setAttribute("transform", `translate(${pt.x.toFixed(2)}, ${pt.y.toFixed(2)}) rotate(${angle.toFixed(1)})`);
+      const hdg = Math.round((angle + 90 + 360) % 360);
+      if (hdg !== lastHdg && hudHeadingEl) { lastHdg = hdg; hudHeadingEl.textContent = String(hdg).padStart(3, "0") + "°"; }
+      if (chartDuskEl) chartDuskEl.style.opacity = Math.max(0, Math.min(1, (p - 0.42) / 0.58)).toFixed(3);
 
       const outProg = Math.min(1, len / Math.max(1, outTotalLen));
       const retProg = Math.min(1, Math.max(0, (len - outTotalLen) / Math.max(1, retTotalLen)));
@@ -5297,6 +5351,11 @@
       } else {
         manualProgress = targetProgress;
       }
+    }
+    if (chapterFrameEl) {
+      const nextStop = () => selectWaypoint((activeWpIdx + 1) % LANDMARKS.length);
+      chapterFrameEl.addEventListener("click", nextStop);
+      chapterFrameEl.addEventListener("keydown", (ev) => { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); nextStop(); } });
     }
 
     wpButtons.forEach((btn) => btn.addEventListener("click", () => selectWaypoint(Number(btn.dataset.wpBtn))));
@@ -6000,15 +6059,21 @@
         rev3_tag: "Private Charter · Sunset",
         rev3_q: "“Our hotel desk in Gaia gave us Gil's number. Eight minutes in an Uber to Gate A, straight onto the boat. No loudspeakers, no rushing through photos. Just good white wine, great light on the bridges, and easy conversation.”",
         rev3_loc: "Daniel Mercer · Boston",
-        cmp_kicker: "Why small beats crowded",
-        cmp_title: "Ninety Seats or Ten",
-        cmp_copy: "Same river, completely different pace.",
-        cmp_h_axis: "DETAIL", cmp_h_ferry: "RIBEIRA TOURIST BOAT (€18–€22)", cmp_h_alpha: "ALPHA DOURO · PORTÃO A (€30–€60)",
-        cmp_r1_k: "Group Size", cmp_r1_f: "60 to 90 people packed on wooden benches.", cmp_r1_a: "Max 10 guests on cushioned sofas and bow sunpad.",
-        cmp_r2_k: "Boarding", cmp_r2_f: "Long queues on busy Ribeira docks.", cmp_r2_a: "Douro Marina (Gate A) — zero lines, free parking 30m away.",
-        cmp_r3_k: "Duration & Route", cmp_r3_f: "50-minute loop with recorded loudspeaker audio.", cmp_r3_a: "2 full hours: all 7 bridges plus Afurada river mouth at sunset.",
-        cmp_r4_k: "All Weather", cmp_r4_f: "Open to wind/rain or noisy closed cabin.", cmp_r4_a: "Sun canopy + clear 360° winter sides, wool blankets & chilled Port.",
-        cmp_r5_k: "Booking", cmp_r5_f: "Impersonal ticket with rigid platform rules.", cmp_r5_a: "Direct WhatsApp with Cap. Gil · 0% fees · free weather reschedule.",
+        cmdr_kicker: "Your captain today",
+        cmdr_title: "From Cockpit to <em>Deck</em>",
+        cmdr_bio: "He took his first sailing lesson at <strong>5</strong> and never left the water: <strong>15 years</strong> working on boats and a lifelong love of water sports. He is also a <strong>commercial airline pilot</strong> — and brings a cockpit's calm and method to the Douro: briefing, checklist and a planned route before every departure. Welcomed aboard in <strong>Portuguese, English or Spanish</strong>.",
+        cmdr_s1: "years old · first sail", cmdr_s2: "years working on boats", cmdr_s3: "cockpits · sky &amp; river", cmdr_s4: "languages · PT · EN · ES",
+        cmdr_photo_cap: "CAP. GIL · SAILING AT SUNSET",
+        ck_head: "PRE-DEPARTURE CHECKLIST · AVIATION STANDARD", ck_foot: "COMPLETED BEFORE EVERY DEPARTURE · CAP. GIL",
+        ck1_k: "WEATHER", ck1_v: "Wind, tide and visibility confirmed",
+        ck2_k: "ENGINE", ck2_v: "Fuel and engine checked",
+        ck3_k: "LIFE JACKETS", ck3_v: "12 certified life jackets on board",
+        ck4_k: "VHF", ck4_v: "Radio on watch, channel 16",
+        ck5_k: "BRIEFING", ck5_v: "Safety briefing in PT · EN · ES",
+        ck6_k: "ROUTE", ck6_v: "Afurada → 7 Bridges → river mouth planned",
+        mt_head: "DOURO METAR · LIVE", mt_wind: "WIND", mt_temp: "TEMPERATURE", mt_sky: "SKY", mt_sunset: "SUNSET",
+        hud_hdg: "HEADING", hud_time: "ELAPSED",
+        tk_cmdr: "Cmdr. Gil · Commercial Pilot &amp; Skipper",
         arr_kicker: "Meeting point · Douro Marina, Afurada · Gate A",
         arr_title: "Easy to Reach, Zero Queues",
         arr_copy: "8 minutes by Uber from central Porto — or park for free 30 metres from the boat.",
@@ -6080,15 +6145,21 @@
         rev3_tag: "Charter Privado · Sunset",
         rev3_q: "“Na receção do hotel em Gaia deram-nos o WhatsApp do Gil. Oito minutos de Uber até ao Portão A e entrámos logo no barco. Sem altifalantes nem pressas para tirar fotos — bom vinho branco, luz incrível nas pontes e conversa fácil.”",
         rev3_loc: "Daniel Mercer · Boston",
-        cmp_kicker: "Porquê navegar em pequeno grupo",
-        cmp_title: "Noventa Lugares ou Dez",
-        cmp_copy: "O mesmo rio, um ritmo completamente diferente.",
-        cmp_h_axis: "DETALHE", cmp_h_ferry: "BARCO TURÍSTICO RIBEIRA (€18–€22)", cmp_h_alpha: "ALPHA DOURO · PORTÃO A (€30–€60)",
-        cmp_r1_k: "Lotação", cmp_r1_f: "60 a 90 pessoas apertadas em bancos de madeira.", cmp_r1_a: "Máximo 10 pessoas em sofás estofados e solário de proa.",
-        cmp_r2_k: "Embarque", cmp_r2_f: "Filas longas nos cais cheios da Ribeira.", cmp_r2_a: "Douro Marina (Portão A) — sem filas, parque grátis a 30m.",
-        cmp_r3_k: "Rota & Tempo", cmp_r3_f: "Volta de 50 minutos com gravação em altifalante.", cmp_r3_a: "2 horas completas: 7 pontes + pôr do sol na foz da Afurada.",
-        cmp_r4_k: "Todo o Ano", cmp_r4_f: "Exposto ao vento/chuva ou cabine fechada barulhenta.", cmp_r4_a: "Capota solar + laterais transparentes 360°, mantas e Porto fresco.",
-        cmp_r5_k: "Reserva", cmp_r5_f: "Bilhete impessoal com regras rígidas de plataforma.", cmp_r5_a: "WhatsApp direto com o Cap. Gil · 0% comissões · reagendamento flexível.",
+        cmdr_kicker: "O seu comandante hoje",
+        cmdr_title: "Do Cockpit ao <em>Convés</em>",
+        cmdr_bio: "Fez a primeira vela aos <strong>5 anos</strong> e nunca mais saiu da água: há <strong>15 anos</strong> que trabalha em barcos e vive para os desportos náuticos. É também <strong>piloto comercial de aviação</strong> — e traz para o Douro a calma e o método de um cockpit: briefing, checklist e rota planeada antes de cada saída. Recebe-o em <strong>português, inglês ou espanhol</strong>.",
+        cmdr_s1: "anos · a primeira vela", cmdr_s2: "anos a trabalhar em barcos", cmdr_s3: "cockpits · céu e rio", cmdr_s4: "línguas · PT · EN · ES",
+        cmdr_photo_cap: "CAP. GIL · VELA AO PÔR DO SOL NO MAR",
+        ck_head: "CHECKLIST DE PARTIDA · PADRÃO AVIAÇÃO", ck_foot: "CUMPRIDA ANTES DE CADA SAÍDA · CAP. GIL",
+        ck1_k: "METEO", ck1_v: "Vento, maré e visibilidade confirmados",
+        ck2_k: "MOTOR", ck2_v: "Combustível e motor verificados",
+        ck3_k: "COLETES", ck3_v: "12 coletes homologados a bordo",
+        ck4_k: "VHF", ck4_v: "Rádio em escuta no canal 16",
+        ck5_k: "BRIEFING", ck5_v: "Segurança explicada em PT · EN · ES",
+        ck6_k: "ROTA", ck6_v: "Afurada → 7 Pontes → Foz planeada",
+        mt_head: "METAR DO DOURO · AO VIVO", mt_wind: "VENTO", mt_temp: "TEMPERATURA", mt_sky: "CÉU", mt_sunset: "PÔR DO SOL",
+        hud_hdg: "RUMO", hud_time: "TEMPO",
+        tk_cmdr: "Cmdt. Gil · Piloto Comercial &amp; Skipper",
         arr_kicker: "Ponto de encontro · Douro Marina, Afurada · Portão A",
         arr_title: "Fácil de Chegar, Sem Filas",
         arr_copy: "A 8 minutos de Uber do centro do Porto — ou estacione gratuitamente a 30 metros do barco.",
@@ -6234,6 +6305,117 @@
       });
     })();
 
+
+    /* ===== Commander checklist (aviation-standard) ===== */
+    (function initCmdrChecklist() {
+      const box = document.getElementById("cmdrCheck");
+      if (!box) return;
+      const items = Array.from(box.querySelectorAll(".cmdr-ck-list li"));
+      const count = document.getElementById("cmdrCkCount");
+      const run = () => {
+        if (prefersReduced) {
+          items.forEach((li) => li.classList.add("is-on"));
+          if (count) count.textContent = `${items.length}/${items.length}`;
+          return;
+        }
+        items.forEach((li, i) => setTimeout(() => {
+          li.classList.add("is-on");
+          if (count) count.textContent = `${i + 1}/${items.length}`;
+        }, 260 + i * 320));
+      };
+      const io = new IntersectionObserver((es) => {
+        if (es[0].isIntersecting) { run(); io.disconnect(); }
+      }, { threshold: 0.35 });
+      io.observe(box);
+    })();
+
+    /* ===== Live "METAR do Douro" (Open-Meteo, no key) ===== */
+    let metarData = null;
+    let metarFailed = false;
+    function metarSky(c) {
+      if (c === 0) return ["Céu limpo", "Clear sky"];
+      if (c <= 2) return ["Pouco nublado", "Partly cloudy"];
+      if (c === 3) return ["Encoberto", "Overcast"];
+      if (c === 45 || c === 48) return ["Neblina", "Fog"];
+      if (c >= 51 && c <= 57) return ["Chuvisco", "Drizzle"];
+      if ((c >= 61 && c <= 67) || (c >= 80 && c <= 82)) return ["Chuva", "Rain"];
+      if (c >= 71 && c <= 77) return ["Neve", "Snow"];
+      if (c >= 95) return ["Trovoada", "Thunderstorm"];
+      return ["Variável", "Variable"];
+    }
+    function metarCardinal(deg) {
+      const pt = ["N", "NE", "E", "SE", "S", "SO", "O", "NO"];
+      const en = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"];
+      const i = Math.round(deg / 45) % 8;
+      return [pt[i], en[i]];
+    }
+    function renderMetar() {
+      const line = document.getElementById("metarLine");
+      if (!line) return;
+      const pt = currentLang === "pt";
+      const v = document.getElementById("mtVerdict");
+      if (!metarData) {
+        v.dataset.state = metarFailed ? "ok" : "idle";
+        v.textContent = metarFailed
+          ? (pt ? "Condições confirmadas pelo Cap. Gil no WhatsApp antes de cada saída." : "Conditions confirmed by Cap. Gil on WhatsApp before every departure.")
+          : (pt ? "A ler as condições do rio…" : "Reading river conditions…");
+        return;
+      }
+      const d = metarData;
+      const t = new Date(d.utcMs);
+      const z = String(t.getUTCDate()).padStart(2, "0") + String(t.getUTCHours()).padStart(2, "0") + String(t.getUTCMinutes()).padStart(2, "0") + "Z";
+      const dirRounded = Math.round(d.dir / 10) * 10 % 360;
+      const dir = String(dirRounded === 0 ? 360 : dirRounded).padStart(3, "0");
+      const kt = String(Math.round(d.wind)).padStart(2, "0");
+      const gust = d.gust >= d.wind + 8 ? "G" + Math.round(d.gust) : "";
+      line.textContent = `AFURADA ${z} ${dir}${kt}${gust}KT ${Math.round(d.temp)}°C`;
+      const card = metarCardinal(d.dir);
+      document.getElementById("mtWind").textContent = `${Math.round(d.wind)} KT ${pt ? card[0] : card[1]}`;
+      document.getElementById("mtTemp").textContent = `${Math.round(d.temp)}°C`;
+      const sky = metarSky(d.code);
+      document.getElementById("mtSky").textContent = pt ? sky[0] : sky[1];
+      document.getElementById("mtSunset").textContent = d.sunset || "—";
+      let state = "good";
+      let msg = pt ? "Ótimas condições para navegar hoje." : "Great conditions on the river today.";
+      if (d.code >= 95 || d.gust >= 28) {
+        state = "check";
+        msg = pt ? "Condições a confirmar — fale com o Cap. Gil no WhatsApp." : "Conditions to confirm — message Cap. Gil on WhatsApp.";
+      } else if (d.code === 45 || d.code === 48) {
+        state = "ok";
+        msg = pt ? "Neblina no rio — horário confirmado pelo Cap. Gil." : "River fog — timing confirmed by Cap. Gil.";
+      } else if ((d.code >= 51 && d.code <= 67) || (d.code >= 80 && d.code <= 82) || d.wind >= 15) {
+        state = "ok";
+        msg = pt ? "Navegável com a capota 360° fechada e mantas a bordo." : "Sailing with the 360° canopy closed and blankets on board.";
+      }
+      v.dataset.state = state;
+      v.textContent = msg;
+      const upd = t.toLocaleTimeString(pt ? "pt-PT" : "en-GB", { hour: "2-digit", minute: "2-digit", timeZone: "Europe/Lisbon" });
+      document.getElementById("mtSrc").textContent = `OPEN-METEO · 41°08'N 08°38'W · ${pt ? "ATUALIZADO" : "UPDATED"} ${upd}`;
+    }
+    (function loadMetar() {
+      const card = document.getElementById("metarCard");
+      if (!card) return;
+      const url = "https://api.open-meteo.com/v1/forecast?latitude=41.1433&longitude=-8.6478&current=temperature_2m,weather_code,wind_speed_10m,wind_direction_10m,wind_gusts_10m&daily=sunset&timezone=Europe%2FLisbon&wind_speed_unit=kn&forecast_days=1";
+      const go = () => fetch(url)
+        .then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
+        .then((j) => {
+          const c = j.current || {};
+          const off = (j.utc_offset_seconds || 0) * 1000;
+          metarData = {
+            utcMs: Date.parse(`${c.time}:00Z`) - off,
+            temp: Number(c.temperature_2m), code: Number(c.weather_code),
+            wind: Number(c.wind_speed_10m), dir: Number(c.wind_direction_10m), gust: Number(c.wind_gusts_10m),
+            sunset: j.daily && j.daily.sunset && j.daily.sunset[0] ? String(j.daily.sunset[0]).slice(11, 16) : ""
+          };
+          renderMetar();
+        })
+        .catch(() => { metarFailed = true; renderMetar(); });
+      const io = new IntersectionObserver((es) => {
+        if (es[0].isIntersecting) { go(); io.disconnect(); }
+      }, { rootMargin: "400px 0px" });
+      io.observe(card);
+    })();
+
     function applyLanguageS2(lang, force = false) {
       if (lang === currentLang && !force) return;
       currentLang = lang;
@@ -6262,6 +6444,7 @@
       updateAtelierSolar();
       syncAtelierAtmoLabel();
       syncBoardingPass();
+      renderMetar();
     }
 
     document.querySelectorAll(".lang-pill button").forEach((btn) => {
