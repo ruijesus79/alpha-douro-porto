@@ -25,16 +25,18 @@
       --mono: 'JetBrains Mono', monospace;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { width: 100%; overflow-x: hidden; }
     body {
       min-height: 100dvh;
       background: radial-gradient(circle at 50% 0%, #0E233B 0%, #050E19 62%);
       color: var(--ivory);
       font-family: var(--sans);
       -webkit-font-smoothing: antialiased;
-      padding: max(18px, env(safe-area-inset-top)) 16px max(28px, env(safe-area-inset-bottom));
+      padding: max(16px, env(safe-area-inset-top)) 14px max(24px, env(safe-area-inset-bottom));
     }
     .shell {
-      max-width: 440px;
+      width: 100%;
+      max-width: 420px;
       margin: 0 auto;
       display: flex;
       flex-direction: column;
@@ -93,16 +95,19 @@
     .live-pill {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      justify-content: center;
+      gap: 7px;
+      max-width: 100%;
       margin-top: 12px;
-      padding: 7px 13px;
+      padding: 7px 12px;
       border-radius: 99px;
       background: rgba(216,199,168,0.08);
       border: 1px solid rgba(216,199,168,0.28);
       font-family: var(--mono);
-      font-size: 11px;
-      letter-spacing: 0.06em;
+      font-size: 10px;
+      letter-spacing: 0.04em;
       color: var(--sand);
+      text-align: center;
     }
     .dot {
       width: 7px; height: 7px; border-radius: 50%;
@@ -115,8 +120,9 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
-      padding: 15px 16px;
+      gap: 10px;
+      width: 100%;
+      padding: 14px 14px;
       border-radius: 14px;
       background: linear-gradient(135deg, rgba(15,34,56,0.92), rgba(8,20,34,0.96));
       border: 1px solid var(--sand-line);
@@ -140,6 +146,7 @@
       color: var(--sand);
       margin-bottom: 3px;
     }
+    .card > div:first-child { min-width: 0; flex: 1; }
     .card-title {
       font-family: var(--serif);
       font-size: 22px;
@@ -157,7 +164,7 @@
     }
     .price {
       font-family: var(--mono);
-      font-size: 19px;
+      font-size: 17px;
       font-weight: 600;
       color: var(--sand);
     }
@@ -316,7 +323,7 @@
     const COPY = {
       pt: {
         sub: "Máx. 10 convidados · Douro Marina · Pontão A<br/>Prova de vinhos &amp; foto Polaroid incluídas",
-        sun: `HOJE NO DOURO · PÔR DO SOL ${SUN} · PONTÃO A`,
+        sun: `HOJE · PÔR DO SOL ${SUN} · PONTÃO A`,
         kS: "MAIS PEDIDO · GOLDEN HOUR · 2H", nS: "Sunset &amp; Mar", dS: "7 Pontes, Atlântico, 3 vinhos, chocolate 70% &amp; Polaroid",
         kB: "TARIFA DE ABERTURA · DIURNO · 2H", nB: "7 Pontes do Douro", dB: "Ritmo calmo, prova de vinhos do Douro &amp; foto Polaroid",
         kP: "EXCLUSIVO · 1 A 10 PESSOAS", nP: "Charter Privado", dP: "Pedidos de casamento, casais &amp; grupos à medida", pP: "À Medida", uP: "DIRETO GIL",
