@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Alpha Douro · Reservar Direto (@alphadouro)</title>
+  <meta name="description" content="Reserve diretamente com o Gil na Douro Marina · Pontão A. 7 Pontes €30, Sunset & Mar €60, Charter Privado e Vale-Oferta VIP. 0% comissões." />
+  <meta name="robots" content="noindex, follow" />
+  <meta name="theme-color" content="#050E19" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #050E19;
+      --surface: #0A1829;
+      --surface-hi: #0F2238;
+      --ivory: #F5F0E6;
+      --muted: #B6C3D0;
+      --sand: #D8C7A8;
+      --sand-line: rgba(216, 199, 168, 0.22);
+      --wa: #1FA855;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --mono: 'JetBrains Mono', monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100dvh;
+      background: radial-gradient(circle at 50% 0%, #0E233B 0%, #050E19 62%);
+      color: var(--ivory);
+      font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
+      padding: max(18px, env(safe-area-inset-top)) 16px max(28px, env(safe-area-inset-bottom));
+    }
+    .shell {
+      max-width: 440px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .lang-bar {
+      display: flex;
+      justify-content: center;
+      gap: 4px;
+    }
+    .lang-bar button {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(216,199,168,0.18);
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      padding: 5px 10px;
+      border-radius: 99px;
+      cursor: pointer;
+    }
+    .lang-bar button.is-active {
+      background: var(--sand);
+      color: #050E19;
+      border-color: var(--sand);
+      font-weight: 600;
+    }
+    .head {
+      text-align: center;
+      padding: 8px 4px 4px;
+    }
+    .crest {
+      width: 68px;
+      height: 68px;
+      margin: 0 auto 12px;
+      border-radius: 50%;
+      background: #081728;
+      border: 1.5px solid rgba(216,199,168,0.45);
+      display: grid;
+      place-items: center;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.45);
+    }
+    .crest svg { width: 34px; height: 34px; fill: var(--sand); }
+    .brand {
+      font-family: var(--serif);
+      font-size: 28px;
+      letter-spacing: 0.16em;
+      font-weight: 500;
+    }
+    .sub {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 4px;
+      line-height: 1.45;
+    }
+    .live-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 12px;
+      padding: 7px 13px;
+      border-radius: 99px;
+      background: rgba(216,199,168,0.08);
+      border: 1px solid rgba(216,199,168,0.28);
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      color: var(--sand);
+    }
+    .dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: #3EE08A;
+      box-shadow: 0 0 8px #3EE08A;
+      flex-shrink: 0;
+    }
+    .cards { display: flex; flex-direction: column; gap: 10px; }
+    .card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 15px 16px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(15,34,56,0.92), rgba(8,20,34,0.96));
+      border: 1px solid var(--sand-line);
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.18s ease, border-color 0.18s ease;
+    }
+    .card:active, .card:hover {
+      transform: translateY(-1px);
+      border-color: rgba(216,199,168,0.58);
+    }
+    .card.is-featured {
+      border-color: rgba(216,199,168,0.55);
+      background: linear-gradient(135deg, rgba(24,49,78,0.96), rgba(9,22,38,0.98));
+      box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+    }
+    .card-kicker {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      color: var(--sand);
+      margin-bottom: 3px;
+    }
+    .card-title {
+      font-family: var(--serif);
+      font-size: 22px;
+      line-height: 1.12;
+      color: var(--ivory);
+    }
+    .card-desc {
+      font-size: 12.5px;
+      color: var(--muted);
+      margin-top: 3px;
+    }
+    .price-col {
+      text-align: right;
+      flex-shrink: 0;
+    }
+    .price {
+      font-family: var(--mono);
+      font-size: 19px;
+      font-weight: 600;
+      color: var(--sand);
+    }
+    .unit {
+      font-family: var(--mono);
+      font-size: 9.5px;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+    }
+    .wa-primary {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      width: 100%;
+      padding: 15px 18px;
+      border-radius: 14px;
+      background: var(--wa);
+      color: #FFFFFF;
+      font-weight: 600;
+      font-size: 14.5px;
+      text-decoration: none;
+      box-shadow: 0 10px 26px rgba(31, 168, 85, 0.28);
+    }
+    .util-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9px;
+    }
+    .util-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 12px 10px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(216,199,168,0.2);
+      color: var(--ivory);
+      font-size: 12.5px;
+      font-weight: 500;
+      text-decoration: none;
+      text-align: center;
+    }
+    .trust {
+      text-align: center;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: rgba(216,199,168,0.68);
+      padding-top: 4px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <nav class="lang-bar" aria-label="Idioma">
+      <button type="button" class="is-active" data-l="pt">PT</button>
+      <button type="button" data-l="en">EN</button>
+      <button type="button" data-l="es">ES</button>
+      <button type="button" data-l="de">DE</button>
+      <button type="button" data-l="fr">FR</button>
+    </nav>
+
+    <header class="head">
+      <div class="crest" aria-hidden="true">
+        <svg viewBox="0 0 120 120">
+          <path d="M60 14L22 92H33.5L62.2 31.8L60 14Z"/>
+          <path d="M60 14L98 92H84.2L59.8 39.2L60 14Z"/>
+          <path d="M42.5 76.5C49.5 72.2 61.5 70.6 78.2 72.4L71.5 81.2C60.2 80.2 50.2 81.2 42.5 76.5Z"/>
+          <path d="M49 71.2C53.5 64.5 60.6 62.6 69.2 66.2C63.8 66.5 57.2 67.8 51.5 71.4L49 71.2Z"/>
+          <path d="M14 97.5C30.5 87.5 48.5 87.5 64.5 94.8C78.2 101 93.5 99.8 108 90.8C97.5 103.5 79.5 107.6 62.2 100.4C46.8 94 30.2 94.2 14 97.5Z"/>
+        </svg>
+      </div>
+      <h1 class="brand">ALPHA DOURO</h1>
+      <p class="sub" id="tSub">Máx. 10 convidados · Douro Marina · Pontão A<br/>Prova de vinhos &amp; foto Polaroid incluídas</p>
+      <div class="live-pill"><span class="dot" aria-hidden="true"></span><span id="liveSun">HOJE · PÔR DO SOL 17:20 · PONTÃO A</span></div>
+    </header>
+
+    <section class="cards" aria-label="Experiências Alpha Douro">
+      <a class="card is-featured" id="cSunset" href="#" target="_blank" rel="noopener noreferrer">
+        <div>
+          <div class="card-kicker" id="kSunset">MAIS PEDIDO · GOLDEN HOUR · 2H</div>
+          <div class="card-title" id="nSunset">Sunset &amp; Mar</div>
+          <div class="card-desc" id="dSunset">7 Pontes, Atlântico, 3 vinhos, chocolate 70% &amp; Polaroid</div>
+        </div>
+        <div class="price-col">
+          <div class="price">€60</div>
+          <div class="unit" id="u1">/ PESSOA</div>
+        </div>
+      </a>
+
+      <a class="card" id="cBridges" href="#" target="_blank" rel="noopener noreferrer">
+        <div>
+          <div class="card-kicker" id="kBridges">TARIFA DE ABERTURA · DIURNO · 2H</div>
+          <div class="card-title" id="nBridges">7 Pontes do Douro</div>
+          <div class="card-desc" id="dBridges">Ritmo calmo, prova de vinhos do Douro &amp; foto Polaroid</div>
+        </div>
+        <div class="price-col">
+          <div class="price">€30</div>
+          <div class="unit" id="u2">/ PESSOA</div>
+        </div>
+      </a>
+
+      <a class="card" id="cPrivate" href="#" target="_blank" rel="noopener noreferrer">
+        <div>
+          <div class="card-kicker" id="kPrivate">EXCLUSIVO · 1 A 10 PESSOAS</div>
+          <div class="card-title" id="nPrivate">Charter Privado</div>
+          <div class="card-desc" id="dPrivate">Pedidos de casamento, casais &amp; grupos à medida</div>
+        </div>
+        <div class="price-col">
+          <div class="price" style="font-size:14px;" id="pPrivate">À Medida</div>
+          <div class="unit" id="u3">DIRETO GIL</div>
+        </div>
+      </a>
+
+      <a class="card" id="cGift" href="#" target="_blank" rel="noopener noreferrer">
+        <div>
+          <div class="card-kicker" id="kGift">VALE EXPERIÊNCIA · ENTREGA NA HORA</div>
+          <div class="card-title" id="nGift">Oferecer Cartão VIP</div>
+          <div class="card-desc" id="dGift">Natal, São Valentim ou aniversário · válido 365 dias</div>
+        </div>
+        <div class="price-col">
+          <div class="price" style="font-size:15px;">€30–€60</div>
+          <div class="unit" id="u4">DIGITAL VIP</div>
+        </div>
+      </a>
+    </section>
+
+    <a class="wa-primary" id="waDirect" href="#" target="_blank" rel="noopener noreferrer">
+      <span id="tWa">Falar Direto com o Gil no WhatsApp ↗</span>
+    </a>
+
+    <div class="util-grid">
+      <a class="util-btn" id="btnSite" href="https://alphadouro.com/?utm_source=instagram&utm_medium=ig_hub">Explorar Site Completo →</a>
+      <a class="util-btn" id="btnMaps" href="https://www.google.com/maps/search/?api=1&query=41.1409959,-8.6512348" target="_blank" rel="noopener noreferrer">GPS Pontão A ↗</a>
+    </div>
+
+    <p class="trust" id="tTrust">0% COMISSÕES · DOURO MARINA · PONTÃO A · R. DA PRAIA 430<br/>@ALPHADOURO · ALPHADOURO.COM</p>
+  </main>
+
+  <script>
+    const WA = "351914160240";
+    function calcSunset() {
+      const now = new Date();
+      const start = new Date(now.getFullYear(), 0, 0);
+      const doy = Math.floor((now - start) / 86400000);
+      const mins = Math.round(1152 - 118 * Math.cos(2 * Math.PI * (doy + 10) / 365));
+      const hh = String(Math.floor(mins / 60)).padStart(2, "0");
+      const mm = String(mins % 60).padStart(2, "0");
+      return `${hh}:${mm}`;
+    }
+    const SUN = calcSunset();
+
+    const COPY = {
+      pt: {
+        sub: "Máx. 10 convidados · Douro Marina · Pontão A<br/>Prova de vinhos &amp; foto Polaroid incluídas",
+        sun: `HOJE NO DOURO · PÔR DO SOL ${SUN} · PONTÃO A`,
+        kS: "MAIS PEDIDO · GOLDEN HOUR · 2H", nS: "Sunset &amp; Mar", dS: "7 Pontes, Atlântico, 3 vinhos, chocolate 70% &amp; Polaroid",
+        kB: "TARIFA DE ABERTURA · DIURNO · 2H", nB: "7 Pontes do Douro", dB: "Ritmo calmo, prova de vinhos do Douro &amp; foto Polaroid",
+        kP: "EXCLUSIVO · 1 A 10 PESSOAS", nP: "Charter Privado", dP: "Pedidos de casamento, casais &amp; grupos à medida", pP: "À Medida", uP: "DIRETO GIL",
+        kG: "VALE EXPERIÊNCIA · ENTREGA NA HORA", nG: "Oferecer Cartão VIP", dG: "Natal, São Valentim ou aniversário · válido 365 dias", uG: "DIGITAL VIP",
+        u: "/ PESSOA", wa: "Falar Direto com o Gil no WhatsApp ↗", site: "Explorar Site Completo →", maps: "GPS Pontão A ↗",
+        mS: "Olá Gil, vi a Alpha Douro no Instagram (@alphadouro) e adorei o conceito intimista! Gostava de saber disponibilidade para o Sunset & Mar (€60/pessoa) no Pontão A. Muito obrigado!",
+        mB: "Olá Gil, vi a Alpha Douro no Instagram (@alphadouro) e adorávamos fazer o passeio das 7 Pontes (€30/pessoa) consigo no Pontão A. Que horários tem disponíveis?",
+        mP: "Olá Gil, vi a Alpha Douro no Instagram (@alphadouro)! Estamos a planear um Charter Privado especial no Douro e gostávamos muito de ouvir a sua sugestão. Tem um minuto?",
+        mG: "Olá Gil, vi a Alpha Douro no Instagram (@alphadouro) e gostava de oferecer um Cartão VIP de Experiência (Natal / oferta especial). Como podemos personalizá-lo?",
+        mW: "Olá Gil, espero que esteja tudo ótimo por aí no Douro! Vim pelo Instagram (@alphadouro) e gostava de saber a vossa disponibilidade a partir do Pontão A."
+      },
+      en: {
+        sub: "Max 10 guests · Douro Marina · Pontoon A<br/>Port wine tasting &amp; instant Polaroid included",
+        sun: `TODAY ON THE DOURO · SUNSET ${SUN} · PONTOON A`,
+        kS: "MOST POPULAR · GOLDEN HOUR · 2H", nS: "Sunset &amp; Ocean", dS: "7 Bridges, Atlantic sunset, 3 wines, 70% chocolate &amp; Polaroid",
+        kB: "OPENING RATE · DAYTIME · 2H", nB: "7 Bridges of the Douro", dB: "Unhurried cruise, Douro wine tasting &amp; instant Polaroid",
+        kP: "EXCLUSIVE · 1–10 GUESTS", nP: "Private Charter", dP: "Proposals, couples &amp; families tailored with Gil", pP: "Bespoke", uP: "DIRECT GIL",
+        kG: "GIFT EXPERIENCE · INSTANT DELIVERY", nG: "Gift a VIP Boarding Pass", dG: "Christmas, Valentine's or birthdays · valid 365 days", uG: "VIP DIGITAL",
+        u: "/ GUEST", wa: "Message Gil Directly on WhatsApp ↗", site: "Explore Full Website →", maps: "Pontoon A GPS ↗",
+        mS: "Hi Gil! We found Alpha Douro on Instagram (@alphadouro) and love the intimate 10-guest concept. Could we check availability for Sunset & Ocean (€60/guest) from Pontoon A? Thank you!",
+        mB: "Hi Gil! We found Alpha Douro on Instagram (@alphadouro) and would love to join the 7 Bridges Cruise (€30/guest) from Pontoon A. What times do you have open?",
+        mP: "Hi Gil! Found Alpha Douro on Instagram (@alphadouro). We’re planning a bespoke Private Charter on the Douro and would love your recommendation!",
+        mG: "Hi Gil! Found Alpha Douro on Instagram (@alphadouro) and would love to gift a personalized VIP Boarding Pass experience. How can we arrange it?",
+        mW: "Hi Gil, hope all is wonderful on the Douro! Coming from Instagram (@alphadouro) — would love to check your upcoming availability at Pontoon A."
+      },
+      es: {
+        sub: "Máx. 10 invitados · Douro Marina · Pantalán A<br/>Cata de vinos &amp; foto Polaroid incluidas",
+        sun: `HOY EN EL DUERO · PUESTA DE SOL ${SUN} · PANTALÁN A`,
+        kS: "MÁS PEDIDO · GOLDEN HOUR · 2H", nS: "Sunset &amp; Mar", dS: "7 Puentes, Atlántico, 3 vinos, chocolate 70% &amp; Polaroid",
+        kB: "TARIFA APERTURA · DIURNO · 2H", nB: "7 Puentes del Duero", dB: "Ritmo tranquilo, cata de vinos &amp; foto Polaroid",
+        kP: "EXCLUSIVO · 1–10 PERSONAS", nP: "Chárter Privado", dP: "Pedidas de mano, parejas &amp; grupos a medida", pP: "A Medida", uP: "DIRECTO GIL",
+        kG: "VALE REGALO · ENTREGA AL INSTANTE", nG: "Regalar Tarjeta VIP", dG: "Navidad, San Valentín o cumpleaños · válido 365 días", uG: "DIGITAL VIP",
+        u: "/ PERSONA", wa: "Hablar Directo con Gil por WhatsApp ↗", site: "Ver Web Completa →", maps: "GPS Pantalán A ↗",
+        mS: "¡Hola Gil! Vimos Alpha Douro en Instagram (@alphadouro) y nos encantó el concepto íntimo. ¿Tienes disponibilidad para Sunset & Mar (€60/persona) desde el Pantalán A?",
+        mB: "¡Hola Gil! Vimos Alpha Douro en Instagram (@alphadouro) y nos encantaría hacer el paseo de los 7 Puentes (€30/persona). ¿Qué horarios tienes disponibles?",
+        mP: "¡Hola Gil! Te escribimos desde Instagram (@alphadouro) — estamos planeando un Chárter Privado en el Duero y nos encantaría conocer tu propuesta.",
+        mG: "¡Hola Gil! Vimos Alpha Douro en Instagram (@alphadouro) y queremos regalar una Tarjeta VIP personalizada. ¿Cómo podemos emitirla?",
+        mW: "¡Hola Gil, espero que todo vaya genial por el Duero! Vengo de Instagram (@alphadouro) y quería consultar disponibilidad en el Pantalán A."
+      },
+      de: {
+        sub: "Max. 10 Gäste · Douro Marina · Steg A<br/>Weinprobe &amp; Sofort-Polaroid inklusive",
+        sun: `HEUTE AM DOURO · SONNENUNTERGANG ${SUN} · STEG A`,
+        kS: "BELIEBTESTE · GOLDEN HOUR · 2H", nS: "Sunset &amp; Atlantik", dS: "7 Brücken, Meer, 3 Weine, 70% Schokolade &amp; Polaroid",
+        kB: "ERÖFFNUNG · TAGESFAHRT · 2H", nB: "7 Brücken des Douro", dB: "Entspannte Fahrt, Douro-Weinprobe &amp; Polaroid",
+        kP: "EXKLUSIV · 1–10 GÄSTE", nP: "Privater Charter", dP: "Anträge, Paare &amp; Gruppen maßgeschneidert", pP: "Anfrage", uP: "DIREKT GIL",
+        kG: "GESCHENKGUTSCHEIN · SOFORT", nG: "VIP-Bordkarte Schenken", dG: "Weihnachten, Valentinstag &amp; mehr · 365 Tage gültig", uG: "VIP DIGITAL",
+        u: "/ PERSON", wa: "Direkt mit Gil per WhatsApp Schreiben ↗", site: "Zur Ganzen Website →", maps: "GPS Steg A ↗",
+        mS: "Hallo Gil! Wir haben Alpha Douro auf Instagram (@alphadouro) entdeckt und lieben das intime Konzept. Haben Sie noch Plätze für Sunset & Atlantik (€60/Person) ab Steg A?",
+        mB: "Hallo Gil! Über Instagram (@alphadouro) gefunden — wir möchten gerne die 7-Brücken-Tour (€30/Person) ab Steg A machen. Welche Zeiten sind frei?",
+        mP: "Hallo Gil! Wir planen einen privaten Charter auf dem Douro (über @alphadouro) und freuen uns über Ihren Vorschlag.",
+        mG: "Hallo Gil! Wir möchten gerne eine personalisierte Alpha Douro VIP-Bordkarte verschenken — wie können wir das arrangieren?",
+        mW: "Hallo Gil, ich hoffe auf dem Douro ist alles wunderbar! Über Instagram (@alphadouro) — hätten Sie bald Verfügbarkeit ab Steg A?"
+      },
+      fr: {
+        sub: "Max. 10 invités · Douro Marina · Ponton A<br/>Dégustation de vins &amp; Polaroid inclus",
+        sun: `AUJOURD’HUI · COUCHER DE SOLEIL ${SUN} · PONTON A`,
+        kS: "COUP DE CŒUR · GOLDEN HOUR · 2H", nS: "Sunset &amp; Océan", dS: "7 Ponts, Atlantique, 3 vins, chocolat 70% &amp; Polaroid",
+        kB: "OUVERTURE · JOURNÉE · 2H", nB: "7 Ponts du Douro", dB: "Rythme doux, dégustation de vins &amp; Polaroid",
+        kP: "EXCLUSIF · 1–10 INVITÉS", nP: "Charter Privé", dP: "Demandes en mariage, couples &amp; groupes sur mesure", pP: "Sur Devis", uP: "DIRECT GIL",
+        kG: "CARTE CADEAU · ENVOI IMMÉDIAT", nG: "Offrir une Carte VIP", dG: "Noël, Saint-Valentin ou anniversaire · valable 365 jours", uG: "VIP DIGITALE",
+        u: "/ PERS.", wa: "Écrire à Gil sur WhatsApp ↗", site: "Voir le Site Complet →", maps: "GPS Ponton A ↗",
+        mS: "Bonjour Gil ! Nous avons découvert Alpha Douro sur Instagram (@alphadouro) et adorons l’esprit intime. Auriez-vous des places pour Sunset & Océan (€60/pers.) au Ponton A ?",
+        mB: "Bonjour Gil ! Découvert via Instagram (@alphadouro) — nous aimerions faire la croisière des 7 Ponts (€30/pers.) au Ponton A. Quels créneaux sont disponibles ?",
+        mP: "Bonjour Gil ! Nous préparons un Charter Privé sur le Douro (via @alphadouro) et serions ravis d’avoir votre proposition.",
+        mG: "Bonjour Gil ! Nous souhaiterions offrir une Carte VIP Alpha Douro personnalisée — comment pouvons-nous la préparer ?",
+        mW: "Bonjour Gil, j’espère que tout va merveilleusement bien sur le Douro ! Via Instagram (@alphadouro) — auriez-vous des disponibilités au Ponton A ?"
+      }
+    };
+
+    function setL(lang) {
+      const c = COPY[lang] || COPY.pt;
+      document.documentElement.lang = lang === "pt" ? "pt-PT" : lang;
+      document.querySelectorAll(".lang-bar button").forEach(b => b.classList.toggle("is-active", b.dataset.l === lang));
+      document.getElementById("tSub").innerHTML = c.sub;
+      document.getElementById("liveSun").textContent = c.sun;
+      document.getElementById("kSunset").textContent = c.kS;
+      document.getElementById("nSunset").innerHTML = c.nS;
+      document.getElementById("dSunset").innerHTML = c.dS;
+      document.getElementById("kBridges").textContent = c.kB;
+      document.getElementById("nBridges").innerHTML = c.nB;
+      document.getElementById("dBridges").innerHTML = c.dB;
+      document.getElementById("kPrivate").textContent = c.kP;
+      document.getElementById("nPrivate").innerHTML = c.nP;
+      document.getElementById("dPrivate").innerHTML = c.dP;
+      document.getElementById("pPrivate").textContent = c.pP;
+      document.getElementById("u3").textContent = c.uP;
+      document.getElementById("kGift").textContent = c.kG;
+      document.getElementById("nGift").innerHTML = c.nG;
+      document.getElementById("dGift").innerHTML = c.dG;
+      document.getElementById("u4").textContent = c.uG;
+      document.getElementById("u1").textContent = c.u;
+      document.getElementById("u2").textContent = c.u;
+      document.getElementById("tWa").textContent = c.wa;
+      document.getElementById("btnSite").textContent = c.site;
+      document.getElementById("btnSite").href = `https://alphadouro.com/?lang=${lang}&utm_source=instagram&utm_medium=ig_hub`;
+      document.getElementById("btnMaps").textContent = c.maps;
+      document.getElementById("cSunset").href = `https://wa.me/${WA}?text=${encodeURIComponent(c.mS)}`;
+      document.getElementById("cBridges").href = `https://wa.me/${WA}?text=${encodeURIComponent(c.mB)}`;
+      document.getElementById("cPrivate").href = `https://wa.me/${WA}?text=${encodeURIComponent(c.mP)}`;
+      document.getElementById("cGift").href = `https://wa.me/${WA}?text=${encodeURIComponent(c.mG)}`;
+      document.getElementById("waDirect").href = `https://wa.me/${WA}?text=${encodeURIComponent(c.mW)}`;
+    }
+    document.querySelectorAll(".lang-bar button").forEach(b => b.addEventListener("click", () => setL(b.dataset.l)));
+    const navL = (navigator.language || "pt").slice(0, 2).toLowerCase();
+    setL(COPY[navL] ? navL : "pt");
+  </script>
+</body>
+</html>
