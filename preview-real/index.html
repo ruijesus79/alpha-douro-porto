@@ -32,8 +32,8 @@
   <meta name="twitter:description" content="Carta náutica das 7 pontes &amp; mar na Afurada · Máx. 10 pessoas · 365 dias/ano." />
   <meta name="twitter:image" content="https://alpha-douro-porto.vercel.app/assets/real-shoot/01-golden-ribeira-capota-marinho.jpg" />
 
-  <link rel="preload" as="image" href="../assets/real-shoot/01-golden-ribeira-capota-marinho.jpg" media="(min-width: 769px)" fetchpriority="high" />
-  <link rel="preload" as="image" href="../assets/real-shoot/01-golden-ribeira-mobile-hero.jpg" media="(max-width: 768px)" fetchpriority="high" />
+  <link rel="preload" as="image" href="../assets/real-shoot/01-golden-ribeira-capota-marinho.webp" media="(min-width: 769px)" fetchpriority="high" />
+  <link rel="preload" as="image" href="../assets/real-shoot/01-golden-ribeira-mobile-hero.webp" media="(max-width: 768px)" fetchpriority="high" />
 
   <!-- Fonts: Cormorant Garamond (Benetti Editorial) + Plus Jakarta Sans + JetBrains Mono (Spyker Telemetry) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -3568,20 +3568,11 @@
     .cmdr-stats li { display: flex; flex-direction: column; gap: 0.4rem; }
     .cmdr-stats strong { font-size: clamp(1.7rem, 2.6vw, 2.3rem); font-weight: 400; color: var(--ivory); line-height: 1; font-variant-numeric: tabular-nums; }
     .cmdr-stats span { font-size: 0.76rem; color: var(--sand-dim); line-height: 1.4; }
-    .cmdr-ops { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; margin-top: 2.6rem; }
-    .cmdr-check, .cmdr-metar { border: 1px solid var(--hairline); background: rgba(6, 17, 29, 0.55); padding: 1.5rem 1.6rem; }
+    .cmdr-ops { margin-top: 2.6rem; }
+    .cmdr-metar .metar-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .cmdr-metar { border: 1px solid var(--hairline); background: rgba(6, 17, 29, 0.55); padding: 1.5rem 1.6rem; }
     .cmdr-ops-head { display: flex; justify-content: space-between; align-items: center; gap: 1rem; font-size: 0.68rem; letter-spacing: 0.12em; color: var(--sand); padding-bottom: 0.9rem; border-bottom: 1px solid var(--hairline); margin-bottom: 1rem; font-variant-numeric: tabular-nums; }
-    .cmdr-ck-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.72rem; }
-    .cmdr-ck-list li { display: grid; grid-template-columns: 22px 1fr; gap: 0.8rem; align-items: start; opacity: 0.4; transition: opacity 320ms var(--ease-expo); }
-    .cmdr-ck-list li.is-on { opacity: 1; }
-    .ck-box { width: 20px; height: 20px; border: 1px solid var(--hairline-strong); display: grid; place-items: center; margin-top: 1px; transition: background-color 240ms ease, border-color 240ms ease; }
-    .ck-box svg { width: 13px; height: 13px; fill: none; stroke: var(--abyss); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 16; stroke-dashoffset: 16; transition: stroke-dashoffset 360ms var(--ease-expo) 80ms; }
-    .cmdr-ck-list li.is-on .ck-box { background: var(--sand); border-color: var(--sand); }
-    .cmdr-ck-list li.is-on .ck-box svg { stroke-dashoffset: 0; }
-    .cmdr-ck-list strong { display: block; font-size: 0.66rem; letter-spacing: 0.1em; color: var(--sand); font-weight: 500; }
-    .cmdr-ck-list span { font-size: 0.88rem; color: var(--ivory); line-height: 1.45; }
-    .cmdr-ck-foot { margin-top: 1.1rem; font-size: 0.62rem; letter-spacing: 0.1em; color: var(--sand-dim); }
-    .metar-line { display: block; font-size: 0.82rem; letter-spacing: 0.06em; color: var(--capri-glow); background: rgba(26, 146, 210, 0.08); border: 1px solid rgba(88, 185, 238, 0.2); padding: 0.62rem 0.75rem; white-space: nowrap; overflow-x: auto; font-variant-numeric: tabular-nums; }
+    .metar-line { display: block; font-size: 0.82rem; letter-spacing: 0.06em; color: var(--capri-glow); background: rgba(26, 146, 210, 0.08); border: 1px solid rgba(88, 185, 238, 0.2); padding: 0.62rem 0.75rem; overflow-wrap: anywhere; font-variant-numeric: tabular-nums; }
     .metar-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.95rem 1.2rem; margin-top: 1.1rem; }
     .metar-grid span { display: block; font-size: 0.64rem; letter-spacing: 0.1em; color: var(--sand-dim); margin-bottom: 0.2rem; }
     .metar-grid strong { font-size: 1.02rem; font-weight: 500; color: var(--ivory); font-variant-numeric: tabular-nums; }
@@ -3608,11 +3599,11 @@
     @media (max-width: 1024px) {
       .cmdr-grid { grid-template-columns: 1fr; }
       .cmdr-photo { max-width: 520px; }
-      .cmdr-ops { grid-template-columns: 1fr; }
     }
     @media (max-width: 640px) {
       .cmdr-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 1.2rem; }
-      .cmdr-check, .cmdr-metar { padding: 1.2rem; }
+      .cmdr-metar { padding: 1.2rem; }
+      .cmdr-metar .metar-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .journey-hud { display: grid; grid-template-columns: repeat(3, auto); gap: 0.7rem 1.1rem; }
     }
     @media (prefers-reduced-motion: reduce) {
@@ -3695,14 +3686,14 @@
     <div class="hero-media">
       <img
         class="hero-img-desktop"
-        src="../assets/real-shoot/01-golden-ribeira-capota-marinho.jpg"
+        src="../assets/real-shoot/01-golden-ribeira-capota-marinho.webp"
         alt="Alpha Douro private boutique vessel (max. 10 guests) moored before Dom Luís I Bridge in Porto"
         id="atelierHeroImg"
         fetchpriority="high" width="2200" height="1228" decoding="sync"
       />
       <img
         class="hero-img-mobile"
-        src="../assets/real-shoot/01-golden-ribeira-mobile-hero.jpg"
+        src="../assets/real-shoot/01-golden-ribeira-mobile-hero.webp"
         alt="Embarcação Alpha Douro no Rio Douro frente à Ribeira do Porto"
         fetchpriority="high" width="1080" height="1728" decoding="sync"
       />
@@ -3961,7 +3952,7 @@
             <!-- Right: Active Landmark Editorial Card (Shows Real Photos of Each Location!) -->
             <article class="chapter-card">
               <div class="chapter-photo-frame" id="chapterPhotoFrame" role="button" tabindex="0" aria-label="Próxima paragem">
-                <img id="chapterImg" src="../assets/real-shoot/04-inverno-360-afurada-capota-marinho.jpg" alt="Cais da Afurada private departure pier" width="1376" height="768" decoding="async" />
+                <img id="chapterImg" src="../assets/real-shoot/04-inverno-360-afurada-capota-marinho.webp" alt="Cais da Afurada private departure pier" width="1376" height="768" decoding="async" />
                 <div class="chapter-segs" aria-hidden="true"><i class="is-done"></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
                 <span class="chapter-badge mono" id="chapterBadge">MARCO 01 · PARTIDA (← ESQUERDA: MAR | DIREITA: 7 PONTES →)</span>
               </div>
@@ -3983,37 +3974,37 @@
           <div class="route-filmstrip" id="routeFilmstrip" role="tablist" aria-label="Todas as 7 paragens do percurso">
             <button type="button" class="rf-thumb is-active" data-wp-btn="0" role="tab" aria-selected="true" data-cursor-label="01 AFURADA">
               <span class="rf-num mono">01</span>
-              <img src="../assets/real-shoot/04-inverno-360-afurada-capota-marinho.jpg" alt="01 Cais da Afurada" loading="lazy" width="1376" height="768" decoding="async" />
+              <img src="../assets/real-shoot/04-inverno-360-afurada-capota-marinho.webp" alt="01 Cais da Afurada" loading="lazy" width="1376" height="768" decoding="async" />
               <span class="rf-caption mono">Cais da Afurada</span>
             </button>
             <button type="button" class="rf-thumb" data-wp-btn="1" role="tab" aria-selected="false" data-cursor-label="02 ARRÁBIDA">
               <span class="rf-num mono">02</span>
-              <img src="../assets/loc-02-ponte-arrabida.jpg" alt="02 Ponte da Arrábida" loading="lazy" width="1280" height="853" decoding="async" />
+              <img src="../assets/loc-02-ponte-arrabida.webp" alt="02 Ponte da Arrábida" loading="lazy" width="1280" height="853" decoding="async" />
               <span class="rf-caption mono">Arrábida →</span>
             </button>
             <button type="button" class="rf-thumb" data-wp-btn="2" role="tab" aria-selected="false" data-cursor-label="03 RIBEIRA">
               <span class="rf-num mono">03</span>
-              <img src="../assets/loc-03-ribeira-cais-gaia.jpg" alt="03 Ribeira &amp; Cais de Gaia" loading="lazy" width="1280" height="854" decoding="async" />
+              <img src="../assets/loc-03-ribeira-cais-gaia.webp" alt="03 Ribeira &amp; Cais de Gaia" loading="lazy" width="1280" height="854" decoding="async" />
               <span class="rf-caption mono">Ribeira &amp; Gaia</span>
             </button>
             <button type="button" class="rf-thumb" data-wp-btn="3" role="tab" aria-selected="false" data-cursor-label="04 DOM LUÍS I">
               <span class="rf-num mono">04</span>
-              <img src="../assets/loc-04-ponte-dom-luis.jpg" alt="04 Ponte Dom Luís I" loading="lazy" width="1280" height="853" decoding="async" />
+              <img src="../assets/loc-04-ponte-dom-luis.webp" alt="04 Ponte Dom Luís I" loading="lazy" width="1280" height="853" decoding="async" />
               <span class="rf-caption mono">Dom Luís I</span>
             </button>
             <button type="button" class="rf-thumb" data-wp-btn="4" role="tab" aria-selected="false" data-cursor-label="05 MARIA PIA">
               <span class="rf-num mono">05</span>
-              <img src="../assets/loc-05-ponte-infante-mariapia.jpg" alt="05 Infante &amp; Maria Pia" loading="lazy" width="1280" height="850" decoding="async" />
+              <img src="../assets/loc-05-ponte-infante-mariapia.webp" alt="05 Infante &amp; Maria Pia" loading="lazy" width="1280" height="850" decoding="async" />
               <span class="rf-caption mono">Infante &amp; M. Pia</span>
             </button>
             <button type="button" class="rf-thumb" data-wp-btn="5" role="tab" aria-selected="false" data-cursor-label="06 FREIXO ↺">
               <span class="rf-num mono">06</span>
-              <img src="../assets/loc-06-saojoao-freixo.jpg" alt="06 São João &amp; Freixo (7.ª Ponte)" loading="lazy" width="1280" height="841" decoding="async" />
+              <img src="../assets/loc-06-saojoao-freixo.webp" alt="06 São João &amp; Freixo (7.ª Ponte)" loading="lazy" width="1280" height="841" decoding="async" />
               <span class="rf-caption mono">S. João &amp; Freixo ↺</span>
             </button>
             <button type="button" class="rf-thumb" data-wp-btn="6" role="tab" aria-selected="false" data-cursor-label="07 MAR SUNSET">
               <span class="rf-num mono">07</span>
-              <img src="../assets/loc-07-mar-afurada-sunset.jpg" alt="07 À Esquerda da Afurada: Mar e Pôr do Sol" loading="lazy" width="1920" height="1080" decoding="async" />
+              <img src="../assets/loc-07-mar-afurada-sunset.webp" alt="07 À Esquerda da Afurada: Mar e Pôr do Sol" loading="lazy" width="1920" height="1080" decoding="async" />
               <span class="rf-caption mono">← Mar na Afurada</span>
             </button>
           </div>
@@ -4050,7 +4041,7 @@
         <!-- TOUR 01: ABERTURA 7 PONTES (€30/p Partilhado · €390 Privado) -->
         <article class="atelier-voyage-card" data-cursor-label="CONFIGURAR">
           <div class="av-media" data-photo-curtain>
-            <img src="../assets/real-shoot/05-solario-prova-vinhos-capota-marinho.jpg" alt="Tour 01 Cruzeiro 7 Pontes do Douro no barco real Alpha Douro com capota azul marinho" loading="lazy" width="1376" height="768" decoding="async" />
+            <img src="../assets/real-shoot/05-solario-prova-vinhos-capota-marinho.webp" alt="Tour 01 Cruzeiro 7 Pontes do Douro no barco real Alpha Douro com capota azul marinho" loading="lazy" width="1376" height="768" decoding="async" />
             <span class="av-route-badge">TARIFA DE ABERTURA · SOLÁRIO &amp; 7 PONTES · 365 DIAS</span>
           </div>
           <div class="av-content">
@@ -4075,7 +4066,7 @@
         <!-- TOUR 02: SUNSET, MAR & PROVA DE VINHOS (€60/p Partilhado · €490–€590 Privado) -->
         <article class="atelier-voyage-card" style="border-color: rgba(88, 185, 238, 0.36);" data-cursor-label="SUNSET">
           <div class="av-media" data-photo-curtain>
-            <img src="../assets/real-shoot/06-prova-porto-tawny-branco-verde-chocolate.jpg" alt="Prova de Porto Tawny, Vinho Branco, Vinho Verde e chocolate negro a bordo do Alpha Douro" loading="lazy" width="1536" height="1024" decoding="async" />
+            <img src="../assets/real-shoot/06-prova-porto-tawny-branco-verde-chocolate.webp" alt="Prova de Porto Tawny, Vinho Branco, Vinho Verde e chocolate negro a bordo do Alpha Douro" loading="lazy" width="1536" height="1024" decoding="async" />
             <span class="av-route-badge">AFURADA → 7 PONTES → MAR · LUZES 2200K</span>
           </div>
           <div class="av-content">
@@ -4451,7 +4442,7 @@
 
       <div class="bento-gallery-grid" id="bentoGallery">
         <button type="button" class="bento-tile bento-span-7" data-bento-idx="0" aria-label="Ampliar: Barco Alpha Douro na Ribeira em hora dourada">
-          <img src="../assets/real-shoot/01-golden-ribeira-capota-marinho.jpg" alt="Barco Alpha Douro azul-cobalto na Ribeira do Porto ao pôr do sol com motor Suzuki" loading="lazy" width="2200" height="1228" decoding="async" />
+          <img src="../assets/real-shoot/01-golden-ribeira-capota-marinho.webp" alt="Barco Alpha Douro azul-cobalto na Ribeira do Porto ao pôr do sol com motor Suzuki" loading="lazy" width="2200" height="1228" decoding="async" />
           <span class="bento-meta">
             <span>
               <span class="bento-title" data-i18n="bg_0_t">Ribeira em Hora Dourada</span>
@@ -4462,7 +4453,7 @@
         </button>
 
         <button type="button" class="bento-tile bento-span-5" data-bento-idx="1" aria-label="Ampliar: Prova de Vinhos do Porto, Branco, Verde e chocolate negro">
-          <img src="../assets/real-shoot/06-prova-porto-tawny-branco-verde-chocolate.jpg" alt="Prova de Porto Tawny, Vinho Branco, Vinho Verde e chocolate negro 70% a bordo" loading="lazy" width="1536" height="1024" decoding="async" />
+          <img src="../assets/real-shoot/06-prova-porto-tawny-branco-verde-chocolate.webp" alt="Prova de Porto Tawny, Vinho Branco, Vinho Verde e chocolate negro 70% a bordo" loading="lazy" width="1536" height="1024" decoding="async" />
           <span class="bento-meta">
             <span>
               <span class="bento-title" data-i18n="bg_1_t">Prova de Vinhos Incluída</span>
@@ -4473,7 +4464,7 @@
         </button>
 
         <button type="button" class="bento-tile bento-span-4" data-bento-idx="2" aria-label="Ampliar: Hora azul junto à Ponte Luís I">
-          <img src="../assets/real-shoot/02-hora-azul-domluis-capota-marinho.jpg" alt="Barco Alpha Douro na hora azul junto à Ponte Luís I no Porto" loading="lazy" width="1376" height="768" decoding="async" />
+          <img src="../assets/real-shoot/02-hora-azul-domluis-capota-marinho.webp" alt="Barco Alpha Douro na hora azul junto à Ponte Luís I no Porto" loading="lazy" width="1376" height="768" decoding="async" />
           <span class="bento-meta">
             <span>
               <span class="bento-title" data-i18n="bg_2_t">Hora Azul · Ponte Luís I</span>
@@ -4484,7 +4475,7 @@
         </button>
 
         <button type="button" class="bento-tile bento-span-4" data-bento-idx="3" aria-label="Ampliar: Pôr do sol no Atlântico à saída da Afurada">
-          <img src="../assets/real-shoot/03-sunset-mar-abordo-capota-marinho.jpg" alt="Vista a bordo do Alpha Douro ao pôr do sol sobre o mar na Foz do Douro" loading="lazy" width="1376" height="768" decoding="async" />
+          <img src="../assets/real-shoot/03-sunset-mar-abordo-capota-marinho.webp" alt="Vista a bordo do Alpha Douro ao pôr do sol sobre o mar na Foz do Douro" loading="lazy" width="1376" height="768" decoding="async" />
           <span class="bento-meta">
             <span>
               <span class="bento-title" data-i18n="bg_3_t">Pôr do Sol no Atlântico</span>
@@ -4495,7 +4486,7 @@
         </button>
 
         <button type="button" class="bento-tile bento-span-4" data-bento-idx="4" aria-label="Ampliar: Capota panorâmica transparente 360 graus">
-          <img src="../assets/real-shoot/04-inverno-360-afurada-capota-marinho.jpg" alt="Capota panorâmica transparente 360 graus para conforto de inverno na Afurada" loading="lazy" width="1376" height="768" decoding="async" />
+          <img src="../assets/real-shoot/04-inverno-360-afurada-capota-marinho.webp" alt="Capota panorâmica transparente 360 graus para conforto de inverno na Afurada" loading="lazy" width="1376" height="768" decoding="async" />
           <span class="bento-meta">
             <span>
               <span class="bento-title" data-i18n="bg_4_t">Conforto 365 Dias</span>
@@ -4506,7 +4497,7 @@
         </button>
 
         <button type="button" class="bento-tile bento-span-5" data-bento-idx="5" aria-label="Ampliar: Solário de proa para relaxar no Douro">
-          <img src="../assets/real-shoot/05-solario-prova-vinhos-capota-marinho.jpg" alt="Solário de proa em pele bege e mesa de prova no barco Alpha Douro" loading="lazy" width="1376" height="768" decoding="async" />
+          <img src="../assets/real-shoot/05-solario-prova-vinhos-capota-marinho.webp" alt="Solário de proa em pele bege e mesa de prova no barco Alpha Douro" loading="lazy" width="1376" height="768" decoding="async" />
           <span class="bento-meta">
             <span>
               <span class="bento-title" data-i18n="bg_5_t">Solário de Proa</span>
@@ -4517,7 +4508,7 @@
         </button>
 
         <button type="button" class="bento-tile bento-span-7" data-bento-idx="6" aria-label="Ampliar: Cartão de embarque em algodão e Polaroid">
-          <img src="../assets/boarding-pass-polaroid.jpg" alt="Cartão de embarque Alpha Douro em papel de algodão e Polaroid da Ribeira" loading="lazy" width="1376" height="768" decoding="async" />
+          <img src="../assets/boarding-pass-polaroid.webp" alt="Cartão de embarque Alpha Douro em papel de algodão e Polaroid da Ribeira" loading="lazy" width="1376" height="768" decoding="async" />
           <span class="bento-meta">
             <span>
               <span class="bento-title" data-i18n="bg_6_t">Cartão de Embarque &amp; Polaroid</span>
@@ -4538,36 +4529,24 @@
       <div class="atelier-compare-box">
         <div class="cmdr-grid">
           <figure class="cmdr-photo">
-            <img src="../assets/real-shoot/gil-comandante-sunset.jpg" alt="Cap. Gil ao leme de um veleiro ao pôr do sol no mar" width="864" height="1536" loading="lazy" decoding="async" />
+            <img src="../assets/real-shoot/gil-comandante-sunset.webp" alt="Cap. Gil ao leme de um veleiro ao pôr do sol no mar" width="864" height="1536" loading="lazy" decoding="async" />
             <figcaption class="cmdr-photo-cap mono" data-i18n="cmdr_photo_cap">CAP. GIL · VELA AO PÔR DO SOL NO MAR</figcaption>
           </figure>
           <div class="cmdr-copy">
             <div class="sec-kicker" data-i18n="cmdr_kicker">O seu comandante hoje</div>
-            <h2 class="sec-serif-title" data-i18n="cmdr_title">Do Cockpit ao <em>Convés</em></h2>
+            <h2 class="sec-serif-title" data-i18n="cmdr_title">Do Cockpit ao <em>Leme</em></h2>
             <span class="atelier-rule-draw" aria-hidden="true"></span>
-            <p class="cmdr-bio" data-i18n="cmdr_bio">Fez a primeira vela aos <strong>5 anos</strong> e nunca mais saiu da água.</p>
+            <p class="cmdr-bio" data-i18n="cmdr_bio">Começou a fazer vela aos <strong>5 anos</strong> e nunca mais deixou a água.</p>
             <ul class="cmdr-stats" role="list">
-              <li><strong class="mono">5</strong><span data-i18n="cmdr_s1">anos · a primeira vela</span></li>
+              <li><strong class="mono">5</strong><span data-i18n="cmdr_s1">anos · começou na vela</span></li>
               <li><strong class="mono">15</strong><span data-i18n="cmdr_s2">anos a trabalhar em barcos</span></li>
-              <li><strong class="mono">2</strong><span data-i18n="cmdr_s3">cockpits · céu e rio</span></li>
+              <li><strong class="mono">2</strong><span data-i18n="cmdr_s3">paixões · céu e mar</span></li>
               <li><strong class="mono">3</strong><span data-i18n="cmdr_s4">línguas · PT · EN · ES</span></li>
             </ul>
           </div>
         </div>
 
         <div class="cmdr-ops">
-          <div class="cmdr-check" id="cmdrCheck">
-            <div class="cmdr-ops-head mono"><span data-i18n="ck_head">CHECKLIST DE PARTIDA · PADRÃO AVIAÇÃO</span><span id="cmdrCkCount">0/6</span></div>
-            <ol class="cmdr-ck-list">
-              <li><span class="ck-box" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></span><div><strong class="mono" data-i18n="ck1_k">METEO</strong><span data-i18n="ck1_v">Vento, maré e visibilidade confirmados</span></div></li>
-              <li><span class="ck-box" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></span><div><strong class="mono" data-i18n="ck2_k">MOTOR</strong><span data-i18n="ck2_v">Combustível e motor verificados</span></div></li>
-              <li><span class="ck-box" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></span><div><strong class="mono" data-i18n="ck3_k">COLETES</strong><span data-i18n="ck3_v">12 coletes homologados a bordo</span></div></li>
-              <li><span class="ck-box" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></span><div><strong class="mono" data-i18n="ck4_k">VHF</strong><span data-i18n="ck4_v">Rádio em escuta no canal 16</span></div></li>
-              <li><span class="ck-box" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></span><div><strong class="mono" data-i18n="ck5_k">BRIEFING</strong><span data-i18n="ck5_v">Segurança explicada em PT · EN · ES</span></div></li>
-              <li><span class="ck-box" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></span><div><strong class="mono" data-i18n="ck6_k">ROTA</strong><span data-i18n="ck6_v">Afurada → 7 Pontes → Foz planeada</span></div></li>
-            </ol>
-            <p class="cmdr-ck-foot mono" data-i18n="ck_foot">CUMPRIDA ANTES DE CADA SAÍDA · CAP. GIL</p>
-          </div>
           <div class="cmdr-metar" id="metarCard">
             <div class="cmdr-ops-head mono"><span data-i18n="mt_head">METAR DO DOURO · AO VIVO</span><span class="metar-dot" aria-hidden="true"></span></div>
             <code class="metar-line mono" id="metarLine">AFURADA ······Z ···/··KT ··°C</code>
@@ -4590,10 +4569,10 @@
           </div>
           <div class="canopy-stage" id="canopyCompareStage">
             <div class="canopy-layer canopy-layer-before">
-              <img src="../assets/real-shoot/01-golden-ribeira-capota-marinho.jpg" alt="Alpha Douro aberto na Ribeira do Porto em hora dourada" decoding="async" width="2200" height="1228" />
+              <img src="../assets/real-shoot/01-golden-ribeira-capota-marinho.webp" alt="Alpha Douro aberto na Ribeira do Porto em hora dourada" decoding="async" width="2200" height="1228" />
             </div>
             <div class="canopy-layer canopy-layer-after">
-              <img src="../assets/real-shoot/04-inverno-360-afurada-capota-marinho.jpg" alt="Alpha Douro com capota panorâmica transparente 360° para inverno e vento" decoding="async" width="1376" height="768" />
+              <img src="../assets/real-shoot/04-inverno-360-afurada-capota-marinho.webp" alt="Alpha Douro com capota panorâmica transparente 360° para inverno e vento" decoding="async" width="1376" height="768" />
             </div>
             <span class="canopy-pill canopy-pill-left" data-i18n="cc_lbl_open">Aberto · Hora Dourada</span>
             <span class="canopy-pill canopy-pill-right" data-i18n="cc_lbl_winter">Inverno · Capota 360°</span>
@@ -4738,7 +4717,7 @@
           </a>
         </div>
         <div class="concierge-photo">
-          <img src="../assets/real-shoot/04-inverno-360-afurada-capota-marinho.jpg" alt="Embarcação Alpha Douro com capota panorâmica transparente 360° pronta todo o ano na Afurada" loading="lazy" width="1376" height="768" decoding="async" />
+          <img src="../assets/real-shoot/04-inverno-360-afurada-capota-marinho.webp" alt="Embarcação Alpha Douro com capota panorâmica transparente 360° pronta todo o ano na Afurada" loading="lazy" width="1376" height="768" decoding="async" />
         </div>
       </div>
 
@@ -4800,7 +4779,6 @@
 
       <div class="footer-base">
         <span>© 2026 Alpha Douro Boat Tours · Porto. All rights reserved.</span>
-        <a href="../brand-kit/index.html" style="margin-right:1.1rem; color: var(--sand); text-decoration: underline; text-underline-offset: 4px;">Brand Kit Oficial ↗</a>
           <a href="../pass/index.html" class="mono" style="color: var(--sand); letter-spacing: 0.08em;">CARTÃO DIGITAL VIP ↗</a>
       </div>
     </div>
@@ -4900,7 +4878,7 @@
         ritualPt: "RITUAL · BOARDING PASS EM ALGODÃO & VINHO DE BOAS-VINDAS",
         light: "DEPARTURE PIER",
         lightPt: "CAIS DE PARTIDA",
-        img: "../assets/real-shoot/04-inverno-360-afurada-capota-marinho.jpg",
+        img: "../assets/real-shoot/04-inverno-360-afurada-capota-marinho.webp",
         min: 0,
         storyPt: "A Afurada é uma das últimas aldeias piscatórias do Porto: roupa a secar no lavadouro público e sardinha na brasa à porta de casa.",
         storyEn: "Afurada is one of Porto's last fishing villages: laundry drying at the public washhouse and sardines grilling at front doors."
@@ -4918,7 +4896,7 @@
         ritualPt: "RITUAL · PORTO TÓNICO BRANCO GELADO",
         light: "1ST BRIDGE · RIGHT",
         lightPt: "1.ª PONTE · À DIREITA",
-        img: "../assets/loc-02-ponte-arrabida.jpg",
+        img: "../assets/loc-02-ponte-arrabida.webp",
         min: 8,
         storyPt: "Quando abriu, em 1963, tinha o maior arco de betão armado do mundo: 270 m de vão. Hoje há quem suba ao topo a pé.",
         storyEn: "When it opened in 1963 it had the world's longest reinforced-concrete arch, spanning 270 m. Today you can even climb to the top."
@@ -4936,7 +4914,7 @@
         ritualPt: "RITUAL · POLAROID INSTANTÂNEA NA RIBEIRA",
         light: "UNESCO FACADES",
         lightPt: "FACHADAS UNESCO",
-        img: "../assets/loc-03-ribeira-cais-gaia.jpg",
+        img: "../assets/loc-03-ribeira-cais-gaia.webp",
         min: 20,
         storyPt: "Até 1986, o Vinho do Porto só podia ser exportado a partir de Gaia — é por isso que as caves das grandes casas estão todas nesta margem.",
         storyEn: "Until 1986, Port wine could only be exported from Gaia — which is why every great Port house keeps its cellars on this bank."
@@ -4954,7 +4932,7 @@
         ritualPt: "RITUAL · BRINDE DO SINO DE LATÃO SOB O ARCO",
         light: "2ND BRIDGE · ICON",
         lightPt: "2.ª PONTE · ÍCONE",
-        img: "../assets/loc-04-ponte-dom-luis.jpg",
+        img: "../assets/loc-04-ponte-dom-luis.webp",
         min: 30,
         storyPt: "Aqui perto ficava a Ponte das Barcas: em 1809, em fuga às tropas francesas, a multidão fê-la ceder. As Alminhas da Ponte, na Ribeira, ainda lembram as vítimas.",
         storyEn: "The old Bridge of Boats stood near here: in 1809, crowds fleeing French troops made it collapse. The Alminhas da Ponte shrine in Ribeira still remembers the victims."
@@ -4972,7 +4950,7 @@
         ritualPt: "RITUAL · PROVA CONSERVAS & CORTIÇA",
         light: "3RD & 4TH BRIDGES",
         lightPt: "3.ª & 4.ª PONTES",
-        img: "../assets/loc-05-ponte-infante-mariapia.jpg",
+        img: "../assets/loc-05-ponte-infante-mariapia.webp",
         min: 40,
         storyPt: "A Maria Pia, da casa Eiffel, levou comboios até 1991. A do Infante (2003) vence 280 m com um arco de apenas 1,5 m de espessura.",
         storyEn: "Maria Pia, built by Eiffel's company, carried trains until 1991. The Infante bridge (2003) spans 280 m with an arch only 1.5 m thick."
@@ -4990,7 +4968,7 @@
         ritualPt: "RITUAL · PORTO TAWNY & PASTEL DE NATA",
         light: "7TH BRIDGE · TURN ↺",
         lightPt: "7.ª PONTE · REGRESSO ↺",
-        img: "../assets/loc-06-saojoao-freixo.jpg",
+        img: "../assets/loc-06-saojoao-freixo.webp",
         min: 55,
         storyPt: "A Ponte de São João, de Edgar Cardoso (1991), substituiu a Maria Pia nos comboios. Logo a seguir, a do Freixo marca a nossa viragem.",
         storyEn: "Edgar Cardoso's São João bridge (1991) took over the trains from Maria Pia. Just beyond, Freixo bridge marks our turn back."
@@ -5008,7 +4986,7 @@
         ritualPt: "RITUAL · BRINDE AO PÔR DO SOL JUNTO AO MAR NA AFURADA",
         light: "← SEA AT AFURADA",
         lightPt: "← MAR NA AFURADA",
-        img: "../assets/loc-07-mar-afurada-sunset.jpg",
+        img: "../assets/loc-07-mar-afurada-sunset.webp",
         min: 100,
         storyPt: "Depois de 897 km desde os Picos de Urbión, em Espanha, o Douro encontra aqui o Atlântico — e o sol põe-se mesmo à nossa frente.",
         storyEn: "After 897 km from Spain's Picos de Urbión, the Douro meets the Atlantic right here — with the sun setting straight ahead."
@@ -6060,17 +6038,10 @@
         rev3_q: "“Our hotel desk in Gaia gave us Gil's number. Eight minutes in an Uber to Gate A, straight onto the boat. No loudspeakers, no rushing through photos. Just good white wine, great light on the bridges, and easy conversation.”",
         rev3_loc: "Daniel Mercer · Boston",
         cmdr_kicker: "Your captain today",
-        cmdr_title: "From Cockpit to <em>Deck</em>",
-        cmdr_bio: "He took his first sailing lesson at <strong>5</strong> and never left the water: <strong>15 years</strong> working on boats and a lifelong love of water sports. He is also a <strong>commercial airline pilot</strong> — and brings a cockpit's calm and method to the Douro: briefing, checklist and a planned route before every departure. Welcomed aboard in <strong>Portuguese, English or Spanish</strong>.",
-        cmdr_s1: "years old · first sail", cmdr_s2: "years working on boats", cmdr_s3: "cockpits · sky &amp; river", cmdr_s4: "languages · PT · EN · ES",
+        cmdr_title: "From Cockpit to <em>Helm</em>",
+        cmdr_bio: "He started sailing at <strong>5</strong> and never left the water: <strong>15 years</strong> working on boats, with water sports as a way of life. He is also a <strong>commercial airline pilot</strong> — and brings a cockpit's calm and precision to the helm, with the route studied and the weather checked before casting off. Welcomed aboard in <strong>Portuguese, English or Spanish</strong>.",
+        cmdr_s1: "years old · started sailing", cmdr_s2: "years working on boats", cmdr_s3: "passions · sky &amp; sea", cmdr_s4: "languages · PT · EN · ES",
         cmdr_photo_cap: "CAP. GIL · SAILING AT SUNSET",
-        ck_head: "PRE-DEPARTURE CHECKLIST · AVIATION STANDARD", ck_foot: "COMPLETED BEFORE EVERY DEPARTURE · CAP. GIL",
-        ck1_k: "WEATHER", ck1_v: "Wind, tide and visibility confirmed",
-        ck2_k: "ENGINE", ck2_v: "Fuel and engine checked",
-        ck3_k: "LIFE JACKETS", ck3_v: "12 certified life jackets on board",
-        ck4_k: "VHF", ck4_v: "Radio on watch, channel 16",
-        ck5_k: "BRIEFING", ck5_v: "Safety briefing in PT · EN · ES",
-        ck6_k: "ROUTE", ck6_v: "Afurada → 7 Bridges → river mouth planned",
         mt_head: "DOURO METAR · LIVE", mt_wind: "WIND", mt_temp: "TEMPERATURE", mt_sky: "SKY", mt_sunset: "SUNSET",
         hud_hdg: "HEADING", hud_time: "ELAPSED",
         arr_kicker: "Meeting point · Douro Marina, Afurada · Gate A",
@@ -6145,17 +6116,10 @@
         rev3_q: "“Na receção do hotel em Gaia deram-nos o WhatsApp do Gil. Oito minutos de Uber até ao Portão A e entrámos logo no barco. Sem altifalantes nem pressas para tirar fotos — bom vinho branco, luz incrível nas pontes e conversa fácil.”",
         rev3_loc: "Daniel Mercer · Boston",
         cmdr_kicker: "O seu comandante hoje",
-        cmdr_title: "Do Cockpit ao <em>Convés</em>",
-        cmdr_bio: "Fez a primeira vela aos <strong>5 anos</strong> e nunca mais saiu da água: há <strong>15 anos</strong> que trabalha em barcos e vive para os desportos náuticos. É também <strong>piloto comercial de aviação</strong> — e traz para o Douro a calma e o método de um cockpit: briefing, checklist e rota planeada antes de cada saída. Recebe-o em <strong>português, inglês ou espanhol</strong>.",
-        cmdr_s1: "anos · a primeira vela", cmdr_s2: "anos a trabalhar em barcos", cmdr_s3: "cockpits · céu e rio", cmdr_s4: "línguas · PT · EN · ES",
+        cmdr_title: "Do Cockpit ao <em>Leme</em>",
+        cmdr_bio: "Começou a fazer vela aos <strong>5 anos</strong> e nunca mais deixou a água: há <strong>15 anos</strong> que trabalha em barcos e os desportos náuticos são a sua vida. É também <strong>piloto comercial de aviação</strong> — e leva para o leme a serenidade e o rigor de um cockpit, com a rota estudada e a meteorologia confirmada antes de largar. Recebe-o a bordo em <strong>português, inglês ou espanhol</strong>.",
+        cmdr_s1: "anos · começou na vela", cmdr_s2: "anos a trabalhar em barcos", cmdr_s3: "paixões · céu e mar", cmdr_s4: "línguas · PT · EN · ES",
         cmdr_photo_cap: "CAP. GIL · VELA AO PÔR DO SOL NO MAR",
-        ck_head: "CHECKLIST DE PARTIDA · PADRÃO AVIAÇÃO", ck_foot: "CUMPRIDA ANTES DE CADA SAÍDA · CAP. GIL",
-        ck1_k: "METEO", ck1_v: "Vento, maré e visibilidade confirmados",
-        ck2_k: "MOTOR", ck2_v: "Combustível e motor verificados",
-        ck3_k: "COLETES", ck3_v: "12 coletes homologados a bordo",
-        ck4_k: "VHF", ck4_v: "Rádio em escuta no canal 16",
-        ck5_k: "BRIEFING", ck5_v: "Segurança explicada em PT · EN · ES",
-        ck6_k: "ROTA", ck6_v: "Afurada → 7 Pontes → Foz planeada",
         mt_head: "METAR DO DOURO · AO VIVO", mt_wind: "VENTO", mt_temp: "TEMPERATURA", mt_sky: "CÉU", mt_sunset: "PÔR DO SOL",
         hud_hdg: "RUMO", hud_time: "TEMPO",
         arr_kicker: "Ponto de encontro · Douro Marina, Afurada · Portão A",
@@ -6303,29 +6267,6 @@
       });
     })();
 
-
-    /* ===== Commander checklist (aviation-standard) ===== */
-    (function initCmdrChecklist() {
-      const box = document.getElementById("cmdrCheck");
-      if (!box) return;
-      const items = Array.from(box.querySelectorAll(".cmdr-ck-list li"));
-      const count = document.getElementById("cmdrCkCount");
-      const run = () => {
-        if (prefersReduced) {
-          items.forEach((li) => li.classList.add("is-on"));
-          if (count) count.textContent = `${items.length}/${items.length}`;
-          return;
-        }
-        items.forEach((li, i) => setTimeout(() => {
-          li.classList.add("is-on");
-          if (count) count.textContent = `${i + 1}/${items.length}`;
-        }, 260 + i * 320));
-      };
-      const io = new IntersectionObserver((es) => {
-        if (es[0].isIntersecting) { run(); io.disconnect(); }
-      }, { threshold: 0.35 });
-      io.observe(box);
-    })();
 
     /* ===== Live "METAR do Douro" (Open-Meteo, no key) ===== */
     let metarData = null;
@@ -6921,7 +6862,7 @@
         <button type="button" class="bento-lb-close" id="bentoLbClose" aria-label="Fechar galeria">✕</button>
       </div>
       <div class="bento-lb-img-wrap" id="bentoLbStage">
-        <img id="bentoLbImg" src="../assets/real-shoot/01-golden-ribeira-capota-marinho.jpg" alt="" width="2200" height="1228" decoding="async" />
+        <img id="bentoLbImg" src="../assets/real-shoot/01-golden-ribeira-capota-marinho.webp" alt="" width="2200" height="1228" decoding="async" />
       </div>
       <div class="bento-lb-foot">
         <div>
