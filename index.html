@@ -6184,20 +6184,26 @@
     }
 
     function updateAtelierSolar() {
-      const todaySun = computeFozSunset();
-      const cfgSun = computeFozSunset(cfgDate.value);
-      const heroTxt = document.getElementById("atelierSolarText");
-      const cfgTxt = document.getElementById("cfgSolarHint");
-      if (heroTxt) {
-        heroTxt.textContent = currentLang === "pt"
-          ? `PÔR DO SOL HOJE NO MAR (AFURADA) ${todaySun.sunset} · SAÍDA IDEAL AFURADA ${todaySun.board} · 1 VAGA SUNSET`
-          : `AFURADA SEA SUNSET TODAY ${todaySun.sunset} · IDEAL DOURO MARINA · PONTOON A ${todaySun.board} · 1 SUNSET SLOT OPEN`;
-      }
-      if (cfgTxt) {
-        cfgTxt.textContent = currentLang === "pt"
-          ? `☀ PÔR DO SOL NO MAR (AFURADA): ${cfgSun.sunset} · EMBARQUE AFURADA: ${cfgSun.board}`
-          : `☀ AFURADA SEA SUNSET: ${cfgSun.sunset} · BOARD AFURADA: ${cfgSun.board}`;
-      }
+      const s = computeFozSunset(cfgDate ? cfgDate.value : null);
+      const l = window.__alphaLang || currentLang || "pt";
+      const barMap = {
+        pt: `PÔR DO SOL HOJE NO MAR (AFURADA) ${s.sunset} · EMBARQUE PONTÃO A ${s.board} · 1 VAGA SUNSET`,
+        en: `SEA SUNSET TODAY (AFURADA) ${s.sunset} · BOARDING PONTOON A ${s.board} · 1 SUNSET SLOT`,
+        es: `PUESTA DE SOL HOY EN EL MAR ${s.sunset} · EMBARQUE PANTALÁN A ${s.board} · 1 PLAZA SUNSET`,
+        de: `SONNENUNTERGANG HEUTE AM MEER ${s.sunset} · BOARDING STEG A ${s.board} · 1 SUNSET-SLOT`,
+        fr: `COUCHER DE SOLEIL AUJOURD’HUI ${s.sunset} · EMBARQUEMENT PONTON A ${s.board} · 1 CRÉNEAU SUNSET`
+      };
+      const hintMap = {
+        pt: `☀ PÔR DO SOL NO MAR: ${s.sunset} · EMBARQUE PONTÃO A: ${s.board}`,
+        en: `☀ ATLANTIC SUNSET: ${s.sunset} · BOARDING PONTOON A: ${s.board}`,
+        es: `☀ PUESTA DE SOL EN EL MAR: ${s.sunset} · EMBARQUE PANTALÁN A: ${s.board}`,
+        de: `☀ SONNENUNTERGANG: ${s.sunset} · BOARDING STEG A: ${s.board}`,
+        fr: `☀ COUCHER DE SOLEIL : ${s.sunset} · EMBARQUEMENT PONTON A : ${s.board}`
+      };
+      const bar = document.getElementById("atelierSolarText");
+      if (bar) bar.textContent = barMap[l] || barMap.pt;
+      const hint = document.getElementById("cfgSolarHint");
+      if (hint) hint.textContent = hintMap[l] || hintMap.pt;
     }
     cfgDate.addEventListener("change", updateAtelierSolar);
 
@@ -6758,6 +6764,7 @@
 
     window.__syncFiveLangDynamic = (lang) => {
       currentLang = lang;
+      if (typeof updateAtelierSolar === "function") updateAtelierSolar();
       if (typeof syncBoardingPass === "function") syncBoardingPass();
       if (typeof window.__syncEditorialReviewLang === "function") window.__syncEditorialReviewLang();
       if (typeof window.__sync21stGoldenTrio === "function") window.__sync21stGoldenTrio();
