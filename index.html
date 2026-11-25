@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>ALPHA DOURO ATELIER — Passeios de Barco Privados no Douro | Porto &amp; Cais da Afurada</title>
-  <meta name="description" content="Passeios de barco privados no Rio Douro a partir da Douro Marina (Afurada · Portão A). Máximo 10 pessoas, capota panorâmica 360° todo o ano, prova de vinhos incluída e reserva direta no WhatsApp com Cartão Digital VIP." />
-  <meta name="keywords" content="passeio de barco privado porto, cruzeiro 7 pontes porto luxo, sunset barco douro afurada, cais da afurada barco, private boat charter porto, alpha douro atelier" />
+  <title>Alpha Douro — Passeios e Tours de Barco no Porto | 7 Pontes &amp; Sunset</title>
+  <meta name="description" content="Alpha Douro: passeios e tours de barco no Porto a partir da Douro Marina (Portão A). Cruzeiro 7 Pontes (€30), Sunset no Douro (€60) e Charter Privado. Máx. 10 pessoas, prova de vinhos e foto Polaroid incluídas." />
+  <meta name="keywords" content="alpha douro, tours barco porto, passeios de barco porto, cruzeiro 7 pontes porto, passeio barco 7 pontes douro, sunset barco porto, tour barco douro, porto boat tour, 7 bridges cruise porto, douro river sunset cruise, douro marina afurada" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <meta name="geo.region" content="PT-13" />
   <meta name="geo.placename" content="Douro Marina · Portão A, Afurada, Vila Nova de Gaia, Porto" />
@@ -23,12 +23,12 @@
   <meta property="og:url" content="https://alphadouro.com/" />
   <meta property="og:locale" content="pt_PT" />
   <meta property="og:locale:alternate" content="en_US" />
-  <meta property="og:title" content="ALPHA DOURO ATELIER — Passeios de Barco Privados no Rio Douro" />
+  <meta property="og:title" content="Alpha Douro — Passeios e Tours de Barco no Porto | 7 Pontes &amp; Sunset" />
   <meta property="og:description" content="Passeios de barco privados no Rio Douro (Portão A · Douro Marina). Máx. 10 pessoas, capota 360°, prova de vinhos incluída e Cartão Digital VIP na hora." />
   <meta property="og:image" content="https://alphadouro.com/assets/real-shoot/01-golden-ribeira-capota-marinho.jpg" />
   <meta property="og:image:alt" content="Alpha Douro Atelier — Embarcação Alpha Douro · Máx. 10 Pessoas no Rio Douro no Porto" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="ALPHA DOURO ATELIER — Passeios de Barco Privados no Porto" />
+  <meta name="twitter:title" content="Alpha Douro — Passeios e Tours de Barco no Porto | 7 Pontes &amp; Sunset" />
   <meta name="twitter:description" content="Carta náutica das 7 pontes &amp; mar na Afurada · Máx. 10 pessoas · 365 dias/ano." />
   <meta name="twitter:image" content="https://alphadouro.com/assets/real-shoot/01-golden-ribeira-capota-marinho.jpg" />
 
@@ -64,7 +64,7 @@
       {
         "@type": ["LocalBusiness", "TravelAgency"],
         "@id": "https://alphadouro.com/#business",
-        "name": "Alpha Douro — Passeios de Barco Privados no Porto",
+        "name": "Alpha Douro — Passeios e Tours de Barco no Porto (7 Pontes & Sunset)",
         "alternateName": "Alpha Douro Boat Tours",
         "legalName": "Percursos & Persuasão, Unipessoal, Lda.",
         "taxID": "PT246788119",
@@ -3433,21 +3433,40 @@
     .atelier-footer { padding-bottom: 5.5rem; }
     .footer-monument {
       margin-top: clamp(2rem, 4vw, 3.2rem);
-      padding-top: 1.2rem;
+      padding: clamp(1.6rem, 3vw, 2.5rem) 0 clamp(1.3rem, 2.5vw, 2rem);
       border-top: 1px solid var(--hairline);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(0.45rem, 1vw, 0.85rem);
       text-align: center;
       overflow: hidden;
       user-select: none;
       pointer-events: none;
     }
+    .footer-monument-emblem {
+      width: clamp(2.6rem, 6.2vw, 5.2rem);
+      height: auto;
+      fill: rgba(224, 208, 184, 0.14);
+      display: block;
+    }
     .footer-monument-text {
       font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: clamp(3.2rem, 11.5vw, 9.6rem);
+      font-size: clamp(1.85rem, 8.4vw, 7.6rem);
       font-weight: 600;
-      line-height: 0.86;
-      letter-spacing: 0.08em;
-      color: rgba(224, 208, 184, 0.075);
+      line-height: 0.92;
+      letter-spacing: clamp(0.12em, 0.4vw, 0.16em);
+      padding-left: clamp(0.12em, 0.4vw, 0.16em);
+      color: rgba(224, 208, 184, 0.105);
       white-space: nowrap;
+      max-width: 100%;
+    }
+    .footer-monument-sub {
+      font-size: clamp(0.56rem, 1.3vw, 0.72rem);
+      letter-spacing: 0.28em;
+      padding-left: 0.28em;
+      color: rgba(224, 208, 184, 0.18);
     }
 
     /* G. Smart iOS Mobile Sticky Conversion Bar (mobbin.com + liquid glass, mobile <= 768px only) */
@@ -5103,7 +5122,15 @@
 
       <!-- FOOTER WATERMARK START -->
       <div class="footer-monument" aria-hidden="true">
+        <svg class="footer-monument-emblem" viewBox="0 0 120 120">
+          <path d="M60 14L22 92H33.5L62.2 31.8L60 14Z"/>
+          <path d="M60 14L98 92H84.2L59.8 39.2L60 14Z"/>
+          <path d="M42.5 76.5C49.5 72.2 61.5 70.6 78.2 72.4L71.5 81.2C60.2 80.2 50.2 81.2 42.5 76.5Z"/>
+          <path d="M49 71.2C53.5 64.5 60.6 62.6 69.2 66.2C63.8 66.5 57.2 67.8 51.5 71.4L49 71.2Z"/>
+          <path d="M14 97.5C30.5 87.5 48.5 87.5 64.5 94.8C78.2 101 93.5 99.8 108 90.8C97.5 103.5 79.5 107.6 62.2 100.4C46.8 94 30.2 94.2 14 97.5Z"/>
+        </svg>
         <div class="footer-monument-text">ALPHA DOURO</div>
+        <div class="footer-monument-sub mono">BOAT TOURS · PORTO</div>
       </div>
       <!-- FOOTER WATERMARK END -->
 
@@ -6896,8 +6923,9 @@
           return;
         }
         const startVal = lastNumericTotal;
+        lastNumericTotal = targetVal;
         const t0 = performance.now();
-        const dur = 360;
+        const dur = 260;
         function step(now) {
           const p = Math.min(1, (now - t0) / dur);
           const ease = 1 - Math.pow(1 - p, 3);
@@ -6927,12 +6955,21 @@
             : (currentLang === "pt" ? `Total direto (${partySize} ${partySize === 1 ? "pessoa" : "pessoas"}) · Prova de Vinhos incluída` : `Direct total (${partySize} ${partySize === 1 ? "guest" : "guests"}) · Wine Tasting included`);
         }
         if (isQuote) {
+          if (rollRaf) cancelAnimationFrame(rollRaf);
           lastNumericTotal = null;
           const qTxt = currentLang === "pt" ? "Sob Consulta" : "Custom Quote";
           if (liveTotalEl) liveTotalEl.textContent = qTxt;
+          if (tkTotalEl) tkTotalEl.textContent = qTxt;
         } else {
-          const rawStr = (tkTotalEl?.textContent || "").replace(/[^\d]/g, "");
-          const numeric = Number(rawStr) || 0;
+          let calcAddons = 0;
+          ritualBtns.forEach((rbtn) => {
+            if (rbtn.classList.contains("is-active")) {
+              const rp = Number(rbtn.dataset.price) || 0;
+              calcAddons += rbtn.dataset.mode === "guest" ? rp * partySize : rp;
+            }
+          });
+          const calcBase = v.mode === "flat" ? v.price : v.price * partySize;
+          const numeric = calcBase + calcAddons;
           animateEuro([liveTotalEl, tkTotalEl], numeric);
         }
       }
