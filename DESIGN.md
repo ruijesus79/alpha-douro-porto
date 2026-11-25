@@ -2,7 +2,7 @@
 
 > **Brand:** Alpha Douro · Boat Tours Porto (`EST. 2026`)
 > **Visual World:** Benetti × Riva × Spyker Nautical Atelier — Quiet Mediterranean Maritime Luxury
-> **Primary Surface:** Direct Booking Landing Page (`https://alpha-douro-porto.vercel.app/`), VIP Digital Boarding Pass (`/pass/`), Brand Kit (`/brand-kit`), WhatsApp Central Hub (`/whatsapp-kit`)
+> **Primary Surface:** Direct Booking Landing Page (`https://alphadouro.com/`), VIP Digital Boarding Pass (`/pass/`), Brand Kit (`/brand-kit`), WhatsApp Central Hub (`/whatsapp-kit`)
 > **Embarkation Truth:** `Douro Marina · Portão A` (Afurada, Vila Nova de Gaia · `41°08'36"N · 08°38'52"W`) — Arrive **10 min early** · **Max. 10 passengers** · **Wine Tasting included in all voyages** (`€30` Daytime Opening · `€60` Sunset & Sea · `Custom Quote` Private Charter) · Direct WhatsApp `+351 914 160 240`.
 
 ---
