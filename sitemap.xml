@@ -4,7 +4,7 @@
   <url>
     <loc>https://alphadouro.com/</loc>
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://alphadouro.com/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://alphadouro.com/?lang=en" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alphadouro.com/en/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://alphadouro.com/?lang=es" />
     <xhtml:link rel="alternate" hreflang="de" href="https://alphadouro.com/?lang=de" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://alphadouro.com/?lang=fr" />
@@ -12,6 +12,26 @@
     <lastmod>2026-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://alphadouro.com/en/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alphadouro.com/en/" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://alphadouro.com/" />
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://alphadouro.com/sunset-porto/</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.92</priority>
+  </url>
+  <url>
+    <loc>https://alphadouro.com/private-charter-porto/</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
   </url>
   <url>
     <loc>https://alphadouro.com/ig/</loc>

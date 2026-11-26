@@ -502,7 +502,7 @@
 
     <section class="actions-grid">
       <a href="#" id="btnSendWa" class="btn btn-wa" target="_blank" rel="noopener noreferrer">
-        Confirmar no WhatsApp · Gil ↗
+        Confirmar no WhatsApp · Alpha Douro ↗
       </a>
       <button type="button" id="btnSavePng" class="btn btn-gold">Guardar Cartão (PNG) ↓</button>
       <button type="button" id="btnAddCal" class="btn btn-outline">Calendário + Lembrete</button>
@@ -708,10 +708,10 @@
       const vStr = String(vNum).padStart(4, "0");
       document.getElementById("pRef").textContent = `${pt ? "TRAVESSIA Nº" : "VOYAGE NO."} ${vStr} · ${refCode}`;
       document.getElementById("perkCabin").textContent = pt ? "◆ Ritual: 10 Minutos Sem Motor" : "◆ Signature: 10 Engine-Off Minutes";
-      document.getElementById("perkEd").textContent = pt ? `◆ Edição Numerada Nº ${vStr} · Mantas &amp; Conforto` : `◆ Numbered Edition No. ${vStr} · Warm Throws`;
+      document.getElementById("perkEd").textContent = pt ? `◆ Edição Numerada Nº ${vStr} · Mantas & Conforto` : `◆ Numbered Edition No. ${vStr} · Warm Throws`;
       document.getElementById("lblCheckin").textContent = pt ? "CHECK-IN NO CAIS" : "PIER CHECK-IN";
       document.getElementById("stubHint").textContent = pt ? "Apresente este cartão no telemóvel ao embarcar." : "Show this pass on your phone when boarding.";
-      document.getElementById("btnSendWa").textContent = pt ? "Confirmar no WhatsApp · Gil ↗" : "Confirm on WhatsApp · Gil ↗";
+      document.getElementById("btnSendWa").textContent = pt ? "Confirmar no WhatsApp · Alpha Douro ↗" : "Confirm on WhatsApp · Alpha Douro ↗";
       document.getElementById("btnSavePng").textContent = pt ? "Guardar Cartão (PNG) ↓" : "Save Pass (PNG) ↓";
       document.getElementById("btnAddCal").textContent = pt ? "Calendário + Lembrete" : "Calendar + Reminder";
       document.getElementById("lblPierRow").textContent = pt ? "Embarque" : "Boarding";
@@ -724,8 +724,8 @@
 
       const shareUrl = window.location.href;
       const waConfirm = pt
-        ? `Olá Gil, espero que esteja tudo ótimo por aí no Douro.\nPartilho consigo o nosso Cartão de Embarque Digital Alpha Douro — estamos ansiosos por navegar consigo a partir do Pontão A:\n\n• Experiência: ${t.pt} (Prova de vinhos do Douro incluída)\n• Em nome de: ${guestName} (${guestsNum} ${guestsNum === 1 ? "pessoa" : "pessoas"})\n• Data: ${prettyDate} (${dateVal}) · Embarque ${boardTime} (Partida ${timeVal})\n• Valor direto: ${totText}${extrasParam ? `\n• Detalhes: ${extrasParam}` : ""}\n• Cartão Digital VIP: ${shareUrl}\n\nMuito obrigado, Gil — até já no cais!`
-        : `Hi Gil, hope all is wonderful on the Douro!\nHere is our Alpha Douro Digital Boarding Pass — we are really looking forward to stepping aboard with you at Pontoon A:\n\n• Experience: ${t.en} (Douro wine tasting included)\n• Guest: ${guestName} (${guestsNum} ${guestsNum === 1 ? "guest" : "guests"})\n• Date: ${prettyDate} (${dateVal}) · Boarding ${boardTime} (Departure ${timeVal})\n• Direct total: ${totText}${extrasParam ? `\n• Notes: ${extrasParam}` : ""}\n• VIP Digital Pass: ${shareUrl}\n\nThank you so much, Gil — see you soon on the dock!`;
+        ? `Olá Alpha Douro, espero que esteja tudo ótimo por aí no Douro.\nPartilho consigo o nosso Cartão de Embarque Digital Alpha Douro — estamos ansiosos por navegar consigo a partir do Pontão A:\n\n• Experiência: ${t.pt} (Prova de vinhos do Douro incluída)\n• Em nome de: ${guestName} (${guestsNum} ${guestsNum === 1 ? "pessoa" : "pessoas"})\n• Data: ${prettyDate} (${dateVal}) · Embarque ${boardTime} (Partida ${timeVal})\n• Valor direto: ${totText}${extrasParam ? `\n• Detalhes: ${extrasParam}` : ""}\n• Cartão Digital VIP: ${shareUrl}\n\nMuito obrigado — até já no cais!`
+        : `Hi Alpha Douro, hope all is wonderful on the Douro!\nHere is our Alpha Douro Digital Boarding Pass — we are really looking forward to stepping aboard with you at Pontoon A:\n\n• Experience: ${t.en} (Douro wine tasting included)\n• Guest: ${guestName} (${guestsNum} ${guestsNum === 1 ? "guest" : "guests"})\n• Date: ${prettyDate} (${dateVal}) · Boarding ${boardTime} (Departure ${timeVal})\n• Direct total: ${totText}${extrasParam ? `\n• Notes: ${extrasParam}` : ""}\n• VIP Digital Pass: ${shareUrl}\n\nThank you so much — see you soon on the dock!`;
       document.getElementById("btnSendWa").href = `https://wa.me/${WA_PHONE}?text=${encodeURIComponent(waConfirm)}`;
 
       updatePrefLink();
@@ -735,8 +735,8 @@
     function updatePrefLink() {
       const pt = lang === "pt";
       const prefMsg = pt
-        ? `Olá Gil! Para o passeio ${refCode} (${guestName} · ${dateVal} às ${timeVal}), deixo a minha preferência:\n• Vinho favorito: ${selectedDrink}\n• Ocasião: ${selectedOcc}\nAté já no Pontão A!`
-        : `Hello Gil! For booking ${refCode} (${guestName} · ${dateVal} at ${timeVal}), my onboard preference:\n• Favorite wine: ${selectedDrink}\n• Occasion: ${selectedOcc}\nSee you at Pontoon A!`;
+        ? `Olá Alpha Douro! Para o passeio ${refCode} (${guestName} · ${dateVal} às ${timeVal}), deixo a minha preferência:\n• Vinho favorito: ${selectedDrink}\n• Ocasião: ${selectedOcc}\nAté já no Pontão A!`
+        : `Hello Alpha Douro! For booking ${refCode} (${guestName} · ${dateVal} at ${timeVal}), my onboard preference:\n• Favorite wine: ${selectedDrink}\n• Occasion: ${selectedOcc}\nSee you at Pontoon A!`;
       document.getElementById("btnSendPref").href = `https://wa.me/${WA_PHONE}?text=${encodeURIComponent(prefMsg)}`;
     }
 
