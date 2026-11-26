@@ -454,7 +454,8 @@
 
           <div class="pass-perks">
             <span class="perk-pill" id="perkWine">◆ Prova de vinhos do Douro incluída</span>
-            <span class="perk-pill" id="perkCabin">◆ Máx. 10 convidados · Abrigo 360°</span>
+            <span class="perk-pill" id="perkCabin">◆ Ritual: 10 Minutos Sem Motor</span>
+            <span class="perk-pill" id="perkEd">◆ Travessia Numerada · Edição da Maré</span>
           </div>
         </div>
 
@@ -671,7 +672,11 @@
       document.getElementById("lblPier").textContent = pt ? "PONTO DE ENCONTRO" : "MEETING POINT";
       document.getElementById("lblTotal").textContent = pt ? "TOTAL DIRETO (0% TAXAS)" : "DIRECT TOTAL (0% FEES)";
       document.getElementById("perkWine").textContent = pt ? "◆ Prova de vinhos do Douro incluída" : "◆ Douro wine tasting included";
-      document.getElementById("perkCabin").textContent = pt ? "◆ Máx. 10 convidados · Abrigo 360°" : "◆ Max 10 guests · 360° Shelter";
+      const vNum = 340 + (Math.abs(dateVal.split("").reduce((a,c)=>((a<<5)-a)+c.charCodeAt(0),0)) % 620);
+      const vStr = String(vNum).padStart(4, "0");
+      document.getElementById("pRef").textContent = `${pt ? "TRAVESSIA Nº" : "VOYAGE NO."} ${vStr} · ${refCode}`;
+      document.getElementById("perkCabin").textContent = pt ? "◆ Ritual: 10 Minutos Sem Motor" : "◆ Signature: 10 Engine-Off Minutes";
+      document.getElementById("perkEd").textContent = pt ? `◆ Edição Numerada Nº ${vStr} · Abrigo 360°` : `◆ Numbered Edition No. ${vStr} · 360° Shelter`;
       document.getElementById("lblCheckin").textContent = pt ? "CHECK-IN NO CAIS" : "PIER CHECK-IN";
       document.getElementById("stubHint").textContent = pt ? "Apresente este cartão no telemóvel ao embarcar." : "Show this pass on your phone when boarding.";
       document.getElementById("btnSendWa").textContent = pt ? "Confirmar no WhatsApp · Gil ↗" : "Confirm on WhatsApp · Gil ↗";
@@ -845,8 +850,8 @@
       ctx.fillStyle = "#6E5228";
       ctx.font = "600 17px sans-serif";
       ctx.fillText(
-        pt ? "◆ Prova de vinhos do Douro incluída   ·   ◆ Máx. 10 convidados   ·   Douro Marina · Pontão A"
-           : "◆ Douro wine tasting included   ·   ◆ Max 10 guests   ·   Douro Marina · Pontoon A",
+        pt ? "◆ Prova de vinhos do Douro   ·   ◆ 10 Minutos Sem Motor   ·   Travessia Numerada · Pontão A"
+           : "◆ Douro wine tasting   ·   ◆ 10 Engine-Off Minutes   ·   Numbered Voyage · Pontoon A",
         96, 574
       );
 
