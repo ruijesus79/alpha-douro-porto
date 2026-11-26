@@ -3357,6 +3357,7 @@
       transition: transform 280ms var(--ease-expo), color 200ms ease;
     }
     .atelier-faq-item[open] summary::after {
+      content: "+";
       transform: translateY(-50%) rotate(45deg);
       color: var(--ivory);
     }
@@ -4066,6 +4067,188 @@
   .lang-pill button { padding: 0.22rem 0.34rem !important; font-size: 0.62rem !important; min-width: 1.5rem; }
 }
 
+/* === MOBILE PARITY, 120FPS NATIVE SCROLL & ZERO-OVERLAP POLISH === */
+section[id], footer[id], .prefooter-cta {
+  scroll-margin-top: 4.5rem;
+}
+.cmdr-photo img {
+  object-position: 18% 30% !important;
+  transform: scale(1.34) !important;
+  transform-origin: 18% 30% !important;
+}
+@media (max-width: 768px) {
+  html {
+    overscroll-behavior-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  main, section {
+    overflow-x: clip;
+  }
+  /* Crisp Desktop-Parity Hero Framing */
+  .hero-atelier {
+    min-height: 100svh;
+    min-height: clamp(41rem, 96svh, 52rem);
+  }
+  .hero-content {
+    padding-top: clamp(16.8rem, 42vh, 21rem) !important;
+    padding-bottom: 1.2rem !important;
+  }
+  .hero-vignette {
+    background: linear-gradient(
+      180deg,
+      rgba(6, 17, 29, 0.42) 0%,
+      rgba(6, 17, 29, 0.02) 18%,
+      rgba(6, 17, 29, 0.04) 37%,
+      rgba(6, 17, 29, 0.54) 47%,
+      rgba(6, 17, 29, 0.90) 64%,
+      #06111D 100%
+    ) !important;
+  }
+  .hero-cta-group {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem !important;
+    width: 100%;
+  }
+  .hero-cta-group a {
+    justify-content: center;
+    text-align: center;
+    padding: 0.84rem 0.65rem !important;
+    font-size: 0.82rem !important;
+    min-height: 46px;
+    touch-action: manipulation;
+  }
+  /* Razor-Sharp Aligned Telemetry Strip (fixes crooked Row 2 indent & stray border) */
+  .telemetry-bar .container {
+    padding-top: 0.2rem;
+    padding-bottom: 0.35rem;
+  }
+  .telemetry-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+  }
+  .telemetry-cell {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: baseline !important;
+    justify-content: space-between !important;
+    gap: 0.75rem !important;
+    padding: 0.62rem 0 !important;
+    border-right: 0 !important;
+    border-top: 1px solid var(--hairline) !important;
+  }
+  .telemetry-cell:first-child {
+    border-top: 0 !important;
+  }
+  .tele-label {
+    font-size: 0.54rem !important;
+    letter-spacing: 0.1em !important;
+    flex-shrink: 0;
+  }
+  .tele-val {
+    font-size: 0.65rem !important;
+    text-align: right;
+    letter-spacing: 0.01em !important;
+    white-space: nowrap;
+  }
+  /* Never overlap content with duplicate floating WhatsApp pill on mobile */
+  #floatingWaPill,
+  .floating-wa-pill {
+    display: none !important;
+  }
+  /* Sleeker, less intrusive mobile sticky bar */
+  .mob-ios-bar {
+    left: 0.75rem !important;
+    right: 0.75rem !important;
+    bottom: calc(0.6rem + env(safe-area-inset-bottom, 0px)) !important;
+    padding: 0.42rem 0.48rem 0.42rem 0.95rem !important;
+  }
+  .mob-ios-price strong { font-size: 0.84rem !important; }
+  .mob-ios-price span { font-size: 0.66rem !important; }
+  .mob-ios-cta {
+    min-height: 40px !important;
+    padding: 0 1.05rem !important;
+    font-size: 0.8rem !important;
+  }
+  /* Desktop-Parity Section Rhythm & Card Proportions */
+  .voyages-atelier,
+  .configurator-section,
+  .atelier-reviews-section,
+  .atelier-faq-section,
+  .partners-section,
+  .atelier-afurada-section {
+    padding: 3.4rem 0 !important;
+  }
+  .atelier-compare-section {
+    padding: 0 0 3.4rem !important;
+  }
+  .atelier-compare-box {
+    padding: 1.5rem 1.15rem !important;
+  }
+  .journey-sticky {
+    padding: 3.4rem 0 !important;
+  }
+  .atelier-section-head {
+    margin-bottom: 1.85rem !important;
+    gap: 0.85rem !important;
+  }
+  .sec-serif-title {
+    font-size: clamp(1.95rem, 8.2vw, 2.45rem) !important;
+    line-height: 1.04 !important;
+  }
+  .av-content {
+    padding: 1.35rem 1.25rem 1.45rem !important;
+    gap: 1.1rem !important;
+  }
+  .av-title {
+    font-size: 1.78rem !important;
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.45rem !important;
+  }
+  .av-foot {
+    padding-top: 1.05rem !important;
+  }
+  /* Swipeable Horizontal 7-Landmark Filmstrip on Mobile (Silky Snap Scroll!) */
+  .route-filmstrip {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 0.6rem !important;
+    padding-bottom: 0.45rem;
+    scrollbar-width: none;
+  }
+  .route-filmstrip::-webkit-scrollbar { display: none; }
+  .route-thumb,
+  .route-filmstrip > * {
+    flex: 0 0 148px !important;
+    min-width: 148px !important;
+    scroll-snap-align: start;
+  }
+  .journey-hud {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 0.55rem 0.75rem !important;
+  }
+  .hud-readout strong { font-size: 0.78rem !important; }
+  /* Instant crisp typography & curtains on mobile (zero scroll-scrub stutter) */
+  [data-word-scrub] .ws-word {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+  [data-photo-curtain] {
+    clip-path: none !important;
+  }
+  .atelier-rule-draw {
+    transform: scaleX(1) !important;
+  }
+  .atelier-footer {
+    padding-bottom: 3.2rem !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -4257,7 +4440,7 @@
         <!-- TOUR 02: SUNSET & MAR (€60) -->
         <article class="atelier-voyage-card" style="border-color: rgba(216, 199, 168, 0.34);" data-cursor-label="SUNSET">
           <div class="av-media" data-photo-curtain>
-            <img src="./assets/real-shoot/06-prova-porto-tawny-branco-verde-chocolate.webp" alt="Prova de Porto Tawny, Vinho Branco, Vinho Verde e chocolate negro a bordo" loading="lazy" width="1536" height="1024" decoding="async" />
+            <img src="./assets/loc-07-mar-afurada-sunset.webp" alt="Proa da embarcação Alpha Douro frente ao pôr do sol dourado no Atlântico na Foz do Douro" loading="lazy" width="1400" height="788" decoding="async" />
             <span class="av-route-badge" data-i18n5="v2_badge">MAIS PEDIDO · GOLDEN HOUR · 2H</span>
           </div>
           <div class="av-content">
@@ -4267,7 +4450,7 @@
                 <span class="av-tag" data-i18n5="v2_tag">7 PONTES &amp; ATLÂNTICO</span>
               </div>
               <h3 class="av-title" data-i18n5="v2_title">Sunset &amp; Mar</h3>
-              <p class="av-desc" data-i18n5="v2_desc">Luz dourada nas 7 pontes e pôr do sol junto ao mar, com prova de 3 vinhos, chocolate 70% e Polaroid.</p>
+              <p class="av-desc" data-i18n5="v2_desc">Luz dourada nas 7 pontes e pôr do sol junto ao mar, com prova de vinhos do Douro e foto Polaroid.</p>
             </div>
             <div class="av-foot">
               <div>
@@ -4282,7 +4465,7 @@
         <!-- TOUR 03: CHARTER PRIVADO (SOB CONSULTA) -->
         <article class="atelier-voyage-card" data-cursor-label="PRIVADO">
           <div class="av-media" data-photo-curtain>
-            <img src="./assets/real-shoot/03-sunset-mar-abordo-capota-marinho.webp" alt="Horizonte dourado no Atlântico visto de bordo ao fim da tarde" loading="lazy" width="1376" height="768" decoding="async" />
+            <img src="./assets/real-shoot/02-hora-azul-domluis-capota-marinho.webp" alt="Embarcação Alpha Douro iluminada à hora azul frente à Ponte Dom Luís I no Porto" loading="lazy" width="1376" height="768" decoding="async" />
             <span class="av-route-badge" data-i18n5="v3_badge">EXCLUSIVO · 1–10 PESSOAS</span>
           </div>
           <div class="av-content">
@@ -5204,7 +5387,8 @@
       }
     };
     window.__lenis = lenis;
-    if (!prefersReduced) {
+    const isDesktopSmooth = window.matchMedia("(hover: hover) and (pointer: fine)").matches && window.innerWidth > 1024;
+    if (!prefersReduced && isDesktopSmooth) {
       import("lenis").then(({ default: Lenis }) => {
         lenis = new Lenis({ smoothWheel: true, lerp: 0.08, wheelMultiplier: 0.92 });
         window.__lenis = lenis;
@@ -5782,7 +5966,8 @@
     let prevNmText = "";
     let prevFoilProg = -1;
     function raf(time) {
-      lenis.raf(time);
+      const isMobileLite = window.innerWidth <= 1024 || !isFinePointer;
+      if (!isMobileLite) lenis.raf(time);
       const sy = window.scrollY;
       const vh = window.innerHeight || 900;
       const nextScrolled = sy > 48;
@@ -5791,7 +5976,37 @@
         atelierHeader.classList.toggle("is-scrolled", headerScrolled);
       }
 
-      /* Batched DOM Read Phase (zero layout thrash) */
+      /* Mobile Lite Path: zero per-frame layout reads — pure native 120fps scrolling */
+      if (isMobileLite) {
+        if (autoSailActive) {
+          const now = performance.now();
+          const dt = Math.min(80, Math.max(0, now - autoSailLastTime));
+          autoSailLastTime = now;
+          smoothedProgress = Math.min(1, smoothedProgress + dt / 18000);
+          if (Math.abs(smoothedProgress - lastPaintedProgress) > 0.0005) {
+            lastPaintedProgress = smoothedProgress;
+            positionBoatAt(smoothedProgress);
+          }
+          if (smoothedProgress >= 1) stopAutoSail();
+        } else {
+          const targetM = manualProgress === null ? 0.0 : manualProgress;
+          if (manualProgress === null) {
+            manualProgress = 0.0;
+            positionBoatAt(0.0);
+            updateChapterUI(0, true);
+          } else if (Math.abs(targetM - smoothedProgress) > 0.0008) {
+            smoothedProgress += (targetM - smoothedProgress) * 0.14;
+            if (Math.abs(smoothedProgress - lastPaintedProgress) > 0.0005) {
+              lastPaintedProgress = smoothedProgress;
+              positionBoatAt(smoothedProgress);
+            }
+          }
+        }
+        requestAnimationFrame(raf);
+        return;
+      }
+
+      /* Batched DOM Read Phase (zero layout thrash — Desktop Fine Pointer) */
       const maxDocScroll = Math.max(1, document.documentElement.scrollHeight - vh);
       const docProg = Math.min(1, Math.max(0, sy / maxDocScroll));
       const wordReads = [];
@@ -6797,7 +7012,7 @@
       v1_title: "7 Pontes do Douro", v1_desc: "As 7 pontes do Porto em ritmo calmo, com prova de vinhos do Douro e foto Polaroid no regresso.",
       v1_unit: "POR PESSOA", v1_btn: "Escolher →",
       v2_badge: "MAIS PEDIDO · GOLDEN HOUR · 2H", v2_top: "02 · SUNSET", v2_tag: "7 PONTES &amp; ATLÂNTICO",
-      v2_title: "Sunset &amp; Mar", v2_desc: "Luz dourada nas 7 pontes e pôr do sol junto ao mar, com prova de 3 vinhos, chocolate 70% e Polaroid.",
+      v2_title: "Sunset &amp; Mar", v2_desc: "Luz dourada nas 7 pontes e pôr do sol junto ao mar, com prova de vinhos do Douro e foto Polaroid.",
       v2_unit: "POR PESSOA", v2_btn: "Reservar Sunset →",
       v3_badge: "EXCLUSIVO · 1–10 PESSOAS", v3_top: "03 · À MEDIDA", v3_tag: "BARCO SÓ VOSSO",
       v3_title: "Charter Privado", v3_desc: "Pedidos de casamento, celebrações ou famílias. Horário livre, música e detalhes desenhados consigo.",
@@ -6913,7 +7128,7 @@
       v1_title: "7 Bridges of the Douro", v1_desc: "All seven Porto bridges at an unhurried pace, with Douro wine tasting and an instant Polaroid.",
       v1_unit: "PER GUEST", v1_btn: "Choose →",
       v2_badge: "MOST POPULAR · GOLDEN HOUR · 2H", v2_top: "02 · SUNSET", v2_tag: "7 BRIDGES &amp; ATLANTIC",
-      v2_title: "Sunset &amp; Ocean", v2_desc: "Golden light across the seven bridges and sunset over the Atlantic, with 3 wines, 70% dark chocolate &amp; Polaroid.",
+      v2_title: "Sunset &amp; Ocean", v2_desc: "Golden light across the seven bridges and sunset over the Atlantic, with Douro wine tasting and an instant Polaroid.",
       v2_unit: "PER GUEST", v2_btn: "Book Sunset →",
       v3_badge: "EXCLUSIVE · 1–10 GUESTS", v3_top: "03 · BESPOKE", v3_tag: "ENTIRE BOAT",
       v3_title: "Private Charter", v3_desc: "Proposals, celebrations or families. Flexible departure time, music and every detail tailored with you.",
@@ -7029,7 +7244,7 @@
       v1_title: "7 Puentes del Duero", v1_desc: "Los 7 puentes de Oporto con calma, cata de vinos del Duero y foto Polaroid al regresar.",
       v1_unit: "POR PERSONA", v1_btn: "Elegir →",
       v2_badge: "MÁS PEDIDO · GOLDEN HOUR · 2H", v2_top: "02 · SUNSET", v2_tag: "7 PUENTES &amp; ATLÁNTICO",
-      v2_title: "Sunset &amp; Mar", v2_desc: "Luz dorada en los 7 puentes y puesta de sol junto al mar, con cata de 3 vinos, chocolate 70% y Polaroid.",
+      v2_title: "Sunset &amp; Mar", v2_desc: "Luz dorada en los 7 puentes y puesta de sol frente al mar, con cata de vinos del Duero y foto Polaroid.",
       v2_unit: "POR PERSONA", v2_btn: "Reservar Sunset →",
       v3_badge: "EXCLUSIVO · 1–10 PERSONAS", v3_top: "03 · A MEDIDA", v3_tag: "BARCO SOLO PARA VOSOTROS",
       v3_title: "Chárter Privado", v3_desc: "Pedidas de mano, celebraciones o familias. Horario libre, música y detalles diseñados contigo.",
@@ -7145,7 +7360,7 @@
       v1_title: "7 Brücken des Douro", v1_desc: "Alle 7 Brücken Portos in ruhigem Tempo, inklusive Douro-Weinprobe und Sofort-Polaroid.",
       v1_unit: "PRO PERSON", v1_btn: "Auswählen →",
       v2_badge: "BELIEBTESTE · GOLDEN HOUR · 2H", v2_top: "02 · SUNSET", v2_tag: "7 BRÜCKEN &amp; ATLANTIK",
-      v2_title: "Sunset &amp; Atlantik", v2_desc: "Goldenes Licht an den 7 Brücken und Sonnenuntergang am Meer — 3 Weine, 70% Schokolade &amp; Polaroid.",
+      v2_title: "Sunset &amp; Atlantik", v2_desc: "Goldenes Licht an den 7 Brücken und Sonnenuntergang am Meer — mit Douro-Weinprobe und Polaroid-Foto.",
       v2_unit: "PRO PERSON", v2_btn: "Sunset Buchen →",
       v3_badge: "EXKLUSIV · 1–10 GÄSTE", v3_top: "03 · MASSGESCHNEIDERT", v3_tag: "GANZES BOOT",
       v3_title: "Privater Charter", v3_desc: "Heiratsanträge, Feiern oder Familien. Freie Abfahrtszeit, Musik und jedes Detail nach Wunsch.",
@@ -7261,7 +7476,7 @@
       v1_title: "7 Ponts du Douro", v1_desc: "Les 7 ponts de Porto en douceur, avec dégustation de vins du Douro et photo Polaroid au retour.",
       v1_unit: "PAR PERSONNE", v1_btn: "Choisir →",
       v2_badge: "COUP DE CŒUR · GOLDEN HOUR · 2H", v2_top: "02 · SUNSET", v2_tag: "7 PONTS &amp; ATLANTIQUE",
-      v2_title: "Sunset &amp; Océan", v2_desc: "Lumière dorée sur les 7 ponts et coucher de soleil face à l’océan — 3 vins, chocolat 70% &amp; Polaroid.",
+      v2_title: "Sunset &amp; Océan", v2_desc: "Lumière dorée sur les 7 ponts et coucher de soleil face à l’océan — dégustation de vins du Douro et Polaroid.",
       v2_unit: "PAR PERSONNE", v2_btn: "Réserver Sunset →",
       v3_badge: "EXCLUSIF · 1–10 INVITÉS", v3_top: "03 · SUR MESURE", v3_tag: "BATEAU PRIVATISÉ",
       v3_title: "Charter Privé", v3_desc: "Demandes en mariage, célébrations ou familles. Horaire libre, musique et détails imaginés avec vous.",
@@ -7812,13 +8027,16 @@
       const mobBar = document.getElementById("mobIosBar");
       const heroEl = document.getElementById("hero");
       const cfgEl = document.getElementById("configurator");
+      const prefootEl = document.querySelector(".prefooter-cta");
+      const footerEl = document.querySelector("footer.atelier-footer");
       let pastHero = false;
       let inCfg = false;
+      let inBottom = false;
 
       function syncStickyUI() {
         if (hdr) hdr.classList.toggle("is-scrolled", pastHero);
         if (mobBar) {
-          const showMob = window.innerWidth <= 768 && pastHero && !inCfg;
+          const showMob = window.innerWidth <= 768 && pastHero && !inCfg && !inBottom;
           mobBar.classList.toggle("is-visible", showMob);
           document.body.classList.toggle("has-mob-bar", showMob);
         }
@@ -7837,16 +8055,21 @@
           const cfgObs = new IntersectionObserver((entries) => {
             inCfg = entries[0].isIntersecting;
             syncStickyUI();
-          }, { threshold: 0.12 });
+          }, { threshold: 0.08 });
           cfgObs.observe(cfgEl);
-        const footerEl = document.querySelector("footer.atelier-footer");
-        if (footerEl) {
-          const footerObs = new IntersectionObserver((entries) => {
-            document.body.classList.toggle("in-footer", entries[0].isIntersecting);
-          }, { threshold: 0.18 });
-          footerObs.observe(footerEl);
         }
-        }
+        const bottomSeen = new Set();
+        const bottomObs = new IntersectionObserver((entries) => {
+          entries.forEach((en) => {
+            if (en.isIntersecting) bottomSeen.add(en.target);
+            else bottomSeen.delete(en.target);
+          });
+          inBottom = bottomSeen.size > 0;
+          if (footerEl) document.body.classList.toggle("in-footer", bottomSeen.has(footerEl));
+          syncStickyUI();
+        }, { threshold: 0.08 });
+        if (prefootEl) bottomObs.observe(prefootEl);
+        if (footerEl) bottomObs.observe(footerEl);
       }
       window.addEventListener("resize", syncStickyUI, { passive: true });
       syncStickyUI();
