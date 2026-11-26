@@ -4888,10 +4888,9 @@ section[id], footer[id], .prefooter-cta {
             <div class="cfg-field">
               <label class="cfg-label mono" for="cfgSlot" data-i18n5="cfg_s5">05 · HORÁRIO DE PARTIDA</label>
               <select id="cfgSlot" class="cfg-select mono">
-                <option value="08:30">08:30 · MORNING MIRROR</option>
-                <option value="11:30">11:30 · MIDDAY 7 BRIDGES</option>
-                <option value="15:00">15:00 · AFTERNOON LIGHT</option>
-                <option value="18:30" selected>18:30 · 7 BRIDGES &amp; SEA SUNSET</option>
+                <option value="11:00">11:00 – 13:00 · 7 PONTES (MANHÃ)</option>
+                <option value="13:30">13:30 – 15:30 · 7 PONTES (TARDE)</option>
+                <option value="15:45" selected>15:45 – SUNSET · 7 PONTES &amp; MAR</option>
               </select>
             </div>
           </div>
@@ -5017,7 +5016,7 @@ section[id], footer[id], .prefooter-cta {
                 </div>
                 <div class="tk-field">
                   <div class="tk-label mono" data-i18n5="tk_l_s">DATA &amp; HORÁRIO</div>
-                  <div class="tk-val mono" id="tkSchedule">2026-11-22 · 18:30</div>
+                  <div class="tk-val mono" id="tkSchedule">2026-11-22 · 15:45</div>
                 </div>
                 <div class="tk-field">
                   <div class="tk-label mono" data-i18n5="tk_l_r">EXTRAS A BORDO</div>
@@ -6203,12 +6202,12 @@ section[id], footer[id], .prefooter-cta {
 
     /* 4. Live 3D Perforated Boarding Pass Configurator (100% Aligned with 6 Voyage Photos & Bilingual PT/EN) */
     const VOYAGES = {
-      bridges:  { nameEn: "Tour 01 · Seven Bridges Opening (€30)", namePt: "Tour 01 · 7 Pontes (Abertura €30)", price: 30, mode: "guest", slot: "11:30" },
-      sunset:   { nameEn: "Tour 02 · Sunset, Sea & Wine Tasting (€60)", namePt: "Tour 02 · Sunset & Prova de Vinhos (€60)", price: 60, mode: "guest", slot: "18:30" },
-      private:  { nameEn: "Bespoke Private Charter (Custom Quote)", namePt: "Charter Privado à Medida (Sob Consulta)", price: 0, mode: "quote", slot: "18:30" },
-      proposal: { nameEn: "1·2·3 Blind Port Duel, Conservas & Wax Bottle", namePt: "Prova Cega 1·2·3, Conservas & Garrafa a Lacre", price: 75, mode: "guest", slot: "15:00" },
-      acoustic: { nameEn: "Acoustic Guitar & Golden Hour Douro Sunset", namePt: "Sunset Acústico: Guitarra ao Vivo no Douro", price: 85, mode: "guest", slot: "18:30" },
-      espresso: { nameEn: "Douro Wine & River Morning Cruise", namePt: "Passeio Matinal com Prova de Vinhos", price: 55, mode: "guest", slot: "11:30" }
+      bridges:  { nameEn: "Tour 01 · Seven Bridges Opening (€30)", namePt: "Tour 01 · 7 Pontes (Abertura €30)", price: 30, mode: "guest", slot: "11:00" },
+      sunset:   { nameEn: "Tour 02 · Sunset, Sea & Wine Tasting (€60)", namePt: "Tour 02 · Sunset & Prova de Vinhos (€60)", price: 60, mode: "guest", slot: "15:45" },
+      private:  { nameEn: "Bespoke Private Charter (Custom Quote)", namePt: "Charter Privado à Medida (Sob Consulta)", price: 0, mode: "quote", slot: "15:45" },
+      proposal: { nameEn: "1·2·3 Blind Port Duel, Conservas & Wax Bottle", namePt: "Prova Cega 1·2·3, Conservas & Garrafa a Lacre", price: 75, mode: "guest", slot: "13:30" },
+      acoustic: { nameEn: "Acoustic Guitar & Golden Hour Douro Sunset", namePt: "Sunset Acústico: Guitarra ao Vivo no Douro", price: 85, mode: "guest", slot: "15:45" },
+      espresso: { nameEn: "Douro Wine & River Morning Cruise", namePt: "Passeio Matinal com Prova de Vinhos", price: 55, mode: "guest", slot: "11:00" }
     };
 
     const cfgTour = document.getElementById("cfgTour");
@@ -6842,10 +6841,10 @@ section[id], footer[id], .prefooter-cta {
       ["03 · PARTY SIZE (MAX 10)", "03 · CONVIDADOS (MÁX. 10)"],
       ["04 · SAILING DATE", "04 · DATA DO PASSEIO"],
       ["05 · DEPARTURE WINDOW", "05 · HORÁRIO DE PARTIDA"],
-      ["08:30 · MORNING MIRROR", "08:30 · ESPELHO DA MANHÃ"],
-      ["11:30 · MIDDAY 7 BRIDGES", "11:30 · 7 PONTES MEIO-DIA"],
-      ["15:00 · AFTERNOON LIGHT", "15:00 · LUZ DA TARDE"],
-      ["18:30 · 7 BRIDGES & SEA SUNSET", "18:30 · 7 PONTES & PÔR DO SOL NO MAR"],
+      ["11:00 – 13:00 · 7 BRIDGES (MORNING)", "11:00 – 13:00 · 7 PONTES (MANHÃ)"],
+      ["13:30 – 15:30 · 7 BRIDGES (AFTERNOON)", "13:30 – 15:30 · 7 PONTES (TARDE)"],
+      ["15:45 – SUNSET · 7 BRIDGES & OCEAN", "15:45 – SUNSET · 7 PONTES & MAR"],
+      ["15:45 – SUNSET · 7 BRIDGES & SEA SUNSET", "15:45 – SUNSET · 7 PONTES & MAR"],
       ["06 · ONBOARD RITUALS & KEEPSAKES", "06 · EXTRAS & RITUAIS A BORDO"],
       ["Conservas & Cork Tray (for 2)", "Tabuleiro Conservas em Cortiça (p/ 2)"],
       ["Private Toast / Proposal Setup", "Brinde Privado / Pedido de Casamento"],
@@ -7051,10 +7050,10 @@ section[id], footer[id], .prefooter-cta {
       v_kicker: "Douro Marina · Pontão A · Máx. 10 pessoas",
       v_title: "Três Formas de Sentir o Douro",
       v_copy: "Cada travessia tem número próprio e termina com dez minutos de motor desligado sobre o Douro.",
-      v1_badge: "DIURNO · 2H · MÁX. 10", v1_top: "01 · ABERTURA", v1_tag: "PROVA DE VINHOS",
+      v1_badge: "11:00–13:00 · 13:30–15:30 · MÁX. 10", v1_top: "01 · ABERTURA", v1_tag: "PROVA DE VINHOS",
       v1_title: "7 Pontes do Douro", v1_desc: "As 7 pontes do Porto em ritmo calmo, com prova de vinhos do Douro incluída.",
       v1_unit: "POR PESSOA", v1_btn: "Escolher →",
-      v2_badge: "MAIS PEDIDO · GOLDEN HOUR · 2H", v2_top: "02 · SUNSET", v2_tag: "7 PONTES &amp; ATLÂNTICO",
+      v2_badge: "15:45 – SUNSET · GOLDEN HOUR · 2H", v2_top: "02 · SUNSET", v2_tag: "7 PONTES &amp; ATLÂNTICO",
       v2_title: "Sunset &amp; Mar", v2_desc: "Luz dourada nas 7 pontes e pôr do sol junto ao mar, com prova de vinhos do Douro incluída.",
       v2_unit: "POR PESSOA", v2_btn: "Reservar Sunset →",
       v3_badge: "EXCLUSIVO · 1–10 PESSOAS", v3_top: "03 · À MEDIDA", v3_tag: "BARCO SÓ VOSSO",
@@ -7167,10 +7166,10 @@ section[id], footer[id], .prefooter-cta {
       v_kicker: "Douro Marina · Pontoon A · Max 10 guests",
       v_title: "Three Ways to Feel the Douro",
       v_copy: "No crowds, no rush. Pick morning light, Atlantic sunset, or the vessel exclusively for your group.",
-      v1_badge: "DAYTIME · 2H · MAX 10", v1_top: "01 · OPENING", v1_tag: "WINE TASTING",
+      v1_badge: "11:00–13:00 · 13:30–15:30 · MAX 10", v1_top: "01 · OPENING", v1_tag: "WINE TASTING",
       v1_title: "7 Bridges of the Douro", v1_desc: "All seven Porto bridges at an unhurried pace, with Douro wine tasting included.",
       v1_unit: "PER GUEST", v1_btn: "Choose →",
-      v2_badge: "MOST POPULAR · GOLDEN HOUR · 2H", v2_top: "02 · SUNSET", v2_tag: "7 BRIDGES &amp; ATLANTIC",
+      v2_badge: "15:45 – SUNSET · GOLDEN HOUR · 2H", v2_top: "02 · SUNSET", v2_tag: "7 BRIDGES &amp; ATLANTIC",
       v2_title: "Sunset &amp; Ocean", v2_desc: "Golden light across the seven bridges and sunset over the Atlantic, with Douro wine tasting included.",
       v2_unit: "PER GUEST", v2_btn: "Book Sunset →",
       v3_badge: "EXCLUSIVE · 1–10 GUESTS", v3_top: "03 · BESPOKE", v3_tag: "ENTIRE BOAT",
@@ -7283,7 +7282,7 @@ section[id], footer[id], .prefooter-cta {
       v_kicker: "Douro Marina · Pantalán A · Máx. 10 personas",
       v_title: "Tres Formas de Sentir el Duero",
       v_copy: "Sin multitudes, sin prisas. Elige la luz del día, el atardecer en el Atlántico o el barco en exclusiva.",
-      v1_badge: "DIURNO · 2H · MÁX. 10", v1_top: "01 · APERTURA", v1_tag: "CATA DE VINOS",
+      v1_badge: "11:00–13:00 · 13:30–15:30 · MÁX. 10", v1_top: "01 · APERTURA", v1_tag: "CATA DE VINOS",
       v1_title: "7 Puentes del Duero", v1_desc: "Los 7 puentes de Oporto con calma, con cata de vinos del Duero incluida.",
       v1_unit: "POR PERSONA", v1_btn: "Elegir →",
       v2_badge: "MÁS PEDIDO · GOLDEN HOUR · 2H", v2_top: "02 · SUNSET", v2_tag: "7 PUENTES &amp; ATLÁNTICO",
@@ -8283,9 +8282,9 @@ section[id], footer[id], .prefooter-cta {
       function renderTimes() {
         const sun = typeof computeFozSunset === "function" ? computeFozSunset(QR_STATE.date) : { sunset: "18:00", board: "16:30" };
         const slots = QR_STATE.tour === "bridges"
-          ? ["10:30", "13:30", "15:30"]
-          : [shiftMins(sun.board, -30), sun.board, shiftMins(sun.board, 20)];
-        if (!slots.includes(QR_STATE.time)) QR_STATE.time = slots[1];
+          ? ["11:00", "13:30"]
+          : (QR_STATE.tour === "sunset" ? ["15:45"] : ["11:00", "13:30", "15:45"]);
+        if (!slots.includes(QR_STATE.time)) QR_STATE.time = slots[0];
         timesWrap.innerHTML = "";
         slots.forEach((slot) => {
           const btn = document.createElement("button");

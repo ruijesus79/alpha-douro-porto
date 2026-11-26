@@ -430,7 +430,7 @@
             </div>
             <div>
               <div class="pass-lbl" id="lblDepart">PARTIDA</div>
-              <div class="pass-time-val" id="pDepartTime">17:00</div>
+              <div class="pass-time-val" id="pDepartTime">15:45</div>
               <div class="pass-time-hint" id="pDatePretty">Sáb · 14 Jun</div>
             </div>
           </div>
@@ -552,7 +552,7 @@
     const firstName = guestName.split(/\s+/)[0] || guestName;
     const refCode = (params.get("ref") || `AD-2026-${Math.floor(1000 + Math.random() * 9000)}`).trim();
     const dateVal = params.get("d") || new Date(Date.now() + 86400000).toISOString().slice(0, 10);
-    const timeVal = params.get("h") || (tourKey === "bridges" ? "11:00" : "17:00");
+    const timeVal = params.get("h") || (tourKey === "bridges" ? "11:00" : "15:45");
     const guestsNum = Math.max(1, Math.min(10, parseInt(params.get("g") || "2", 10) || 2));
     const totalParam = params.get("tot");
     const extrasParam = (params.get("ex") || "").trim();
