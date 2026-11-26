@@ -4250,6 +4250,27 @@ section[id], footer[id], .prefooter-cta {
 }
 
 </style>
+  <!-- Google tag (gtag.js) · Alpha Douro GA4 (G-M9WJDM6B19) + EU Consent Mode v2 -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    (function(){
+      var saved = null;
+      try { saved = JSON.parse(localStorage.getItem('ad_consent_v2') || 'null'); } catch(e){}
+      var st = (saved && saved.state === 'granted') ? 'granted' : 'denied';
+      gtag('consent', 'default', {
+        'analytics_storage': st,
+        'ad_storage': st,
+        'ad_user_data': st,
+        'ad_personalization': st,
+        'wait_for_update': 500
+      });
+    })();
+    gtag('js', new Date());
+    gtag('config', 'G-M9WJDM6B19', { 'anonymize_ip': true });
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M9WJDM6B19"></script>
+  <script defer src="assets/js/ad-analytics.js"></script>
 </head>
 <body>
   <a href="#journey" class="skip-link">Skip to main content</a>
